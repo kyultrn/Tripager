@@ -1,5 +1,7 @@
 ### Thurs, Feb 9 2023
 
+- Our team discussed and completed the wireframe for our app "Tripager". We then setup our journals and completed all of our FastAPI endpoints.
+
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023

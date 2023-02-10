@@ -1,5 +1,5 @@
 ### Thurs, Feb 9 2023
-
+Set up group fork, started adding journals, API keys, and basic project set up. We finished our wire frame in the morning, started working on fast API endpoints again. Finished our tables and went over what we would work on the next day.
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023
