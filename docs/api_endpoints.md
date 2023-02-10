@@ -1,7 +1,7 @@
 #### LOG IN PAGE
 #### Log in
 
-* Endpoint path: /login
+* Endpoint path: /token
 * Endpoint method: POST
 
 * Request shape (form):
@@ -20,7 +20,7 @@
     ```
 #### Log out
 
-* Endpoint path: /login
+* Endpoint path: /token
 * Endpoint method: DELETE
 
 * Headers:
