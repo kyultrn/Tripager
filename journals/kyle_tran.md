@@ -1,5 +1,5 @@
 ### Thurs, Feb 9 2023
-
+    Complete API endpoints Documentation File, Added Tripager Wire Frame, 
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023
