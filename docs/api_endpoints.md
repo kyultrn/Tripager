@@ -225,25 +225,33 @@
 
 #### THINGS TO DO
 
-* Endpoint path: /trips/{id}/event/{id}
-* Endpoint method: PUT
+* Endpoint path: https://api.yelp.com/v3/businesses/search
 
-* Headers:
-  * Authorization: Bearer token
+* Endpoint method: GET
 
-* Response: Event information
+* Response: Yelp API info
 * Response shape:
     ```json
-    {
-      "event": [
         {
-          "name": string,
-          "description": string,
-          "location": string,
-          "start_time": string,
-          "end_time": string,
-          "picture_url": string
+            "businesses": [
+                {
+                "rating": int,
+                "price": string,
+                "phone": string,
+                "review_count": int,
+                "name": string,
+                "url": string,
+                "image_url": string,
+                "location": {
+                    "city": string,
+                    "address2": string,
+                    "address3": string,
+                    "state": string,
+                    "address1": string,
+                    "zip_code": string
+                }
+                },
+                // ...
+            ]
         }
-      ]
-    }
-    ```
+#### Line 245 Reassess
