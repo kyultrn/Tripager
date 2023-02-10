@@ -1,5 +1,5 @@
 # API Keys
-keys.py
+keys/keys.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
