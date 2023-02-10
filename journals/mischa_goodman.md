@@ -1,5 +1,7 @@
 ### Thurs, Feb 9 2023
 
+Today, our group completed our wireframe, tables and API endpoints. We verified all of our Gitlabs were working. We created working branches for each person -- mischaworking, etc. so that each person can feel comfortable committing their work consistently without fear of messing up the main branch. We did some research on the Yelp API and what the data was going to look like coming back as JSON. We created our journals, keys.py and are looking forward to starting to work on the back end together.
+
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023
