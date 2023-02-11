@@ -1,7 +1,7 @@
 ### Thurs, Feb 9 2023
-    Complete API endpoints Documentation File, Added Tripager Wire Frame, 
+    Complete API endpoints Documentation File, Added Tripager Wire Frame,
 ### Fri, Feb 10 2023
-
+    Today, We did our Issues for all of our features. 
 ### Mon, Feb 13 2023
 
 ### Tues, Feb 14 2023
