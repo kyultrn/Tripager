@@ -8,17 +8,17 @@ services:
   api:
     build:
       context: ./api
-      dockerfile: ./Dockerfile.dev
+      dockerfile: Dockerfile.dev
     ports:
       - "8000:8000"
     volumes:
       - ./api:/app
     environment:
-      DATABASE_URL: postgresql://tripager:tripager@db/tripager-data
+      DATABASE_URL: postgresql://tripager:tripager@db/tripager
   db:
     build:
         context: ./relational-data
-        dockerfile: ./Dockerfile.dev
+        dockerfile: Dockerfile.dev
     volumes:
         - tripager-data:/var/lib/postgresql/data
     environment:
