@@ -1,27 +1,27 @@
-from pydantic import BaseModel
+# from pydantic import BaseModel
 
-class DuplicateAccountError(ValueError):
-    pass
-
-
-class AccountIn(BaseModel):
-    full_name: str
-    password: str
-    email: str
-
-class AccountOut(BaseModel):
-    id: str
-    email: str
-    full_name: str
+# class DuplicateAccountError(ValueError):
+#     pass
 
 
-class AccountOutWithPassword(AccountOut):
-    hashed_password: str
+# class AccountIn(BaseModel):
+#     full_name: str
+#     password: str
+#     email: str
+
+# class AccountOut(BaseModel):
+#     id: str
+#     email: str
+#     full_name: str
 
 
-class AccountQueries(Queries): #not set up yet pool.py or something in there
+# class AccountOutWithPassword(AccountOut):
+#     hashed_password: str
 
 
-    def get(self, email: str) -> AccountOutWithPassword:
+# class AccountQueries(Queries): #not set up yet pool.py or something in there
 
-    def create(self, info: AccountIn, hashed_password: str) -> AccountOut
+
+#     def get(self, email: str) -> AccountOutWithPassword:
+
+#     def create(self, info: AccountIn, hashed_password: str) -> AccountOut
