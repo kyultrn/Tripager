@@ -1,6 +1,6 @@
 # volumes:
 volumes:
-  tripager:
+  tripager-data:
       external: true
   # pg-admin:
   #     external: true
@@ -14,14 +14,14 @@ services:
     volumes:
       - ./api:/app
     environment:
-      DATABASE_URL: postgresql://tripager:tripager@db/tripager
+      DATABASE_URL: postgresql://tripager:tripager@db/tripager-data
       # WAIT_HOSTS: postgres:5432       took this away for ghi container to work
   db:
     build:
         context: ./relational-data
         dockerfile: ./Dockerfile.dev
     volumes:
-        - tripager:/var/lib/postgresql/data
+        - tripager-data:/var/lib/postgresql/data
     environment:
         POSTGRES_PASSWORD: tripager
         POSTGRES_USER: tripager
