@@ -225,7 +225,7 @@
 
 #### THINGS TO DO
 
-* Endpoint path: https://api.yelp.com/v3/businesses/search
+* Endpoint path: /thingstodo
 
 * Endpoint method: GET
 
@@ -254,4 +254,3 @@
                 // ...
             ]
         }
-
