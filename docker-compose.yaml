@@ -13,6 +13,7 @@ services:
       - "8000:8000"
     volumes:
       - ./api:/app
+      - ./api:/app
     environment:
       DATABASE_URL: postgresql://tripager:tripager@db/tripager-data
   db:
@@ -20,6 +21,7 @@ services:
         context: ./relational-data
         dockerfile: ./Dockerfile.dev
     volumes:
+        - tripager-data:/var/lib/postgresql/data
         - tripager-data:/var/lib/postgresql/data
     environment:
         POSTGRES_USER: tripager

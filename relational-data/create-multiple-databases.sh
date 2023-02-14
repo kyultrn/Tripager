@@ -12,5 +12,3 @@ function create_user_and_database() {
         GRANT ALL PRIVILEGES ON DATABASE $database TO $database;
 EOSQL
 }
-
-
