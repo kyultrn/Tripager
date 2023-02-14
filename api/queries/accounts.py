@@ -1,13 +1,13 @@
-# from pydantic import BaseModel
+from pydantic import BaseModel
+
+class AccountIn(BaseModel):
+    name: str
+    password: str
+    email: str
 
 # class DuplicateAccountError(ValueError):
 #     pass
 
-
-# class AccountIn(BaseModel):
-#     full_name: str
-#     password: str
-#     email: str
 
 # class AccountOut(BaseModel):
 #     id: str
