@@ -1,31 +1,30 @@
 # volumes:
 volumes:
-    tripager:
-        external: true
-    # pg-admin:
-    #     external: true
+  tripager-data:
+      external: true
+  # pg-admin:
+  #     external: true
 services:
   api:
     build:
-      context: sample_service
-      dockerfile: Dockerfile.dev
+      context: ./api
+      dockerfile: ./Dockerfile.dev
     ports:
       - "8000:8000"
     volumes:
-      - ./sample_service:/app
+      - ./api:/app
     environment:
-      DATABASE_URL: postgresql://tripager:tripager@db/tripager
-      WAIT_HOSTS: postgres:5432
+      DATABASE_URL: postgresql://tripager:tripager@db/tripager-data
   db:
     build:
         context: ./relational-data
         dockerfile: ./Dockerfile.dev
     volumes:
-        - tripager:/var/lib/postgresql/data
+        - tripager-data:/var/lib/postgresql/data
     environment:
-        - POSTGRES_USER= tripager
-        - POSTGRES_DB= tripager
-        - POSTGRES_PASSWORD= tripager
+        POSTGRES_USER: tripager
+        POSTGRES_DB: tripager
+        POSTGRES_PASSWORD: tripager
     ports:
         - 15432:5432
   ghi:
