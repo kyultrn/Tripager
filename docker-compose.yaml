@@ -14,7 +14,7 @@ services:
     volumes:
       - ./api:/app
     environment:
-      DATABASE_URL: postgresql://tripager:tripager@db/tripager-data
+      DATABASE_URL: postgresql://tripager:tripager@db/tripager
   db:
     build:
         context: ./relational-data
