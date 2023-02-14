@@ -1,9 +1,11 @@
-from fastapi import APIRouter
-from queries.accounts import AccountIn
+from fastapi import APIRouter, Depends
+from queries.accounts import AccountIn, AccountRepository
 
 router = APIRouter()
 
 @router.post("/accounts")
-def create_account(account: AccountIn):
-    print('account', account)
-    return account
+def create_account(
+    account: AccountIn,
+    repo: AccountRepository = Depends()
+):
+    return repo.create(account)
