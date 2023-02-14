@@ -1,9 +1,9 @@
 # volumes:
 volumes:
-    tripager:
-        external: true
-    # pg-admin:
-    #     external: true
+  tripager:
+      external: true
+  # pg-admin:
+  #     external: true
 services:
   api:
     build:
@@ -12,10 +12,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./sample_service:/app
+      - ./api:/app
     environment:
       DATABASE_URL: postgresql://tripager:tripager@db/tripager
-      WAIT_HOSTS: postgres:5432
+      # WAIT_HOSTS: postgres:5432       took this away for ghi container to work
   db:
     build:
         context: ./relational-data
@@ -23,9 +23,9 @@ services:
     volumes:
         - tripager:/var/lib/postgresql/data
     environment:
-        - POSTGRES_USER= tripager
-        - POSTGRES_DB= tripager
-        - POSTGRES_PASSWORD= tripager
+        POSTGRES_PASSWORD: tripager
+        POSTGRES_USER: tripager
+        POSTGRES_DB: tripager
     ports:
         - 15432:5432
   ghi:
