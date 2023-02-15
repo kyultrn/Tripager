@@ -6,7 +6,7 @@ steps=[
             id SERIAL PRIMARY KEY NOT NULL,
             name VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL,
-            password VARCHAR(50) NOT NULL
+            hashed_password VARCHAR(250) NOT NULL
         );
         """,
         ## Drop the table

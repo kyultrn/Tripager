@@ -13,10 +13,10 @@ services:
     volumes:
       - ./api:/app
     environment:
-      # SIGNING_KEY: insert our key here for sign in
-      # WAIT_HOSTS: postgres:5432
-      # WAIT_BEFORE: 5
-      # WAIT_TIMEOUT: 60
+      SIGNING_KEY: 9wdv2mdyca41krepd5zrgi131gnqhw23nmm1
+      WAIT_HOSTS: db:5432
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
       DATABASE_URL: postgresql://tripager:tripager@db/tripager
   db:
     build:
