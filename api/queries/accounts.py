@@ -125,7 +125,7 @@ class AccountQueries:
                     # Run our SELECT statement
                     result = db.execute(
                         """
-                        SELECT id, name, email, password
+                        SELECT id, name, email, hashed_password
                         FROM accounts
                         ORDER BY id;
                         """
