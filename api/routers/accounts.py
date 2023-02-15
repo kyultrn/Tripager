@@ -33,3 +33,16 @@ def update_account(
     repo: AccountRepository = Depends(),
 ) -> Union[Error, AccountOut]:
     return repo.update(account_id, account)
+
+
+
+@router.delete("/accounts/{account_id}", response_model=Union[bool, Error])
+def delete_account(
+    account_id: int,
+    repo: AccountRepository = Depends(),
+) -> Union[bool, Error]:
+    result = repo.delete(account_id)
+    if result:
+        return True
+    else:
+        return {"message": "Could not delete account"}

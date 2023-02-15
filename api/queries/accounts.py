@@ -2,8 +2,8 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List, Union
 
-class DuplicateAccountError(ValueError):
-    pass
+# class DuplicateAccountError(ValueError):
+#     pass
 
 class Error(BaseModel):
     message: str
@@ -30,8 +30,8 @@ class AccountRepository:
                         """
                         UPDATE accounts
                         SET name = %s
-                          , email = %s
-                          , password = %s
+                        , email = %s
+                        , password = %s
                         WHERE id = %s
                         """,
                         [
@@ -110,7 +110,21 @@ class AccountRepository:
         old_data = account.dict()
         return AccountOut(id=id, **old_data)
 
-
+    def delete(self, account_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM accounts
+                        WHERE id = %s
+                        """,
+                        [account_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
