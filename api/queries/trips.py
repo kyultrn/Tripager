@@ -1,7 +1,10 @@
 from pydantic import BaseModel
 from datetime import date
 from queries.pool import pool
+from typing import List, Union
 
+class Error(BaseModel):
+    message: str
 
 
 class TripIn(BaseModel):
@@ -26,20 +29,20 @@ class TripQueries:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
-                    '''
-                    INSERT INTO trips
-                            (name, city, state, start_date, end_date)
-                    VALUES
-                            (%s, %s, %s, %s, %s)
-                    RETURNING id;
-                    ''',
-                    [
-                            trip.name,
-                            trip.city,
-                            trip.state,
-                            trip.start_date,
-                            trip.end_date
-                    ]
+                        '''
+                        INSERT INTO trips
+                                (name, city, state, start_date, end_date)
+                        VALUES
+                                (%s, %s, %s, %s, %s)
+                        RETURNING id;
+                        ''',
+                        [
+                                trip.name,
+                                trip.city,
+                                trip.state,
+                                trip.start_date,
+                                trip.end_date
+                        ],
                     )
                     id = result.fetchone()[0]
                     old_data = trip.dict()
@@ -48,3 +51,33 @@ class TripQueries:
         except Exception as e:
             print(e)
             return {"message": "Couldn't create trip!"}
+
+    def get_all_trips(self) -> Union[Error, List[TripOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, name, city, state, start_date, end_date
+                        FROM trips
+                        ORDER BY start_date;
+                        """,
+                    )
+                    result = []
+                    for record in db:
+                        trip = TripOut(
+                            id=record[0],
+                            name=record[1],
+                            city=record[2],
+                            state=record[3],
+                            start_date=record[4],
+                            end_date=record[5],
+                        )
+
+                        result.append(trip)
+                    return result
+
+
+        except Exception as e:
+            print(e)
+            return({"message": "Could not get trip data!"})

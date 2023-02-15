@@ -9,12 +9,14 @@ from fastapi import (
 
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
+from typing import List, Union
 
 
 from queries.trips import (
     TripIn,
     TripOut,
     TripQueries,
+    Error,
 )
 
 router = APIRouter()
@@ -25,3 +27,9 @@ def create_trip(
     repo: TripQueries = Depends()
 ):
    return repo.create(trip)
+
+@router.get("/trips", response_model=Union[List[TripOut], Error])
+def get_all_trips(
+    repo: TripQueries = Depends(),
+):
+    return repo.get_all_trips()
