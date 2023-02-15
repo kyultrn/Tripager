@@ -120,8 +120,8 @@ class AccountQueries:
                         """
                         UPDATE accounts
                         SET name = %s
-                          , email = %s
-                          , password = %s
+                        , email = %s
+                        , password = %s
                         WHERE id = %s
                         """,
                         [

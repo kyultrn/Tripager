@@ -1,4 +1,3 @@
-# volumes:
 volumes:
   tripager-data:
       external: true
