@@ -18,9 +18,6 @@ services:
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60
       DATABASE_URL: postgresql://tripager:tripager@db/tripager
-      WAIT_HOSTS: db:5432
-      WAIT_BEFORE: 5
-      WAIT_TIMEOUT: 60
   db:
     build:
         context: ./relational-data
