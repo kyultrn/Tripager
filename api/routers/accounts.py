@@ -32,14 +32,14 @@ class HttpError(BaseModel):
 
 router = APIRouter()
 
-@router.get("/api/protected", response_model=bool, tags=["Accounts"])
+@router.get("/api/protected", response_model=bool)
 async def get_protected(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return True
 
 
-@router.get("/token", response_model=AccountToken | None, tags=["Accounts"])
+@router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
     account: AccountOut = Depends(authenticator.try_get_current_account_data)
@@ -52,7 +52,7 @@ async def get_token(
         }
 
 
-@router.post("/api/accounts", response_model=AccountToken | HttpError, tags=["Accounts"])
+@router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -72,14 +72,14 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
-@router.get("/accounts", response_model=List[AccountOut], tags=["Accounts"])
+@router.get("/accounts", response_model=List[AccountOut])
 def get_all(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
 
-@router.put("/accounts/{account_id}", response_model=Union[AccountOut, Error], tags=["Accounts"])
+@router.put("/accounts/{account_id}", response_model=Union[AccountOut, Error])
 def update_account(
     account_id: int,
     account: AccountIn,
@@ -89,7 +89,7 @@ def update_account(
 
 
 
-@router.delete("/accounts/{account_id}", response_model=Union[bool, Error], tags=["Accounts"])
+@router.delete("/accounts/{account_id}", response_model=Union[bool, Error])
 def delete_account(
     account_id: int,
     repo: AccountQueries = Depends(),

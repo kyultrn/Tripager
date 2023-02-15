@@ -19,7 +19,7 @@ from queries.trips import (
 
 router = APIRouter()
 
-@router.post("/trips", response_model=TripOut, tags=["Trips"])
+@router.post("/trips", response_model=TripOut)
 def create_trip(
     trip: TripIn,
     repo: TripQueries = Depends()
