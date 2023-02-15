@@ -6,7 +6,7 @@ We went over how to write issues with learn and had a couple of questions about 
 We presented wireframes in the morning and decided a couple last minute changes. Went over API lecture with riley. We decided on which database we would use going forward and ended up with postgres. We started setting up our project to get to the authentication phase. Setting up the database was harder than we expected, learn showed us one way and we were told to do another. Connecting the containers was a pain in the ass and very frustrating.
 
 ### Tues, Feb 14 2023
-
+in the morning we finished setting up our tables and ran into several errors. Helped another team figure out how to fix the CRLF problem with pc which we had the previous day. Had to fix a requirements.txt error which wasn't allowing me to build my containers. Almost completed our accounts router paths. had some general issues connecting databases.
 ### Weds, Feb 15 2023
 
 ### Thurs, Feb 16 2023

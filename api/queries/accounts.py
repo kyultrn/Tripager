@@ -2,6 +2,9 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List, Union
 
+class DuplicateAccountError(ValueError):
+    pass
+
 class Error(BaseModel):
     message: str
 
@@ -108,8 +111,6 @@ class AccountRepository:
         return AccountOut(id=id, **old_data)
 
 
-# class DuplicateAccountError(ValueError):
-#     pass
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
