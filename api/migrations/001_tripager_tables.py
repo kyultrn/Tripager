@@ -1,6 +1,5 @@
 steps=[
     [
-        ## Create the table
         """
         CREATE TABLE accounts (
             id SERIAL PRIMARY KEY NOT NULL,
@@ -9,13 +8,12 @@ steps=[
             hashed_password VARCHAR(250) NOT NULL
         );
         """,
-        ## Drop the table
+
         """
         DROP TABLE accounts;
         """
     ],
     [
-        ## Create the table
         """
         CREATE TABLE trips (
             id SERIAL PRIMARY KEY NOT NULL,
@@ -26,7 +24,6 @@ steps=[
             end_date DATE NOT NULL
         );
         """,
-        ## Drop the table
         """
         DROP TABLE accounts;
         """
