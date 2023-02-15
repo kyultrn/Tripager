@@ -19,6 +19,9 @@ class AccountOut(BaseModel):
     password: str
     email: str
 
+class AccountOutWithPassword(AccountOut):
+    hashed_password: str
+
 class AccountRepository:
     def update(self, account_id: int, account: AccountIn) -> Union[AccountOut, Error]:
         try:
@@ -126,8 +129,6 @@ class AccountRepository:
             print(e)
             return False
 
-class AccountOutWithPassword(AccountOut):
-    hashed_password: str
 
 
 # class AccountQueries(Queries): #not set up yet pool.py or something in there
