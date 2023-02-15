@@ -14,7 +14,11 @@ services:
     volumes:
       - ./api:/app
     environment:
+      SIGNING_KEY: 9wdv2mdyca41krepd5zrgi131gnqhw23nmm1
       DATABASE_URL: postgresql://tripager:tripager@db/tripager
+      WAIT_HOSTS: db:5432
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
   db:
     build:
         context: ./relational-data

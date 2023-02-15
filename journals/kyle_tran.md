@@ -5,7 +5,7 @@
 ### Mon, Feb 13 2023
     Today, our leader Mischa presented our wireframe to the class and was muted for the first minute. After lunch and lectures, we started working on the project and ran into a pile of issues setting up our directories/files and docker devs/yaml but through perserverance zach and I managed to figure it out.
 ### Tues, Feb 14 2023
-
+    
 ### Weds, Feb 15 2023
 
 ### Thurs, Feb 16 2023
