@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from datetime import date
 from queries.pool import pool
-from typing import List, Union
+from typing import List, Union, Optional
 
 class Error(BaseModel):
     message: str
@@ -81,3 +81,34 @@ class TripQueries:
         except Exception as e:
             print(e)
             return({"message": "Could not get trip data!"})
+
+    def record_to_trip_out(self, record):
+        return TripOut(
+            id=record[0],
+            name=record[1],
+            city=record[2],
+            state=record[3],
+            start_date=record[4],
+            end_date=record[5],
+        )
+
+
+    def get_trip(self, trip_id: int) -> Optional[TripOut]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, name, city, state, start_date, end_date
+                        FROM trips
+                        WHERE id = %s;
+                        """,
+                        [trip_id]
+                    )
+                record = result.fetchone()
+                if record is None:
+                    return None
+                return self.record_to_trip_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get that trip"}
