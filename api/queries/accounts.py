@@ -2,8 +2,8 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List, Union
 
-# class DuplicateAccountError(ValueError):
-#     pass
+class DuplicateAccountError(ValueError):
+    pass
 
 class Error(BaseModel):
     message: str
