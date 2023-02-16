@@ -9,7 +9,7 @@
 ### Tues, Feb 14 2023
 
 ### Weds, Feb 15 2023
-
+Today we worked together to finish all of our routes/auth for our Trips. We successfully debugged and fixed multiple errors without much issue. Tyler and Justin worked with us to help and explain certain aspects of our code(awesome SEIRs). Overall a very productive day coding and made great progress :D
 ### Thurs, Feb 16 2023
 
 ### Fri, Feb 17 2023
