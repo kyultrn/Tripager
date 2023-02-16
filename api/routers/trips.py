@@ -7,6 +7,7 @@ from fastapi import (
     Request,
 )
 
+
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
 from typing import List, Union, Optional
@@ -19,7 +20,9 @@ from queries.trips import (
     Error,
 )
 
+
 router = APIRouter()
+
 
 @router.post("/trips", response_model=TripOut)
 def create_trip(
@@ -28,11 +31,13 @@ def create_trip(
 ):
    return repo.create(trip)
 
+
 @router.get("/trips", response_model=Union[List[TripOut], Error])
 def get_all_trips(
     repo: TripQueries = Depends(),
 ):
     return repo.get_all_trips()
+
 
 @router.get("/trips/{trip_id}", response_model=Optional[TripOut])
 def get_trip(
@@ -45,21 +50,22 @@ def get_trip(
         response.status_code = 404
     return trip
 
+
 @router.put("/trips/{trip_id}", response_model=Union[TripOut, Error])
 def update_trip(
     trip_id: int,
     trip: TripIn,
     repo: TripQueries = Depends(),
 ) -> Union[Error, TripOut]:
-    return repo.update(trip_id, trip)
+    return repo.update_trip(trip_id, trip)
 
-@router.delete("/trips/{trip_id}", response_model=Union[bool, Error])
+
+@router.delete("/trips/{trip_id}", response_model=bool)
 def delete_trip(
     trip_id: int,
     repo: TripQueries = Depends(),
-) -> Union[bool, Error]:
-    result = repo.delete(trip_id)
-    if result:
-        return True
-    else:
-        return {"message": "Could not delete trip"}
+) -> bool:
+    return repo.delete_trip(trip_id)
+
+
+

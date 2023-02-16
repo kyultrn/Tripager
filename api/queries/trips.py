@@ -3,6 +3,7 @@ from datetime import date
 from queries.pool import pool
 from typing import List, Union, Optional
 
+
 class Error(BaseModel):
     message: str
 
@@ -84,23 +85,6 @@ class TripQueries:
             print(e)
             return({"message": "Could not get trip data!"})
 
-
-    def record_to_trip_out(self, record):
-        return TripOut(
-            id=record[0],
-            name=record[1],
-            city=record[2],
-            state=record[3],
-            start_date=record[4],
-            end_date=record[5],
-        )
-
-
-    def trip_in_to_out(self, id: int, trip: TripIn):
-        old_data = trip.dict()
-        return TripOut(id=id, **old_data)
-
-
     def get_trip(self, trip_id: int) -> Optional[TripOut]:
         try:
             with pool.connection() as conn:
@@ -114,7 +98,6 @@ class TripQueries:
                         [trip_id]
                     )
                     record = db.fetchone()
-                    print(record)
                     if record is None:
                         return None
                     return self.record_to_trip_out(record)
@@ -122,12 +105,11 @@ class TripQueries:
             print(e)
             return {"message": "Could not get that trip"}
 
-    def update(self, trip_id: int, trip: TripIn) -> Union[TripOut, Error]:
+
+    def update_trip(self, trip_id: int, trip: TripIn) -> Union[TripOut, Error]:
         try:
-            # Connect to the database
             with pool.connection() as conn:
-                # Get a cursor [something to run SQL with]
-                with conn.cursor() as db:
+                with conn.cursor()as db:
                     db.execute(
                         """
                         UPDATE trips
@@ -150,16 +132,17 @@ class TripQueries:
                     return self.trip_in_to_out(trip_id, trip)
         except Exception as e:
             print(e)
-            return {"message": "Could not update trip"}
+            return {"message": "Could not update that trip."}
 
-    def delete(self, trip_id: int) -> bool:
+
+    def delete_trip(self, trip_id: int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
                         DELETE FROM trips
-                        WHERE id = %s;
+                        WHERE id = %s
                         """,
                         [trip_id]
                     )
@@ -167,3 +150,19 @@ class TripQueries:
         except Exception as e:
             print(e)
             return False
+
+
+    def trip_in_to_out(self, id: int, trip: TripIn):
+        old_data = trip.dict()
+        return TripOut(id=id, **old_data)
+
+
+    def record_to_trip_out(self, record):
+        return TripOut(
+            id=record[0],
+            name=record[1],
+            city=record[2],
+            state=record[3],
+            start_date=record[4],
+            end_date=record[5],
+        )
