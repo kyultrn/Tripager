@@ -27,5 +27,22 @@ steps=[
         """
         DROP TABLE trips;
         """
+    ],
+    [
+        """
+        CREATE TABLE events (
+            id SERIAL PRIMARY KEY NOT NULL,
+            name VARCHAR(50) NOT NULL,
+            description VARCHAR(500) NOT NULL,
+            location VARCHAR(30) NULL,
+            start_time TIME NOT NULL,
+            end_time TIME NOT NULL,
+            picture_url VARCHAR(75) NULL,
+            trip_id INT NOT NULL REFERENCES trips(id)
+        );
+        """,
+        """
+        DROP TABLE events;
+        """
     ]
 ]

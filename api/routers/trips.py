@@ -9,7 +9,6 @@ from fastapi import (
 
 
 from jwtdown_fastapi.authentication import Token
-from authenticator import authenticator
 from typing import List, Union, Optional
 
 
@@ -66,4 +65,3 @@ def delete_trip(
     repo: TripQueries = Depends(),
 ) -> bool:
     return repo.delete_trip(trip_id)
-
