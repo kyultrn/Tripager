@@ -5,13 +5,17 @@ Today, our group completed our wireframe, tables and API endpoints. We verified 
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023
+
 Today we presented our project to the class and got good feedback. Before the presentation we added a few things to the wire frame: We added an additional page for when someone gets recommendations from the API and we also added an "About the site" page where we will show bios about the developers and have a blurb about the website, our idea, project, etc. Today we solidified the database structure, finally choosing a postgres DB and began implementing it.
 
-
 ### Tues, Feb 14 2023
+
 Today we got migrations rolling. After a couple of issues, we were able to finally create the first migration of our accounts file. We also set up pool.py.
+
 ### Weds, Feb 15 2023
+
 Today we finished authentication and got a bunch of routes working. We also created a table for trips. By the end of the day: get one trip, get list of trips were both working. Today we also created a new branch and verified that it was working. The project is going well and we are working as a team.
+
 ### Thurs, Feb 16 2023
 
 ### Fri, Feb 17 2023

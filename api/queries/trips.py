@@ -45,7 +45,6 @@ class TripQueries:
                     id = result.fetchone()[0]
                     old_data = trip.dict()
                     return TripOut(id=id, **old_data)
-
         except Exception as e:
             print(e)
             return {"message": "Couldn't create trip!"}
@@ -72,10 +71,8 @@ class TripQueries:
                             start_date=record[4],
                             end_date=record[5],
                         )
-
                         result.append(trip)
                     return result
-
         except Exception as e:
             print(e)
             return({"message": "Could not get trip data!"})
