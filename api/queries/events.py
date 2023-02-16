@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import time
+from datetime import time, date
 from queries.pool import pool
 from typing import List, Union, Optional
 
@@ -12,6 +12,7 @@ class EventIn(BaseModel):
     name: str
     description: str
     location: Optional[str]
+    date: date
     start_time: time
     end_time: time
     picture_url: Optional[str]
@@ -31,15 +32,16 @@ class EventQueries:
                     result = db.execute(
                         '''
                         INSERT INTO events
-                                (name, description, location, start_time, end_time, picture_url, trip_id)
+                                (name, description, location, date, start_time, end_time, picture_url, trip_id)
                         VALUES
-                                (%s, %s, %s, %s, %s, %s, %s)
+                                (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
                         ''',
                         [
                                 event.name,
                                 event.description,
                                 event.location,
+                                event.date,
                                 event.start_time,
                                 event.end_time,
                                 event.picture_url,
@@ -55,34 +57,42 @@ class EventQueries:
             return {"message": "Couldn't create event!"}
 
 
-    # def get_all_events(self) -> Union[Error, List[eventOut]]:
-    #     try:
-    #         with pool.connection() as conn:
-    #             with conn.cursor() as db:
-    #                 db.execute(
-    #                     """
-    #                     SELECT id, name, city, state, start_date, end_date
-    #                     FROM events
-    #                     ORDER BY start_date;
-    #                     """,
-    #                 )
-    #                 result = []
-    #                 for record in db:
-    #                     event = eventOut(
-    #                         id=record[0],
-    #                         name=record[1],
-    #                         city=record[2],
-    #                         state=record[3],
-    #                         start_date=record[4],
-    #                         end_date=record[5],
-    #                     )
+    def get_trip_events(self, trip_id: int) -> Union[Error, List[EventOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT id, name, description, location, date, start_time, end_time, picture_url, trip_id
+                        FROM events
+                        WHERE trip_id = %s
+                        ORDER BY date, start_time;
+                        """,
+                        [trip_id]
+                    )
+                    result = []
+                    for record in db:
+                        event = EventOut(
+                            id=record[0],
+                            name=record[1],
+                            description=record[2],
+                            location=record[3],
+                            date=record[4],
+                            start_time=record[5],
+                            end_time=record[6],
+                            picture_url=record[7],
+                            trip_id=record[8]
+                        )
 
-    #                     result.append(event)
-    #                 return result
+                        result.append(event)
+                    return result
 
-    #     except Exception as e:
-    #         print(e)
-    #         return({"message": "Could not get event data!"})
+        except Exception as e:
+            print(e)
+            return({"message": "Could not get your trip events!"})
+
+
+    
 
     # def get_event(self, event_id: int) -> Optional[eventOut]:
     #     try:

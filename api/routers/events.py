@@ -32,12 +32,16 @@ def create_event(
    return repo.create(event)
 
 
-# @router.get("/trips", response_model=Union[List[TripOut], Error])
-# def get_all_trips(
-#     repo: TripQueries = Depends(),
-# ):
-#     return repo.get_all_trips()
-
+@router.get("/trips/{trip_id}/events", response_model=List[EventOut])
+def get_trip_events(
+    trip_id: int,
+    response: Response,
+    repo: EventQueries = Depends(),
+) -> EventOut:
+    trip_events = repo.get_trip_events(trip_id)
+    if trip_events is None:
+        response.status_code = 404
+    return trip_events
 
 # @router.get("/trips/{trip_id}", response_model=Optional[TripOut])
 # def get_trip(

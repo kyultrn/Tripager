@@ -36,6 +36,7 @@ steps=[
             description VARCHAR(1000),
             picture_url VARCHAR(500),
             location VARCHAR(255),
+            date DATE NOT NULL,
             start_time TIME NOT NULL,
             end_time TIME NOT NULL,
             trip_id INT NOT NULL REFERENCES trips(id)
