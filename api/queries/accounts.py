@@ -100,7 +100,7 @@ class AccountQueries:
                         UPDATE accounts
                         SET name = %s
                         , email = %s
-                        , password = %s
+                        , hashed_password = %s
                         WHERE id = %s
                         """,
                         [
