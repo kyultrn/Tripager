@@ -94,25 +94,25 @@ class EventQueries:
 
     
 
-    # def get_event(self, event_id: int) -> Optional[eventOut]:
-    #     try:
-    #         with pool.connection() as conn:
-    #             with conn.cursor() as db:
-    #                 db.execute(
-    #                     """
-    #                     SELECT id, name, city, state, start_date, end_date
-    #                     FROM events
-    #                     WHERE id = %s;
-    #                     """,
-    #                     [event_id]
-    #                 )
-    #                 record = db.fetchone()
-    #                 if record is None:
-    #                     return None
-    #                 return self.record_to_event_out(record)
-    #     except Exception as e:
-    #         print(e)
-    #         return {"message": "Could not get that event"}
+    def get_event(self, trip_id: int, event_id: int) -> Optional[EventOut]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT id, name, description, location, date, start_time, end_time, picture_url, trip_id
+                        FROM events
+                        WHERE trip_id = %s AND id = %s;
+                        """,
+                        [trip_id, event_id]
+                    )
+                    record = db.fetchone()
+                    if record is None:
+                        return None
+                    return self.record_to_event_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get that event"}
 
 
     # def update_event(self, event_id: int, event: eventIn) -> Union[eventOut, Error]:
@@ -166,12 +166,15 @@ class EventQueries:
     #     return eventOut(id=id, **old_data)
 
 
-    # def record_to_event_out(self, record):
-    #     return eventOut(
-    #         id=record[0],
-    #         name=record[1],
-    #         city=record[2],
-    #         state=record[3],
-    #         start_date=record[4],
-    #         end_date=record[5],
-    #     )
+    def record_to_event_out(self, record):
+        return EventOut(
+            id=record[0],
+            name=record[1],
+            description=record[2],
+            location=record[3],
+            date=record[4],
+            start_time=record[5],
+            end_time=record[6],
+            picture_url=record[7],
+            trip_id=record[8]
+        )

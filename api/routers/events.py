@@ -43,16 +43,17 @@ def get_trip_events(
         response.status_code = 404
     return trip_events
 
-# @router.get("/trips/{trip_id}", response_model=Optional[TripOut])
-# def get_trip(
-#     trip_id: int,
-#     response: Response,
-#     repo: TripQueries = Depends(),
-# ) -> TripOut:
-#     trip = repo.get_trip(trip_id)
-#     if trip is None:
-#         response.status_code = 404
-#     return trip
+@router.get("/trips/{trip_id}/events/{event_id}", response_model=Optional[EventOut])
+def get_event(
+    trip_id: int,
+    event_id: int,
+    response: Response,
+    repo: EventQueries = Depends(),
+) -> EventOut:
+    trip_event = repo.get_event(trip_id, event_id)
+    if trip_event is None:
+        response.status_code = 404
+    return trip_event
 
 
 # @router.put("/trips/{trip_id}", response_model=Union[TripOut, Error])
