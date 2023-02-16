@@ -96,8 +96,9 @@ class TripQueries:
     def get_trip(self, trip_id: int) -> Optional[TripOut]:
         try:
             with pool.connection() as conn:
+                print("TEST!!!!!!")
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                         """
                         SELECT id, name, city, state, start_date, end_date
                         FROM trips
@@ -105,7 +106,8 @@ class TripQueries:
                         """,
                         [trip_id]
                     )
-                record = result.fetchone()
+                    record = db.fetchone()
+                    print(record)
                 if record is None:
                     return None
                 return self.record_to_trip_out(record)
