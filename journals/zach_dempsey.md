@@ -8,7 +8,7 @@ We presented wireframes in the morning and decided a couple last minute changes.
 ### Tues, Feb 14 2023
 in the morning we finished setting up our tables and ran into several errors. Helped another team figure out how to fix the CRLF problem with pc which we had the previous day. Had to fix a requirements.txt error which wasn't allowing me to build my containers. Almost completed our accounts router paths. had some general issues connecting databases.
 ### Weds, Feb 15 2023
-
+we had to blow up our accounts paths and start over for authentication. We were getting a dict not related to password something, this was caused by not updating my table to allow the hashed_password. Once our authentication worked we started adding tables, queries, and routers for trips.
 ### Thurs, Feb 16 2023
 
 ### Fri, Feb 17 2023
