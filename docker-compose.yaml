@@ -13,7 +13,7 @@ services:
     volumes:
       - ./api:/app
     environment:
-      SIGNING_KEY: 9wdv2mdyca41krepd5zrgi131gnqhw23nmm1
+      SIGNING_KEY: ${SIGNING_KEY}
       WAIT_HOSTS: db:5432
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60

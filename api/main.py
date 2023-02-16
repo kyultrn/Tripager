@@ -11,7 +11,6 @@ app.include_router(trips.router, tags=["Trips"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(events.router, tags=["Events"])
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
