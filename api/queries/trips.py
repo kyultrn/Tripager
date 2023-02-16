@@ -14,6 +14,7 @@ class TripIn(BaseModel):
     start_date: date
     end_date: date
 
+
 class TripOut(BaseModel):
     id: int
     name: str
@@ -24,6 +25,7 @@ class TripOut(BaseModel):
 
 
 class TripQueries:
+
     def create(self, trip: TripIn) -> TripOut:
         try:
             with pool.connection() as conn:
@@ -52,11 +54,12 @@ class TripQueries:
             print(e)
             return {"message": "Couldn't create trip!"}
 
+
     def get_all_trips(self) -> Union[Error, List[TripOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                         """
                         SELECT id, name, city, state, start_date, end_date
                         FROM trips
@@ -77,10 +80,10 @@ class TripQueries:
                         result.append(trip)
                     return result
 
-
         except Exception as e:
             print(e)
             return({"message": "Could not get trip data!"})
+
 
     def record_to_trip_out(self, record):
         return TripOut(
@@ -93,11 +96,16 @@ class TripQueries:
         )
 
 
+    def trip_in_to_out(self, id: int, trip: TripIn):
+        old_data = trip.dict()
+        return TripOut(id=id, **old_data)
+
+
     def get_trip(self, trip_id: int) -> Optional[TripOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                         """
                         SELECT id, name, city, state, start_date, end_date
                         FROM trips
@@ -105,10 +113,57 @@ class TripQueries:
                         """,
                         [trip_id]
                     )
-                record = result.fetchone()
-                if record is None:
-                    return None
-                return self.record_to_trip_out(record)
+                    record = db.fetchone()
+                    print(record)
+                    if record is None:
+                        return None
+                    return self.record_to_trip_out(record)
         except Exception as e:
             print(e)
             return {"message": "Could not get that trip"}
+
+    def update(self, trip_id: int, trip: TripIn) -> Union[TripOut, Error]:
+        try:
+            # Connect to the database
+            with pool.connection() as conn:
+                # Get a cursor [something to run SQL with]
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        UPDATE trips
+                        SET name = %s
+                        , city = %s
+                        , state = %s
+                        , start_date = %s
+                        , end_date = %s
+                        WHERE id = %s
+                        """,
+                        [
+                            trip.name,
+                            trip.city,
+                            trip.state,
+                            trip.start_date,
+                            trip.end_date,
+                            trip_id
+                        ]
+                    )
+                    return self.trip_in_to_out(trip_id, trip)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not update trip"}
+
+    def delete(self, trip_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM trips
+                        WHERE id = %s;
+                        """,
+                        [trip_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False

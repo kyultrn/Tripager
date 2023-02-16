@@ -44,3 +44,22 @@ def get_trip(
     if trip is None:
         response.status_code = 404
     return trip
+
+@router.put("/trips/{trip_id}", response_model=Union[TripOut, Error])
+def update_trip(
+    trip_id: int,
+    trip: TripIn,
+    repo: TripQueries = Depends(),
+) -> Union[Error, TripOut]:
+    return repo.update(trip_id, trip)
+
+@router.delete("/trips/{trip_id}", response_model=Union[bool, Error])
+def delete_trip(
+    trip_id: int,
+    repo: TripQueries = Depends(),
+) -> Union[bool, Error]:
+    result = repo.delete(trip_id)
+    if result:
+        return True
+    else:
+        return {"message": "Could not delete trip"}

@@ -152,7 +152,7 @@ class AccountQueries:
                     db.execute(
                         """
                         DELETE FROM accounts
-                        WHERE id = %s
+                        WHERE id = %s;
                         """,
                         [account_id]
                     )
