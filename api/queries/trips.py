@@ -135,6 +135,23 @@ class TripQueries:
             return {"message": "Could not update that trip."}
 
 
+    def delete_trip(self, trip_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM trips
+                        WHERE id = %s
+                        """,
+                        [trip_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False
+
+
     def trip_in_to_out(self, id: int, trip: TripIn):
         old_data = trip.dict()
         return TripOut(id=id, **old_data)

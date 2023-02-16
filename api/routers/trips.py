@@ -60,3 +60,12 @@ def update_trip(
     return repo.update_trip(trip_id, trip)
 
 
+@router.delete("/trips/{trip_id}", response_model=bool)
+def delete_trip(
+    trip_id: int,
+    repo: TripQueries = Depends(),
+) -> bool:
+    return repo.delete_trip(trip_id)
+
+
+
