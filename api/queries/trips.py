@@ -16,14 +16,9 @@ class TripIn(BaseModel):
     end_date: date
 
 
-class TripOut(BaseModel):
+class TripOut(TripIn):
     id: int
-    name: str
-    city: str
-    state: str
-    start_date: date
-    end_date: date
-
+    
 
 class TripQueries:
 

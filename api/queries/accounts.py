@@ -10,10 +10,6 @@ class Error(BaseModel):
     message: str
 
 
-class DuplicateAccountError(ValueError):
-    pass
-
-
 class AccountIn(BaseModel):
     name: str
     password: str
