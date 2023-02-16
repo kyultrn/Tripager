@@ -35,15 +35,14 @@ steps=[
             name VARCHAR(255) NOT NULL,
             description VARCHAR(1000),
             picture_url VARCHAR(500),
-            city VARCHAR(255) NOT NULL,
-            state VARCHAR(255) NOT NULL,
+            location VARCHAR(255),
             start_time TIME NOT NULL,
             end_time TIME NOT NULL,
             trip_id INT NOT NULL REFERENCES trips(id)
         );
         """,
         """
-        DROP TABLE trips;
+        DROP TABLE events;
         """
     ]
 ]
