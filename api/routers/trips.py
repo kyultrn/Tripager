@@ -67,5 +67,3 @@ def delete_trip(
 ) -> bool:
     return repo.delete_trip(trip_id)
 
-
-

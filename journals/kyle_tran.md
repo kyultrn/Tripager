@@ -5,9 +5,9 @@
 ### Mon, Feb 13 2023
     Today, our leader Mischa presented our wireframe to the class and was muted for the first minute. After lunch and lectures, we started working on the project and ran into a pile of issues setting up our directories/files and docker devs/yaml but through perserverance zach and I managed to figure it out.
 ### Tues, Feb 14 2023
-    
+    Today, we finished setting up our tables and ran into several errors. Had to fix a requirements.txt error which wasn't allowing us to build our containers. Almost completed the account router paths. Had some general issues connecting databases.
 ### Weds, Feb 15 2023
-
+    Today, we completed our trip routes and authentication for accounts. Fix a small error that mr chatgpt found. Learned a bit about git from Tyler and Justin [SEIRs]. Mischa and I had a merge conflict but it was resolved very quickly :) .
 ### Thurs, Feb 16 2023
 
 ### Fri, Feb 17 2023
