@@ -16,16 +16,15 @@ class EventIn(BaseModel):
     start_time: time
     end_time: time
     picture_url: Optional[str]
-    trip_id: int
 
 
 class EventOut(EventIn):
     id: int
-
+    trip_id: int
 
 class EventQueries:
 
-    def create(self, event: EventIn) -> EventOut:
+    def create_event(self, event: EventIn, trip_id: int) -> EventOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -45,13 +44,12 @@ class EventQueries:
                                 event.start_time,
                                 event.end_time,
                                 event.picture_url,
-                                event.trip_id
+                                trip_id
                         ],
                     )
                     id = result.fetchone()[0]
                     old_data = event.dict()
-                    return EventOut(id=id, **old_data)
-
+                    return EventOut(id=id,trip_id=trip_id, **old_data)
         except Exception as e:
             print(e)
             return {"message": "Couldn't create event!"}
@@ -115,55 +113,43 @@ class EventQueries:
             return {"message": "Could not get that event"}
 
 
-    # def update_event(self, event_id: int, event: eventIn) -> Union[eventOut, Error]:
-    #     try:
-    #         with pool.connection() as conn:
-    #             with conn.cursor()as db:
-    #                 db.execute(
-    #                     """
-    #                     UPDATE events
-    #                     SET name = %s
-    #                     , city = %s
-    #                     , state = %s
-    #                     , start_date = %s
-    #                     , end_date = %s
-    #                     WHERE id = %s
-    #                     """,
-    #                     [
-    #                         event.name,
-    #                         event.city,
-    #                         event.state,
-    #                         event.start_date,
-    #                         event.end_date,
-    #                         event_id
-    #                     ]
-    #                 )
-    #                 return self.event_in_to_out(event_id, event)
-    #     except Exception as e:
-    #         print(e)
-    #         return {"message": "Could not update that event."}
+    def update_event(self, trip_id: int, event_id: int, event: EventIn) -> Union[EventOut, Error]:
+            try:
+                with pool.connection() as conn:
+                    with conn.cursor()as db:
+                        db.execute(
+                            """
+                            UPDATE events
+                            SET name = %s
+                            , description = %s
+                            , location = %s
+                            , date = %s
+                            , start_time = %s
+                            , end_time = %s
+                            , picture_url = %s
+                            WHERE trip_id = %s AND id = %s;
+                            """,
+                            [
+                                event.name,
+                                event.description,
+                                event.location,
+                                event.date,
+                                event.start_time,
+                                event.end_time,
+                                event.picture_url,
+                                event_id,
+                                trip_id
+                            ]
+                        )
+                        return self.event_in_to_out(event_id, trip_id, event)
+            except Exception as e:
+                print(e)
+                return {"message": "Could not update that event."}
 
 
-    # def delete_event(self, event_id: int) -> bool:
-    #     try:
-    #         with pool.connection() as conn:
-    #             with conn.cursor() as db:
-    #                 db.execute(
-    #                     """
-    #                     DELETE FROM events
-    #                     WHERE id = %s
-    #                     """,
-    #                     [event_id]
-    #                 )
-    #                 return True
-    #     except Exception as e:
-    #         print(e)
-    #         return False
-
-
-    # def event_in_to_out(self, id: int, event: eventIn):
-    #     old_data = event.dict()
-    #     return eventOut(id=id, **old_data)
+    def event_in_to_out(self, id: int, trip_id: int, event: EventIn):
+        old_data = event.dict()
+        return EventOut(id=id, trip_id=trip_id, **old_data)
 
 
     def record_to_event_out(self, record):

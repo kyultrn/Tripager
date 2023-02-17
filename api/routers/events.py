@@ -23,12 +23,13 @@ from queries.events import (
 router = APIRouter()
 
 
-@router.post("/events", response_model=EventOut)
+@router.post("/api/trips/{trip_id}/events", response_model=EventOut)
 def create_event(
+    trip_id: int,
     event: EventIn,
     repo: EventQueries = Depends()
 ):
-   return repo.create(event)
+   return repo.create_event(event, trip_id)
 
 
 @router.get("/trips/{trip_id}/events", response_model=Union[List[EventOut], Error])
@@ -55,13 +56,14 @@ def get_event(
     return trip_event
 
 
-# @router.put("/trips/{trip_id}", response_model=Union[TripOut, Error])
-# def update_trip(
-#     trip_id: int,
-#     trip: TripIn,
-#     repo: TripQueries = Depends(),
-# ) -> Union[Error, TripOut]:
-#     return repo.update_trip(trip_id, trip)
+@router.put("/trips/{trip_id}/events/{event_id}", response_model=Union[EventOut, Error])
+def update_event(
+    trip_id: int,
+    event_id: int,
+    event: EventIn,
+    repo: EventQueries = Depends(),
+) -> Union[Error, EventOut]:
+    return repo.update_event(trip_id, event_id, event)
 
 
 # @router.delete("/trips/{trip_id}", response_model=bool)
