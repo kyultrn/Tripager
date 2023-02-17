@@ -10,6 +10,7 @@ in the morning we finished setting up our tables and ran into several errors. He
 ### Weds, Feb 15 2023
 we had to blow up our accounts paths and start over for authentication. We were getting a dict not related to password something, this was caused by not updating my table to allow the hashed_password. Once our authentication worked we started adding tables, queries, and routers for trips.
 ### Thurs, Feb 16 2023
+we finished all event functions and cleaned up models. We changed variable names to better suit our expectations. We went over how we're going to prepare over the weekend. 
 
 ### Fri, Feb 17 2023
 

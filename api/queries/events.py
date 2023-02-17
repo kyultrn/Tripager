@@ -147,16 +147,16 @@ class EventQueries:
                 print(e)
                 return {"message": "Could not update that trip's event."}
 
-    def delete_trip_event(self, id: int):
+    def delete_trip_event(self, id: int, trip_id: int):
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
                         DELETE FROM events
-                        WHERE id = %s;
+                        WHERE id = %s AND trip_id = %s;
                         """,
-                        [id]
+                        [id, trip_id]
                     )
                     return True
         except Exception as e:

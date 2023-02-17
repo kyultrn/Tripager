@@ -70,7 +70,8 @@ def update_trip_event(
 
 @router.delete("/api/trips/{trip_id}/events/{event_id}", response_model=bool)
 def delete_trip_event(
+    trip_id: int,
     event_id: int,
     repo: EventQueries = Depends(),
 ) -> bool:
-    return repo.delete_trip_event(event_id)
+    return repo.delete_trip_event(event_id, trip_id)
