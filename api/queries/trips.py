@@ -18,7 +18,7 @@ class TripIn(BaseModel):
 
 class TripOut(TripIn):
     id: int
-    
+
 
 class TripQueries:
 

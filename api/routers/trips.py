@@ -28,7 +28,7 @@ def create_trip(
     trip: TripIn,
     repo: TripQueries = Depends()
 ):
-   return repo.create(trip)
+    return repo.create(trip)
 
 
 @router.get("/trips", response_model=Union[List[TripOut], Error])
