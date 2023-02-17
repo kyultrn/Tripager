@@ -22,9 +22,10 @@ class EventOut(EventIn):
     id: int
     trip_id: int
 
+
 class EventQueries:
 
-    def create_event(self, event: EventIn, trip_id: int) -> EventOut:
+    def create_trip_event(self, event: EventIn, trip_id: int) -> EventOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -52,10 +53,10 @@ class EventQueries:
                     return EventOut(id=id,trip_id=trip_id, **old_data)
         except Exception as e:
             print(e)
-            return {"message": "Couldn't create event!"}
+            return {"message": "Couldn't create trip event."}
 
 
-    def get_trip_events(self, trip_id: int) -> Union[Error, List[EventOut]]:
+    def get_all_trip_events(self, trip_id: int) -> Union[Error, List[EventOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -87,12 +88,12 @@ class EventQueries:
 
         except Exception as e:
             print(e)
-            return({"message": "Could not get your trip events!"})
+            return({"message": "Could not retrieve all trip's events."})
 
 
 
 
-    def get_event(self, trip_id: int, event_id: int) -> Optional[EventOut]:
+    def get_trip_event(self, trip_id: int, event_id: int) -> Optional[EventOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -110,10 +111,10 @@ class EventQueries:
                     return self.record_to_event_out(record)
         except Exception as e:
             print(e)
-            return {"message": "Could not get that event"}
+            return {"message": "Could not retrieve that trip's event."}
 
 
-    def update_event(self, trip_id: int, event_id: int, event: EventIn) -> Union[EventOut, Error]:
+    def update_trip_event(self, trip_id: int, event_id: int, event: EventIn) -> Union[EventOut, Error]:
             try:
                 with pool.connection() as conn:
                     with conn.cursor()as db:
@@ -144,8 +145,23 @@ class EventQueries:
                         return self.event_in_to_out(event_id, trip_id, event)
             except Exception as e:
                 print(e)
-                return {"message": "Could not update that event."}
+                return {"message": "Could not update that trip's event."}
 
+    def delete_trip_event(self, id: int):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM events
+                        WHERE id = %s;
+                        """,
+                        [id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False
 
     def event_in_to_out(self, id: int, trip_id: int, event: EventIn):
         old_data = event.dict()
