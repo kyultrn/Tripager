@@ -17,6 +17,7 @@ Today we got migrations rolling. After a couple of issues, we were able to final
 Today we finished authentication and got a bunch of routes working. We also created a table for trips. By the end of the day: get one trip, get list of trips were both working. Today we also created a new branch and verified that it was working. The project is going well and we are working as a team.
 
 ### Thurs, Feb 16 2023
+Today we got a lot done. We changed our API routes to be restful by adding /api/ in front of them. We also were able to complete the entire events.py queries and routes. We struggled with figuring out whether or not we would need to track events by both id AND trip_id or if just using the id would link the event to the trip. I contributed mostly to the delete function as the main programmer. We experimented with how to add start_time and end_time --- as time or strings in our tables and found it tricky to figure out using the browser fastAPI route what was the correct way to do it. Our back end is almost officially done!! All we have left to do is make the calls to the Yelp API. 
 
 ### Fri, Feb 17 2023
 
