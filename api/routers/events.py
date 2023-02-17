@@ -32,7 +32,7 @@ def create_event(
    return repo.create_event(event, trip_id)
 
 
-@router.get("/trips/{trip_id}/events", response_model=Union[List[EventOut], Error])
+@router.get("/api/trips/{trip_id}/events", response_model=Union[List[EventOut], Error])
 def get_trip_events(
     trip_id: int,
     response: Response,
@@ -43,7 +43,7 @@ def get_trip_events(
         response.status_code = 404
     return trip_events
 
-@router.get("/trips/{trip_id}/events/{event_id}", response_model=Optional[EventOut])
+@router.get("/api/trips/{trip_id}/events/{event_id}", response_model=Optional[EventOut])
 def get_event(
     trip_id: int,
     event_id: int,
@@ -56,7 +56,7 @@ def get_event(
     return trip_event
 
 
-@router.put("/trips/{trip_id}/events/{event_id}", response_model=Union[EventOut, Error])
+@router.put("/api/trips/{trip_id}/events/{event_id}", response_model=Union[EventOut, Error])
 def update_event(
     trip_id: int,
     event_id: int,
