@@ -15,6 +15,7 @@ services:
     environment:
       SIGNING_KEY: ${SIGNING_KEY}
       YELP_API_KEY: ${YELP_API_KEY}
+      WEATHER_API_KEY: ${WEATHER_API_KEY}
       WAIT_HOSTS: db:5432
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60

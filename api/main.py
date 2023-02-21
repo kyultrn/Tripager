@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import os
-from routers import accounts, trips, events, yelp_api
+from routers import accounts, trips, events, yelp_api, weather
 from authenticator import authenticator
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -11,6 +11,7 @@ app.include_router(trips.router, tags=["Trips"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(events.router, tags=["Events"])
 app.include_router(yelp_api.router, tags=["Yelp"])
+app.include_router(weather.router, tags=["Weather"])
 
 app.add_middleware(
     CORSMiddleware,

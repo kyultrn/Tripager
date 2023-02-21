@@ -1,19 +1,6 @@
-# import requests
-# from fastapi import FastAPI
-
-# app = FastAPI()
-
-# @app.get("/api/recommendations")
-# def get_yelp_recommendations()
-
-
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
-    Response,
     APIRouter,
-    Request,
 )
 from queries.yelp_api import YelpQueries
 from fastapi import APIRouter
