@@ -1,5 +1,6 @@
 import { useToken, login } from "./Authenticator";
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 function Login() {
   const { token, login } = useToken()
@@ -12,6 +13,7 @@ function Login() {
 
   const handleSubmit = () => {
     login(email, password)
+    navigate("/MainPage")
   }
 
   return (

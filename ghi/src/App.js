@@ -1,9 +1,10 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Construct from './Construct.js'
 import ErrorNotification from './ErrorNotification';
 import './App.css';
 import { AuthProvider, useToken } from './Authenticator';
-
+import Login from './Login'
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -36,13 +37,23 @@ function App() {
 
 
   return (
-    <div>
-      <AuthProvider>
-        <GetToken />
-        <ErrorNotification error={error} />
-        <Construct info={launch_info} />
-      </AuthProvider>
-    </div>
+    <>
+      <BrowserRouter>
+        <div className="container">
+          <Routes>
+            {/* <Route path="/" element={<MainPage/>} /> */}
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      <div>
+        <AuthProvider>
+          <GetToken />
+          <ErrorNotification error={error} />
+          <Construct info={launch_info} />
+        </AuthProvider>
+      </div>
+    </>
   );
 }
 
