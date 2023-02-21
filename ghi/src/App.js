@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 import Construct from './Construct.js'
 import ErrorNotification from './ErrorNotification';
 import './App.css';
+import { AuthProvider, useToken } from './Authenticator';
+
+
+function GetToken() {
+  // Get token from JWT cookie (if already logged in)
+  useToken();
+  return null;
+}
 
 function App() {
   const [launch_info, setLaunchInfo] = useState([]);
-  const [error, setError] = useState(null);  
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getData() {
@@ -29,8 +37,11 @@ function App() {
 
   return (
     <div>
-      <ErrorNotification error={error} />
-      <Construct info={launch_info} />
+      <AuthProvider>
+        <GetToken />
+        <ErrorNotification error={error} />
+        <Construct info={launch_info} />
+      </AuthProvider>
     </div>
   );
 }
