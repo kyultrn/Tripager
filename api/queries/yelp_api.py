@@ -4,10 +4,11 @@ import requests
 from queries.pool import pool
 import os
 
+
 YELP_API_KEY = os.environ["YELP_API_KEY"]
 
 class YelpQueries:
-    def get_yelp_recommendations(term: str, location: str):
+    def get_yelp_recommendations(self, term: str, location: str):
         headers = {
             "Authorization": f"Bearer {YELP_API_KEY}"
         }
