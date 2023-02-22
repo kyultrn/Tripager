@@ -86,7 +86,6 @@ export function useToken() {
 
   async function login(email, password) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-    console.log(url)
     const form = new FormData();
     form.append("username", email);
     form.append("password", password);
@@ -98,6 +97,7 @@ export function useToken() {
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
+      console.log(token)
       return;
     }
     let error = await response.json();

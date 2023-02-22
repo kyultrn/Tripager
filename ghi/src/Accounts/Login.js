@@ -1,4 +1,4 @@
-import { useToken, login } from "./Authenticator";
+import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(email, password);
+    await login(email, password);
     navigate("/");
     // possibly redirect to the trips page instead of the main page
   };
