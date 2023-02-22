@@ -86,6 +86,7 @@ export function useToken() {
 
   async function login(email, password) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+    console.log(url)
     const form = new FormData();
     form.append("email", email);
     form.append("password", password);
@@ -104,7 +105,7 @@ export function useToken() {
   }
 
   async function signup(password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/sign_up`;
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
