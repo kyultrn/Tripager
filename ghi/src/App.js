@@ -39,20 +39,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <AuthProvider>
+          <GetToken />
         <div className="container">
           <Routes>
             {/* <Route path="/" element={<MainPage/>} /> */}
             <Route path="/login" element={<Login />} />
           </Routes>
         </div>
-      </BrowserRouter>
-      <div>
-        <AuthProvider>
-          <GetToken />
-          <ErrorNotification error={error} />
-          <Construct info={launch_info} />
         </AuthProvider>
-      </div>
+      </BrowserRouter>
     </>
   );
 }

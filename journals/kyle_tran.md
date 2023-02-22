@@ -9,13 +9,13 @@
 ### Weds, Feb 15 2023
     Today, we completed our trip routes and authentication for accounts. Fix a small error that mr chatgpt found. Learned a bit about git from Tyler and Justin [SEIRs]. Mischa and I had a merge conflict but it was resolved very quickly :) .
 ### Thurs, Feb 16 2023
-
+    Today, we finished all event functions and cleaned up models. We changed variable names to better suit our expectations. We went over how we're going to prepare over the weekend.
 ### Fri, Feb 17 2023
 
 ### Mon, Feb 20 2023
 
 ### Tues, Feb 21 2023
-
+    Today, we attempted the login form and got it to display but the functionality still doesn't work.
 ### Weds, Feb 22 2023
 
 ### Thurs, Feb 23 2023
