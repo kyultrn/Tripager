@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Construct from './Construct.js'
-import ErrorNotification from './ErrorNotification';
-import './App.css';
-import { AuthProvider, useToken } from './Authenticator';
-import Login from './Login'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Construct from "./Construct.js";
+import ErrorNotification from "./ErrorNotification";
+import "./App.css";
+import { AuthProvider, useToken } from "./Accounts/Authenticator";
+import Login from "./Accounts/Login";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     async function getData() {
       let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-      console.log('fastapi url: ', url);
+      console.log("fastapi url: ", url);
       let response = await fetch(url);
       console.log("------- hello? -------");
       let data = await response.json();
@@ -33,20 +33,19 @@ function App() {
       }
     }
     getData();
-  }, [])
-
+  }, []);
 
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
           <GetToken />
-        <div className="container">
-          <Routes>
-            {/* <Route path="/" element={<MainPage/>} /> */}
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </div>
+          <div className="container">
+            <Routes>
+              {/* <Route path="/" element={<MainPage/>} /> */}
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </div>
         </AuthProvider>
       </BrowserRouter>
     </>
