@@ -88,7 +88,7 @@ export function useToken() {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
     console.log(url)
     const form = new FormData();
-    form.append("email", email);
+    form.append("username", email);
     form.append("password", password);
     const response = await fetch(url, {
       method: "post",
