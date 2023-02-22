@@ -26,7 +26,7 @@ NO SCHOOL
 NO SCHOOL
 
 ### Tues, Feb 21 2023
-We started the day off setting up our Yelp API -- query and router. We did some troubleshooting and were able to complete the calls. After lunch we are going to be 
+We started the day off setting up our Yelp API -- query and router. We did some troubleshooting and were able to complete the calls. After lunch we set up the weather api and officially completed backend! We then went on to begin our React! We started with the login stuff. It proved more difficult than we expected. The functions, classes etc that I had previously done in other projects and been taught did not seem to directly relate to what we needed to do and it was a little frustrating. Luckily Kyle seemed to figure some of it out before we clocked out for the day and we all worked as a team to do the rest. We have a very solid plan for what we are going to do tmrw and we feel good about our progress as a whole. 
 ### Weds, Feb 22 2023
 
 ### Thurs, Feb 23 2023
