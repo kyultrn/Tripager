@@ -104,15 +104,15 @@ export function useToken() {
     return handleErrorMessage(error);
   }
 
-  async function signup(password, email, firstName, lastName) {
+  //possible first name, last name instead of name parms
+  async function signup(name, email, password) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
-        password,
+        name,
         email,
-        first_name: firstName,
-        last_name: lastName,
+        password,
       }),
       headers: {
         "Content-Type": "application/json",
