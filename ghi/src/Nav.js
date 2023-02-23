@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useToken } from "./Accounts/Authenticator";
-import { useAuthContext } from "./Accounts/Authenticator";
+import { useToken } from "./accounts/Authenticator";
+import { useAuthContext } from "./accounts/Authenticator";
 
 export default function Navbar() {
   const { logout } = useToken();
@@ -41,14 +41,19 @@ export default function Navbar() {
         <NavLink className="navbar-brand" to="/">
           <span className="tripager">TRIPAGER</span>
         </NavLink>
+        <NavLink className="navbar-brand" to="/trips">
+          <span className="trips">Trips</span>
+        </NavLink>
+
+
         <div>
           {isLoggedIn ? (
             <button className="btn btn-green" onClick={handleLogout}>
-                Logout
+              Logout
             </button>
           ) : (
             <button className="btn btn-green" onClick={handleLogin}>
-                Login
+              Login
             </button>
           )}
         </div>
