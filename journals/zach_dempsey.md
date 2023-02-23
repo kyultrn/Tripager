@@ -17,7 +17,7 @@ SCHEDULED DAY OFF
 ### Tues, Feb 21 2023
 in the morning we started working on the final API calls for yelp and the weather. We went over what we did during the long weekend. We made changes to our tables and the layout of them. We finished all of our backend and are starting on our login/authentication part of the front-end. We are struggling now but making good progress and are the best team out there because we are cool.
 ### Weds, Feb 22 2023
-
+we went over our login/logout on the front-end in the morning. We were stuck on how we should be doing this, redux or not. We ran into issues on how the token is supposed to be stored. It ended up just being our Navbar wasn't inside our authprovider in the app.js file. After fixing this and a few pathing issues we had, we finished the day going over what materials we should review for the next day.
 ### Thurs, Feb 23 2023
 
 ### Fri, Feb 24 2023
