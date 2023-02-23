@@ -44,8 +44,6 @@ export default function Navbar() {
         <NavLink className="navbar-brand" to="/trips">
           <span className="trips">Trips</span>
         </NavLink>
-
-
         <div>
           {isLoggedIn ? (
             <button className="btn btn-green" onClick={handleLogout}>
