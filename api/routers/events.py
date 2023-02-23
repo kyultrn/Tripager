@@ -1,18 +1,11 @@
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
     Response,
     APIRouter,
-    Request,
 )
-
-
 from jwtdown_fastapi.authentication import Token
 from typing import List, Union, Optional
 from datetime import time
-
-
 from queries.events import (
     EventIn,
     EventOut,

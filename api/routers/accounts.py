@@ -16,7 +16,6 @@ from queries.accounts import (
     AccountQueries,
     DuplicateAccountError,
 )
-
 class Error(BaseModel):
     message: str
 
@@ -30,7 +29,9 @@ class AccountToken(Token):
 class HttpError(BaseModel):
     detail: str
 
+
 router = APIRouter()
+
 
 @router.get("/api/protected", response_model=bool)
 async def get_protected(
@@ -72,14 +73,15 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
-@router.get("/accounts", response_model=Union[List[AccountOut], Error])
+
+@router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
 def get_all(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
 
-@router.put("/accounts/{account_id}", response_model=Union[AccountOut, Error])
+@router.put("/api/accounts/{account_id}", response_model=Union[AccountOut, Error])
 def update_account(
     account_id: int,
     account: AccountIn,
@@ -88,8 +90,7 @@ def update_account(
     return repo.update(account_id, account)
 
 
-
-@router.delete("/accounts/{account_id}", response_model=Union[bool, Error])
+@router.delete("/api/accounts/{account_id}", response_model=Union[bool, Error])
 def delete_account(
     account_id: int,
     repo: AccountQueries = Depends(),

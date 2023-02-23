@@ -5,7 +5,9 @@ from fastapi import (
 from queries.yelp_api import YelpQueries
 from fastapi import APIRouter
 
+
 router = APIRouter()
+
 
 @router.get("/api/businesses")
 def get_yelp_recommendations(
