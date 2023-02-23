@@ -17,7 +17,7 @@ Today we completed all of our event endpoints/routers for update/delete/post/get
 ### Mon, Feb 20 2023
 
 ### Tues, Feb 21 2023
-
+Today we managed to get our entire login/logout/signup features done for the frontend. We spent quite some time troubleshooting errors but luckily it was nothing major. Great teamwork from everyone today. Plan for tomorrow will be to knockout most CRUD routes for our Trips frontend.
 ### Weds, Feb 22 2023
 
 ### Thurs, Feb 23 2023
