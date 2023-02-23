@@ -157,7 +157,7 @@ export const useUser = (token) => {
     }
 
     async function getUser() {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/current_user`;
+      const url = `${ .REACT_APP_ACCOUNTS_HOST}/current_user`;
       const response = await fetch(url, {
         credentials: "include",
       });
