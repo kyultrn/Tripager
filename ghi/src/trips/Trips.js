@@ -6,6 +6,7 @@ export default Trips;
 // GET LIST OF ALL TRIPS
 function Trips() {
   const { data, error, isLoading } = useGetTripsQuery();
+  console.log(data)
 
 
   if (isLoading) {
@@ -15,7 +16,7 @@ function Trips() {
   return (
     <div>
       <h1>Your Trips</h1>
-      <table class="table is-striped">
+      <table className="table is-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -26,7 +27,7 @@ function Trips() {
           </tr>
         </thead>
         <tbody>
-            {data.trips.map(trip => (
+            {data.map(trip => (
                 <tr key={trip.id}>
                     <td>{trip.name}</td>
                     <td>{trip.city}</td>

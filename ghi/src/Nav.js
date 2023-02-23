@@ -19,7 +19,7 @@ export default function Navbar() {
   // // Other fetch options, like method and body, if applicable
   // });
   // console.log(request)
-  console.log(token)
+
 
   const handleLogin = () => {
     navigate("/login");
@@ -33,7 +33,7 @@ export default function Navbar() {
       setIsLoggedIn(false);
     }
   }, [token]);
-  console.log(token)
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
