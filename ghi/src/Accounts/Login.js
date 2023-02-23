@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    login(email, password);
     navigate("/");
     // possibly redirect to the trips page instead of the main page
   };

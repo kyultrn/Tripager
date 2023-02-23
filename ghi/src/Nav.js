@@ -6,21 +6,25 @@ import { useAuthContext } from "./Accounts/Authenticator";
 
 export default function Navbar() {
   const { logout } = useToken();
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogout = () => {
     logout();
   };
 
-  const navigate = useNavigate();
-
-  const { token } = useAuthContext();
+  // const request = fetch('/token', {
+  // headers: { Authorization: `Bearer ${token}` },
+  // // Other fetch options, like method and body, if applicable
+  // });
+  // console.log(request)
   console.log(token)
 
   const handleLogin = () => {
     navigate("/login");
   };
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   useEffect(() => {
     if (token) {

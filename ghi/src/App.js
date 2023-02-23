@@ -7,6 +7,7 @@ import { AuthProvider, useToken } from "./Accounts/Authenticator";
 import Login from "./Accounts/Login";
 import SignUp from "./Accounts/Signup.js";
 import Navbar from "./Nav.js";
+import MainPage from "./MainPage.js"
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -40,12 +41,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
         <AuthProvider>
           <GetToken />
+          <Navbar/>
           <div className="container">
             <Routes>
-              {/* <Route path="/" element={<MainPage/>} /> */}
+              <Route path="/" element={<MainPage/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
             </Routes>
