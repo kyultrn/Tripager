@@ -26,8 +26,9 @@ NO SCHOOL
 NO SCHOOL
 
 ### Tues, Feb 21 2023
-We started the day off setting up our Yelp API -- query and router. We did some troubleshooting and were able to complete the calls. After lunch we set up the weather api and officially completed backend! We then went on to begin our React! We started with the login stuff. It proved more difficult than we expected. The functions, classes etc that I had previously done in other projects and been taught did not seem to directly relate to what we needed to do and it was a little frustrating. Luckily Kyle seemed to figure some of it out before we clocked out for the day and we all worked as a team to do the rest. We have a very solid plan for what we are going to do tmrw and we feel good about our progress as a whole. 
+We started the day off setting up our Yelp API -- query and router. We did some troubleshooting and were able to complete the calls. After lunch we set up the weather api and officially completed backend! We then went on to begin our React! We started with the login stuff. It proved more difficult than we expected. The functions, classes etc that I had previously done in other projects and been taught did not seem to directly relate to what we needed to do and it was a little frustrating. Luckily Kyle seemed to figure some of it out before we clocked out for the day and we all worked as a team to do the rest. We have a very solid plan for what we are going to do tmrw and we feel good about our progress as a whole.
 ### Weds, Feb 22 2023
+Today got logout working after 4 hours of intense troubleshooting, youtube watching and finally Tyler helped us. The good news was that the error was quite small and all we needed to do was move the  Nav bar INSIDE of the Auth provider. Before we did this, the autho provider was not actually accessing the function; we were having big issues with our token not displaying (were getting null), thus we were unable to complete our logout functionality. We finally did it and are very proud.
 
 ### Thurs, Feb 23 2023
 
