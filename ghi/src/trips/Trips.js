@@ -29,7 +29,7 @@ function Trips() {
             <tr key={trip.id}>
               <td>
                 {" "}
-                <a href="/trips/{'+trip.id+'}/events">{trip.name}</a>
+                <a href={"trips/trip.id/events"}>{trip.name}</a>
               </td>
               <td>{trip.city}</td>
               <td>{trip.state}</td>
