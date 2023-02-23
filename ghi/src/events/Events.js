@@ -5,7 +5,7 @@ export default Events;
 
 // GET LIST OF ALL EVENTS
 function Events() {
-  const { data, error, isLoading } = useGetEventsQuery(3);
+  const { data, error, isLoading } = useGetEventsQuery(1);
   console.log(data);
 
   if (isLoading) {

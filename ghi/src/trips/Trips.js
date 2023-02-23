@@ -1,10 +1,12 @@
 import { useGetTripsQuery } from "../store/TripsApi";
+import { Link } from "react-router-dom";
+
 
 export default Trips;
 
 // GET LIST OF ALL TRIPS
 function Trips() {
-  const { data, error, isLoading } = useGetTripsQuery();
+  const { data, isLoading } = useGetTripsQuery();
   console.log(data);
 
   if (isLoading) {
@@ -27,10 +29,7 @@ function Trips() {
         <tbody>
           {data.map((trip) => (
             <tr key={trip.id}>
-              <td>
-                {" "}
-                <a href={"trips/trip.id/events"}>{trip.name}</a>
-              </td>
+              <td><Link to ={`/trips/${trip.id}/events`}>{trip.name}</Link></td>
               <td>{trip.city}</td>
               <td>{trip.state}</td>
               <td>{trip.start_date}</td>
