@@ -1,4 +1,3 @@
-
 import { useGetTripsQuery } from "../store/TripsApi";
 
 export default Trips;
@@ -6,8 +5,7 @@ export default Trips;
 // GET LIST OF ALL TRIPS
 function Trips() {
   const { data, error, isLoading } = useGetTripsQuery();
-  console.log(data)
-
+  console.log(data);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -27,15 +25,18 @@ function Trips() {
           </tr>
         </thead>
         <tbody>
-            {data.map(trip => (
-                <tr key={trip.id}>
-                    <td>{trip.name}</td>
-                    <td>{trip.city}</td>
-                    <td>{trip.state}</td>
-                    <td>{trip.start_date}</td>
-                    <td>{trip.end_date}</td>
-                </tr>
-            ))}
+          {data.map((trip) => (
+            <tr key={trip.id}>
+              <td>
+                {" "}
+                <a href="/trips/{'+trip.id+'}/events">{trip.name}</a>
+              </td>
+              <td>{trip.city}</td>
+              <td>{trip.state}</td>
+              <td>{trip.start_date}</td>
+              <td>{trip.end_date}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
