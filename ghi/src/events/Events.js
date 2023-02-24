@@ -30,7 +30,7 @@ export default function Events() {
         <tbody>
           {events.map((event) => (
             <tr key={event.id}>
-              <td>{event.name}</td>
+              <td><Link to={`/trip/${trip.id}/events`}>{trip.name}</Link></td>
               <td>{event.description}</td>
               <td>{event.picture_url}</td>
               <td>{event.location}</td>
