@@ -1,12 +1,14 @@
 import { useGetEventsQuery } from "../store/EventsApi";
+import { useGetTripQuery } from "../store/tripsApi";
 import { tripsApi } from "../store/tripsApi";
 import { useParams } from 'react-router-dom'
 
 // GET LIST OF ALL EVENTS
 export default function Events() {
   const { id } = useParams()
-  const { data, error, isLoading } = useGetEventsQuery(id);
-  // console.log(data);
+
+  const { data: events, error, isLoading } = useGetEventsQuery(id);
+  const {data: trips } = useGetTripQuery(id)
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -14,7 +16,7 @@ export default function Events() {
 
   return (
     <div>
-      <h1>{} Events</h1>
+      <h1>{trips.name} Events</h1>
       <table className="table is-striped">
         <thead>
           <tr>
@@ -26,7 +28,7 @@ export default function Events() {
           </tr>
         </thead>
         <tbody>
-          {data.map((event) => (
+          {events.map((event) => (
             <tr key={event.id}>
               <td>{event.name}</td>
               <td>{event.description}</td>

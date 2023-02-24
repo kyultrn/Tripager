@@ -13,7 +13,11 @@ export const tripsApi = createApi({
 
   endpoints: (builder) => ({
     getTrips: builder.query({
-      query: () => "/api/trips/",
+      query: () => "/api/trips",
+      providesTags: ["TripsList"],
+    }),
+    getTrip: builder.query({
+      query: (trip_id) => `/api/trips/${trip_id}`,
       providesTags: ["TripsList"],
     }),
     createTrip: builder.mutation({
@@ -43,6 +47,7 @@ export const tripsApi = createApi({
 
 export const {
   useGetTripsQuery,
+  useGetTripQuery,
   useCreateTripMutation,
   useDeleteTripMutation,
   useUpdateTripMutation,
