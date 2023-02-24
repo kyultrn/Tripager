@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { RootState } from "@reduxjs/toolkit/dist/query/core/apiState";
 
 
 const tripModalSlice = createSlice({

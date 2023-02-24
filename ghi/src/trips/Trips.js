@@ -2,12 +2,17 @@ import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import CreateTripModal from "./CreateTripModal";
-
+import { openTripModal } from "./TripModalReducer"
+import { useDispatch } from "react-redux";
 // export const trip_id = ''
 
 // GET LIST OF ALL TRIPS
 function Trips() {
   const { data, isLoading } = useGetTripsQuery();
+  const dispatch = useDispatch()
+  const handleOpenModal = () => {
+    dispatch(openTripModal({ name: 'trip' }));
+  };
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -15,7 +20,7 @@ function Trips() {
 
   return (
     <div>
-    { <CreateTripModal /> }
+      <button onClick={handleOpenModal}>Create a Trip</button>
       <h1>Your Trips</h1>
       <table className="table is-striped">
         <thead>
