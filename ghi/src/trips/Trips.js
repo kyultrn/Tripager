@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 // GET LIST OF ALL TRIPS
 function Trips() {
-  const { data, error, isLoading } = useGetTripsQuery();
+  const { data, isLoading } = useGetTripsQuery();
   console.log(data);
   // const {trip_id, setTripId} = useState('')
 
