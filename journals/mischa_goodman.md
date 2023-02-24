@@ -34,6 +34,7 @@ Today got logout working after 4 hours of intense troubleshooting, youtube watch
 Redux! Today we did redux! We watched some videos and implemented what we saw and we were able to set up both Trips and Events pages using redux. We no longer are using useState and useEffect which is kind of confusing because it feels like we just learned that, but it was exciting to do something new.
 
 ### Friday, Feb 24 2023
+Test
 
 ### Mon, Feb 27 2023
 
