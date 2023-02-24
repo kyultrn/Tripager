@@ -1,13 +1,12 @@
-
 import { useGetTripsQuery } from "../store/TripsApi";
+import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 
-export default Trips;
+// export const trip_id = ''
 
 // GET LIST OF ALL TRIPS
 function Trips() {
-  const { data, error, isLoading } = useGetTripsQuery();
-  console.log(data)
-
+  const { data, isLoading } = useGetTripsQuery();
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -27,17 +26,21 @@ function Trips() {
           </tr>
         </thead>
         <tbody>
-            {data.map(trip => (
-                <tr key={trip.id}>
-                    <td>{trip.name}</td>
-                    <td>{trip.city}</td>
-                    <td>{trip.state}</td>
-                    <td>{trip.start_date}</td>
-                    <td>{trip.end_date}</td>
-                </tr>
-            ))}
+          {data.map((trip) => (
+            <tr key={trip.id}>
+              <td>
+                <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+              </td>
+              <td>{trip.city}</td>
+              <td>{trip.state}</td>
+              <td>{trip.start_date}</td>
+              <td>{trip.end_date}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
 }
+
+export default Trips;

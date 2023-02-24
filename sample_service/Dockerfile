@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Copy the top-level files in your service's directory
 # Modify these instructions to do that
+COPY migrations migrations
 COPY requirements.txt requirements.txt
 COPY main.py main.py
 
@@ -11,7 +12,9 @@ COPY main.py main.py
 # Modify these instructions to do that
 # COPY queries queries
 # COPY routers routers
-
+COPY queires queries
+COPY routers routers
+COPY tests test
 
 # If you're using a relational database with migrations,
 # uncomment the following line
@@ -19,9 +22,9 @@ COPY main.py main.py
 
 RUN python -m pip install -r requirements.txt
 # CMD uvicorn main:app --host 0.0.0.0 --port $PORT
-CMD uvicorn main:app --host 0.0.0.0 
+# CMD uvicorn main:app --host 0.0.0.0
 
 # If you're using a relational database and want migrations
 # to be run automatically, delete the previous CMD line and
 # uncomment this CMD line
-# CMD python -m migrations up && uvicorn main:app --host 0.0.0.0
+CMD python -m migrations up && uvicorn main:app --host 0.0.0.0

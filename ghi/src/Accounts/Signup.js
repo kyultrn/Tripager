@@ -1,4 +1,4 @@
-import { useToken, signup } from "./Authenticator";
+import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -6,7 +6,7 @@ export default function SignUp() {
   const { signup } = useToken();
 
   const navigate = useNavigate();
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
