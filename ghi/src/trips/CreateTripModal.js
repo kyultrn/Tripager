@@ -1,6 +1,6 @@
 import React from "react";
-import { render } from "react-dom";
-import { Provider, useSelector } from "react-redux";
+import { render, useState } from "react-dom";
+import { Provider, useSelector, useDispatch } from "react-redux";
 import showStore from "../store/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
@@ -9,7 +9,10 @@ import { Button, Modal, Form } from "react-bootstrap";
 export default CreateTripModal;
 
 function CreateTripModal() {
-  const showModal = useSelector((state) => state);
+  const dispatch = useDispatch()
+  const showModal = useSelector((state) => state.tripModal.isOpen);
+  const formData = useSelector((state) => state.tripModal.formData)
+  
 
   const handleShow = () => {
     showStore.dispatch({ type: "SHOW" });

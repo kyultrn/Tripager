@@ -2,23 +2,31 @@ import { createSlice } from "@reduxjs/toolkit"
 import { RootState } from "@reduxjs/toolkit/dist/query/core/apiState";
 
 
-const tripModal = createSlice({
+const tripModalSlice = createSlice({
   name: "tripModal",
-  initialState: false,
-  reducers: {
-    toggleTripModal: (state) => {
-      state.isTripModalOpen = !state.isTripModalOpen
-    }
+  initialState:{
+    isOpen: false,
+    formData: {},
   },
-});
-export const { toggleTripModal } = tripModal.actions;
+  reducers: {
+    openTripModal: (state) => {
+      state.isOpen = true
+    },
+    closeTripModal: (state) => {
+      state.isOpen = false
+    },
+    setFormData: (state, action) => {
+      state.formData = action.payload
+    },
+    clearFormData: (state) => {
+      state.formData = {}
+    },
+  },
+})
 
+export const { openTripModal, closeTripModal, setFormData, clearFormData } = tripModalSlice.actions
+export default tripModalSlice.reducer
 
-
-export const tripOpen = (state: RootState) =>
-  state.tripModal.isTripModalOpen;
-
-export default tripModal.reducer
 
 
 
