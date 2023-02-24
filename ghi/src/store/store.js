@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { tripsApi } from "./TripsApi";
+import { tripsApi } from "./tripsApi";
 import { eventsApi } from "./EventsApi";
 
 

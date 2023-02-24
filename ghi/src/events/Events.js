@@ -1,14 +1,12 @@
 import { useGetEventsQuery } from "../store/EventsApi";
-import { eventsApi } from "../store/EventsApi";
-import { Link } from 'react-router-dom'
-
-
-export default Events;
+import { tripsApi } from "../store/tripsApi";
+import { useParams } from 'react-router-dom'
 
 // GET LIST OF ALL EVENTS
-function Events() {
-  const { data, error, isLoading } = useGetEventsQuery(3);
-  console.log(data);
+export default function Events() {
+  const { id } = useParams()
+  const { data, error, isLoading } = useGetEventsQuery(id);
+  // console.log(data);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
