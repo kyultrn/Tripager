@@ -7,21 +7,10 @@ import { useState } from 'react'
 // GET LIST OF ALL TRIPS
 function Trips() {
   const { data, isLoading } = useGetTripsQuery();
-  console.log(data);
-  // const {trip_id, setTripId} = useState('')
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
-
-  // const setTripId = (id) => {
-  //   const trip_id = id
-  //   return trip_id
-  // }
-
-  // const handleTripId = (id) => {
-  //   setTripId(id)
-  // };
 
   return (
     <div>
