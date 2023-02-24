@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { tripsApi } from "./tripsApi";
+import { tripsApi } from "./TripsApi";
 import { eventsApi } from "./EventsApi";
-
 
 export const store = configureStore({
   reducer: {
@@ -11,8 +10,8 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
-    .concat(tripsApi.middleware)
-    .concat(eventsApi.middleware),
+      .concat(tripsApi.middleware)
+      .concat(eventsApi.middleware),
 });
 
 setupListeners(store.dispatch);

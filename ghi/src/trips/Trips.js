@@ -1,6 +1,6 @@
-import { useGetTripsQuery } from "../store/tripsApi";
+import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from 'react'
+import { useState } from "react";
 
 // export const trip_id = ''
 
@@ -28,7 +28,9 @@ function Trips() {
         <tbody>
           {data.map((trip) => (
             <tr key={trip.id}>
-              <td><Link to ={`/trips/${trip.id}/events`}>{trip.name}</Link></td>
+              <td>
+                <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+              </td>
               <td>{trip.city}</td>
               <td>{trip.state}</td>
               <td>{trip.start_date}</td>
