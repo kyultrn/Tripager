@@ -1,5 +1,7 @@
 import { useGetEventsQuery } from "../store/EventsApi";
-import { tripsApi } from "../store/TripsApi";
+import { eventsApi } from "../store/EventsApi";
+import { Link } from 'react-router-dom'
+
 
 export default Events;
 
@@ -28,7 +30,7 @@ function Events() {
         <tbody>
           {data.map((event) => (
             <tr key={event.id}>
-              <td>{event.name}</td>
+              <td><Link to={`/trip/${trip.id}/events`}>{trip.name}</Link></td>
               <td>{event.description}</td>
               <td>{event.picture_url}</td>
               <td>{event.location}</td>

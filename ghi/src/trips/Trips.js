@@ -1,5 +1,6 @@
 import { useGetTripsQuery } from "../store/TripsApi";
 
+
 export default Trips;
 
 // GET LIST OF ALL TRIPS
