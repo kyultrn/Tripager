@@ -32,7 +32,11 @@ class EventQueries:
                     result = db.execute(
                         '''
                         INSERT INTO events
-                                (name, description, location, date, start_time, end_time, picture_url, trip_id)
+                                (name,
+                                description,
+                                location, date,
+                                start_time, end_time,
+                                picture_url, trip_id)
                         VALUES
                                 (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
@@ -50,19 +54,28 @@ class EventQueries:
                     )
                     id = result.fetchone()[0]
                     old_data = event.dict()
-                    return EventOut(id=id,trip_id=trip_id, **old_data)
+                    return EventOut(id=id, trip_id=trip_id, **old_data)
         except Exception as e:
             print(e)
             return {"message": "Couldn't create trip event."}
 
-
-    def get_all_trip_events(self, trip_id: int) -> Union[Error, List[EventOut]]:
+    def get_all_trip_events(self,
+                            trip_id: int
+                            ) -> Union[Error, List[EventOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, name, description, location, date, start_time, end_time, picture_url, trip_id
+                        SELECT id,
+                        name,
+                        description,
+                        location,
+                        date,
+                        start_time,
+                        end_time,
+                        picture_url,
+                        trip_id
                         FROM events
                         WHERE trip_id = %s
                         ORDER BY date, start_time;
@@ -82,24 +95,31 @@ class EventQueries:
                             picture_url=record[7],
                             trip_id=record[8]
                         )
-
                         result.append(event)
                     return result
 
         except Exception as e:
             print(e)
-            return({"message": "Could not retrieve all trip's events."})
+            return ({"message": "Could not retrieve all trip's events."})
 
-
-
-
-    def get_trip_event(self, trip_id: int, event_id: int) -> Optional[EventOut]:
+    def get_trip_event(self,
+                       trip_id: int,
+                       event_id: int
+                       ) -> Optional[EventOut]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, name, description, location, date, start_time, end_time, picture_url, trip_id
+                        SELECT id,
+                        name,
+                        description,
+                        location,
+                        date,
+                        start_time,
+                        end_time,
+                        picture_url,
+                        trip_id
                         FROM events
                         WHERE trip_id = %s AND id = %s;
                         """,

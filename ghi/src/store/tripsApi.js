@@ -13,7 +13,7 @@ export const tripsApi = createApi({
 
   endpoints: (builder) => ({
     getTrips: builder.query({
-      query: () => "/api/trips/",
+      query: () => "/api/trips",
       providesTags: ["TripsList"],
     }),
     createTrip: builder.mutation({
