@@ -1,6 +1,7 @@
 import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import CreateTripModal from "./CreateTripModal";
 
 // export const trip_id = ''
 
@@ -14,6 +15,7 @@ function Trips() {
 
   return (
     <div>
+    { <CreateTripModal /> }
       <h1>Your Trips</h1>
       <table className="table is-striped">
         <thead>
