@@ -26,7 +26,7 @@ function ModalForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(closeTripModal());
-    dispatch(createTrip(formData))
+    createTrip(formData)
   };
 
   return (
