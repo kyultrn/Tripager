@@ -1,4 +1,4 @@
-import { useGetTripsQuery } from "../store/TripsApi";
+import { useGetTripsQuery } from "../store/tripsApi";
 import { useNavigate, Link } from "react-router-dom";
 import { openTripModal, tripModalSlice } from "./TripModalReducer"
 import { useDispatch } from "react-redux";

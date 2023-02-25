@@ -1,6 +1,6 @@
 import { useGetEventsQuery } from "../store/EventsApi";
-import { useGetTripQuery } from "../store/TripsApi";
-import { tripsApi } from "../store/TripsApi";
+import { useGetTripQuery } from "../store/tripsApi";
+import { tripsApi } from "../store/tripsApi";
 import { useParams } from "react-router-dom";
 
 // GET LIST OF ALL EVENTS
