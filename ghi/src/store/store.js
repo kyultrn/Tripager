@@ -3,14 +3,14 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { tripsApi } from "./TripsApi";
 import { eventsApi } from "./EventsApi";
 import TripModalReducer from "../trips/TripModalReducer";
-import formSlice from "../trips/FormSlice";
+import FormSlice from "../trips/FormSlice";
 
 export const store = configureStore({
   reducer: {
     [tripsApi.reducerPath]: tripsApi.reducer,
     [eventsApi.reducerPath]: eventsApi.reducer,
     tripModal: TripModalReducer,
-    form: formSlice
+    form: FormSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
