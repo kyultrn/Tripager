@@ -8,8 +8,10 @@ import { useCreateTripMutation } from "../store/tripsApi";
 
 function ModalForm() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
+
   const formData = useSelector(selectFormData);
-  console.log(formData)
+  // console.log(formData, "********")
+
   const dispatch = useDispatch();
   const [createTrip, result] = useCreateTripMutation()
 
@@ -19,8 +21,18 @@ function ModalForm() {
   };
 
   const handleCloseModal = () => {
-    dispatch(closeTripModal());
+    dispatch(closeTripModal())
+    dispatch(
+      updateFormData({
+        name: "",
+        city: "",
+        state: "",
+        start_date: "",
+        end_date: "",
+      })
+    );
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +41,8 @@ function ModalForm() {
     createTrip(formData)
 
   };
+
+
 
   return (
     <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
