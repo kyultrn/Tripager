@@ -29,19 +29,3 @@ export default tripModalSlice.reducer
 
 
 
-
-
-// const modalReducer = (state = false, action) => {
-//   switch (action.type) {
-//     case "SHOW":
-//       return true;
-//     case "HIDE":
-//       return false;
-//     default:
-//       return state;
-//   }
-// };
-
-// const showStore = createSlice(modalReducer);
-
-// export default showStore;
