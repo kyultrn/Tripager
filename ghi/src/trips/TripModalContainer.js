@@ -15,4 +15,6 @@ const mapDispatchToProps = {
   closeModal,
 };
 
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(TripModalContainer);

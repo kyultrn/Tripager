@@ -4,12 +4,14 @@ import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData } from "./FormSlice";
 import { useCreateTripMutation } from "../store/TripsApi";
 
-
 function ModalForm() {
   const [createTrip, result] = useCreateTripMutation()
+
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
+
   const formData = useSelector(selectFormData);
-  console.log(formData)
+  // console.log(formData, "********")
+
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -18,13 +20,27 @@ function ModalForm() {
   };
 
   const handleCloseModal = () => {
-    dispatch(closeTripModal());
+    dispatch(closeTripModal())
+    dispatch(
+      updateFormData({
+        name: "",
+        city: "",
+        state: "",
+        start_date: "",
+        end_date: "",
+      })
+    );
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     createTrip(formData)
+    handleCloseModal()
+
   };
+
+
 
   return (
     <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
@@ -76,7 +92,9 @@ function ModalForm() {
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit">
+            Submit
+          </button>
         </form>
       </div>
       <button
