@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "./TripModalReducer";
-import { selectFormData, updateFormData } from "./FormSlice";
+import { selectFormData, updateFormData, resetFormData } from "./FormSlice";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateTripMutation } from "../store/tripsApi";
 
 function ModalForm() {
@@ -10,6 +12,7 @@ function ModalForm() {
   const formData = useSelector(selectFormData);
   console.log(formData)
   const dispatch = useDispatch();
+  const [createTrip, result] = useCreateTripMutation()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,68 +25,38 @@ function ModalForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(resetFormData())
+    dispatch(closeTripModal());
     createTrip(formData)
+
   };
 
   return (
     <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
-      <div className="modal-background" onClick={handleCloseModal}></div>
-      <div className="modal-content">
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            City:
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            State:
-            <input
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Start Date:
-            <input
-              type="text"
-              name="start_date"
-              value={formData.start_date}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            End Date:
-            <input
-              type="text"
-              name="end_date"
-              value={formData.end_date}
-              onChange={handleInputChange}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <button
-        className="modal-close is-large"
-        aria-label="close"
-        onClick={handleCloseModal}
-      ></button>
+      <Modal show={isModalOpen} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Trip</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control type='text' name='name' value={formData.name} onChange={handleInputChange} />
+            <Form.Label>City</Form.Label>
+            <Form.Control type='text' name='city' value={formData.city} onChange={handleInputChange} />
+            <Form.Label>State</Form.Label>
+            <Form.Control type='text' name='state' value={formData.state} onChange={handleInputChange} />
+            <Form.Label>Start Date</Form.Label>
+            <Form.Control type='text' name='start_date' value={formData.start_date} onChange={handleInputChange} />
+            <Form.Label>End Date</Form.Label>
+            <Form.Control type='text' name='end_date' value={formData.end_date} onChange={handleInputChange} />
+            <Modal.Footer>
+              <Button type='submit'>Create</Button>
+            </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </div>
+
   );
 }
 

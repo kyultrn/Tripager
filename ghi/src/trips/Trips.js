@@ -15,7 +15,6 @@ export function Trips() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const handleOpenModal = () => {
-    console.log("handleopenmodal is working")
     dispatch(openTripModal())
   }
 
