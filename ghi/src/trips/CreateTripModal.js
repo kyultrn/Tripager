@@ -4,7 +4,7 @@ import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData } from "./FormSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-
+import { useCreateTripMutation } from "../store/tripsApi";
 
 function ModalForm() {
   console.log("form is woorking")
@@ -12,6 +12,7 @@ function ModalForm() {
   const formData = useSelector(selectFormData);
   console.log(formData)
   const dispatch = useDispatch();
+  const [createTrip, result] = useCreateTripMutation()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,8 +25,7 @@ function ModalForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch an action to submit the form data
-    // e.g. dispatch(submitFormData(formData))
+    dispatch(createTrip(formData))
   };
 
   return (
