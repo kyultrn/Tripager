@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "./TripModalReducer";
-import { selectFormData, updateFormData } from "./FormSlice";
+import { selectFormData, updateFormData, resetFormData } from "./FormSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateTripMutation } from "../store/tripsApi";
@@ -25,8 +25,10 @@ function ModalForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(resetFormData())
     dispatch(closeTripModal());
     createTrip(formData)
+
   };
 
   return (
