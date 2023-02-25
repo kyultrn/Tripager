@@ -2,6 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData } from "./FormSlice";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Modal, Form } from "react-bootstrap";
+
 
 function ModalForm() {
   console.log("form is woorking")
@@ -27,8 +30,29 @@ function ModalForm() {
 
   return (
     <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
-      <div className="modal-background" onClick={handleCloseModal}></div>
-      <div className="modal-content">
+      <Modal show={isModalOpen} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create Trip</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control type='text' name='name' value={formData.name} onChange={handleInputChange} />
+            <Form.Label>City</Form.Label>
+            <Form.Control type='text' name='city' value={formData.city} onChange={handleInputChange} />
+            <Form.Label>State</Form.Label>
+            <Form.Control type='text' name='state' value={formData.state} onChange={handleInputChange} />
+            <Form.Label>Start Date</Form.Label>
+            <Form.Control type='text' name='start date' value={formData.start_date} onChange={handleInputChange} />
+            <Form.Label>End Date</Form.Label>
+            <Form.Control type='text' name='end date' value={formData.end_date} onChange={handleInputChange} />
+            <Modal.Footer>
+              <Button onClick={handleCloseModal}>Create</Button>
+            </Modal.Footer>
+          </Form>
+        </Modal.Body>
+      </Modal>
+      {/* <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <label>
             Name:
@@ -82,7 +106,7 @@ function ModalForm() {
         className="modal-close is-large"
         aria-label="close"
         onClick={handleCloseModal}
-      ></button>
+      ></button> */}
     </div>
   );
 }
