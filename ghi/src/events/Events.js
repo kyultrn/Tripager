@@ -1,10 +1,6 @@
 import { useGetEventsQuery } from "../store/EventsApi";
 import { useGetTripQuery } from "../store/TripsApi";
-<<<<<<< HEAD
-import { tripsApi } from "../store/TripsApi";
-=======
 import { TripsApi } from "../store/TripsApi";
->>>>>>> 39730a1409353c1f9d0e0b80c3ccbb2a94f8dc29
 import { useParams } from "react-router-dom";
 
 export default function Events() {
