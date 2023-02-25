@@ -31,6 +31,10 @@ We started the day off setting up our Yelp API -- query and router. We did some 
 Today got logout working after 4 hours of intense troubleshooting, youtube watching and finally Tyler helped us. The good news was that the error was quite small and all we needed to do was move the  Nav bar INSIDE of the Auth provider. Before we did this, the autho provider was not actually accessing the function; we were having big issues with our token not displaying (were getting null), thus we were unable to complete our logout functionality. We finally did it and are very proud.
 
 ### Thurs, Feb 23 2023
+Redux! Today we did redux! We watched some videos and implemented what we saw and we were able to set up both Trips and Events pages using redux. We no longer are using useState and useEffect which is kind of confusing because it feels like we just learned that, but it was exciting to do something new.
+
+### Friday, Feb 24 2023
+Test
 
 ### Mon, Feb 27 2023
 

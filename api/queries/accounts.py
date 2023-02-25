@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from queries.pool import pool
-from typing import List, Union, Optional
+from typing import List, Union
+
 
 class DuplicateAccountError(ValueError):
     pass
@@ -54,8 +55,10 @@ class AccountQueries:
         except Exception:
             return {"message": "Couldn't find account"}
 
-
-    def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
+    def create(self,
+               account: AccountIn,
+               hashed_password: str
+               ) -> AccountOutWithPassword:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -85,11 +88,12 @@ class AccountQueries:
         except Exception:
             return {"message": "Couldn't create user"}
 
-    def update(self, account_id: int, account: AccountIn) -> Union[AccountOut, Error]:
+    def update(self,
+               account_id: int,
+               account: AccountIn,
+               ) -> Union[AccountOut, Error]:
         try:
-            # Connect to the database
             with pool.connection() as conn:
-                # Get a cursor [something to run SQL with]
                 with conn.cursor() as db:
                     db.execute(
                         """
@@ -140,7 +144,6 @@ class AccountQueries:
             print(e)
             return {"message": "Could not receive all accounts"}
 
-
     def delete(self, account_id: int) -> bool:
         try:
             with pool.connection() as conn:
@@ -156,7 +159,6 @@ class AccountQueries:
         except Exception as e:
             print(e)
             return False
-
 
     def account_in_to_out(self, id: int, account: AccountIn):
         old_data = account.dict()

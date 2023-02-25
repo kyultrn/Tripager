@@ -8,7 +8,7 @@ export function getToken() {
 }
 
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+  const url = `${process.env.REACT_APP_TRIPAGER_HOST}/token`;
   try {
     const response = await fetch(url, {
       credentials: "include",
@@ -76,7 +76,7 @@ export function useToken() {
 
   async function logout() {
     if (token) {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/token`;
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
@@ -85,8 +85,8 @@ export function useToken() {
   }
 
   async function login(email, password) {
-    console.log(process.env.REACT_APP_ACCOUNTS_HOST);
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
+    console.log(process.env.REACT_APP_TRIPAGER_HOST);
+    const url = `${process.env.REACT_APP_TRIPAGER_HOST}/token`;
     const form = new FormData();
     form.append("username", email);
     form.append("password", password);
@@ -98,7 +98,6 @@ export function useToken() {
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
-      console.log(token)
       return;
     }
     let error = await response.json();
@@ -107,7 +106,7 @@ export function useToken() {
 
   //possible first name, last name instead of name parms
   async function signup(name, email, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts`;
+    const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/accounts`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
@@ -126,7 +125,7 @@ export function useToken() {
   }
 
   async function update(password, email, firstName, lastName) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts`;
+    const url = `${process.env.REACT_APP_TRIPAGER_HOST}/accounts`;
     const response = await fetch(url, {
       method: "patch",
       body: JSON.stringify({
@@ -157,7 +156,7 @@ export const useUser = (token) => {
     }
 
     async function getUser() {
-      const url = `${ .REACT_APP_ACCOUNTS_HOST}/current_user`;
+      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/current_user`;
       const response = await fetch(url, {
         credentials: "include",
       });

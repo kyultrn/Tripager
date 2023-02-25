@@ -19,7 +19,7 @@ in the morning we started working on the final API calls for yelp and the weathe
 ### Weds, Feb 22 2023
 we went over our login/logout on the front-end in the morning. We were stuck on how we should be doing this, redux or not. We ran into issues on how the token is supposed to be stored. It ended up just being our Navbar wasn't inside our authprovider in the app.js file. After fixing this and a few pathing issues we had, we finished the day going over what materials we should review for the next day.
 ### Thurs, Feb 23 2023
-
+we implemented redux and started completing our paths for the events/trips frontend. we set up our list trips page to display all the trips and did the same for list events for trips. we were stuck several times trying to display the specific event for each trip and are still unsure of how to pass it down through props or ?. having trouble with the map function in general also.
 ### Fri, Feb 24 2023
 
 ### Mon, Feb 27 2023

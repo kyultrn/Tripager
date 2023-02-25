@@ -5,7 +5,9 @@ from fastapi import (
 from queries.weather import WeatherQueries
 from fastapi import APIRouter
 
+
 router = APIRouter()
+
 
 @router.get("/api/weather")
 def get_weather(

@@ -1,18 +1,54 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const initialState = {
+  trips: []
+}
 export const tripsApi = createApi({
   reducerPath: "trips",
+  initialState,
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_ACCOUNTS_HOST,
-    // why i think should likely be called TRIPAGER
+    baseUrl: process.env.REACT_APP_TRIPAGER_HOST,
   }),
+  tagTypes: ["TripsList"],
+
   endpoints: (builder) => ({
-    // Names of methods we want to use to interact with API
     getTrips: builder.query({
-      query: () => "/api/trips/",
+      query: () => "/api/trips",
+      providesTags: ["TripsList"],
+    }),
+    getTrip: builder.query({
+      query: (trip_id) => `/api/trips/${trip_id}`,
+      providesTags: ["TripsList"],
+    }),
+    createTrip: builder.mutation({
+      query: (data) => ({
+        url: "/api/trips",
+        body: data,
+        method: "post",
+      }),
+      invalidatesTags: ["TripsList"],
+    }),
+    deleteTrip: builder.mutation({
+      query: (trip_id) => ({
+        url: `/api/trips/${trip_id}`,
+        method: "delete",
+      }),
+      invalidatesTags: ["TripsList"],
+    }),
+    updateTrip: builder.mutation({
+      query: (trip_id) => ({
+        url: `/api/trips/${trip_id}`,
+        method: "put",
+      }),
+      invalidatesTags: ["TripsList"],
     }),
   }),
 });
 
-export const { useGetTripsQuery } = tripsApi
+export const {
+  useGetTripsQuery,
+  useGetTripQuery,
+  useCreateTripMutation,
+  useDeleteTripMutation,
+  useUpdateTripMutation,
+} = tripsApi;
