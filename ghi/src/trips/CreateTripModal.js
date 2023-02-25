@@ -7,7 +7,6 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateTripMutation } from "../store/tripsApi";
 
 function ModalForm() {
-  const [createTrip, result] = useCreateTripMutation()
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
   const formData = useSelector(selectFormData);
   console.log(formData)
