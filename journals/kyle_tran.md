@@ -17,7 +17,7 @@
 ### Tues, Feb 21 2023
     Today, we attempted the login form and got it to display but the functionality still doesn't work.
 ### Weds, Feb 22 2023
-
+    Today, we got worked on the Login and Signup components. After four hours, we managed to grab the token from the front end.
 ### Thurs, Feb 23 2023
 
 ### Mon, Feb 27 2023
