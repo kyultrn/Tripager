@@ -2,9 +2,10 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData } from "./FormSlice";
+import { useCreateTripMutation } from "../store/tripsApi";
 
 function ModalForm() {
-  console.log("form is woorking")
+  const [createTrip, result] = useCreateTripMutation()
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
   const formData = useSelector(selectFormData);
   console.log(formData)
@@ -21,8 +22,7 @@ function ModalForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch an action to submit the form data
-    // e.g. dispatch(submitFormData(formData))
+    createTrip(formData)
   };
 
   return (
