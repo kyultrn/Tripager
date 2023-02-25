@@ -3,10 +3,9 @@ import { useGetTripQuery } from "../store/tripsApi";
 import { tripsApi } from "../store/tripsApi";
 import { useParams } from "react-router-dom";
 
-// GET LIST OF ALL EVENTS
 export default function Events() {
-  const { id } = useParams();
-
+  const { id } = useParams()
+  const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
   const { data: events, error, isLoading } = useGetEventsQuery(id);
   const { data: trips, tripError, isLoading: tripLoading} = useGetTripQuery(id);
 
