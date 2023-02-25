@@ -56,15 +56,15 @@ function CreateTripModal() {
         <Modal.Body>
           <Form>
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="John's Bachelor Party" />
+            <Form.Control type="text" placeholder="John's Bachelor Party" value={name} onChange={(e) => setName(e.target.value)} />
             <Form.Label>City</Form.Label>
-            <Form.Control type="text" placeholder="Las Vegas" />
+            <Form.Control type="text" placeholder="Las Vegas" value={city} onChange={(e) => setName(e.target.value)} />
             <Form.Label>State</Form.Label>
-            <Form.Control type="text" placeholder="Nevada" />
+            <Form.Control type="text" placeholder="Nevada" value={state} onChange={(e) => setState(e.target.value)} />
             <Form.Label>Start Date</Form.Label>
-            <Form.Control type="date" placeholder="" />
+            <Form.Control type="date" placeholder="" value={start_date} onChange={(e) => setStartDate(e.target.value)} />
             <Form.Label>End Date</Form.Label>
-            <Form.Control type="date" placeholder="" />
+            <Form.Control type="date" placeholder="" value={end_date} onChange={(e) => setEndDate(e.target.value)} />
 
             <Modal.Footer>
               <Button onClick={handleSubmit}>Create Trip</Button>

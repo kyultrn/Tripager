@@ -1,17 +1,17 @@
 import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
 import CreateTripModal from "./CreateTripModal";
 import { openTripModal, setFormData } from "./TripModalReducer"
 import { useDispatch } from "react-redux";
-import { setAutoFreeze } from "immer";
 // export const trip_id = ''
 
 // GET LIST OF ALL TRIPS
 function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const dispatch = useDispatch()
+
   const handleOpenModal = () => {
+    console.log("its working dude")
     dispatch(openTripModal())
     dispatch(setFormData({ name: "", city: "", state: "", start_date: "", end_date: "" }))
   };
