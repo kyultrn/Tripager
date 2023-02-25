@@ -1,7 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Construct from "./Construct.js";
-import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
@@ -10,8 +7,6 @@ import Navbar from "./Nav.js";
 import MainPage from "./MainPage.js"
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
-import CreateTripModal from "./trips/CreateTripModal.js";
-import showStore from "./store/Store.js";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)

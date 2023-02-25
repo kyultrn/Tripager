@@ -4,28 +4,17 @@ import { createSlice } from "@reduxjs/toolkit"
 const tripModalSlice = createSlice({
   name: "tripModal",
   initialState:{
-    isOpen: false,
-    formData: {},
+    isModalOpen: false,
   },
   reducers: {
     openTripModal: (state) => {
-      state.isOpen = true
+      state.isModalOpen = true
     },
     closeTripModal: (state) => {
-      state.isOpen = false
-    },
-    setFormData: (state, action) => {
-      state.formData = action.payload
-    },
-    clearFormData: (state) => {
-      state.formData = {}
+      state.isModalOpen = false
     },
   },
 })
 
-export const { openTripModal, closeTripModal, setFormData, clearFormData } = tripModalSlice.actions
+export const { openTripModal, closeTripModal } = tripModalSlice.actions
 export default tripModalSlice.reducer
-
-
-
-

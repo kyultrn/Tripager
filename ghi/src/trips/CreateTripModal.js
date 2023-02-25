@@ -1,78 +1,90 @@
 import React from "react";
-import { useState } from "react";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import showStore from "../store/Store";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, Form } from "react-bootstrap";
-import { openTripModal, closeTripModal, setFormData, clearFormData } from './TripModalReducer'
-import { useCreateTripMutation } from "../store/TripsApi";
-import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { closeTripModal, openTripModal } from "./TripModalReducer";
+import { selectFormData, updateFormData } from "./FormSlice";
 
-export default CreateTripModal;
+function ModalForm() {
+  console.log("form is woorking")
+  const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
+  const formData = useSelector(selectFormData);
+  console.log(formData)
+  const dispatch = useDispatch();
 
-function CreateTripModal() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const showModal = useSelector((state) => state.tripModal.isOpen);
-  const formData = useSelector((state) => state.tripModal.formData)
-  const [name, setName] = useState(formData.name || '')
-  const [city, setCity] = useState(formData.city || '')
-  const [state, setState] = useState(formData.state || '')
-  const [start_date, setStartDate] = useState(formData.start_date || '')
-  const [end_date, setEndDate] = useState(formData.end_date || '')
-  const [createTrip, result] = useCreateTripMutation()
-  const [error, setError] = useState('')
-
-  const handleShow = () => {
-    dispatch(showModal());
-    dispatch(setFormData({ name: "", city: "", state: "", start_date: "", end_date: ""}))
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(updateFormData({ name, value }));
   };
 
-  const handleClose = () => {
-    dispatch(closeTripModal())
-    dispatch(clearFormData())
+  const handleCloseModal = () => {
+    dispatch(closeTripModal());
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    createTrip({name, city, state, start_date, end_date})
-  }
-  if (result.isSuccess){
-    navigate('/api/trips')
-  } else if (result.isError) {
-    setError(result.error)
-  }
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // dispatch an action to submit the form data
+    // e.g. dispatch(submitFormData(formData))
+  };
 
   return (
-    <div>
-      <Button onClick={handleShow}>Show modal</Button>
-      // Changed to use const declared above
-      <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Trip</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <Form>
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="John's Bachelor Party" value={name} onChange={(e) => setName(e.target.value)} />
-            <Form.Label>City</Form.Label>
-            <Form.Control type="text" placeholder="Las Vegas" value={city} onChange={(e) => setName(e.target.value)} />
-            <Form.Label>State</Form.Label>
-            <Form.Control type="text" placeholder="Nevada" value={state} onChange={(e) => setState(e.target.value)} />
-            <Form.Label>Start Date</Form.Label>
-            <Form.Control type="date" placeholder="" value={start_date} onChange={(e) => setStartDate(e.target.value)} />
-            <Form.Label>End Date</Form.Label>
-            <Form.Control type="date" placeholder="" value={end_date} onChange={(e) => setEndDate(e.target.value)} />
-
-            <Modal.Footer>
-              <Button onClick={handleSubmit}>Create Trip</Button>
-              <Button onClick={handleClose}>Cancel</Button>
-            </Modal.Footer>
-          </Form>
-        </Modal.Body>
-      </Modal>
+    <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
+      <div className="modal-background" onClick={handleCloseModal}></div>
+      <div className="modal-content">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            City:
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            State:
+            <input
+              type="text"
+              name="state"
+              value={formData.state}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Start Date:
+            <input
+              type="text"
+              name="start_date"
+              value={formData.start_date}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            End Date:
+            <input
+              type="text"
+              name="end_date"
+              value={formData.end_date}
+              onChange={handleInputChange}
+            />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <button
+        className="modal-close is-large"
+        aria-label="close"
+        onClick={handleCloseModal}
+      ></button>
     </div>
   );
 }
+
+export default ModalForm;
