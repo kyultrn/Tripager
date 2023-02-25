@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData } from "./FormSlice";
-import { useCreateTripMutation } from "../store/tripsApi";
+import { useCreateTripMutation } from "../store/TripsApi";
 
 function ModalForm() {
   const [createTrip, result] = useCreateTripMutation()
