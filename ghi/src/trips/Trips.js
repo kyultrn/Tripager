@@ -1,11 +1,10 @@
 import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
-import { openTripModal, tripModalSlice } from "./TripModalReducer"
+import { openTripModal, tripModalSlice } from "./TripModalReducer";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
 // export const trip_id = ''
-
 
 // GET LIST OF ALL TRIPS
 export function Trips() {
@@ -15,14 +14,15 @@ export function Trips() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const handleOpenModal = () => {
-    console.log("handleopenmodal is working")
-    dispatch(openTripModal())
-  }
+    console.log("handleopenmodal is working");
+    dispatch(openTripModal());
+  };
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  
   return (
     <div>
       <button onClick={handleOpenModal}>Create a Trip</button>
@@ -56,4 +56,4 @@ export function Trips() {
   );
 }
 
-export default Trips ;
+export default Trips;
