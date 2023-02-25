@@ -25,6 +25,7 @@ function ModalForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(closeTripModal());
     dispatch(createTrip(formData))
   };
 
@@ -47,12 +48,12 @@ function ModalForm() {
             <Form.Label>End Date</Form.Label>
             <Form.Control type='text' name='end_date' value={formData.end_date} onChange={handleInputChange} />
             <Modal.Footer>
-              <Button onClick={handleCloseModal}>Create</Button>
+              <Button type='submit'>Create</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>
-      </div>
+    </div>
 
   );
 }
