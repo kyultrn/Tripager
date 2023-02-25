@@ -22,6 +22,7 @@ export function Trips() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  
   return (
     <div>
       <button onClick={handleOpenModal}>Create a Trip</button>
