@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.fa-trash {
+  color: rgb(197, 13, 13);
+}
+

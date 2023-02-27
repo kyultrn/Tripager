@@ -14,13 +14,15 @@ export default function Events() {
   }else{
     return (
         <div>
-          <h1>{trips.name} Events</h1>
+          <h1>{trip.name} Events</h1>
           <table className="table is-striped">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>City</th>
                 <th>State</th>
+                <th>Picture</th>
+                <th>Location</th>
                 <th>Start Date</th>
                 <th>End Date</th>
               </tr>

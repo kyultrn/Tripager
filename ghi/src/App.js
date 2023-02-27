@@ -4,9 +4,13 @@ import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/Signup.js";
 import Navbar from "./Nav.js";
-import MainPage from "./MainPage.js"
+import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
+import ThingsToDo from "./ThingsToDo";
+import Footer from "./Footer.js";
+
+
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -21,16 +25,18 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <GetToken />
-          <Navbar/>
+          <Navbar />
           <div className="container">
             <Routes>
-              <Route path="/" element={<MainPage/>} />
+              <Route path="/" element={<TripagerHome />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/trips" element={<Trips />} />
               <Route path="/trips/:id/events" element={<Events />} />
+              <Route path="/thingstodo" element={<ThingsToDo />} />
             </Routes>
           </div>
+          <Footer />
         </AuthProvider>
       </BrowserRouter>
     </>

@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateTripMutation } from "../store/TripsApi";
 
-function ModalForm() {
+
+export default function CreateTripModal() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const formData = useSelector(selectFormData);
@@ -62,5 +63,3 @@ function ModalForm() {
 
   );
 }
-
-export default ModalForm;
