@@ -4,11 +4,14 @@ import { closeTripModal, openTripModal, tripModalSlice } from "./TripModalReduce
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
+import UpdateTripModal from "./UpdateTripModal";
+import CreateTripModal from "./CreateTripModal";
 
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const dispatch = useDispatch();
+  // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
@@ -20,11 +23,18 @@ export function Trips() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  const handleDeleteTrip = () => {
+
+  }
+
+  const handleUpdateTrip = () => {
+
+  }
 
   return (
     <div>
       <button onClick={handleOpenModal}>Create a Trip</button>
-      {isModalOpen && <ModalForm />}
+      {isModalOpen && <CreateTripModal />}
       <h1>Your Trips</h1>
       <table className="table is-striped">
         <thead>
@@ -34,6 +44,8 @@ export function Trips() {
             <th>State</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +58,20 @@ export function Trips() {
               <td>{trip.state}</td>
               <td>{trip.start_date}</td>
               <td>{trip.end_date}</td>
+              <td>
+              <i onClick={handleOpenModal}className="fa-solid fa-pen-to-square"
+              />
+              {isModalOpen && <UpdateTripModal />}
+              </td>
+              <td>
+                <i
+                  onClick={() => {
+                    handleDeleteTrip(trip.id);
+                  }}
+                  className="fa fa-trash"
+                  aria-hidden="true"
+                ></i>
+              </td>
             </tr>
           ))}
         </tbody>

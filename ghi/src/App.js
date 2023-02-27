@@ -10,6 +10,8 @@ import Events from "./events/Events.js";
 import ThingsToDo from "./ThingsToDo";
 import Footer from "./Footer.js";
 
+
+
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
   useToken();

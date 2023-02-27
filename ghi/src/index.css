@@ -17,3 +17,8 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+.fa-trash {
+  color: rgb(197, 13, 13);
+}
+
