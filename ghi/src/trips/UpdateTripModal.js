@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { closeTripModal, openTripModal } from "./TripModalReducer";
-import { selectFormData, updateFormData, resetFormData } from "./FormSlice";
+import { closeTripModal, openTripModal } from "../store/TripModal";
+import { selectFormData, updateFormData, resetFormData } from "../store/TripModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useUpdateTripMutation } from "../store/TripsApi";

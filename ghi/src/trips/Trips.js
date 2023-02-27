@@ -52,7 +52,7 @@ export function Trips() {
           {data.map((trip) => (
             <tr key={trip.id}>
               <td>
-                <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+                {/* <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link> */}
               </td>
               <td>{trip.city}</td>
               <td>{trip.state}</td>
