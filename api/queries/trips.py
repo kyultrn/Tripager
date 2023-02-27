@@ -14,7 +14,7 @@ class TripIn(BaseModel):
     state: str
     start_date: date
     end_date: date
-
+    account_id: int
 
 class TripOut(TripIn):
     id: int
@@ -29,9 +29,9 @@ class TripQueries:
                     result = db.execute(
                         '''
                         INSERT INTO trips
-                                (name, city, state, start_date, end_date)
+                                (name, city, state, start_date, end_date, account_id)
                         VALUES
-                                (%s, %s, %s, %s, %s)
+                                (%s, %s, %s, %s, %s, %s)
                         RETURNING id;
                         ''',
                         [
@@ -39,7 +39,8 @@ class TripQueries:
                                 trip.city,
                                 trip.state,
                                 trip.start_date,
-                                trip.end_date
+                                trip.end_date,
+                                trip.account_id
                         ],
                     )
                     id = result.fetchone()[0]
@@ -56,7 +57,7 @@ class TripQueries:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, name, city, state, start_date, end_date
+                        SELECT id, name, city, state, start_date, end_date, account_id
                         FROM trips
                         ORDER BY start_date;
                         """,
@@ -70,6 +71,37 @@ class TripQueries:
                             state=record[3],
                             start_date=record[4],
                             end_date=record[5],
+                            account_id=record[6],
+                        )
+                        result.append(trip)
+                    return result
+        except Exception as e:
+            print(e)
+            return({"message": "Could not get trip data!"})
+
+    def get_trips_by_id(self, account_id: int):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT id, name, city, state, start_date, end_date, account_id
+                        FROM trips
+                        WHERE account_id = %s
+                        ORDER BY start_date;
+                        """,
+                        [account_id],
+                    )
+                    result = []
+                    for record in db:
+                        trip = TripOut(
+                            id=record[0],
+                            name=record[1],
+                            city=record[2],
+                            state=record[3],
+                            start_date=record[4],
+                            end_date=record[5],
+                            account_id=record[6],
                         )
                         result.append(trip)
                     return result

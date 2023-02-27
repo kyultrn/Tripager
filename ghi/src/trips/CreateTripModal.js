@@ -1,16 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { closeTripModal, openTripModal } from "./TripModalReducer";
-import { selectFormData, updateFormData, resetFormData } from "./FormSlice";
+import { closeTripModal, openTripModal } from "../store/TripModal";
+import { selectFormData, updateFormData, resetFormData } from "../store/TripModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useCreateTripMutation } from "../store/tripsApi";
+import { useCreateTripMutation } from "../store/TripsApi";
 
 function ModalForm() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const formData = useSelector(selectFormData);
-  // console.log(formData, "********")
 
   const dispatch = useDispatch();
   const [createTrip, result] = useCreateTripMutation()
@@ -22,15 +21,6 @@ function ModalForm() {
 
   const handleCloseModal = () => {
     dispatch(closeTripModal())
-    dispatch(
-      updateFormData({
-        name: "",
-        city: "",
-        state: "",
-        start_date: "",
-        end_date: "",
-      })
-    );
   };
 
 

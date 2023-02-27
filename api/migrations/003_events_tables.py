@@ -10,7 +10,8 @@ steps = [
             date DATE NOT NULL,
             start_time TIME NOT NULL,
             end_time TIME NOT NULL,
-            trip_id INT NOT NULL REFERENCES trips(id) ON DELETE CASCADE
+            trip_id INT NOT NULL REFERENCES trips(id),
+            account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE
         );
         """,
         """

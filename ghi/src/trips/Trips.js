@@ -1,6 +1,6 @@
 import { useGetTripsQuery } from "../store/TripsApi";
 import { useNavigate, Link } from "react-router-dom";
-import { closeTripModal, openTripModal, tripModalSlice } from "./TripModalReducer";
+import { openTripModal } from "../store/TripModal";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
@@ -23,7 +23,7 @@ export function Trips() {
 
   return (
     <div>
-      <button onClick={handleOpenModal}>Create a Trip</button>
+      <button className="btn btn-primary" onClick={handleOpenModal}>Create a Trip</button>
       {isModalOpen && <ModalForm />}
       <h1>Your Trips</h1>
       <table className="table is-striped">

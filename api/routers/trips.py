@@ -3,6 +3,7 @@ from fastapi import (
     Response,
     APIRouter,
 )
+from authenticator import authenticator
 from jwtdown_fastapi.authentication import Token
 from typing import List, Union, Optional
 from queries.trips import (
@@ -30,6 +31,13 @@ def get_all_trips(
 ):
     return repo.get_all_trips()
 
+@router.get("/api/trips/mytrips", response_model=Union[List[TripOut], Error] )
+def get_trips_by_id(
+    repo: TripQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    print(f"this is account data: {account_data}")
+    return repo.get_trips_by_id(account_data["id"])
 
 @router.get("/api/trips/{trip_id}", response_model=Optional[TripOut])
 def get_trip(
