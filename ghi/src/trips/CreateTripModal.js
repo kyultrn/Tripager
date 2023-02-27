@@ -4,7 +4,7 @@ import { closeTripModal, openTripModal } from "./TripModalReducer";
 import { selectFormData, updateFormData, resetFormData } from "./FormSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useCreateTripMutation } from "../store/tripsApi";
+import { useCreateTripMutation } from "../store/TripsApi";
 
 function ModalForm() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
