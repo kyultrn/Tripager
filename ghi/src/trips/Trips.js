@@ -7,7 +7,6 @@ import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
 
-
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const dispatch = useDispatch();
@@ -16,24 +15,22 @@ export function Trips() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const handleOpenModal = () => {
-    dispatch(openTripModal())
-  }
+    dispatch(openTripModal());
+  };
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const handleDeleteTrip = () => {
+  const handleDeleteTrip = () => {};
 
-  }
-
-  const handleUpdateTrip = () => {
-
-  }
+  const handleUpdateTrip = () => {};
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleOpenModal}>Create a Trip</button>
+      <button className="btn btn-primary" onClick={handleOpenModal}>
+        Create a Trip
+      </button>
       {isModalOpen && <ModalForm />}
       <h1>Your Trips</h1>
       <table className="table is-striped">
@@ -59,9 +56,11 @@ export function Trips() {
               <td>{trip.start_date}</td>
               <td>{trip.end_date}</td>
               <td>
-              <i onClick={handleOpenModal}className="fa-solid fa-pen-to-square"
-              />
-              {isModalOpen && <UpdateTripModal />}
+                <i
+                  onClick={handleOpenModal}
+                  className="fa-solid fa-pen-to-square"
+                />
+                {isModalOpen && <UpdateTripModal />}
               </td>
               <td>
                 <i
@@ -81,3 +80,4 @@ export function Trips() {
 }
 
 export default Trips;
+
