@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useToken } from "./accounts/authenticator";
-import { useAuthContext } from "./accounts/authenticator";
+import { useToken } from "./accounts/Authenticator";
+import { useAuthContext } from "./accounts/Authenticator";
 
 export default function Navbar() {
   const { logout } = useToken();
@@ -32,7 +32,7 @@ export default function Navbar() {
   }, [token]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           <span className="tripager">Tripager</span>

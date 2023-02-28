@@ -1,4 +1,4 @@
-import { useToken } from "./authenticator";
+import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

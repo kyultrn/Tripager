@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { AuthProvider, useToken } from "./accounts/authenticator";
+import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/Signup.js";
 import Navbar from "./Nav.js";
@@ -8,7 +8,9 @@ import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
 import ThingsToDo from "./ThingsToDo";
-import Footer from "./Footer.js";
+import Footer from "./footer/Footer.js";
+import AboutDevelopers from "./footer/AboutDevelopers";
+import AboutTripager from "./footer/AboutTripager";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -31,6 +33,8 @@ function App() {
               <Route path="/mytrips" element={<Trips />} />
               <Route path="/trips/:id/events" element={<Events />} />
               <Route path="/thingstodo" element={<ThingsToDo />} />
+              <Route path="/about-developers" element={<AboutDevelopers />} />
+              <Route path="/about-tripager" element={< AboutTripager />} />
             </Routes>
           </div>
           <Footer />
