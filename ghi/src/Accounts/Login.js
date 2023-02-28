@@ -1,17 +1,22 @@
 import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useUserLoginMutation } from "../store/ApiSlice";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
-  const { login } = useToken();
+  // const { login } = useToken();
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login] = useUserLoginMutation()
+  const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    login(email, password);
+    console.log({login})
+    login({email, password});
     navigate("/");
     // possibly redirect to the trips page instead of the main page
   };

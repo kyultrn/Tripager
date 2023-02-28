@@ -4,7 +4,7 @@ import { closeTripModal, openTripModal } from "../store/TripModal";
 import { selectFormData, updateFormData, resetFormData } from "../store/TripModal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useCreateTripMutation } from "../store/TripsApi";
+import { useCreateTripMutation } from "../store/ApiSlice";
 
 
 export default function CreateTripModal() {

@@ -1,4 +1,4 @@
-import { useGetTripsQuery } from "../store/TripsApi";
+import { useGetTripsQuery } from "../store/ApiSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { openTripModal } from "../store/TripModal";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,7 @@ import CreateTripModal from "./CreateTripModal";
 
 
 export function Trips() {
-  const { data, isLoading } = useGetTripsQuery();
+  const { data: data, isLoading: isLoading } = useGetTripsQuery();
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -52,7 +52,7 @@ export function Trips() {
           {data.map((trip) => (
             <tr key={trip.id}>
               <td>
-                {/* <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link> */}
+                <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
               </td>
               <td>{trip.city}</td>
               <td>{trip.state}</td>
