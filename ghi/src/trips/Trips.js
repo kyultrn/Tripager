@@ -6,34 +6,37 @@ import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-
+import { useGetTokenQuery } from '../store/ApiSlice'
 
 export function Trips() {
-  const { data: data, isLoading: isLoading } = useGetTripsQuery();
+  const { data, isLoading } = useGetTripsQuery();
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery()
+  if (tokenData){
+    console.log(tokenData)
+  }
+  console.log(data);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
 
   const handleOpenModal = () => {
-    dispatch(openTripModal())
+    dispatch(openTripModal());
+  };
+
+  if (tokenLoading) {
+    return <><progress className="progress is-primary" max="100"></progress></>;
   }
 
-  if (isLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  }
+  const handleDeleteTrip = () => {};
 
-  const handleDeleteTrip = () => {
-
-  }
-
-  const handleUpdateTrip = () => {
-
-  }
+  const handleUpdateTrip = () => {};
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleOpenModal}>Create a Trip</button>
+      <button className="btn btn-primary" onClick={handleOpenModal}>
+        Create a Trip
+      </button>
       {isModalOpen && <ModalForm />}
       <h1>Your Trips</h1>
       <table className="table is-striped">
@@ -49,7 +52,7 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
-          {data.map((trip) => (
+          {data?.map((trip) => (
             <tr key={trip.id}>
               <td>
                 <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
@@ -59,9 +62,11 @@ export function Trips() {
               <td>{trip.start_date}</td>
               <td>{trip.end_date}</td>
               <td>
-              <i onClick={handleOpenModal}className="fa-solid fa-pen-to-square"
-              />
-              {isModalOpen && <UpdateTripModal />}
+                <i
+                  onClick={handleOpenModal}
+                  className="fa-solid fa-pen-to-square"
+                />
+                {isModalOpen && <UpdateTripModal />}
               </td>
               <td>
                 <i

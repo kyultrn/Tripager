@@ -28,9 +28,11 @@ export const tripsApi = createApi({
     // Trips
     ...EventEndpoints(builder),
     getTrips: builder.query({
-      query: () => "/api/trips/mytrips",
+      query: () => ({
+        url: "/api/trips/mytrips",
+        credentials: 'include',
+      }),
       providesTags: ["TripsList"],
-      credentials: "include",
     }),
     getTrip: builder.query({
       query: (trip_id) => `/api/trips/${trip_id}`,
@@ -93,6 +95,7 @@ export const tripsApi = createApi({
 
 export const {
   useGetTripsQuery,
+  useLazyGetTripsQuery,
   useGetTripQuery,
   useGetEventsQuery,
   useCreateTripMutation,

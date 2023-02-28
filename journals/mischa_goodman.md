@@ -37,6 +37,7 @@ Redux! Today we did redux! We watched some videos and implemented what we saw an
 Test
 
 ### Mon, Feb 27 2023
+Today was extremely frustrating. Redux is terrible. It is hard and confusing and it makes me want to fall asleep. We worked with multiple SEIRs and Riley to resolve issues with our login/logout tokens. We should have finalized the login/logout stuff with Redux a few days ago but we thought that we would be able to do that without Redux but turns out we could not. We ended the day by helping Anton's group with their MovieList page. I also helped Yonah's group with some GIT issues. Today was hard. 
 
 ### Tues, Feb 28 2023
 

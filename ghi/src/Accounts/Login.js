@@ -2,14 +2,15 @@ import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserLoginMutation } from "../store/ApiSlice";
-import { useDispatch } from "react-redux";
+import { updateFormData } from "../store/AccountsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
   // const { login } = useToken();
 
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const email = useSelector((state) => state.loginForm.email);
+  const password = useSelector((state) => state.loginForm.password)
   const [login] = useUserLoginMutation()
   const dispatch = useDispatch();
 
@@ -21,13 +22,14 @@ export default function Login() {
     // possibly redirect to the trips page instead of the main page
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    dispatch(updateFormData({ name, value }));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const handlePasswordChange = (e) => {
+  //   dispatch(setPassword(e.target.value));
+  // };
 
   return (
     <div className="row">
@@ -37,7 +39,7 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
             <input
-              onChange={handleEmailChange}
+              onChange={handleInputChange}
               value={email}
               placeholder="Enter your email"
               required
@@ -50,7 +52,7 @@ export default function Login() {
           </div>
           <div className="form-floating mb-3">
             <input
-              onChange={handlePasswordChange}
+              onChange={handleInputChange}
               value={password}
               placeholder="Enter your password"
               required
