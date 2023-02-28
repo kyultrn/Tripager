@@ -6,10 +6,15 @@ import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-
+import { useGetTokenQuery } from '../store/ApiSlice'
 
 export function Trips() {
-  const { data: data, isLoading: isLoading } = useGetTripsQuery();
+  const { data, isLoading } = useGetTripsQuery();
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery()
+  if (tokenData){
+    console.log(tokenData)
+  }
+  console.log(data);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -19,8 +24,8 @@ export function Trips() {
     dispatch(openTripModal())
   }
 
-  if (isLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
+  if (tokenLoading) {
+    return <><progress className="progress is-primary" max="100"></progress></>;
   }
 
   const handleDeleteTrip = () => {
@@ -49,7 +54,7 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
-          {data.map((trip) => (
+          {data?.map((trip) => (
             <tr key={trip.id}>
               <td>
                 <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
