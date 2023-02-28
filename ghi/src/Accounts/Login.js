@@ -1,8 +1,8 @@
-import { useToken } from "./Authenticator";
+import { useToken } from "./authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useUserLoginMutation } from "../store/ApiSlice";
-import { updateFormData } from "../store/AccountsSlice";
+import { useUserLoginMutation } from "../store/apiSlice";
+import { updateFormData } from "../store/accountsSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
@@ -10,20 +10,20 @@ export default function Login() {
 
   const navigate = useNavigate();
   const email = useSelector((state) => state.loginForm.email);
-  const password = useSelector((state) => state.loginForm.password)
-  const [login] = useUserLoginMutation()
+  const password = useSelector((state) => state.loginForm.password);
+  const [login] = useUserLoginMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({login})
-    login({email, password});
+    console.log({ login });
+    login({ email, password });
     navigate("/");
     // possibly redirect to the trips page instead of the main page
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     dispatch(updateFormData({ name, value }));
   };
 

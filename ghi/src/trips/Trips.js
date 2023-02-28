@@ -1,18 +1,18 @@
-import { useGetTripsQuery } from "../store/ApiSlice";
+import { useGetTripsQuery } from "../store/apiSlice";
 import { useNavigate, Link } from "react-router-dom";
-import { openTripModal } from "../store/TripModal";
+import { openTripModal } from "../store/tripModalSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-import { useGetTokenQuery } from '../store/ApiSlice'
+import { useGetTokenQuery } from "../store/apiSlice";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
-  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery()
-  if (tokenData){
-    console.log(tokenData)
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  if (tokenData) {
+    console.log(tokenData);
   }
   console.log(data);
   const dispatch = useDispatch();
@@ -25,7 +25,11 @@ export function Trips() {
   };
 
   if (tokenLoading) {
-    return <><progress className="progress is-primary" max="100"></progress></>;
+    return (
+      <>
+        <progress className="progress is-primary" max="100"></progress>
+      </>
+    );
   }
 
   const handleDeleteTrip = () => {};

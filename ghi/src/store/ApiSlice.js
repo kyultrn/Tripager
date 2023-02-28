@@ -1,10 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { EventEndpoints } from "./EventsEndpoints";
-
+import { eventEndpoints } from "./eventEndpoints";
 
 const initialState = {
-  trips: []
-}
+  trips: [],
+};
 export const tripsApi = createApi({
   reducerPath: "trips",
   initialState,
@@ -26,11 +25,11 @@ export const tripsApi = createApi({
 
   endpoints: (builder) => ({
     // Trips
-    ...EventEndpoints(builder),
+    ...eventEndpoints(builder),
     getTrips: builder.query({
       query: () => ({
         url: "/api/trips/mytrips",
-        credentials: 'include',
+        credentials: "include",
       }),
       providesTags: ["TripsList"],
     }),

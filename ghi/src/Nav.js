@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useToken } from "./accounts/Authenticator";
-import { useAuthContext } from "./accounts/Authenticator";
+import { useToken } from "./accounts/authenticator";
+import { useAuthContext } from "./accounts/authenticator";
 
 export default function Navbar() {
   const { logout } = useToken();
@@ -19,11 +19,9 @@ export default function Navbar() {
   // });
   // console.log(request)
 
-
   const handleLogin = () => {
     navigate("/login");
   };
-
 
   useEffect(() => {
     if (token) {
@@ -32,7 +30,6 @@ export default function Navbar() {
       setIsLoggedIn(false);
     }
   }, [token]);
-
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">

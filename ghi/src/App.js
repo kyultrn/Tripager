@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { AuthProvider, useToken } from "./accounts/Authenticator";
+import { AuthProvider, useToken } from "./accounts/authenticator";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/Signup.js";
 import Navbar from "./Nav.js";
@@ -10,8 +10,6 @@ import Events from "./events/Events.js";
 import ThingsToDo from "./ThingsToDo";
 import Footer from "./Footer.js";
 
-
-
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
   useToken();
@@ -19,7 +17,6 @@ function GetToken() {
 }
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
