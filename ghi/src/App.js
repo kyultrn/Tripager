@@ -8,9 +8,9 @@ import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
 import ThingsToDo from "./ThingsToDo";
-import Footer from "./Footer.js";
-
-
+import Footer from "./footer/Footer.js";
+import AboutDevelopers from "./footer/AboutDevelopers";
+import AboutTripager from "./footer/AboutTripager";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -19,12 +19,11 @@ function GetToken() {
 }
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
-        <AuthProvider>
-          <GetToken />
+        {/* <AuthProvider>
+          <GetToken /> */}
           <Navbar />
           <div className="container">
             <Routes>
@@ -34,10 +33,12 @@ function App() {
               <Route path="/trips" element={<Trips />} />
               <Route path="/trips/:id/events" element={<Events />} />
               <Route path="/thingstodo" element={<ThingsToDo />} />
+              <Route path="/about-developers" element={<AboutDevelopers />} />
+              <Route path="/about-tripager" element={< AboutTripager />} />
             </Routes>
           </div>
           <Footer />
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </BrowserRouter>
     </>
   );

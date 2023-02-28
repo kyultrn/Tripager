@@ -1,14 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { closeTripModal, openTripModal } from "../store/TripModal";
 import {
+  closeTripModal,
+  openTripModal,
   selectFormData,
   updateFormData,
   resetFormData,
-} from "../store/TripModal";
+} from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useCreateTripMutation } from "../store/ApiSlice";
+import { useCreateTripMutation } from "../store/apiSlice";
 
 export default function CreateTripModal() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);

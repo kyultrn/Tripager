@@ -7,29 +7,25 @@ export default function SignUp() {
 
   const navigate = useNavigate();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     signup(formData.name, formData.email, formData.password);
-    navigate("/")
+    navigate("/");
     // possibly redirect to the trips page instead of the main page
   };
 
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
-
+    name: "",
+    email: "",
+    password: "",
+  });
 
   const handleFormChange = (e) => {
     setFormData({
-        ...formData,
-        [e.target.name]:e.target.value
-    })
-  }
-
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="row">

@@ -1,14 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { closeTripModal, openTripModal } from "../store/TripModal";
+import { closeTripModal, openTripModal } from "../store/tripModalSlice";
 import {
   selectFormData,
   updateFormData,
   resetFormData,
-} from "../store/TripModal";
+} from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useUpdateTripMutation } from "../store/ApiSlice";
+import { useUpdateTripMutation } from "../store/apiSlice";
 
 function UpdateTripModal() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);

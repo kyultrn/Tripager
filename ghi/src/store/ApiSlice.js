@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { EventEndpoints } from "./EventsEndpoints";
-
+import { eventEndpoints } from "./eventEndpoints";
 
 const initialState = {
-  trips: []
+  trips: [],
+  events: []
 }
 export const tripsApi = createApi({
   reducerPath: "trips",
@@ -22,15 +22,15 @@ export const tripsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["TripsList", "Token", "Account", "EventsList"],
+  tagTypes: ["TripsList", "Token", "EventsList", "Account"],
 
   endpoints: (builder) => ({
     // Trips
-    ...EventEndpoints(builder),
+    ...eventEndpoints(builder),
     getTrips: builder.query({
       query: () => ({
         url: "/api/trips/mytrips",
-        credentials: 'include',
+        credentials: "include",
       }),
       providesTags: ["TripsList"],
     }),
@@ -79,8 +79,9 @@ export const tripsApi = createApi({
           credentials: "include",
         };
       },
+      providesTags:['Account'],
       invalidatesTags: (result) => {
-        return (result && ["Account"]) || [];
+        return (result && ["Token"]) || [];
       },
     }),
     getToken: builder.query({
@@ -90,6 +91,14 @@ export const tripsApi = createApi({
       }),
       providesTags: ["Token"],
     }),
+    userLogout: builder.mutation({
+      query: () => ({
+        url: '/token',
+        method: 'delete',
+        credentials: 'include',
+      }),
+      invalidateTags: ["Token", "Account"]
+    })
   }),
 });
 
@@ -102,6 +111,7 @@ export const {
   useDeleteTripMutation,
   useUpdateTripMutation,
   useUserLoginMutation,
+  useUserLogoutMutation,
   useGetTokenQuery,
   useCreateEventMutation,
   useDeleteEventMutation,

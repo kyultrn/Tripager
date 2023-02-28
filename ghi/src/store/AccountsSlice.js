@@ -16,4 +16,5 @@ const loginFormSlice = createSlice({
 
 export const { updateFormData } = loginFormSlice.actions
 export const selectFormData = (state) => state.loginForm;
-export default { loginFormSlice }
+export const loginFormSliceReducer = loginFormSlice.reducer;
+export default { loginFormSliceReducer }
