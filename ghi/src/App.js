@@ -7,7 +7,7 @@ import Navbar from "./Nav.js";
 import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
-import ThingsToDo from "./ThingsToDo";
+import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
