@@ -3,9 +3,7 @@ from fastapi import (
     Response,
     APIRouter,
 )
-from jwtdown_fastapi.authentication import Token
 from typing import List, Union, Optional
-from datetime import time
 from queries.events import (
     EventIn,
     EventOut,
@@ -23,10 +21,12 @@ def create_trip_event(
     event: EventIn,
     repo: EventQueries = Depends()
 ):
-   return repo.create_trip_event(event, trip_id)
+    return repo.create_trip_event(event, trip_id)
 
 
-@router.get("/api/trips/{trip_id}/events", response_model=Union[List[EventOut], Error])
+@router.get(
+        "/api/trips/{trip_id}/events",
+        response_model=Union[List[EventOut], Error])
 def get_all_trip_events(
     trip_id: int,
     response: Response,
@@ -38,7 +38,9 @@ def get_all_trip_events(
     return trip_events
 
 
-@router.get("/api/trips/{trip_id}/events/{event_id}", response_model=Optional[EventOut])
+@router.get(
+        "/api/trips/{trip_id}/events/{event_id}",
+        response_model=Optional[EventOut])
 def get_trip_event(
     trip_id: int,
     event_id: int,
@@ -51,7 +53,9 @@ def get_trip_event(
     return trip_event
 
 
-@router.put("/api/trips/{trip_id}/events/{event_id}", response_model=Union[EventOut, Error])
+@router.put(
+        "/api/trips/{trip_id}/events/{event_id}",
+        response_model=Union[EventOut, Error])
 def update_trip_event(
     trip_id: int,
     event_id: int,

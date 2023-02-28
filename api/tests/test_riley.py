@@ -1,6 +1,6 @@
 from api.testclient import TestClient
 from main import app
-from ..queries/accounts import AccountQueries
+from ../queries/accounts import AccountQueries
 client = TestClient(app)
 
 class FakeAccountQueries:
@@ -9,7 +9,7 @@ class FakeAccountQueries:
     def get_account(self, account_id: int):
         return {
             'id': account_id,
-            "email": 
+            "email":
         }
 
 

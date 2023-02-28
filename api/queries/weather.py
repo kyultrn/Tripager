@@ -1,10 +1,8 @@
-from pydantic import BaseModel
-from typing import Optional, List, Union
 import requests
-from queries.pool import pool
 import os
 
 WEATHER_API_KEY = os.environ["WEATHER_API_KEY"]
+
 
 class WeatherQueries:
     def get_weather(self, location: str):

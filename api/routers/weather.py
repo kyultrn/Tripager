@@ -3,7 +3,6 @@ from fastapi import (
     APIRouter,
 )
 from queries.weather import WeatherQueries
-from fastapi import APIRouter
 
 
 router = APIRouter()
