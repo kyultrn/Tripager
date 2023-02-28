@@ -3,7 +3,6 @@ from fastapi import (
     APIRouter,
 )
 from queries.yelp_api import YelpQueries
-from fastapi import APIRouter
 
 
 router = APIRouter()

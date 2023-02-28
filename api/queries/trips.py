@@ -16,6 +16,7 @@ class TripIn(BaseModel):
     end_date: date
     account_id: int
 
+
 class TripOut(TripIn):
     id: int
 
@@ -29,7 +30,14 @@ class TripQueries:
                     result = db.execute(
                         '''
                         INSERT INTO trips
-                                (name, city, state, start_date, end_date, account_id)
+                                (
+                                name,
+                                city,
+                                state,
+                                start_date,
+                                end_date,
+                                account_id
+                                )
                         VALUES
                                 (%s, %s, %s, %s, %s, %s)
                         RETURNING id;
@@ -50,14 +58,18 @@ class TripQueries:
             print(e)
             return {"message": "Couldn't create trip!"}
 
-
     def get_all_trips(self) -> Union[Error, List[TripOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, name, city, state, start_date, end_date, account_id
+                        SELECT id,
+                        name, city,
+                        state,
+                        start_date,
+                        end_date,
+                        account_id
                         FROM trips
                         ORDER BY start_date;
                         """,
@@ -85,7 +97,13 @@ class TripQueries:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, name, city, state, start_date, end_date, account_id
+                        SELECT id,
+                        name,
+                        city,
+                        state,
+                        start_date,
+                        end_date,
+                        account_id
                         FROM trips
                         WHERE account_id = %s
                         ORDER BY start_date;
@@ -129,7 +147,6 @@ class TripQueries:
             print(e)
             return {"message": "Could not get that trip"}
 
-
     def update_trip(self, trip_id: int, trip: TripIn) -> Union[TripOut, Error]:
         try:
             with pool.connection() as conn:
@@ -158,7 +175,6 @@ class TripQueries:
             print(e)
             return {"message": "Could not update that trip."}
 
-
     def delete_trip(self, trip_id: int) -> bool:
         try:
             with pool.connection() as conn:
@@ -175,11 +191,9 @@ class TripQueries:
             print(e)
             return False
 
-
     def trip_in_to_out(self, id: int, trip: TripIn):
         old_data = trip.dict()
         return TripOut(id=id, **old_data)
-
 
     def record_to_trip_out(self, record):
         return TripOut(

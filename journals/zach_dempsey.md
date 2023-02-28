@@ -23,7 +23,7 @@ we implemented redux and started completing our paths for the events/trips front
 ### Fri, Feb 24 2023
 we worked on finding out how to use the form slice. Had issues trying to update and save data. worked on creating our modal to sign up or create a user. worked on passing state and updating the form data.
 ### Mon, Feb 27 2023
-
+we went over what we did the previous week about the modals and how we actually got to use the state as a prop for the modal to open it, the form data being used for input changes. we create our update modal but couldn't figure out how to link it to the id of the trip to update. we realized we didn't have it linked to a token which is used as the id we were trying to pass, we had to go back and start updating code for the token to be added on the front end side of authentication so when a user is logged in the token is passed to the routes and we can only see data linked to a certain user. We were told by Justin or Louise that we need to have all of our slices in a single file and they can't be separated because they aren't interacting with each other so certain things aren't linked to each other like login and passing the token. Tyler explained to us how to break them down into separate files but still be able to import them. we helped another group get on track to start making a call to their 3rd party API that they were having trouble with. 
 ### Tues, Feb 28 2023
 
 ### Weds, Mar 1 2023

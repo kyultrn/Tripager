@@ -16,15 +16,20 @@ from queries.accounts import (
     AccountQueries,
     DuplicateAccountError,
 )
+
+
 class Error(BaseModel):
     message: str
+
 
 class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
+
 
 class HttpError(BaseModel):
     detail: str
@@ -81,7 +86,8 @@ def get_all(
     return repo.get_all()
 
 
-@router.put("/api/accounts/{account_id}", response_model=Union[AccountOut, Error])
+@router.put(
+        "/api/accounts/{account_id}", response_model=Union[AccountOut, Error])
 def update_account(
     account_id: int,
     account: AccountIn,
