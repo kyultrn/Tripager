@@ -23,21 +23,21 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AuthProvider>
-          <GetToken />
+        {/* <AuthProvider>
+          <GetToken /> */}
           <Navbar />
           <div className="container">
             <Routes>
               <Route path="/" element={<TripagerHome />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/mytrips" element={<Trips />} />
+              <Route path="/trips" element={<Trips />} />
               <Route path="/trips/:id/events" element={<Events />} />
               <Route path="/thingstodo" element={<ThingsToDo />} />
             </Routes>
           </div>
           <Footer />
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </BrowserRouter>
     </>
   );
