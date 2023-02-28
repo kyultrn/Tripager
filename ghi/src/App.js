@@ -11,13 +11,18 @@ import ThingsToDo from "./ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
+import { setLoginState } from "./store/accountsSlice";
+import { store } from "./store/store";
+import { useDispatch } from "react-redux";
+
+
 
 function GetToken() {
+
   // Get token from JWT cookie (if already logged in)
   useToken();
   return null;
 }
-
 function App() {
   return (
     <>

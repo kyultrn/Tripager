@@ -14,7 +14,21 @@ const loginFormSlice = createSlice({
     }
 })
 
+const loggedInSlice = createSlice({
+    name: 'loggedIn',
+    initialState: {
+        logged: false,
+    },
+    reducers: {
+        setLoginState: (state, action) => {
+
+            state.logged = action.payload
+        },
+    }})
+
+export const { setLoginState } = loggedInSlice.actions
 export const { updateFormData } = loginFormSlice.actions
 export const selectFormData = (state) => state.loginForm;
 export const loginFormSliceReducer = loginFormSlice.reducer;
-export default { loginFormSliceReducer }
+export const loggedInSliceReducer = loggedInSlice.reducer;
+export default { loginFormSliceReducer, loggedInSliceReducer }
