@@ -27,7 +27,7 @@ export default function Login() {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     dispatch(updateFormData({ name, value }));
   };
   // if(!token && !isLoading){

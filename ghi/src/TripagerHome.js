@@ -1,7 +1,7 @@
 // import { useAuthContext } from "./accounts/Authenticator";
 import { useNavigate } from "react-router-dom";
 // import React, { useState, useEffect } from "react";
-import { useGetTokenQuery } from './store/ApiSlice'
+import { useGetTokenQuery } from "./store/apiSlice";
 import { useSelector } from "react-redux";
 // import { useUserLogoutMutation } from "./store/ApiSlice";
 

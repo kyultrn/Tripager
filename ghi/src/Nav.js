@@ -22,7 +22,6 @@ export default function Navbar() {
     navigate("/login");
   };
 
-
   if (token){
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
