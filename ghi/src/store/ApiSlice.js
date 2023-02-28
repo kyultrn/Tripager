@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { EventEndpoints } from "./EventsEndpoints";
+
 
 const initialState = {
   trips: []
@@ -20,14 +22,15 @@ export const tripsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["TripsList", "Token", "Account"],
+  tagTypes: ["TripsList", "Token", "Account", EventsList],
 
   endpoints: (builder) => ({
     // Trips
+    ...EventEndpoints(builder),
     getTrips: builder.query({
       query: () => "/api/trips/mytrips",
       providesTags: ["TripsList"],
-      credentials: 'include',
+      credentials: "include",
     }),
     getTrip: builder.query({
       query: (trip_id) => `/api/trips/${trip_id}`,
@@ -58,32 +61,32 @@ export const tripsApi = createApi({
     // Accounts
     userLogin: builder.mutation({
       query: (info) => {
-        console.log(info)
+        console.log(info);
         let formData = null;
         if (info instanceof HTMLElement) {
           formData = new FormData(info);
         } else {
           formData = new FormData();
-          formData.append('username', info.email);
-          formData.append('password', info.password);
+          formData.append("username", info.email);
+          formData.append("password", info.password);
         }
         return {
-          url: '/token',
-          method: 'post',
+          url: "/token",
+          method: "post",
           body: formData,
-          credentials: 'include',
+          credentials: "include",
         };
       },
-      invalidatesTags: result => {
-        return (result && ['Account']) || [];
+      invalidatesTags: (result) => {
+        return (result && ["Account"]) || [];
       },
     }),
     getToken: builder.query({
       query: () => ({
-        url: '/token',
-        credentials: 'include',
+        url: "/token",
+        credentials: "include",
       }),
-      providesTags: ['Token'],
+      providesTags: ["Token"],
     }),
   }),
 });
@@ -96,4 +99,7 @@ export const {
   useUpdateTripMutation,
   useUserLoginMutation,
   useGetTokenQuery,
+  useCreateEventMutation,
+  useDeleteEventMutation,
+  useUpdateEventMutation,
 } = tripsApi;
