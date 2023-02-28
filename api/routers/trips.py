@@ -4,7 +4,6 @@ from fastapi import (
     APIRouter,
 )
 from authenticator import authenticator
-from jwtdown_fastapi.authentication import Token
 from typing import List, Union, Optional
 from queries.trips import (
     TripIn,
@@ -39,6 +38,7 @@ def get_trips_by_id(
 ):
     print(f"this is account data: {account_data}")
     return repo.get_trips_by_id(account_data["id"])
+
 
 
 @router.get("/api/trips/{trip_id}", response_model=Optional[TripOut])

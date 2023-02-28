@@ -1,11 +1,9 @@
-from pydantic import BaseModel
-from typing import Optional, List, Union
 import requests
-from queries.pool import pool
 import os
 
 
 YELP_API_KEY = os.environ["YELP_API_KEY"]
+
 
 class YelpQueries:
     def get_yelp_recommendations(self, term: str, location: str):
