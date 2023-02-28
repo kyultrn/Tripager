@@ -13,8 +13,8 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>{
     return getDefaultMiddleware()
-      .concat(tripsApi.middleware)
-      .concat(eventsApi.middleware)},
+      .concat(tripsApi.middleware)},
+      // .concat(eventsApi.middleware)},
 });
 
 setupListeners(store.dispatch);

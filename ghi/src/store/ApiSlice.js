@@ -22,7 +22,7 @@ export const tripsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["TripsList", "Token", "Account", EventsList],
+  tagTypes: ["TripsList", "Token", "Account", "EventsList"],
 
   endpoints: (builder) => ({
     // Trips
@@ -94,6 +94,7 @@ export const tripsApi = createApi({
 export const {
   useGetTripsQuery,
   useGetTripQuery,
+  useGetEventsQuery,
   useCreateTripMutation,
   useDeleteTripMutation,
   useUpdateTripMutation,
