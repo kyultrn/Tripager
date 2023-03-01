@@ -11,7 +11,7 @@ import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
-import { setLoginState } from "./store/accountsSlice";
+import { setLoginState } from "./store/AccountsSlice";
 import { store } from "./store/store";
 import { useDispatch } from "react-redux";
 import VideoCarousel from "./VideoCarousel";

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { tripsApi } from "./apiSlice";
+import { tripsApi } from "./ApiSlice";
 import { createTripFormSliceReducer, tripModalSliceReducer } from "./tripModalSlice";
-import { loginFormSliceReducer, loggedInSliceReducer } from "./accountsSlice";
+import { loginFormSliceReducer, loggedInSliceReducer } from "./AccountsSlice";
 
 
 export const store = configureStore({

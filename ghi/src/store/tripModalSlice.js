@@ -4,14 +4,20 @@ import { createSlice } from "@reduxjs/toolkit"
 const tripModalSlice = createSlice({
   name: "tripModal",
   initialState:{
-    isModalOpen: false,
+    isModalOpen: {createModal: false, updateModal: false},
   },
   reducers: {
-    openTripModal: (state) => {
-      state.isModalOpen = true
+    openCreateTripModal: (state) => {
+      state.isModalOpen.createModal = true
     },
-    closeTripModal: (state) => {
-      state.isModalOpen = false
+    closeCreateTripModal: (state) => {
+      state.isModalOpen.createModal = false
+    },
+    openUpdateTripModal: (state) => {
+      state.isModalOpen.updateModal = true
+    },
+    closeUpdateTripModal: (state) => {
+      state.isModalOpen.updateModal = false
     },
   },
 })
@@ -35,7 +41,7 @@ const createTripFormSlice = createSlice({
   },
 });
 
-export const { openTripModal, closeTripModal } = tripModalSlice.actions
+export const { openCreateTripModal, closeCreateTripModal, openUpdateTripModal, closeUpdateTripModal } = tripModalSlice.actions
 export const { updateFormData, resetFormData } = createTripFormSlice.actions;
 export const selectFormData = (state) => state.form;
 export const createTripFormSliceReducer = createTripFormSlice.reducer;

@@ -5,13 +5,14 @@ import {
   selectFormData,
   updateFormData,
   resetFormData,
+  closeUpdateTripModal,
 } from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useUpdateTripMutation } from "../store/apiSlice";
+import { useUpdateTripMutation } from "../store/ApiSlice";
 
 function UpdateTripModal() {
-  const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
+  const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
 
   const formData = useSelector(selectFormData);
 
@@ -24,18 +25,18 @@ function UpdateTripModal() {
   };
 
   const handleCloseModal = () => {
-    dispatch(closeTripModal());
+    dispatch(closeUpdateTripModal());
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTrip(formData);
-    dispatch(closeTripModal());
+    dispatch(closeUpdateTripModal());
   };
 
   return (
-    <div className={`modal ${isModalOpen ? "is-active" : ""}`}>
-      <Modal show={isModalOpen} onHide={handleCloseModal}>
+    <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
+      <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Update Trip</Modal.Title>
         </Modal.Header>

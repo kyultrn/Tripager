@@ -10,8 +10,9 @@ const loginFormSlice = createSlice({
         updateFormData: (state, action) => {
             const { name, value } = action.payload
             state[name] = value
-        }
-    }
+        },
+        resetFormData: () => loginFormSlice.initialState,
+    },
 })
 
 const loggedInSlice = createSlice({
@@ -27,7 +28,7 @@ const loggedInSlice = createSlice({
     }})
 
 export const { setLoginState } = loggedInSlice.actions
-export const { updateFormData } = loginFormSlice.actions
+export const { updateFormData, resetFormData } = loginFormSlice.actions
 export const selectFormData = (state) => state.loginForm;
 export const loginFormSliceReducer = loginFormSlice.reducer;
 export const loggedInSliceReducer = loggedInSlice.reducer;
