@@ -37,7 +37,13 @@ const createTripFormSlice = createSlice({
       const { name, value } = action.payload;
       state[name] = value;
     },
-    resetFormData: () => createTripFormSlice.initialState,
+    resetFormData: (state) => {
+      state.name= "";
+      state.city= "";
+      state.state= "";
+      state.start_date= "";
+      state.end_date= "";
+    },
   },
 });
 
