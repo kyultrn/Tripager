@@ -37,9 +37,9 @@ export function Trips() {
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
   };
-  const handleUpdateOpenModal = () => {
+  const handleUpdateOpenModal = (trip) => {
     console.log(isUpdateModalOpen);
-    dispatch(openUpdateTripModal());
+    dispatch(openUpdateTripModal(trip));
   };
 
   if (tokenLoading && isLoading) {
