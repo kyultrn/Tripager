@@ -34,15 +34,9 @@ export function Trips() {
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
   };
-<<<<<<< HEAD
-  const handleUpdateOpenModal = (trip) => {
-    console.log(isUpdateModalOpen);
-    dispatch(openUpdateTripModal(trip));
-=======
   const handleUpdateOpenModal = (tripId) => {
     dispatch(openUpdateTripModal());
     dispatch(setSelectedTripId(tripId))
->>>>>>> 745c95e6a363f15a8a25438c984453d48d932e4e
   };
 
   if (tokenLoading && isLoading) {
@@ -120,3 +114,6 @@ export function Trips() {
 }
 
 export default Trips;
+
+
+
