@@ -1,13 +1,10 @@
 import { useGetTripsQuery } from "../store/ApiSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { openCreateTripModal, openUpdateTripModal } from "../store/tripModalSlice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-// import ModalForm from "./CreateTripModal";
+import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
 import { useGetTokenQuery } from "../store/ApiSlice";
-import { store } from "../store/store";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
@@ -15,7 +12,8 @@ export function Trips() {
   if (tokenData) {
     console.log(tokenData);
   }
-  console.log(data);
+  console.log("this is tripsData: ****" + JSON.stringify(data))
+  console.log(`this is tokenData: **** ${tokenData}`);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -30,7 +28,7 @@ export function Trips() {
     dispatch(openUpdateTripModal());
   };
 
-  if (tokenLoading) {
+  if (tokenLoading && isLoading) {
     return (
       <>
         <progress className="progress is-primary" max="100"></progress>
@@ -62,7 +60,7 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
-        {store.getState().loggedIn.logged ? (
+        { tokenData ? (
           <>
           {data?.map((trip) => (
             <tr key={trip.id}>

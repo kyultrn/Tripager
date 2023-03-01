@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { useToken } from "./accounts/Authenticator";
 import { useAuthContext } from "./accounts/Authenticator";
@@ -11,20 +11,43 @@ import { store } from "./store/store";
 export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [logout] = useUserLogoutMutation();
+  const [logout, result] = useUserLogoutMutation();
   const { data: token } = useGetTokenQuery();
+
+  console.log("token", token);
+
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   console.log("yes");
+  //   logout().then(() => {
+  //     console.log("logout successful");
+  //     console.log("token should be null", token);
+  //     if(!token){
+  //       console.log('token is gone')
+  //       navigate("/login");
+  //     }
+  //   })
+  // }
+
   const handleLogout = (e) => {
-    dispatch(setLoginState(false));
-    e.preventDefault();
-    console.log("yes");
-    logout();
-    navigate("/login");
-  };
+    e.preventDefault()
+    logout()
+    navigate('/login')
+  }
+
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   logout()
+  // };
+  // if (result.isSuccess) {
+  //   navigate('/login')
+  // } else {
+  //   console.log("didn't work breh")
+  // }
 
   const handleLogin = () => {
     navigate("/login");
   };
-  console.log(store.getState().loggedIn.logged)
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -33,7 +56,7 @@ export default function Navbar() {
             <span className="tripager">Tripager</span>
           </NavLink>
           <div>
-            {store.getState().loggedIn.logged ? (
+            {token ? (
               <>
               <NavLink className="navbar-brand" to="/trips">
                 <span className="trips">Trips</span>
@@ -54,52 +77,4 @@ export default function Navbar() {
         </div>
       </nav>
     );
-  // } else {
-  //   return (
-  //     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-  //       <div className="container-fluid">
-  //         <NavLink className="navbar-brand" to="/">
-  //           <span className="tripager">Tripager</span>
-  //         </NavLink>
-  //         {/* <NavLink className="navbar-brand" to="/trips">
-  //           <span className="trips">Trips</span>
-  //         </NavLink>
-  //         <NavLink className="navbar-brand" to="/thingstodo">
-  //           <span className="thingstodo">Things To Do</span>
-  //         </NavLink> */}
-  //         <div>
-  //           <button className="btn btn-green" onClick={handleLogin}>
-  //             Login
-  //           </button>
-  //         </div>
-  //       </div>
-  //     </nav>
-  //   );
-  // }
-  // return(      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-  //       <div className="container-fluid">
-  //         <NavLink className="navbar-brand" to="/">
-  //           <span className="tripager">Tripager</span>
-  //         </NavLink>
-  //       {token?(
-  //         <>
-  //         <NavLink className="navbar-brand" to="/trips">
-  //           <span className="trips">Trips</span>
-  //         </NavLink>
-  //         <NavLink className="navbar-brand" to="/thingstodo">
-  //           <span className="thingstodo">Things To Do</span>
-  //         </NavLink>
-  //         <div>
-  //           <Link to={'/login'}>
-  //             <button className="btn btn-green" onClick={logout}>
-  //               Logout
-  //             </button>
-  //           </Link>
-  //         </div></>):(
-  //         <button className="btn btn-green" onClick={handleLogin}>
-  //           Login
-  //         </button>)
-  //     }
-  //       </div>
-  //     </nav>)
 }

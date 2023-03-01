@@ -1,35 +1,57 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const loginFormSlice = createSlice({
-    name:"loginForm",
+const accountFormSlice = createSlice({
+    name:"accountForm",
+    initialState:{ loginForm: {email: "",password: ""}, signUpForm: {name: "", email:"", password:""}},
+    reducers: {
+        updateSignUpFormData: (state, action) => {
+            const { name, value } = action.payload
+            state.signUpForm[name] = value
+        },
+        resetSignUpFormData: (state) => {state.signUpForm = { name: "", email: "", password: "" }},
+
+        updateLoginFormData: (state, action) => {
+            const { name, value } = action.payload
+            state.loginForm[name] = value
+        },
+        resetLoginFormData: (state) => {state.loginForm = { email: "", password: "" }},
+    },
+})
+
+const signUpModalSlice = createSlice({
+    name: "signUpModal",
     initialState:{
-        email: "",
-        password: "",
+        isSignUpModalOpen: false,
     },
     reducers: {
-        updateFormData: (state, action) => {
-            const { name, value } = action.payload
-            state[name] = value
+        openSignUpModal: (state) => {
+            state.isSignUpModalOpen = true
         },
-        resetFormData: () => loginFormSlice.initialState,
-    },
+        closeSignUpModal: (state) => {
+            state.isSignUpModalOpen = false
+        }
+    }
 })
 
 const loggedInSlice = createSlice({
     name: 'loggedIn',
     initialState: {
-        logged: false,
+        loggedIn: false,
+        token: null,
     },
     reducers: {
         setLoginState: (state, action) => {
-
-            state.logged = action.payload
+            state.loggedIn = action.payload.loggedIn
+            state.token = action.payload.token
         },
     }})
 
+export const { openSignUpModal, closeSignUpModal } = signUpModalSlice.actions
 export const { setLoginState } = loggedInSlice.actions
-export const { updateFormData, resetFormData } = loginFormSlice.actions
-export const selectFormData = (state) => state.loginForm;
-export const loginFormSliceReducer = loginFormSlice.reducer;
+export const { updateSignUpFormData, resetSignUpFormData, updateLoginFormData, resetLoginFormData } = accountFormSlice.actions
+export const selectLoginFormData = (state) => state.accountForm.loginForm;
+export const selectSignUpFormData = (state) => state.accountForm.signUpForm;
+export const signUpModalSliceReducer = signUpModalSlice.reducer
+export const accountFormSliceReducer = accountFormSlice.reducer;
 export const loggedInSliceReducer = loggedInSlice.reducer;
-export default { loginFormSliceReducer, loggedInSliceReducer }
+export default { accountFormSliceReducer, loggedInSliceReducer, signUpModalSliceReducer }
