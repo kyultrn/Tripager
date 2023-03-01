@@ -37,9 +37,10 @@ Redux! Today we did redux! We watched some videos and implemented what we saw an
 Test
 
 ### Mon, Feb 27 2023
-Today was extremely frustrating. Redux is terrible. It is hard and confusing and it makes me want to fall asleep. We worked with multiple SEIRs and Riley to resolve issues with our login/logout tokens. We should have finalized the login/logout stuff with Redux a few days ago but we thought that we would be able to do that without Redux but turns out we could not. We ended the day by helping Anton's group with their MovieList page. I also helped Yonah's group with some GIT issues. Today was hard. 
+Today was extremely frustrating. Redux is terrible. It is hard and confusing and it makes me want to fall asleep. We worked with multiple SEIRs and Riley to resolve issues with our login/logout tokens. We should have finalized the login/logout stuff with Redux a few days ago but we thought that we would be able to do that without Redux but turns out we could not. We ended the day by helping Anton's group with their MovieList page. I also helped Yonah's group with some GIT issues. Today was hard.
 
 ### Tues, Feb 28 2023
+Today was another extremely stressful day with authentication -- I thought we would have finished with the drama from yesterday but no. We worked with Riley, SEIRs and Malcolm for hours trying to resolve our tokem issues ad it finally resolved only SOME of them. While all of this was going on, Andrew and I worked on some CSS and bootstrap stuff. I worked on the Things To Do page and figured out a way to have a video play on the first page of the site. I found the video on Envato. At first I could not get it to play, it might have been an issue with the file being a .mov --- so I imported it into Adobe Premiere Pro and re exported it to a mp4.
 
 ### Weds, Mar 1 2023
 

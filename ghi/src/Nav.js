@@ -27,7 +27,7 @@ export default function Navbar() {
   console.log(store.getState().loggedIn.logged)
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
             <span className="tripager">Tripager</span>
