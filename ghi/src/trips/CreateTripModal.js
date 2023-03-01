@@ -31,9 +31,9 @@ export default function CreateTripModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(resetFormData());
     dispatch(closeCreateTripModal());
     createTrip(formData);
+    dispatch(resetFormData());
     console.log(formData)
   };
 

@@ -97,13 +97,24 @@ export const tripsApi = createApi({
         credentials: 'include',
       }),
       invalidateTags: ["Token", "Account"]
-    })
+    }),
+    userSignup: builder.mutation({
+      query: (info) => ({
+        url: '/api/accounts',
+        method: 'post',
+        body: info,
+        credentials: 'include',
+      }),
+      provideTags: ["Account"],
+      invalidatesTags: (result) => {
+        return (result && ["Token"]) || [];
+      },
+    }),
   }),
 });
 
 export const {
   useGetTripsQuery,
-  useLazyGetTripsQuery,
   useGetTripQuery,
   useGetEventsQuery,
   useCreateTripMutation,
@@ -111,6 +122,7 @@ export const {
   useUpdateTripMutation,
   useUserLoginMutation,
   useUserLogoutMutation,
+  useUserSignupMutation,
   useGetTokenQuery,
   useCreateEventMutation,
   useDeleteEventMutation,

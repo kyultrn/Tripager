@@ -2,16 +2,18 @@ import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserLoginMutation, useGetTokenQuery } from "../store/ApiSlice";
-import { updateFormData, resetFormData } from "../store/AccountsSlice";
+import { updateLoginFormData, resetLoginFormData, openSignUpModal } from "../store/AccountsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoginState } from "../store/AccountsSlice";
+import SignUpModal from "./SignupModal";
 
 export default function Login() {
   // const { login } = useToken();
   const { data: token, isLoading } = useGetTokenQuery();
   const navigate = useNavigate();
-  const email = useSelector((state) => state.loginForm.email);
-  const password = useSelector((state) => state.loginForm.password);
+  const email = useSelector((state) => state.accountForm.loginForm.email);
+  const password = useSelector((state) => state.accountForm.loginForm.password);
+  const isSignUpModalOpen = useSelector((state) => state.signUpModal.isSignUpModalOpen)
   const [login, { error }] = useUserLoginMutation();
   const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ export default function Login() {
       // dispatch(resetFormData());
       console.log("form has been resetted")
       dispatch(setLoginState(true));
-      dispatch(resetFormData());
+      dispatch(resetLoginFormData());
       setTimeout(() => {
         navigate("/");
       }, 0);
@@ -33,16 +35,12 @@ export default function Login() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    dispatch(updateFormData({ name, value }));
+    dispatch(updateLoginFormData({ name, value }));
   };
-  // if(!token && !isLoading){
-  //   setTimeout(() => {
-  //     navigate("/");
-  //   },0)
-  // }
-  // const handlePasswordChange = (e) => {
-  //   dispatch(setPassword(e.target.value));
-  // };
+
+  const handleSignUpOpenModal = () => {
+    dispatch(openSignUpModal())
+  }
 
   return (
     <div className="row">
@@ -80,6 +78,10 @@ export default function Login() {
             Login
           </button>
         </form>
+        <button className="btn btn-primary" onClick={handleSignUpOpenModal}>
+          Sign Up!
+        </button>
+        {isSignUpModalOpen && <SignUpModal />}
       </div>
     </div>
   );

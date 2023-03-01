@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
-import SignUp from "./accounts/Signup.js";
+import SignUp from "./accounts/SignupModal.js";
 import Navbar from "./Nav.js";
 import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";

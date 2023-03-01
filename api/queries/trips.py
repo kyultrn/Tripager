@@ -14,7 +14,6 @@ class TripIn(BaseModel):
     state: str
     start_date: date
     end_date: date
-    account_id: int
 
 
 class TripOut(TripIn):
