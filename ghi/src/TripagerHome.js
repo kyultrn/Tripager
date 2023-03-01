@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTokenQuery } from "./store/ApiSlice";
 import { useSelector } from "react-redux";
-import VideoPlayer from "./VideoCarousel";
+import VideoCarousel from "./VideoCarousel";
+
 
 export default function TripagerHome() {
   const navigate = useNavigate();
@@ -17,7 +18,6 @@ export default function TripagerHome() {
 
   return (
     <div className="container">
-      <VideoPlayer />
       <div className="content">
         <h1>Tripager</h1>
         <h2>Plan and manage your next trip here!</h2>
@@ -35,6 +35,7 @@ export default function TripagerHome() {
           </div>
         )}
       </div>
+      <VideoCarousel />
     </div>
   );
 }
