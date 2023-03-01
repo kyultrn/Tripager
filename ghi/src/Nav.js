@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
-import { useToken } from "./accounts/Authenticator";
-import { useAuthContext } from "./accounts/Authenticator";
 import { useGetTokenQuery, useUserLogoutMutation } from "./store/apiSlice";
 import { useDispatch } from "react-redux";
 import { setLoginState } from "./store/accountsSlice";

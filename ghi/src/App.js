@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/Signup.js";
 import Navbar from "./Nav.js";
@@ -18,8 +17,8 @@ import VideoCarousel from "./VideoCarousel";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
-  useToken();
-  return null;
+  // useToken();
+  // return null;
 }
 function App() {
   return (

@@ -1,17 +1,8 @@
-// import { useToken } from "./Authenticator";
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function AboutDevelopers() {
-
-  const [stars, setStars] = useState(1);
-//   const token = useToken();
-  const navigate = useNavigate();
-
-//   const handleLogout = () => {
-//     navigate("/login");
-//     token.logout();
-//   };
 
   return (
     <div className="about-container">
