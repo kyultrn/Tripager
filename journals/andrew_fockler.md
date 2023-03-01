@@ -25,7 +25,7 @@ Today we worked on getting trips and events to diplay on our frontend. We had so
 ### Mon, Feb 27 2023
 
 ### Tues, Feb 28 2023
-
+Today the team spent a lot of time troubleshooting our login and logout with users. We are still having some issues getting everything to function together properly but we have had guidance from SEIRS and teams. Hopefully we get everything resolved before the end of the week.
 ### Weds, Mar 1 2023
 
 ### Thurs, Mar 2 2023
