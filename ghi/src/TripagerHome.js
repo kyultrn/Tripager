@@ -3,25 +3,28 @@ import { useNavigate } from "react-router-dom";
 // import React, { useState, useEffect } from "react";
 import { useGetTokenQuery } from "./store/apiSlice";
 import { useSelector } from "react-redux";
+// import { useUserLogoutMutation } from "./store/ApiSlice";
+import VideoPlayer from "./VideoCarousel";
 
-export default TripagerHome;
-function TripagerHome() {
-  // const { token } = useAuthContext();
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // console.log(token)
-
+export default function TripagerHome() {
+  // const [logout] = useUserLogoutMutation()
   const navigate = useNavigate();
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
   const handleNotLoggedRedirect = () => {
     navigate("/signup");
   };
 
-  const handleLoggedInRedirect = () => {
+  // const handleLogout = (e) => {
+  //   e.preventDefault()
+  //   logout()
+  // }
+
+  const handleTripsRedirect = () => {
     navigate("/trips");
   };
-  const token = useSelector((state) => state.token);
-  console.log(token);
+  // const token = useSelector((state) => state.token)
+  // console.log(token)
   // const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery()
   // console.log(`this is tokenData: ${tokenData}`)
   // if (tokenLoading) {
@@ -39,14 +42,15 @@ function TripagerHome() {
   // if (!tokenLoading) {
   //   return <div>Loading...</div>;
   // }
-  if (token) {
+  if (!token) {
     return (
       <div>
+        <VideoPlayer />
         <h1>Tripager</h1>
         <h2>Plan and manage your next trip here!</h2>
         <div>
-          <button className="btn btn-green" onClick={handleLoggedInRedirect}>
-            My Trips
+          <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
+            Get Started
           </button>
         </div>
       </div>
@@ -54,11 +58,12 @@ function TripagerHome() {
   } else {
     return (
       <div>
+        <VideoPlayer />
         <h1>Tripager</h1>
         <h2>Plan and manage your next trip here!</h2>
         <div>
-          <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
-            Get Started
+          <button className="btn btn-green" onClick={handleTripsRedirect}>
+            My Trips
           </button>
         </div>
       </div>

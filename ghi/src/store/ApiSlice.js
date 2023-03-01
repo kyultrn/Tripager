@@ -3,7 +3,8 @@ import { eventEndpoints } from "./eventEndpoints";
 
 const initialState = {
   trips: [],
-};
+  events: []
+}
 export const tripsApi = createApi({
   reducerPath: "trips",
   initialState,
@@ -21,7 +22,7 @@ export const tripsApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["TripsList", "Token", "Account", "EventsList"],
+  tagTypes: ["TripsList", "Token", "EventsList", "Account"],
 
   endpoints: (builder) => ({
     // Trips
@@ -78,8 +79,9 @@ export const tripsApi = createApi({
           credentials: "include",
         };
       },
+      providesTags:['Account'],
       invalidatesTags: (result) => {
-        return (result && ["Account"]) || [];
+        return (result && ["Token"]) || [];
       },
     }),
     getToken: builder.query({
@@ -89,6 +91,14 @@ export const tripsApi = createApi({
       }),
       providesTags: ["Token"],
     }),
+    userLogout: builder.mutation({
+      query: () => ({
+        url: '/token',
+        method: 'delete',
+        credentials: 'include',
+      }),
+      invalidateTags: ["Token", "Account"]
+    })
   }),
 });
 
@@ -101,6 +111,7 @@ export const {
   useDeleteTripMutation,
   useUpdateTripMutation,
   useUserLoginMutation,
+  useUserLogoutMutation,
   useGetTokenQuery,
   useCreateEventMutation,
   useDeleteEventMutation,

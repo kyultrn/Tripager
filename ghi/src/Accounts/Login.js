@@ -1,24 +1,30 @@
 import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useUserLoginMutation } from "../store/apiSlice";
+import { useUserLoginMutation, useGetTokenQuery } from "../store/apiSlice";
 import { updateFormData } from "../store/accountsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { setLoginState } from "../store/accountsSlice";
 
 export default function Login() {
   // const { login } = useToken();
-
+  const { data: token, isLoading } = useGetTokenQuery();
   const navigate = useNavigate();
   const email = useSelector((state) => state.loginForm.email);
   const password = useSelector((state) => state.loginForm.password);
-  const [login] = useUserLoginMutation();
+  const [login, { error }] = useUserLoginMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ login });
     login({ email, password });
-    navigate("/");
+    if (!error) {
+      dispatch(setLoginState(true));
+      setTimeout(() => {
+        navigate("/");
+      }, 0);
+    }
     // possibly redirect to the trips page instead of the main page
   };
 
@@ -26,7 +32,11 @@ export default function Login() {
     const { name, value } = e.target;
     dispatch(updateFormData({ name, value }));
   };
-
+  // if(!token && !isLoading){
+  //   setTimeout(() => {
+  //     navigate("/");
+  //   },0)
+  // }
   // const handlePasswordChange = (e) => {
   //   dispatch(setPassword(e.target.value));
   // };

@@ -11,34 +11,37 @@ import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
+import { setLoginState } from "./store/accountsSlice";
+import { store } from "./store/store";
+import { useDispatch } from "react-redux";
+import VideoCarousel from "./VideoCarousel";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
   useToken();
   return null;
 }
-
 function App() {
   return (
     <>
       <BrowserRouter>
-        <AuthProvider>
-          <GetToken />
-          <Navbar />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<TripagerHome />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/mytrips" element={<Trips />} />
-              <Route path="/trips/:id/events" element={<Events />} />
-              <Route path="/thingstodo" element={<ThingsToDo />} />
-              <Route path="/about-developers" element={<AboutDevelopers />} />
-              <Route path="/about-tripager" element={< AboutTripager />} />
-            </Routes>
-          </div>
-          <Footer />
-        </AuthProvider>
+        {/* <AuthProvider>
+          <GetToken /> */}
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<TripagerHome />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/trips" element={<Trips />} />
+            <Route path="/trips/:id/events" element={<Events />} />
+            <Route path="/thingstodo" element={<ThingsToDo />} />
+            <Route path="/about-developers" element={<AboutDevelopers />} />
+            <Route path="/about-tripager" element={<AboutTripager />} />
+          </Routes>
+        </div>
+        <Footer />
+        {/* </AuthProvider> */}
       </BrowserRouter>
     </>
   );
