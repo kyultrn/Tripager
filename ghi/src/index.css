@@ -47,6 +47,10 @@ code {
   z-index: 1;
 }
 
+.my-custom-class {
+  background-color: rgb(192, 120, 154); 
+}
+
 footer {
   position: absolute;
   bottom: 0;

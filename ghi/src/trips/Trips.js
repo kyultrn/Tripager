@@ -3,24 +3,33 @@ import { openCreateTripModal, openUpdateTripModal, setSelectedTripId } from "../
 import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-import { useGetTripsQuery, useGetTokenQuery, useDeleteTripMutation } from "../store/ApiSlice";
+import {
+  useGetTripsQuery,
+  useGetTokenQuery,
+  useDeleteTripMutation,
+  useUpdateTripMutation,
+} from "../store/ApiSlice";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
-  const [deleteTrip, { error }] = useDeleteTripMutation();
+  const [deleteTrip, { deleteError }] = useDeleteTripMutation();
+  const [updateTrip, { updateError }] = useUpdateTripMutation();
 
   if (tokenData) {
     console.log(tokenData);
   }
-  console.log("this is tripsData: ****" + JSON.stringify(data))
+  console.log("this is tripsData: ****" + JSON.stringify(data));
   console.log(`this is tokenData: **** ${tokenData}`);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
-  const isCreateModalOpen = useSelector((state) => state.tripModal.isModalOpen.createModal);
-  const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
-
+  const isCreateModalOpen = useSelector(
+    (state) => state.tripModal.isModalOpen.createModal
+  );
+  const isUpdateModalOpen = useSelector(
+    (state) => state.tripModal.isModalOpen.updateModal
+  );
 
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
@@ -38,9 +47,8 @@ export function Trips() {
     );
   }
 
-
   const handleDeleteTrip = (tripId) => {
-    deleteTrip(tripId)
+    deleteTrip(tripId);
   };
 
 

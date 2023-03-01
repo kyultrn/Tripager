@@ -140,7 +140,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-    <footer className="bg-primary text-white">
+    <footer className="my-custom-class text-white">
         <div className="container py-3">
         <div className="row">
             <div className="col-md-4 mb-3">

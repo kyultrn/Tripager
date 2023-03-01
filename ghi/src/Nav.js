@@ -31,7 +31,7 @@ export default function Navbar() {
   };
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark my-custom-class">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
             <span className="tripager">Tripager</span>
@@ -39,15 +39,15 @@ export default function Navbar() {
           <div>
             {token ? (
               <>
-              <NavLink className="navbar-brand" to="/trips">
-                <span className="trips">Trips</span>
-              </NavLink>
-              <NavLink className="navbar-brand" to="/thingstodo">
-                <span className="thingstodo">Things To Do</span>
-              </NavLink>
-              <button className="btn btn-green" onClick={handleLogout}>
-                Log Out
-              </button>
+                <NavLink className="navbar-brand" to="/trips">
+                  <span className="trips">Trips</span>
+                </NavLink>
+                <NavLink className="navbar-brand" to="/thingstodo">
+                  <span className="thingstodo">Things To Do</span>
+                </NavLink>
+                <button className="btn btn-green" onClick={handleLogout}>
+                  Log Out
+                </button>
               </>
             ) : (
               <button className="btn btn-green" onClick={handleLogin}>
