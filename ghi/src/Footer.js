@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-dark text-white">
-      <div className="container py-3">
+      <div className="container2 py-3">
         <div className="row">
           <div className="col-md-4 mb-3">
             <h5>About Tripager</h5>
