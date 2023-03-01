@@ -1,15 +1,10 @@
-// import { useAuthContext } from "./accounts/Authenticator";
 import { useNavigate } from "react-router-dom";
-// import React, { useState, useEffect } from "react";
 import { useGetTokenQuery } from "./store/ApiSlice";
 import { useSelector } from "react-redux";
-// import { useUserLogoutMutation } from "./store/ApiSlice";
-import VideoPlayer from "./VideoCarousel";
-import { store } from "./store/store";
+import VideoCarousel from "./VideoCarousel";
 
 
 export default function TripagerHome() {
-  // const [logout] = useUserLogoutMutation()
   const navigate = useNavigate();
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
@@ -17,35 +12,30 @@ export default function TripagerHome() {
     navigate("/signup");
   };
 
-
-
   const handleTripsRedirect = () => {
     navigate("/trips");
   };
 
-
-    return (
-      <>
+  return (
+    <div className="container">
+      <div className="content">
+        <h1>Tripager</h1>
+        <h2>Plan and manage your next trip here!</h2>
         {token ? (
           <div>
-            <h1>Tripager</h1>
-            <h2>Plan and manage your next trip here!</h2>
-            <div>
-              <button className="btn btn-green" onClick={handleTripsRedirect}>
-                My Trips
-              </button>
-            </div>
+            <button className="btn btn-green" onClick={handleTripsRedirect}>
+              My Trips
+            </button>
           </div>
         ) : (
           <div>
-            <h1>Tripager</h1>
-            <h2>Plan and manage your next trip here!</h2>
-            <div>
-              <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
-                Get Started
-              </button>
-            </div>
+            <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
+              Get Started
+            </button>
           </div>
-          )}
-      </>
-    )}
+        )}
+      </div>
+      <VideoCarousel />
+    </div>
+  );
+}
