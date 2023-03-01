@@ -1,6 +1,6 @@
 import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserLoginMutation, useGetTokenQuery } from "../store/ApiSlice";
 import { updateLoginFormData, resetLoginFormData, openSignUpModal } from "../store/AccountsSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,24 +14,21 @@ export default function Login() {
   const email = useSelector((state) => state.accountForm.loginForm.email);
   const password = useSelector((state) => state.accountForm.loginForm.password);
   const isSignUpModalOpen = useSelector((state) => state.signUpModal.isSignUpModalOpen)
-  const [login, { error }] = useUserLoginMutation();
+  const [login, { data }] = useUserLoginMutation();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ login });
+    // console.log({ login });
     login({ email, password });
-    if (!error) {
-      // dispatch(resetFormData());
-      console.log("form has been resetted")
-      dispatch(setLoginState(true));
-      dispatch(resetLoginFormData());
-      setTimeout(() => {
-        navigate("/");
-      }, 0);
-    }
-    // possibly redirect to the trips page instead of the main page
+    dispatch(resetLoginFormData());
   };
+
+  useEffect(() => {
+    if (data) {
+      navigate('/')
+    }
+  }, [data, navigate])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

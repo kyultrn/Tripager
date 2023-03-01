@@ -24,7 +24,7 @@ export default function Navbar() {
     useEffect(() => {
     if (data) {
       console.log(data)
-      navigate('/login');
+      // navigate('/login');
     }
   }, [data, navigate]);
 
