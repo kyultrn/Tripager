@@ -15,7 +15,8 @@ export function Trips() {
   if (tokenData) {
     console.log(tokenData);
   }
-  console.log(data);
+  console.log(`this is tripsData: **** ${data}`)
+  console.log(`this is tokenData: **** ${tokenData}`);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -30,7 +31,7 @@ export function Trips() {
     dispatch(openUpdateTripModal());
   };
 
-  if (tokenLoading) {
+  if (tokenLoading && isLoading) {
     return (
       <>
         <progress className="progress is-primary" max="100"></progress>
@@ -62,7 +63,7 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
-        {store.getState().loggedIn.logged ? (
+        { tokenData && store.getState().loggedIn.logged ? (
           <>
           {data?.map((trip) => (
             <tr key={trip.id}>

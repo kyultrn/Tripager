@@ -3,6 +3,7 @@ import mainhd from './videos/mainhd.mp4'
 
 const VideoCarousel = () => {
   return (
+    <>
     <div className="main">
       <div className="overlay"></div>
       <video src={mainhd} autoPlay loop muted />
@@ -11,6 +12,7 @@ const VideoCarousel = () => {
         <p>To Tripager.</p>
       </div>
     </div>
+    </>
   );
 };
 
