@@ -5,6 +5,7 @@ import { useGetTokenQuery } from "./store/apiSlice";
 import { useSelector } from "react-redux";
 // import { useUserLogoutMutation } from "./store/ApiSlice";
 import VideoPlayer from "./VideoCarousel";
+import VideoCarousel from "./VideoCarousel";
 
 export default function TripagerHome() {
   // const [logout] = useUserLogoutMutation()
@@ -45,9 +46,7 @@ export default function TripagerHome() {
   if (!token) {
     return (
       <div>
-        <VideoPlayer />
-        <h1>Tripager</h1>
-        <h2>Plan and manage your next trip here!</h2>
+        <VideoCarousel />
         <div>
           <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
             Get Started
@@ -58,9 +57,7 @@ export default function TripagerHome() {
   } else {
     return (
       <div>
-        <VideoPlayer />
-        <h1>Tripager</h1>
-        <h2>Plan and manage your next trip here!</h2>
+        <VideoCarousel />
         <div>
           <button className="btn btn-green" onClick={handleTripsRedirect}>
             My Trips
