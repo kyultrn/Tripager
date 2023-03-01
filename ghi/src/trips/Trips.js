@@ -1,14 +1,15 @@
-import { useGetTripsQuery } from "../store/ApiSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { openCreateTripModal, openUpdateTripModal } from "../store/tripModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-import { useGetTokenQuery } from "../store/ApiSlice";
+import { useGetTripsQuery, useGetTokenQuery, useDeleteTripMutation } from "../store/ApiSlice";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  const [deleteTrip, { error }] = useDeleteTripMutation();
+
   if (tokenData) {
     console.log(tokenData);
   }
@@ -19,6 +20,7 @@ export function Trips() {
 
   const isCreateModalOpen = useSelector((state) => state.tripModal.isModalOpen.createModal);
   const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
+
 
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
@@ -36,7 +38,10 @@ export function Trips() {
     );
   }
 
-  const handleDeleteTrip = () => {};
+
+  const handleDeleteTrip = (tripId) => {
+    deleteTrip(tripId)
+  };
 
   const handleUpdateTrip = () => {};
 
@@ -60,40 +65,41 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
-        { tokenData ? (
-          <>
-          {data?.map((trip) => (
-            <tr key={trip.id}>
-              <td>
-                <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
-              </td>
-              <td>{trip.city}</td>
-              <td>{trip.state}</td>
-              <td>{trip.start_date}</td>
-              <td>{trip.end_date}</td>
-              <td>
-                  <i
-                    type='button'
-                    onClick={handleUpdateOpenModal}
-                    className="fa-solid fa-pen-to-square"
-                  />
-                {isUpdateModalOpen && <UpdateTripModal />}
-              </td>
-              <td>
-                <i
-                  onClick={() => {
-                    handleDeleteTrip(trip.id);
-                  }}
-                  className="fa fa-trash"
-                  aria-hidden="true"
-                ></i>
-              </td>
-            </tr>
-          ))}
-          </>
-        ) : (
-          <div>No trips</div>
-        )}
+          {tokenData ? (
+            <>
+              {data?.map((trip) => (
+                <tr key={trip.id}>
+                  <td>
+                    <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+                  </td>
+                  <td>{trip.city}</td>
+                  <td>{trip.state}</td>
+                  <td>{trip.start_date}</td>
+                  <td>{trip.end_date}</td>
+                  <td>
+                    <i
+                      type="button"
+                      onClick={handleUpdateOpenModal}
+                      className="fa-solid fa-pen-to-square"
+                    />
+                    {isUpdateModalOpen && <UpdateTripModal />}
+                  </td>
+                  <td>
+                    <i
+                      type="button"
+                      onClick={() => {
+                        handleDeleteTrip(trip.id);
+                      }}
+                      className="fa fa-trash"
+                      aria-hidden="true"
+                    ></i>
+                  </td>
+                </tr>
+              ))}
+            </>
+          ) : (
+            <div>No trips</div>
+          )}
         </tbody>
       </table>
     </div>
