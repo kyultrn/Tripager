@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   closeTripModal,
   openTripModal,
-  selectFormData,
+  selectTripFormData,
   updateFormData,
   resetFormData,
   closeCreateTripModal,
@@ -15,7 +15,7 @@ import { useCreateTripMutation } from "../store/ApiSlice";
 export default function CreateTripModal() {
   const isCreateModalOpen = useSelector((state) => state.tripModal.isModalOpen.createModal);
 
-  const formData = useSelector(selectFormData);
+  const formData = useSelector(selectTripFormData);
 
   const dispatch = useDispatch();
   const [createTrip, result] = useCreateTripMutation();

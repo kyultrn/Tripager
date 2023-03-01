@@ -14,12 +14,10 @@ export default function Navbar() {
   const [logout, { data } ] = useUserLogoutMutation();
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
-  console.log("token", token);
-  console.log('isLoading', tokenLoading)
-
   const handleLogout = (e) => {
     e.preventDefault()
     logout()
+    navigate('/login')
   }
     useEffect(() => {
     if (data) {

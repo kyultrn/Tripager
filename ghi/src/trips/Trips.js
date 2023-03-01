@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { openCreateTripModal, openUpdateTripModal } from "../store/tripModalSlice";
+import { openCreateTripModal, openUpdateTripModal, setSelectedTripId } from "../store/tripModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
@@ -25,9 +25,9 @@ export function Trips() {
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
   };
-  const handleUpdateOpenModal = () => {
-    console.log(isUpdateModalOpen)
+  const handleUpdateOpenModal = (tripId) => {
     dispatch(openUpdateTripModal());
+    dispatch(setSelectedTripId(tripId))
   };
 
   if (tokenLoading && isLoading) {
@@ -43,7 +43,6 @@ export function Trips() {
     deleteTrip(tripId)
   };
 
-  const handleUpdateTrip = () => {};
 
   return (
     <div>
@@ -79,7 +78,7 @@ export function Trips() {
                   <td>
                     <i
                       type="button"
-                      onClick={handleUpdateOpenModal}
+                      onClick={()=>handleUpdateOpenModal(trip.id)}
                       className="fa-solid fa-pen-to-square"
                     />
                     {isUpdateModalOpen && <UpdateTripModal />}

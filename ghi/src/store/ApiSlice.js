@@ -53,8 +53,9 @@ export const tripsApi = createApi({
       invalidatesTags: ["TripsList"],
     }),
     updateTrip: builder.mutation({
-      query: (trip_id) => ({
-        url: `/api/trips/${trip_id}`,
+      query: (data) => ({
+        url: `/api/trips/${data.selectedTripId}`,
+        body: data.formData,
         method: "put",
       }),
       invalidatesTags: ["TripsList"],
