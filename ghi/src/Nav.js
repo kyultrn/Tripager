@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { useToken } from "./accounts/Authenticator";
 import { useAuthContext } from "./accounts/Authenticator";
@@ -11,39 +11,22 @@ import { store } from "./store/store";
 export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [logout, result] = useUserLogoutMutation();
-  const { data: token } = useGetTokenQuery();
+  const [logout, { data } ] = useUserLogoutMutation();
+  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
   console.log("token", token);
-
-  // const handleLogout = (e) => {
-  //   e.preventDefault();
-  //   console.log("yes");
-  //   logout().then(() => {
-  //     console.log("logout successful");
-  //     console.log("token should be null", token);
-  //     if(!token){
-  //       console.log('token is gone')
-  //       navigate("/login");
-  //     }
-  //   })
-  // }
+  console.log('isLoading', tokenLoading)
 
   const handleLogout = (e) => {
     e.preventDefault()
     logout()
-    navigate('/login')
   }
-
-  // const handleLogout = (e) => {
-  //   e.preventDefault();
-  //   logout()
-  // };
-  // if (result.isSuccess) {
-  //   navigate('/login')
-  // } else {
-  //   console.log("didn't work breh")
-  // }
+    useEffect(() => {
+    if (data) {
+      console.log(data)
+      navigate('/login');
+    }
+  }, [data, navigate]);
 
   const handleLogin = () => {
     navigate("/login");
