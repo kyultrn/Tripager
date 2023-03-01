@@ -10,7 +10,6 @@ const VideoCarousel = () => {
       <div className="content">
       </div>
     </div>
-    </>
   );
 };
 
