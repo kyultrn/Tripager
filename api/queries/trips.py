@@ -23,7 +23,7 @@ class TripOut(TripIn):
 
 class TripQueries:
 
-    def create(self, trip: TripIn) -> TripOut:
+    def create(self, trip: TripIn, account_id: int) -> TripOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -48,7 +48,7 @@ class TripQueries:
                                 trip.state,
                                 trip.start_date,
                                 trip.end_date,
-                                trip.account_id
+                                account_id
                         ],
                     )
                     id = result.fetchone()[0]

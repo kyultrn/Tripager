@@ -1,10 +1,10 @@
 import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useUserLoginMutation, useGetTokenQuery } from "../store/apiSlice";
-import { updateFormData } from "../store/accountsSlice";
+import { useUserLoginMutation, useGetTokenQuery } from "../store/ApiSlice";
+import { updateFormData, resetFormData } from "../store/AccountsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoginState } from "../store/accountsSlice";
+import { setLoginState } from "../store/AccountsSlice";
 
 export default function Login() {
   // const { login } = useToken();
@@ -20,7 +20,10 @@ export default function Login() {
     console.log({ login });
     login({ email, password });
     if (!error) {
+      // dispatch(resetFormData());
+      console.log("form has been resetted")
       dispatch(setLoginState(true));
+      dispatch(resetFormData());
       setTimeout(() => {
         navigate("/");
       }, 0);

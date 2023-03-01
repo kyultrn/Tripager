@@ -19,9 +19,12 @@ router = APIRouter()
 @router.post("/api/trips", response_model=TripOut)
 def create_trip(
     trip: TripIn,
-    repo: TripQueries = Depends()
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    repo: TripQueries = Depends(),
 ):
-    return repo.create(trip)
+    acc_id = account_data["id"]
+    print(f"this is account id: {acc_id}")
+    return repo.create(trip, acc_id)
 
 
 @router.get("/api/trips", response_model=Union[List[TripOut], Error])

@@ -2,8 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { eventEndpoints } from "./eventEndpoints";
 
 const initialState = {
-  trips: [],
-  events: []
+  trips: []
 }
 export const tripsApi = createApi({
   reducerPath: "trips",

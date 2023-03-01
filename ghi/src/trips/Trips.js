@@ -1,12 +1,13 @@
-import { useGetTripsQuery } from "../store/apiSlice";
+import { useGetTripsQuery } from "../store/ApiSlice";
 import { useNavigate, Link } from "react-router-dom";
-import { openTripModal } from "../store/tripModalSlice";
+import { openCreateTripModal, openUpdateTripModal } from "../store/tripModalSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import ModalForm from "./CreateTripModal";
+// import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-import { useGetTokenQuery } from "../store/apiSlice";
+import { useGetTokenQuery } from "../store/ApiSlice";
+import { store } from "../store/store";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();
@@ -18,10 +19,15 @@ export function Trips() {
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
-  const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);
+  const isCreateModalOpen = useSelector((state) => state.tripModal.isModalOpen.createModal);
+  const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
 
-  const handleOpenModal = () => {
-    dispatch(openTripModal());
+  const handleCreateOpenModal = () => {
+    dispatch(openCreateTripModal());
+  };
+  const handleUpdateOpenModal = () => {
+    console.log(isUpdateModalOpen)
+    dispatch(openUpdateTripModal());
   };
 
   if (tokenLoading) {
@@ -38,10 +44,10 @@ export function Trips() {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleOpenModal}>
+      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
         Create a Trip
       </button>
-      {isModalOpen && <ModalForm />}
+      {isCreateModalOpen && <CreateTripModal />}
       <h1>Your Trips</h1>
       <table className="table is-striped">
         <thead>
@@ -56,6 +62,8 @@ export function Trips() {
           </tr>
         </thead>
         <tbody>
+        {store.getState().loggedIn.logged ? (
+          <>
           {data?.map((trip) => (
             <tr key={trip.id}>
               <td>
@@ -66,11 +74,12 @@ export function Trips() {
               <td>{trip.start_date}</td>
               <td>{trip.end_date}</td>
               <td>
-                <i
-                  onClick={handleOpenModal}
-                  className="fa-solid fa-pen-to-square"
-                />
-                {isModalOpen && <UpdateTripModal />}
+                  <i
+                    type='button'
+                    onClick={handleUpdateOpenModal}
+                    className="fa-solid fa-pen-to-square"
+                  />
+                {isUpdateModalOpen && <UpdateTripModal />}
               </td>
               <td>
                 <i
@@ -83,6 +92,10 @@ export function Trips() {
               </td>
             </tr>
           ))}
+          </>
+        ) : (
+          <div>No trips</div>
+        )}
         </tbody>
       </table>
     </div>
