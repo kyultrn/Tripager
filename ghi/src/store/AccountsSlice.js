@@ -1,34 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-const loginFormSlice = createSlice({
-    name:"loginForm",
-    initialState:{
-        email: "",
-        password: "",
+const initialState = {
+  show: null,
+  email: "",
+  password: "",
+  name: "",
+};
+
+export const accountSlice = createSlice({
+  name: "account",
+  initialState,
+  reducers: {
+    updateField: (state, action) => {
+      state[action.payload.field] = action.payload.value;
     },
-    reducers: {
-        updateFormData: (state, action) => {
-            const { name, value } = action.payload
-            state[name] = value
-        }
-    }
-})
-
-const loggedInSlice = createSlice({
-    name: 'loggedIn',
-    initialState: {
-        logged: false,
+    showModal: (state, action) => {
+      state.show = action.payload;
     },
-    reducers: {
-        setLoginState: (state, action) => {
+    clearForm: () => {
+      return initialState;
+    },
+  },
+});
 
-            state.logged = action.payload
-        },
-    }})
+export const { clearForm, updateField, showModal } = accountSlice.actions;
 
-export const { setLoginState } = loggedInSlice.actions
-export const { updateFormData } = loginFormSlice.actions
-export const selectFormData = (state) => state.loginForm;
-export const loginFormSliceReducer = loginFormSlice.reducer;
-export const loggedInSliceReducer = loggedInSlice.reducer;
-export default { loginFormSliceReducer, loggedInSliceReducer }
+export const LOG_IN_MODAL = "LOG_IN_MODAL";
+export const SIGN_UP_MODAL = "SIGN_UP_MODAL";

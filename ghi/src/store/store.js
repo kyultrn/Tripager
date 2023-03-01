@@ -1,20 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { tripsApi } from "./apiSlice";
-import { createTripFormSliceReducer, tripModalSliceReducer } from "./tripModalSlice";
-import { loginFormSliceReducer, loggedInSliceReducer } from "./accountsSlice";
-
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { tripsApi, } from "../store/tripsApi";
+import { authApiSlice } from "./authApi";
+import { accountSlice } from "./accountsSlice";
 
 export const store = configureStore({
   reducer: {
-    [tripsApi.reducerPath]: tripsApi.reducer,
-    tripModal: tripModalSliceReducer,
-    form: createTripFormSliceReducer,
-    loginForm: loginFormSliceReducer,
-    loggedIn: loggedInSliceReducer
+    [tripsApi.reducerPath]: apiSlice.reducer,
+    [authApiSlice.reducerPath]: authApiSlice.reducer,
+    [accountSlice.name]: accountSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(tripsApi.middleware);
+    return getDefaultMiddleware()
+      .concat(tripsApi.middleware)
+      .concat(authApiSlice.middleware);
   },
 });
 

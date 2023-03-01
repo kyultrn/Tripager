@@ -1,6 +1,6 @@
-import { useGetEventsQuery } from "../store/apiSlice";
-import { useGetTripQuery } from "../store/apiSlice";
-import { tripsApi } from "../store/apiSlice";
+import { useGetEventsQuery } from "../store/tripsApi";
+import { useGetTripQuery } from "../store/tripsApi";
+import { tripsApi } from "../store/tripsApi";
 import { useParams } from "react-router-dom";
 
 export default function Events() {

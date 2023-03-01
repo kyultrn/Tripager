@@ -8,7 +8,7 @@ import {
 } from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useUpdateTripMutation } from "../store/apiSlice";
+import { useUpdateTripMutation } from "../store/tripsApi";
 
 function UpdateTripModal() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);

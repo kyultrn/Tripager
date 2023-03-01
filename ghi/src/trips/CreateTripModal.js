@@ -9,7 +9,7 @@ import {
 } from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
-import { useCreateTripMutation } from "../store/apiSlice";
+import { useCreateTripMutation } from "../store/tripsApi";
 
 export default function CreateTripModal() {
   const isModalOpen = useSelector((state) => state.tripModal.isModalOpen);

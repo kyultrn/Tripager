@@ -1,4 +1,4 @@
-import { useGetTripsQuery } from "../store/apiSlice";
+import { useGetTripsQuery } from "../store/tripsApi";
 import { useNavigate, Link } from "react-router-dom";
 import { openTripModal } from "../store/tripModalSlice";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import ModalForm from "./CreateTripModal";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
-import { useGetTokenQuery } from "../store/apiSlice";
+import { useGetTokenQuery } from "../store/authApi";
 
 export function Trips() {
   const { data, isLoading } = useGetTripsQuery();

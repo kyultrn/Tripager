@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { eventEndpoints } from "./eventEndpoints";
+import { authApiSlice } from "./authApi";
 
 const initialState = {
   trips: [],
@@ -11,17 +12,15 @@ export const tripsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_TRIPAGER_HOST,
     prepareHeaders: (headers, { getState }) => {
-      const selector = tripsApi.endpoints.getToken.select();
+      const selector = authApiSlice.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
       if (tokenData && tokenData.access_token) {
-        headers.set(
-          "Authorization",
-          `${tokenData.token_type} ${tokenData.access_token}`
-        );
+        headers.set("Authorization", `Bearer ${tokenData.access_token}`);
       }
       return headers;
     },
   }),
+
   tagTypes: ["TripsList", "Token", "EventsList", "Account"],
 
   endpoints: (builder) => ({
@@ -60,47 +59,50 @@ export const tripsApi = createApi({
       }),
       invalidatesTags: ["TripsList"],
     }),
-    // Accounts
-    userLogin: builder.mutation({
-      query: (info) => {
-        console.log(info);
-        let formData = null;
-        if (info instanceof HTMLElement) {
-          formData = new FormData(info);
-        } else {
-          formData = new FormData();
-          formData.append("username", info.email);
-          formData.append("password", info.password);
-        }
-        return {
-          url: "/token",
-          method: "post",
-          body: formData,
-          credentials: "include",
-        };
-      },
-      providesTags:['Account'],
-      invalidatesTags: (result) => {
-        return (result && ["Token"]) || [];
-      },
-    }),
-    getToken: builder.query({
-      query: () => ({
-        url: "/token",
-        credentials: "include",
-      }),
-      providesTags: ["Token"],
-    }),
-    userLogout: builder.mutation({
-      query: () => ({
-        url: '/token',
-        method: 'delete',
-        credentials: 'include',
-      }),
-      invalidateTags: ["Token", "Account"]
-    })
   }),
 });
+
+    // Accounts
+//     userLogin: builder.mutation({
+//       query: (info) => {
+//         console.log(info);
+//         let formData = null;
+//         if (info instanceof HTMLElement) {
+//           formData = new FormData(info);
+//         } else {
+//           formData = new FormData();
+//           formData.append("username", info.email);
+//           formData.append("password", info.password);
+//         }
+//         return {
+//           url: "/token",
+//           method: "post",
+//           body: formData,
+//           credentials: "include",
+//         };
+//       },
+//       providesTags: ["Account"],
+//       invalidatesTags: (result) => {
+//         return (result && ["Token"]) || [];
+//       },
+//     }),
+//     getToken: builder.query({
+//       query: () => ({
+//         url: "/token",
+//         credentials: "include",
+//       }),
+//       providesTags: ["Token"],
+//     }),
+//     userLogout: builder.mutation({
+//       query: () => ({
+//         url: "/token",
+//         method: "delete",
+//         credentials: "include",
+//       }),
+//       invalidateTags: ["Token", "Account"],
+//     }),
+//   }),
+// });
 
 export const {
   useGetTripsQuery,
@@ -110,10 +112,10 @@ export const {
   useCreateTripMutation,
   useDeleteTripMutation,
   useUpdateTripMutation,
-  useUserLoginMutation,
-  useUserLogoutMutation,
-  useGetTokenQuery,
+  // useUserLoginMutation,
+  // useUserLogoutMutation,
+  // useGetTokenQuery,
   useCreateEventMutation,
   useDeleteEventMutation,
-  useUpdateEventMutation,
-} = tripsApi;
+  useUpdateEventMutation
+} = tripsApi
