@@ -68,14 +68,14 @@ export default function CreateTripModal() {
             />
             <Form.Label>Start Date</Form.Label>
             <Form.Control
-              type="text"
+              type="date"
               name="start_date"
               value={formData.start_date}
               onChange={handleInputChange}
             />
             <Form.Label>End Date</Form.Label>
             <Form.Control
-              type="text"
+              type="date"
               name="end_date"
               value={formData.end_date}
               onChange={handleInputChange}
