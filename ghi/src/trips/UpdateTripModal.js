@@ -78,7 +78,7 @@ function UpdateTripModal() {
               onChange={handleInputChange}
             />
             <Modal.Footer>
-              <Button type="submit">Create</Button>
+              <Button type="submit">Update</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
