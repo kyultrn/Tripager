@@ -13,6 +13,11 @@ import {
   useDeleteTripMutation,
   useUpdateTripMutation,
 } from "../store/ApiSlice";
+import Swal from "sweetalert2";
+import { Modal } from "react-bootstrap";
+// import "../CSS/Style.css";
+
+
 
 export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
@@ -109,13 +114,31 @@ export default function Trips() {
                   </td>
                   <td>
                     <i
-                      type="button"
+                      variant="btn-sm m-1"
+                      className="btn-red btn-sm text-right"
                       onClick={() => {
-                        handleDeleteTrip(trip.id);
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#bb7e74",
+                          cancelButtonColor: "#808080",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            handleDeleteTrip(trip.id);
+                            Swal.fire(
+                              "Deleted!",
+                              "Your room has been deleted.",
+                              "success"
+                            );
+                          }
+                        });
                       }}
-                      className="fa fa-trash"
-                      aria-hidden="true"
-                    ></i>
+                    >
+                      Delete
+                    </i>
                   </td>
                 </tr>
               ))}
