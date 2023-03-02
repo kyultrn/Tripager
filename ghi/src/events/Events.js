@@ -20,7 +20,7 @@ export default function Events() {
     isLoading: tripLoading,
   } = useGetTripQuery(id);
 
-  const handleDeleteEvent = async (eventId) => {
+  const handleDeleteEvent = async (tripId, eventId) => {
     try {
       const response = await deleteEvent(eventId);
       console.log(response);
@@ -56,7 +56,8 @@ export default function Events() {
                 <td>{event.location}</td>
                 <td>{event.start_time}</td>
                 <td>{event.end_time}</td>
-                <i
+                <td>
+                  <i
                   variant="btn-sm m-1"
                   className="btn-red btn-sm text-right"
                   onClick={() => {
@@ -70,7 +71,7 @@ export default function Events() {
                       confirmButtonText: "Yes, delete it!",
                     }).then((result) => {
                       if (result.isConfirmed) {
-                        handleDeleteEvent(trip.id);
+                        handleDeleteEvent(id, event.id);
                         Swal.fire(
                           "Deleted!",
                           "Your room has been deleted.",
@@ -82,6 +83,7 @@ export default function Events() {
                 >
                   Delete
                 </i>
+                </td>
               </tr>
             ))}
           </tbody>
