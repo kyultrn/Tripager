@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { accountsEndpoints } from "./accountsEndpoints";
 import { eventEndpoints } from "./eventEndpoints";
+import { tripEndpoints } from "./tripEndpoints";
 
 const initialState = {
   trips: []
@@ -25,92 +27,11 @@ export const tripsApi = createApi({
 
   endpoints: (builder) => ({
     // Trips
+    ...tripEndpoints(builder),
+    // Events
     ...eventEndpoints(builder),
-    getTrips: builder.query({
-      query: () => ({
-        url: "/api/trips/mytrips",
-        credentials: "include",
-      }),
-      providesTags: ["TripsList"],
-    }),
-    getTrip: builder.query({
-      query: (trip_id) => `/api/trips/${trip_id}`,
-      providesTags: ["TripsList"],
-    }),
-    createTrip: builder.mutation({
-      query: (data) => ({
-        url: "/api/trips",
-        body: data,
-        method: "post",
-      }),
-      invalidatesTags: ["TripsList"],
-    }),
-    deleteTrip: builder.mutation({
-      query: (trip_id) => ({
-        url: `/api/trips/${trip_id}`,
-        method: "delete",
-      }),
-      invalidatesTags: ["TripsList"],
-    }),
-    updateTrip: builder.mutation({
-      query: (data) => ({
-        url: `/api/trips/${data.selectedTripId}`,
-        body: data.formData,
-        method: "put",
-      }),
-      invalidatesTags: ["TripsList"],
-    }),
     // Accounts
-    userLogin: builder.mutation({
-      query: (info) => {
-        console.log(info);
-        let formData = null;
-        if (info instanceof HTMLElement) {
-          formData = new FormData(info);
-        } else {
-          formData = new FormData();
-          formData.append("username", info.email);
-          formData.append("password", info.password);
-        }
-        return {
-          url: "/token",
-          method: "post",
-          body: formData,
-          credentials: "include",
-        };
-      },
-      providesTags:['Account'],
-      invalidatesTags: (result) => {
-        return (result && ["Token"]) || [];
-      },
-    }),
-    getToken: builder.query({
-      query: () => ({
-        url: "/token",
-        credentials: "include",
-      }),
-      providesTags: ["Token"],
-    }),
-    userLogout: builder.mutation({
-      query: () => ({
-        url: '/token',
-        method: 'delete',
-        credentials: 'include',
-      }),
-      invalidatesTags: ["Token", "Account", "TripsList"]
-    }),
-    userSignup: builder.mutation({
-      query: (info) => ({
-        url: '/api/accounts',
-        method: 'post',
-        body: info,
-        credentials: 'include',
-      }),
-      provideTags: ["Account"],
-      invalidatesTags: (result) => {
-        return (result && ["Token"]) || [];
-      },
-    }),
+    ...accountsEndpoints(builder),
   }),
 });
 
