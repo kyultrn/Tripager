@@ -27,7 +27,7 @@ Today we worked on getting trips and events to diplay on our frontend. We had so
 ### Tues, Feb 28 2023
 Today the team spent a lot of time troubleshooting our login and logout with users. We are still having some issues getting everything to function together properly but we have had guidance from SEIRS and teams. Hopefully we get everything resolved before the end of the week.
 ### Weds, Mar 1 2023
-
+Another long day but we are still moving along. Kyle never fails to let down the team with his abundance of knowledge and quality problem solving skills. Troubleshooting with Candice helped our token issue and we were able to resolve a few other bugs with some of the SEIRS. I added some styling to our Trips tables and fixed the small bugs with our video displaying on the homepage. Overall a very good day from the team despite the never ending bugs!
 ### Thurs, Mar 2 2023
 
 ### Mon, Mar 6 2023

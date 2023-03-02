@@ -48,7 +48,7 @@ code {
 }
 
 .my-custom-class {
-  background-color: rgb(106, 93, 99);
+  background-color: rgb(65, 62, 63);
 }
 
 footer {
@@ -126,32 +126,18 @@ video {
   background-color: light rgb(200, 147, 200);
 }
 
+/* Trips Table Css */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
 
-/* * {
-  margin: 0;
-  padding: 0;
-} */
+.table-row {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
 
-/* .main {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-/* } */
-
-/* .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-} */
-
-
-/* @media screen and (max-width: 768px) {
-  .main {
-    height: 300px;
-    padding-bottom: 0;
-  }
-} */
+.table-row:hover {
+  transform: scale(1.05);
+}

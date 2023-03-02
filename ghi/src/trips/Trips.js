@@ -1,5 +1,9 @@
 import { useNavigate, Link } from "react-router-dom";
-import { openCreateTripModal, openUpdateTripModal, setSelectedTripId, changeToSelectedTripData } from "../store/tripModalSlice";
+import {
+  openCreateTripModal,
+  openUpdateTripModal,
+  setSelectedTripId,
+} from "../store/tripModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
@@ -10,14 +14,17 @@ import {
   useUpdateTripMutation,
 } from "../store/ApiSlice";
 
-export function Trips() {
+export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
 
-  console.log('this is tokenData', tokenData)
-
+  if (tokenData) {
+    console.log(tokenData);
+  }
+  console.log("this is tripsData: ****" + JSON.stringify(data));
+  console.log(`this is tokenData: **** ${tokenData}`);
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -33,7 +40,7 @@ export function Trips() {
   };
   const handleUpdateOpenModal = (tripId) => {
     dispatch(openUpdateTripModal());
-    dispatch(setSelectedTripId(tripId))
+    dispatch(setSelectedTripId(tripId));
   };
 
   if (tokenLoading && isLoading) {
@@ -47,7 +54,6 @@ export function Trips() {
   const handleDeleteTrip = (tripId) => {
     deleteTrip(tripId);
   };
-
 
   return (
     <div>
@@ -72,7 +78,7 @@ export function Trips() {
           {tokenData ? (
             <>
               {data?.map((trip) => (
-                <tr key={trip.id}>
+                <tr key={trip.id} className="table-row">
                   <td>
                     <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
                   </td>
@@ -83,7 +89,7 @@ export function Trips() {
                   <td>
                     <i
                       type="button"
-                      onClick={()=>handleUpdateOpenModal(trip.id)}
+                      onClick={() => handleUpdateOpenModal(trip.id)}
                       className="fa-solid fa-pen-to-square"
                     />
                     {isUpdateModalOpen && <UpdateTripModal />}
@@ -110,4 +116,4 @@ export function Trips() {
   );
 }
 
-export default Trips;
+
