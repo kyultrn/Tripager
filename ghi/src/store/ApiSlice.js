@@ -97,7 +97,7 @@ export const tripsApi = createApi({
         method: 'delete',
         credentials: 'include',
       }),
-      invalidatesTags: ["Token", "Account"]
+      invalidatesTags: ["Token", "Account", "TripsList"]
     }),
     userSignup: builder.mutation({
       query: (info) => ({
