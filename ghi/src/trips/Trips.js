@@ -1,4 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 import {
   openCreateTripModal,
   openUpdateTripModal,
@@ -14,12 +15,16 @@ import {
   useUpdateTripMutation,
 } from "../store/ApiSlice";
 
+
+
 export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
-
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  
+  
   const dispatch = useDispatch();
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal

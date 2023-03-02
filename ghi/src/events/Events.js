@@ -1,7 +1,10 @@
 import { useGetEventsQuery } from "../store/ApiSlice";
-import { useGetTripQuery } from "../store/ApiSlice";
+import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
 import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
+import CreateEventModal from "./CreateEventModal";
+import { openCreateEventModal } from "../store/eventModalSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Events() {
   const { id } = useParams();
@@ -10,45 +13,68 @@ export default function Events() {
     tripsError,
     isLoading: tripsLoading,
   } = useGetTripQuery(id);
+  
   const { data: events, error, isLoading } = useGetEventsQuery(id);
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  
   const {
     data: trips,
     tripError,
     isLoading: tripLoading,
   } = useGetTripQuery(id);
 
-  if (isLoading || tripLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  } else {
-    return (
-      <div>
-        <h1>{trip.name} Events</h1>
-        <table className="table is-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Picture</th>
-              <th>Location</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {events.map((event) => (
-              <tr key={event.id}>
-                <td>{event.name}</td>
-                <td>{event.description}</td>
-                <td>{event.picture_url}</td>
-                <td>{event.location}</td>
-                <td>{event.start_time}</td>
-                <td>{event.end_time}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
+  const isCreateModalOpen = useSelector(
+    (state) => state.eventModal.isModalOpen.createModal
+  );
+
+  const dispatch = useDispatch();
+
+  const handleCreateOpenModal = () => {
+    dispatch(openCreateEventModal())
   }
+  
+
+  if (isLoading || tripLoading || tokenLoading) {
+    return <progress className="progress is-primary" max="100"></progress>;
+  }
+  return (
+    <div>
+      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+        Create a Event
+      </button>
+      {isCreateModalOpen && <CreateEventModal />}
+      <h1>Events for {trip.name}</h1>
+      <table className="table is-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Picture</th>
+            <th>Location</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tokenData ? (
+            <>
+              {events.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.name}</td>
+                  <td>{event.description}</td>
+                  <td>{event.picture_url}</td>
+                  <td>{event.location}</td>
+                  <td>{event.start_time}</td>
+                  <td>{event.end_time}</td>
+                </tr>
+              ))}
+            </>
+          ) : (
+            <div>No trips</div>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
 }

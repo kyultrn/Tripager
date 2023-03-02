@@ -14,12 +14,10 @@ import { useCreateTripMutation } from "../store/ApiSlice";
 
 export default function CreateTripModal() {
   const isCreateModalOpen = useSelector((state) => state.tripModal.isModalOpen.createModal);
-
   const formData = useSelector(selectTripFormData);
-
   const dispatch = useDispatch();
   const [createTrip, result] = useCreateTripMutation();
-
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(updateFormData({ name, value }));
@@ -34,7 +32,6 @@ export default function CreateTripModal() {
     dispatch(closeCreateTripModal());
     createTrip(formData);
     dispatch(resetFormData());
-    console.log(formData)
   };
 
   return (
