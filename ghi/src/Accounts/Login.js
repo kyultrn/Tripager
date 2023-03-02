@@ -76,7 +76,7 @@ export default function Login() {
           </button>
         </form>
         <button className="btn btn-primary" onClick={handleSignUpOpenModal}>
-          Sign Up!
+         Dont have an account? Create one here!
         </button>
         {isSignUpModalOpen && <SignUpModal />}
       </div>
