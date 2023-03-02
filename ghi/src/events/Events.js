@@ -1,9 +1,12 @@
 import { useGetEventsQuery } from "../store/ApiSlice";
-import { useGetTripQuery } from "../store/ApiSlice";
+import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
 import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDeleteEventMutation } from "../store/ApiSlice";
+import CreateEventModal from "./CreateEventModal";
+import { openCreateEventModal } from "../store/eventModalSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
@@ -13,7 +16,10 @@ export default function Events() {
     tripsError,
     isLoading: tripsLoading,
   } = useGetTripQuery(id);
+
   const { data: events, error, isLoading } = useGetEventsQuery(id);
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+
   const {
     data: trips,
     tripError,
@@ -29,35 +35,51 @@ export default function Events() {
     }
   };
 
-  if (isLoading || tripLoading) {
+  const isCreateModalOpen = useSelector(
+    (state) => state.eventModal.isModalOpen.createModal
+  );
+
+  const dispatch = useDispatch();
+
+  const handleCreateOpenModal = () => {
+    dispatch(openCreateEventModal())
+  }
+
+
+  if (isLoading || tripLoading || tokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
-  } else {
-    return (
-      <div>
-        <h1>Events for {trip.name}</h1>
-        <table className="table is-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Picture</th>
-              <th>Location</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {events.map((event) => (
-              <tr key={event.id}>
-                <td>{event.name}</td>
-                <td>{event.description}</td>
-                <td>{event.picture_url}</td>
-                <td>{event.location}</td>
-                <td>{event.start_time}</td>
-                <td>{event.end_time}</td>
-                <td>
-                  <i
+  }
+  return (
+    <div>
+      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+        Create a Event
+      </button>
+      {isCreateModalOpen && <CreateEventModal />}
+      <h1>Events for {trip.name}</h1>
+      <table className="table is-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Picture</th>
+            <th>Location</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tokenData ? (
+            <>
+              {events.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.name}</td>
+                  <td>{event.description}</td>
+                  <td>{event.picture_url}</td>
+                  <td>{event.location}</td>
+                  <td>{event.start_time}</td>
+                  <td>{event.end_time}</td>
+                  <td>
+                    <i
                   variant="btn-sm m-1"
                   className="btn-red btn-sm text-right"
                   onClick={() => {
@@ -83,12 +105,15 @@ export default function Events() {
                 >
                   Delete
                 </i>
-                </td>
+              </td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+              ))}
+            </>
+          ) : (
+            <div>No events</div>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
 }
