@@ -2,11 +2,14 @@ import { useGetEventsQuery } from "../store/ApiSlice";
 import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
 import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useDeleteEventMutation } from "../store/ApiSlice";
 import CreateEventModal from "./CreateEventModal";
 import { openCreateEventModal } from "../store/eventModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Events() {
+  const [deleteEvent, { deleteError }] = useDeleteEventMutation();
   const { id } = useParams();
   const {
     data: trip,
@@ -22,6 +25,24 @@ export default function Events() {
     tripError,
     isLoading: tripLoading,
   } = useGetTripQuery(id);
+
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      const response = await deleteEvent(eventId);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      const response = await deleteEvent(eventId);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const isCreateModalOpen = useSelector(
     (state) => state.eventModal.isModalOpen.createModal
