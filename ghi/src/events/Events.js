@@ -22,7 +22,9 @@ export default function Events() {
   } else {
     return (
       <div>
-        <h1>{trip.name} Events</h1>
+        <h1>
+          Events for {trip.name}
+        </h1>
         <table className="table is-striped">
           <thead>
             <tr>
