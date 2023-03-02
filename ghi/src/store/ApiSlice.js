@@ -36,17 +36,20 @@ export const tripsApi = createApi({
 });
 
 export const {
-  useGetTripsQuery,
-  useGetTripQuery,
-  useGetEventsQuery,
-  useCreateTripMutation,
-  useDeleteTripMutation,
-  useUpdateTripMutation,
+  useGetTokenQuery,
   useUserLoginMutation,
   useUserLogoutMutation,
   useUserSignupMutation,
-  useGetTokenQuery,
+
+  useGetTripQuery,
+  useGetTripsQuery,
+  useCreateTripMutation,
+  useDeleteTripMutation,
+  useUpdateTripMutation,
+
+  useGetEventsQuery,
   useCreateEventMutation,
   useDeleteEventMutation,
   useUpdateEventMutation,
+
 } = tripsApi;
