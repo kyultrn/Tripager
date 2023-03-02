@@ -35,15 +35,6 @@ export default function Events() {
     }
   };
 
-  const handleDeleteEvent = async (eventId) => {
-    try {
-      const response = await deleteEvent(eventId);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const isCreateModalOpen = useSelector(
     (state) => state.eventModal.isModalOpen.createModal
   );
