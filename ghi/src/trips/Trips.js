@@ -20,14 +20,7 @@ export default function Trips() {
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
 
-  if (tokenData) {
-    console.log(tokenData);
-  }
-  console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
   const dispatch = useDispatch();
-  // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
-
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal
   );
@@ -43,6 +36,30 @@ export default function Trips() {
     dispatch(setSelectedTripId(tripId));
   };
 
+  const handleDeleteTrip = async (tripId) => {
+    try {
+      const response = await deleteTrip(tripId);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+  };
+
+  if (tokenData) {
+    console.log(tokenData);
+  }
+  console.log("this is tripsData: ****" + JSON.stringify(data));
+  console.log(`this is tokenData: **** ${tokenData}`);
+
   if (tokenLoading && isLoading) {
     return (
       <>
@@ -50,10 +67,6 @@ export default function Trips() {
       </>
     );
   }
-
-  const handleDeleteTrip = (tripId) => {
-    deleteTrip(tripId);
-  };
 
   return (
     <div>
@@ -84,8 +97,8 @@ export default function Trips() {
                   </td>
                   <td>{trip.city}</td>
                   <td>{trip.state}</td>
-                  <td>{trip.start_date}</td>
-                  <td>{trip.end_date}</td>
+                  <td>{formatDate(trip.start_date)}</td>
+                  <td>{formatDate(trip.end_date)}</td>
                   <td>
                     <i
                       type="button"
