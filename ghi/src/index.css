@@ -139,5 +139,6 @@ video {
 }
 
 .table-row:hover {
-  transform: scale(1.05);
+  background-color: #d2d3d3;
 }
+
