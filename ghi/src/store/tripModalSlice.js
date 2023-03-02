@@ -34,6 +34,14 @@ const tripFormSlice = createSlice({
     selectedTripId: null,
   },
   reducers: {
+    changeToSelectedTripData: (state, action, trip ) => {
+      console.log("this is the trip that is being sent ****", trip)
+      state.name= trip.name;
+      state.city= trip.city;
+      state.state= trip.state;
+      state.start_date= trip.start_date;
+      state.end_date= trip.end_date;
+    },
     updateFormData: (state, action) => {
       const { name, value } = action.payload;
       state[name] = value;
@@ -52,7 +60,7 @@ const tripFormSlice = createSlice({
 });
 
 export const { openCreateTripModal, closeCreateTripModal, openUpdateTripModal, closeUpdateTripModal } = tripModalSlice.actions
-export const { updateFormData, resetFormData, setSelectedTripId } = tripFormSlice.actions;
+export const { updateFormData, resetFormData, setSelectedTripId, changeToSelectedTripData } = tripFormSlice.actions;
 export const selectTripFormData = (state) => state.tripForm;
 export const tripFormSliceReducer = tripFormSlice.reducer;
 export const tripModalSliceReducer = tripModalSlice.reducer;

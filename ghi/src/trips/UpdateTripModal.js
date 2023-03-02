@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeTripModal, openTripModal } from "../store/tripModalSlice";
 import {
@@ -6,6 +6,7 @@ import {
   updateFormData,
   resetFormData,
   closeUpdateTripModal,
+  changeToSelectedTripData
 } from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
@@ -14,31 +15,57 @@ import { useUpdateTripMutation, useGetTripQuery } from "../store/ApiSlice";
 function UpdateTripModal() {
   const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
   const selectedTripId = useSelector(state => state.tripForm.selectedTripId);
-  const formData = useSelector(selectTripFormData);
-  console.log(selectedTripId)
+  // const formData = useSelector(selectTripFormData)
+  const [formData, setFormData] = useState()
+  console.log("this is the form name before update:****", formData)
   const { data: trip, isLoading: tripLoading } = useGetTripQuery(selectedTripId)
+
   console.log('this is the trip data:', trip)
   const dispatch = useDispatch();
   const [updateTrip, result] = useUpdateTripMutation();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    dispatch(updateFormData({ name, value }));
+    const value = e.target.value;
+    const inputName = e.target.name;
+    setFormData({
+        ...formData,
+        [inputName]: value
+    });
   };
+
 
   const handleCloseModal = () => {
     dispatch(closeUpdateTripModal());
   };
-  console.log()
+
+  console.log("this is trips data *****", trip)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTrip({formData, selectedTripId});
-    dispatch(resetFormData())
+    // dispatch(resetFormData())
     // console.log("this is the object of data on update *********", {formData, selectedTripId})
     dispatch(closeUpdateTripModal());
+    console.log(formData)
   };
 
-  if (tripLoading) {
+  useEffect(() => {
+    // console.log('this is the trip ****', trip)
+    // dispatch(changeToSelectedTripData(trip))
+    if(!formData && trip){
+      setFormData({
+      "name": trip.name,
+      "city": trip.city,
+      "state": trip.state,
+      "start_date": trip.start_date,
+      "end_date": trip.end_date,
+     })
+    }
+  }, [trip])
+
+
+
+  if (!formData || tripLoading) {
       return (
         <>
           <progress className="progress is-primary" max="100"></progress>
@@ -46,7 +73,7 @@ function UpdateTripModal() {
       );
     }
 
-  return (
+ return (
     <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
       <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
         <Modal.Header closeButton>
@@ -58,35 +85,35 @@ function UpdateTripModal() {
             <Form.Control
               type="text"
               name="name"
-              value={formData.name || trip.name}
+              value={formData.name}
               onChange={handleInputChange}
             />
             <Form.Label>City</Form.Label>
             <Form.Control
               type="text"
               name="city"
-              value={formData.city || trip.city}
+              value={formData.city}
               onChange={handleInputChange}
             />
             <Form.Label>State</Form.Label>
             <Form.Control
               type="text"
               name="state"
-              value={formData.state || trip.state}
+              value={formData.state}
               onChange={handleInputChange}
             />
             <Form.Label>Start Date</Form.Label>
             <Form.Control
               type="date"
               name="start_date"
-              value={formData.start_date || trip.start_date}
+              value={formData.start_date}
               onChange={handleInputChange}
             />
             <Form.Label>End Date</Form.Label>
             <Form.Control
               type="date"
               name="end_date"
-              value={formData.end_date || trip.end_date}
+              value={formData.end_date}
               onChange={handleInputChange}
             />
             <Modal.Footer>

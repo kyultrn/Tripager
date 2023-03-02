@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { openCreateTripModal, openUpdateTripModal, setSelectedTripId } from "../store/tripModalSlice";
+import { openCreateTripModal, openUpdateTripModal, setSelectedTripId, changeToSelectedTripData } from "../store/tripModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
@@ -16,11 +16,8 @@ export function Trips() {
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
 
-  if (tokenData) {
-    console.log(tokenData);
-  }
-  console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
+  console.log('this is tokenData', tokenData)
+
   const dispatch = useDispatch();
   // const { data: trip, tripsError , isLoading: tripsLoading } = useGetTripQuery(id)
 
@@ -114,6 +111,3 @@ export function Trips() {
 }
 
 export default Trips;
-
-
-
