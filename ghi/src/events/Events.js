@@ -81,16 +81,15 @@ export default function Events() {
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
                   <td>
+                    <Image rounded thumbnail src={event.picture_url} />
+                  </td>
+                  <td>
                     <i
                       type="button"
                       onClick={() => handleUpdateOpenModal(event.id)}
                       className="fa-solid fa-pen-to-square"
                     />
                     {isUpdateModalOpen && <UpdateEventModal />}
-                  </td>
-                  <td>{event.picture_url}</td>
-                  <td>
-                    <Image rounded thumbnail src={event.picture_url} />
                   </td>
                   <td>
                     <i
