@@ -61,10 +61,10 @@ export default function Events() {
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Picture</th>
             <th>Location</th>
             <th>Start Time</th>
             <th>End Time</th>
+            <th>Picture</th>
           </tr>
         </thead>
         <tbody>
@@ -74,10 +74,10 @@ export default function Events() {
                 <tr key={event.id}>
                   <td>{event.name}</td>
                   <td>{event.description}</td>
-                  <td>{event.picture_url}</td>
                   <td>{event.location}</td>
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
+                  <td>{event.picture_url}</td>
                   <td>
                     <i
                   variant="btn-sm m-1"
