@@ -44,7 +44,7 @@ export default function Events() {
   }
 
 
-  if (isLoading || tripLoading || tokenLoading) {
+  if (isLoading || tripLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
   return (
