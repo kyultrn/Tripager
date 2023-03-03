@@ -106,7 +106,7 @@ export default function Events() {
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
-                            handleDeleteEvent(id, event.id);
+                            handleDeleteEvent(event.id);
                             Swal.fire(
                               "Deleted!",
                               "Your event has been deleted.",
