@@ -3,11 +3,27 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useState, useEffect } from "react";
+import { useGetThingsToDoQuery } from "../store/ApiSlice";
 
 export default ThingsToDo;
 
 function ThingsToDo() {
+
+
+  const [formData, setFormData] = useState({
+    term: '',
+    location: '',
+  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const { data, isLoading } = await useGetThingsToDoQuery({formData.term, formData.location})
+  }
+
+
   return (
+
     <Row className="g-4 justify-content-center">
       {Array.from({ length: 4 }).map((_, idx) => (
         <Col key={idx}>

@@ -21,6 +21,7 @@ export default function TripagerHome() {
       <div className="content">
         <h1>Tripager</h1>
         <h2>Plan and manage your next trip here.</h2>
+        <picture> </picture>
         {/* {token ? (
           <div>
             <button className="btn btn-green" onClick={handleTripsRedirect}>
