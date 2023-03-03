@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { openCreateEventModal, closeCreateEventModal, selectEventFormData, updateFormData, resetFormData } from "../store/eventModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +11,7 @@ export default function CreateEventModal() {
     const formData = useSelector(selectEventFormData);
     const dispatch = useDispatch();
     const [createEvent, result] = useCreateEventMutation();
+    const { id: tripId } = useParams()
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -23,7 +25,7 @@ export default function CreateEventModal() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(closeCreateEventModal());
-        createEvent(formData);
+        createEvent({ formData, tripId });
         dispatch(resetFormData());
     };
 
