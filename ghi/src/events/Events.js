@@ -1,12 +1,12 @@
 import { useGetEventsQuery } from "../store/ApiSlice";
 import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
-import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDeleteEventMutation } from "../store/ApiSlice";
 import CreateEventModal from "./CreateEventModal";
 import { openCreateEventModal } from "../store/eventModalSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "react-bootstrap/Image";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
@@ -16,10 +16,10 @@ export default function Events() {
     tripsError,
     isLoading: tripsLoading,
   } = useGetTripQuery(id);
-  
+
   const { data: events, error, isLoading } = useGetEventsQuery(id);
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
-  
+
   const {
     data: trips,
     tripError,
@@ -42,9 +42,8 @@ export default function Events() {
   const dispatch = useDispatch();
 
   const handleCreateOpenModal = () => {
-    dispatch(openCreateEventModal())
-  }
-  
+    dispatch(openCreateEventModal());
+  };
 
   if (isLoading || tripLoading || tokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -60,12 +59,11 @@ export default function Events() {
         <thead>
           <tr>
             <th>Name</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Picture</th>
+            <th>Description</th>
             <th>Location</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Picture</th>
           </tr>
         </thead>
         <tbody>
@@ -75,15 +73,45 @@ export default function Events() {
                 <tr key={event.id}>
                   <td>{event.name}</td>
                   <td>{event.description}</td>
-                  <td>{event.picture_url}</td>
                   <td>{event.location}</td>
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
+                  <td>
+                    <Image rounded thumbnail src={event.picture_url} />
+                  </td>
+                  <td>
+                    <i
+                      variant="btn-sm m-1"
+                      className="btn-red btn-sm text-right"
+                      onClick={() => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#bb7e74",
+                          cancelButtonColor: "#808080",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            handleDeleteEvent(id, event.id);
+                            Swal.fire(
+                              "Deleted!",
+                              "Your event has been deleted.",
+                              "success"
+                            );
+                          }
+                        });
+                      }}
+                    >
+                      Delete
+                    </i>
+                  </td>
                 </tr>
               ))}
             </>
           ) : (
-            <div>No trips</div>
+            <div>No events</div>
           )}
         </tbody>
       </table>

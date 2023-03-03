@@ -13,7 +13,7 @@ export function eventEndpoints(builder){
         }),
         createEvent: builder.mutation({
             query: (data) => ({
-            url: `/api/trips/${data.trip_id}/events`,
+            url: `/api/trips/${data.tripId}/events`,
             body: data.formData,
             method: "post",
             }),
