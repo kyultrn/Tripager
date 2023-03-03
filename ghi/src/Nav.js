@@ -6,7 +6,7 @@ import { useGetTokenQuery, useUserLogoutMutation } from "./store/ApiSlice";
 import { useDispatch } from "react-redux";
 import { setLoginState, resetFormData } from "./store/AccountsSlice";
 import { store } from "./store/store";
-
+import './navbar.css'
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ export default function Navbar() {
   const handleLogin = () => {
     navigate("/login");
   };
+
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark my-custom-class">
