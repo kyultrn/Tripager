@@ -26,7 +26,7 @@ export default function Events() {
     isLoading: tripLoading,
   } = useGetTripQuery(id);
 
-  const handleDeleteEvent = async (eventId) => {
+  const handleDeleteEvent = async (tripId, eventId) => {
     try {
       const response = await deleteEvent(eventId);
       console.log(response);
