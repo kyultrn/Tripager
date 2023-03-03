@@ -61,9 +61,9 @@ export default function Events() {
             <th>Start Time</th>
             <th>End Time</th>
             <th>Picture</th>
-          <button className="btn btn-primary" onClick={handleCreateOpenModal}>
-            Create a Event
-          </button>
+            <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+              Create a Event
+            </button>
           </tr>
         </thead>
         <tbody>
