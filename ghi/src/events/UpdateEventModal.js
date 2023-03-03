@@ -40,6 +40,7 @@ export default function UpdateEventModal() {
         e.preventDefault()
         console.log("this is data****", {formData, selectedEventId, tripId})
         updateEvent({formData, selectedEventId, tripId})
+        console.log(result)
         dispatch(closeUpdateEventModal())
     }
 
