@@ -20,11 +20,11 @@ export default function TripagerHome() {
     <div className="container">
       <div className="content">
         <h1>Tripager</h1>
-        <h2>Plan and manage your next trip here!</h2>
-        {token ? (
+        <h2>Plan and manage your next trip here.</h2>
+        {/* {token ? (
           <div>
             <button className="btn btn-green" onClick={handleTripsRedirect}>
-              My Trips
+
             </button>
           </div>
         ) : (
@@ -32,8 +32,8 @@ export default function TripagerHome() {
             <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
               Get Started
             </button>
-          </div>
-        )}
+          </div> */}
+        {/* )} */}
       </div>
       <VideoCarousel />
     </div>

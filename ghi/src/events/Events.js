@@ -1,12 +1,12 @@
 import { useGetEventsQuery } from "../store/ApiSlice";
 import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
-import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDeleteEventMutation } from "../store/ApiSlice";
 import CreateEventModal from "./CreateEventModal";
 import { openCreateEventModal } from "../store/eventModalSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "react-bootstrap/Image";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
@@ -42,9 +42,8 @@ export default function Events() {
   const dispatch = useDispatch();
 
   const handleCreateOpenModal = () => {
-    dispatch(openCreateEventModal())
-  }
-
+    dispatch(openCreateEventModal());
+  };
 
   if (isLoading || tripLoading || tokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -79,34 +78,37 @@ export default function Events() {
                   <td>{event.end_time}</td>
                   <td>{event.picture_url}</td>
                   <td>
+                    <Image rounded thumbnail src={event.picture_url} />
+                  </td>
+                  <td>
                     <i
-                  variant="btn-sm m-1"
-                  className="btn-red btn-sm text-right"
-                  onClick={() => {
-                    Swal.fire({
-                      title: "Are you sure?",
-                      text: "You won't be able to revert this!",
-                      icon: "warning",
-                      showCancelButton: true,
-                      confirmButtonColor: "#bb7e74",
-                      cancelButtonColor: "#808080",
-                      confirmButtonText: "Yes, delete it!",
-                    }).then((result) => {
-                      if (result.isConfirmed) {
-                        handleDeleteEvent(id, event.id);
-                        Swal.fire(
-                          "Deleted!",
-                          "Your room has been deleted.",
-                          "success"
-                        );
-                      }
-                    });
-                  }}
-                >
-                  Delete
-                </i>
-              </td>
-              </tr>
+                      variant="btn-sm m-1"
+                      className="btn-red btn-sm text-right"
+                      onClick={() => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#bb7e74",
+                          cancelButtonColor: "#808080",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            handleDeleteEvent(id, event.id);
+                            Swal.fire(
+                              "Deleted!",
+                              "Your event has been deleted.",
+                              "success"
+                            );
+                          }
+                        });
+                      }}
+                    >
+                      Delete
+                    </i>
+                  </td>
+                </tr>
               ))}
             </>
           ) : (
