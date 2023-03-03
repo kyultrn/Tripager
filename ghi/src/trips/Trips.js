@@ -64,11 +64,8 @@ export default function Trips() {
     });
   };
 
-  if (tokenData) {
-    console.log(tokenData);
-  }
+
   console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
 
   if (tokenLoading && isLoading) {
     return (
@@ -80,10 +77,7 @@ export default function Trips() {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
-        Create a Trip
-      </button>
-      {isCreateModalOpen && <CreateTripModal />}
+
       <h1>Your Trips</h1>
       <table className="table is-striped">
         <thead>
@@ -94,7 +88,10 @@ export default function Trips() {
             <th>Start Date</th>
             <th>End Date</th>
             <th></th>
-            <th></th>
+            <th><button className="btn btn-primary" onClick={handleCreateOpenModal}>
+              Create a Trip
+            </button>
+            {isCreateModalOpen && <CreateTripModal />}</th>
           </tr>
         </thead>
         <tbody>

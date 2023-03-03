@@ -161,8 +161,8 @@ class EventQueries:
                             event.start_time,
                             event.end_time,
                             event.picture_url,
-                            event_id,
-                            trip_id
+                            trip_id,
+                            event_id
                         ]
                     )
                     return self.event_in_to_out(event_id, trip_id, event)

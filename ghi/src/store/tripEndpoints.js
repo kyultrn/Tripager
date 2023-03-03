@@ -25,7 +25,7 @@ export function tripEndpoints(builder) {
           url: `/api/trips/${trip_id}`,
           method: "delete",
         }),
-        invalidatesTags: ["TripsList"],
+        invalidatesTags: ["TripsList"]
       }),
       updateTrip: builder.mutation({
         query: (data) => ({
@@ -34,7 +34,7 @@ export function tripEndpoints(builder) {
           method: "put",
         }),
         invalidatesTags: ["TripsList"],
-      })
+      }),
     };
 
 }
