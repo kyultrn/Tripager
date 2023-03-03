@@ -11,26 +11,21 @@ import Image from "react-bootstrap/Image";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
-  const { id } = useParams();
+  const { id: tripId } = useParams();
 
   const dispatch = useDispatch()
 
-  const { data: events, error, isLoading } = useGetEventsQuery(id);
+  const { data: events, error, isLoading } = useGetEventsQuery(tripId);
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
 
   const {
     data: trip,
     isLoading: tripLoading,
-  } = useGetTripQuery(id);
+  } = useGetTripQuery(tripId);
 
-  const handleDeleteEvent = async (tripId, eventId) => {
-    try {
-      const response = await deleteEvent(eventId);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const handleDeleteEvent = (tripId, eventId) => {
+    deleteEvent({tripId,eventId});
+  }
 
   const isCreateModalOpen = useSelector(
     (state) => state.eventModal.isModalOpen.createModal
@@ -49,7 +44,7 @@ export default function Events() {
   }
 
 
-  if (isLoading || tripLoading || tokenLoading || tokenLoading) {
+  if (isLoading || tripLoading || tokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
   return (
@@ -106,7 +101,7 @@ export default function Events() {
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
-                            handleDeleteEvent(id, event.id);
+                            handleDeleteEvent(tripId, event.id);
                             Swal.fire(
                               "Deleted!",
                               "Your event has been deleted.",
