@@ -3,7 +3,8 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { tripsApi } from "./ApiSlice";
 import { tripFormSliceReducer, tripModalSliceReducer } from "./tripModalSlice";
 import { accountFormSliceReducer, loggedInSliceReducer, signUpModalSliceReducer } from "./AccountsSlice";
-import { eventModalSliceReducer, eventFormSliceReducer } from "./eventModalSlice";
+import { eventFormSliceReducer, eventModalSliceReducer } from "./eventModalSlice";
+
 
 export const store = configureStore({
   reducer: {
@@ -13,8 +14,8 @@ export const store = configureStore({
     accountForm: accountFormSliceReducer,
     loggedIn: loggedInSliceReducer,
     signUpModal: signUpModalSliceReducer,
+    eventForm: eventFormSliceReducer,
     eventModal: eventModalSliceReducer,
-    eventForm: eventFormSliceReducer
 
   },
   middleware: (getDefaultMiddleware) => {

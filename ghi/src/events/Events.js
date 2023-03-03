@@ -2,20 +2,45 @@ import { useGetEventsQuery } from "../store/ApiSlice";
 import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
 import { tripsApi } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
-import { openCreateEventModal, openUpdateEventModal, setSelectedEventId } from "../store/eventModalSlice";
+import Swal from "sweetalert2";
+import { useDeleteEventMutation } from "../store/ApiSlice";
+import CreateEventModal from "./CreateEventModal";
 import { useDispatch, useSelector } from "react-redux";
+import { openCreateEventModal, openUpdateEventModal, setSelectedEventId } from "../store/eventModalSlice";
 import UpdateEventModal from "./UpdateEventModal";
 
 export default function Events() {
+  const [deleteEvent, { deleteError }] = useDeleteEventMutation();
   const { id } = useParams();
+
   const dispatch = useDispatch()
 
   const { data: events, error, isLoading } = useGetEventsQuery(id);
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+
   const {
     data: trip,
     isLoading: tripLoading,
   } = useGetTripQuery(id);
+
+  const handleDeleteEvent = async (tripId, eventId) => {
+    try {
+      const response = await deleteEvent(eventId);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const isCreateModalOpen = useSelector(
+    (state) => state.eventModal.isModalOpen.createModal
+  );
+
+
+  const handleCreateOpenModal = () => {
+    dispatch(openCreateEventModal())
+  }
+
 
   const isUpdateModalOpen = useSelector( state => state.eventModal.isModalOpen.updateModal)
 
@@ -25,34 +50,34 @@ export default function Events() {
   }
 
 
-  if (isLoading || tripLoading || tokenLoading) {
+  if (isLoading || tripLoading || tokenLoading || tokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
   return (
     <div>
-      <h1>
-        Events for {trip.name}
-      </h1>
+      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+        Create a Event
+      </button>
+      {isCreateModalOpen && <CreateEventModal />}
+      <h1>Events for {trip.name}</h1>
       <table className="table is-striped">
         <thead>
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Location</th>
             <th>Picture</th>
             <th>Location</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
           </tr>
         </thead>
         <tbody>
           {tokenData ? (
             <>
-              {events?.map((event) => (
+              {events.map((event) => (
                 <tr key={event.id}>
                   <td>{event.name}</td>
                   <td>{event.description}</td>
-                  <td>{event.location}</td>
                   <td>{event.picture_url}</td>
                   <td>{event.location}</td>
                   <td>{event.start_time}</td>
@@ -65,15 +90,42 @@ export default function Events() {
                     />
                     {isUpdateModalOpen && <UpdateEventModal />}
                   </td>
-                </tr>
+                  <td>
+                    <i
+                  variant="btn-sm m-1"
+                  className="btn-red btn-sm text-right"
+                  onClick={() => {
+                    Swal.fire({
+                      title: "Are you sure?",
+                      text: "You won't be able to revert this!",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#bb7e74",
+                      cancelButtonColor: "#808080",
+                      confirmButtonText: "Yes, delete it!",
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        handleDeleteEvent(id, event.id);
+                        Swal.fire(
+                          "Deleted!",
+                          "Your room has been deleted.",
+                          "success"
+                        );
+                      }
+                    });
+                  }}
+                >
+                  Delete
+                </i>
+              </td>
+              </tr>
               ))}
             </>
           ) : (
-            <div>No Events</div>
-              )}
+            <div>No events</div>
+          )}
         </tbody>
       </table>
     </div>
   );
-
 }

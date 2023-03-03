@@ -1,12 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
-
+import { createSlice } from "@reduxjs/toolkit";
 
 const eventModalSlice = createSlice({
     name: "eventModal",
-    initialState:{
+    initialState: {
         isModalOpen: {createModal: false, updateModal: false},
     },
-    reducers:{
+    reducers: {
         openCreateEventModal: (state) => {
             state.isModalOpen.createModal = true
         },
@@ -22,10 +21,9 @@ const eventModalSlice = createSlice({
     },
 })
 
-
-const eventFormSlice = createSlice({
+const eventFormSlice = createSlice ({
     name: "eventForm",
-    initialState:{
+    initialState: {
         name: "",
         description: "",
         picture_url: "",
@@ -33,34 +31,21 @@ const eventFormSlice = createSlice({
         date: "",
         start_time: "",
         end_time: "",
-        trip_id: "",
-        // account_id: "",
         selectedEventId: null,
-
     },
     reducers: {
-        changeToSelectedEventData: (state, action, event ) => {
-            console.log("this is the event that is being sent ****", event)
-            state.name= event.name;
-            state.description= event.description;
-            state.picture_url= event.picture_url;
-            state.location= event.location;
-            state.date= event.date;
-            state.start_date= event.start_date;
-            state.end_date= event.end_date;
-        },
         updateFormData: (state, action) => {
-            const { name, value } = action.payload
+            const { name, value } = action.payload;
             state[name] = value
         },
         resetFormData: (state) => {
-            state.name = ""
-            state.description = ""
-            state.picture_url = ""
-            state.location = ""
-            state.date = ""
-            state.start_time = ""
-            state.end_time = ""
+            state.name = "";
+            state.description = "";
+            state.picture_url = "";
+            state.location = "";
+            state.date = "";
+            state.start_time = "";
+            state.end_time = "";
         },
         setSelectedEventId: (state, action) => {
             state.selectedEventId = action.payload
@@ -68,10 +53,20 @@ const eventFormSlice = createSlice({
     },
 })
 
-export const { openCreateEventModal, closeCreateEventModal, openUpdateEventModal, closeUpdateEventModal } = eventModalSlice.actions
-export const { updateFormData, resetFormData, setSelectedEventId, changeToSelectedEventData } = eventFormSlice.actions
+export const {
+    openCreateEventModal,
+    closeCreateEventModal,
+    openUpdateEventModal,
+    closeUpdateEventModal
+} = eventModalSlice.actions
+
+export const {
+    updateFormData,
+    resetFormData,
+    setSelectedEventId,
+} = eventFormSlice.actions
+
 export const selectEventFormData = (state) => state.eventForm
 export const eventFormSliceReducer = eventFormSlice.reducer
 export const eventModalSliceReducer = eventModalSlice.reducer
-
-export default { eventFormSliceReducer, eventModalSliceReducer }
+export default {eventFormSliceReducer, eventModalSliceReducer}
