@@ -60,6 +60,7 @@ export default function Events() {
             <th>Name</th>
             <th>Description</th>
             <th>Location</th>
+            <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
             <th>Picture</th>
@@ -73,10 +74,11 @@ export default function Events() {
                   <td>{event.name}</td>
                   <td>{event.description}</td>
                   <td>{event.location}</td>
+                  <td>{event.date}</td>
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
                   <td>
-                    <Image rounded thumbnail src={event.picture_url} />
+                    <Image className="event-picture" rounded thumbnail src={event.picture_url} />
                   </td>
                   <td>
                     <i

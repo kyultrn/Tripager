@@ -32,7 +32,7 @@ export default function SignUpModal() {
   }
 
   return (
-     <div className={`modal ${isSignUpModalOpen ? "is-active" : ""}`}>
+    <div className={`modal ${isSignUpModalOpen ? "is-active" : ""}`}>
       <Modal show={isSignUpModalOpen} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Sign Up</Modal.Title>

@@ -144,3 +144,8 @@ video {
 .table-row:hover {
   background-color: #d2d3d3;
 }
+
+.event-picture {
+  width: 200px;
+  height: 200px;
+}
