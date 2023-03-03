@@ -59,11 +59,8 @@ export default function Trips() {
     });
   };
 
-  if (tokenData) {
-    console.log(tokenData);
-  }
+
   console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
 
   if (tokenLoading && isLoading) {
     return (

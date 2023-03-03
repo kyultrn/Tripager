@@ -28,7 +28,7 @@ export function tripEndpoints(builder) {
         invalidatesTags: ["TripsList"],
       }),
       updateTrip: builder.mutation({
-        query: (data) => ({
+        query: (data) =>({
           url: `/api/trips/${data.selectedTripId}`,
           body: data.formData,
           method: "put",

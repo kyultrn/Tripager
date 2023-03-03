@@ -48,6 +48,7 @@ export const {
   useUpdateTripMutation,
 
   useGetEventsQuery,
+  useGetEventQuery,
   useCreateEventMutation,
   useDeleteEventMutation,
   useUpdateEventMutation,

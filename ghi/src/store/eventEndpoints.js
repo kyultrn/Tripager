@@ -7,7 +7,7 @@ export function eventEndpoints(builder){
         }),
         getEvent: builder.query({
             query: (data) => ({
-            url: `/api/trips/${data.trip_id}/events/${data.event_id}`,
+            url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
             }),
             providesTags: ["EventsList"],
         }),
@@ -27,10 +27,12 @@ export function eventEndpoints(builder){
             invalidatesTags: ["EventsList"],
         }),
         updateEvent: builder.mutation({
-            query: (data) => ({
-            url: `/api/trips/${data.trip_id}/events/${data.event_id}`,
+            query: (data) =>{
+            return({
+            url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
+            body: data.formData,
             method: "put",
-            }),
+            })},
             invalidatesTags: ["EventsList"],
         }),
     };
