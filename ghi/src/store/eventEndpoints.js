@@ -27,12 +27,11 @@ export function eventEndpoints(builder){
             invalidatesTags: ["EventsList"],
         }),
         updateEvent: builder.mutation({
-            query: (data) =>{
-            return({
+            query: (data) =>({
             url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
             body: data.formData,
             method: "put",
-            })},
+            }),
             invalidatesTags: ["EventsList"],
         }),
     };

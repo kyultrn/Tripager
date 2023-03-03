@@ -44,14 +44,11 @@ export default function Events() {
   }
 
 
-  if (isLoading || tripLoading || tokenLoading) {
+  if (isLoading || tripLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
-        Create a Event
-      </button>
       {isCreateModalOpen && <CreateEventModal />}
       <h1>Events for {trip.name}</h1>
       <table className="table is-striped">
@@ -60,9 +57,13 @@ export default function Events() {
             <th>Name</th>
             <th>Description</th>
             <th>Location</th>
+            <th>Date</th>
             <th>Start Time</th>
             <th>End Time</th>
             <th>Picture</th>
+            <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+              Create a Event
+            </button>
           </tr>
         </thead>
         <tbody>
@@ -73,10 +74,11 @@ export default function Events() {
                   <td>{event.name}</td>
                   <td>{event.description}</td>
                   <td>{event.location}</td>
+                  <td>{event.date}</td>
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
                   <td>
-                    <Image rounded thumbnail src={event.picture_url} />
+                    <Image className="event-picture" rounded thumbnail src={event.picture_url} />
                   </td>
                   <td>
                     <i

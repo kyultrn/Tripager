@@ -5,7 +5,7 @@ import {
     resetFormData,
     closeUpdateEventModal,
     changeToSelectedEventData
- } from "../store/eventModalSlice"
+} from "../store/eventModalSlice"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap"
 import { useUpdateEventMutation, useGetEventQuery } from "../store/ApiSlice";
@@ -29,7 +29,7 @@ export default function UpdateEventModal() {
             ...formData,
             [inputName]: value
     });
-  };
+    };
 
 
     const handleCloseModal = () => {
@@ -40,6 +40,7 @@ export default function UpdateEventModal() {
         e.preventDefault()
         console.log("this is data****", {formData, selectedEventId, tripId})
         updateEvent({formData, selectedEventId, tripId})
+        console.log(result)
         dispatch(closeUpdateEventModal())
     }
 
