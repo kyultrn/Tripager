@@ -13,7 +13,7 @@ code {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #78c2ad;
@@ -51,11 +51,6 @@ code {
   background-color: rgb(54, 53, 53);
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
 .image-container {
   display: flex;
