@@ -3,36 +3,89 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useState, useEffect } from "react";
+import { useGetThingsToDoQuery } from "../store/ApiSlice";
 
 export default ThingsToDo;
 
 function ThingsToDo() {
+  const [formData, setFormData] = useState({
+    term: "",
+    location: "",
+  });
+
+  const { data, isLoading } = useGetThingsToDoQuery(formData);
+  console.log(data)
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    const inputName = e.target.name;
+    setFormData({
+      ...formData,
+      [inputName]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({ term: formData.term, location: formData.location });
+  };
+
+  useEffect(() => {}, [formData]);
+
   return (
-    <Row className="g-4 justify-content-center">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://thumbs.dreamstime.com/b/las-vegas-welcome-sign-nevada-usa-to-dusk-149286875.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Celine Dion Concert</Card.Title>
-              <Card.Text>
-                The Courage World Tour is the fourteenth concert tour by
-                Canadian singer Celine Dion, in support of her English-language
-                studio album Courage (2019). Live from the Las Vegas strip! Your
-                heart WILL go on.
-              </Card.Text>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Link to={`/detail/${idx}`}>
-                  <Button variant="primary">Get details</Button>
-                </Link>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="term">Term</label>
+        <input
+          onChange={handleInputChange}
+          value={formData.term}
+          placeholder="term"
+          required
+          type="text"
+          name="term"
+          id="term"
+          className="form-control"
+        />
+        <label htmlFor="location">Location</label>
+        <input
+          onChange={handleInputChange}
+          value={formData.location}
+          placeholder="location"
+          required
+          type="text"
+          name="location"
+          id="location"
+          className="form-control"
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <Row className="g-4 justify-content-center">
+        {data?.businesses.map((business) => (
+          <Col key={business.id}>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={business.image_url} />
+              <Card.Body>
+                <Card.Title>{business.name}</Card.Title>
+                <Card.Text>
+                  {business.location.address1},{business.location.address3}{" "}
+                  {business.location.city}, {business.location.zip_code},{" "}
+                  {business.location.country}, {business.location.state}
+                </Card.Text>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <a
+                    href={business.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="primary">Get details</Button>
+                  </a>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 }

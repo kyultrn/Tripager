@@ -1,25 +1,22 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import UpdateTripModal from "./UpdateTripModal";
+import CreateTripModal from "./CreateTripModal";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import {
   openCreateTripModal,
   openUpdateTripModal,
   setSelectedTripId,
 } from "../store/tripModalSlice";
-import { useDispatch, useSelector } from "react-redux";
-import UpdateTripModal from "./UpdateTripModal";
-import CreateTripModal from "./CreateTripModal";
 import {
   useGetTripsQuery,
   useGetTokenQuery,
   useDeleteTripMutation,
   useUpdateTripMutation,
 } from "../store/ApiSlice";
-import Swal from "sweetalert2";
-import { Modal } from "react-bootstrap";
-// import "../CSS/Style.css";
-
-
-
 
 
 export default function Trips() {
@@ -28,12 +25,12 @@ export default function Trips() {
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  
-  
+
   const dispatch = useDispatch();
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal
   );
+  
   const isUpdateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.updateModal
   );
@@ -41,6 +38,7 @@ export default function Trips() {
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
   };
+
   const handleUpdateOpenModal = (tripId) => {
     dispatch(openUpdateTripModal());
     dispatch(setSelectedTripId(tripId));
@@ -64,8 +62,11 @@ export default function Trips() {
     });
   };
 
-
+  if (tokenData) {
+    console.log(tokenData);
+  }
   console.log("this is tripsData: ****" + JSON.stringify(data));
+  console.log(`this is tokenData: **** ${tokenData}`);
 
   if (tokenLoading && isLoading) {
     return (
@@ -77,47 +78,41 @@ export default function Trips() {
 
   return (
     <div>
+      {isCreateModalOpen && <CreateTripModal />}
+      <div class="container5">
+        <span className="TripManagerText">Trip Manager</span>
 
-      <h1>Your Trips</h1>
-      <table className="table is-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th></th>
-            <th><button className="btn btn-primary" onClick={handleCreateOpenModal}>
-              Create a Trip
-            </button>
-            {isCreateModalOpen && <CreateTripModal />}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tokenData ? (
-            <>
-              {data?.map((trip) => (
-                <tr key={trip.id} className="table-row">
-                  <td>
+        {/* <span className="yourTripsText">Your Trips</span> */}
+        <Button
+          className="createTripButton"
+          variant="outline-dark"
+          size="lg"
+          onClick={handleCreateOpenModal}
+        >
+          Create a Trip
+        </Button>
+        {tokenData ? (
+          <div className="oldTRContainer">
+            {data?.map((trip) => (
+              <div className="oldTR" key={trip.id}>
+                <span className="oldTD">
+                  <span>
                     <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
-                  </td>
-                  <td>{trip.city}</td>
-                  <td>{trip.state}</td>
-                  <td>{formatDate(trip.start_date)}</td>
-                  <td>{formatDate(trip.end_date)}</td>
-                  <td>
+                  </span>
+
+                  <div className="tripInfo">
+                    <div>{`${trip.city}, ${trip.state}  `} </div>
+                    <span>{`${formatDate(trip.start_date)} - ${formatDate(
+                      trip.end_date
+                    )}`}</span>
                     <i
                       type="button"
                       onClick={() => handleUpdateOpenModal(trip.id)}
-                      className="fa-solid fa-pen-to-square"
-                    />
-                    {isUpdateModalOpen && <UpdateTripModal />}
-                  </td>
-                  <td>
+                      className="fa-solid fa-pen-to-square tripEditButton"
+                    />{" "}
                     <i
                       variant="btn-sm m-1"
-                      className="btn-red btn-sm text-right"
+                      className="btn-red btn-sm text-right tripDeleteButton"
                       onClick={() => {
                         Swal.fire({
                           title: "Are you sure?",
@@ -141,15 +136,16 @@ export default function Trips() {
                     >
                       Delete
                     </i>
-                  </td>
-                </tr>
-              ))}
-            </>
-          ) : (
-            <div>No trips</div>
-          )}
-        </tbody>
-      </table>
+                    {isUpdateModalOpen && <UpdateTripModal />}{" "}
+                  </div>
+                </span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>No trips</div>
+        )}
+      </div>
     </div>
   );
 }

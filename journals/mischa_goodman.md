@@ -45,6 +45,11 @@ Today was another extremely stressful day with authentication -- I thought we wo
 ### Weds, Mar 1 2023
 
 ### Thurs, Mar 2 2023
+- We went through and learned the process of
+- Did event mutations
+- Add event, delete event, update event
+- Added CSS 
+
 
 ### Mon, Mar 6 2023
 

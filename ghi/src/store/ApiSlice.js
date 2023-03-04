@@ -2,17 +2,18 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { accountsEndpoints } from "./accountsEndpoints";
 import { eventEndpoints } from "./eventEndpoints";
 import { tripEndpoints } from "./tripEndpoints";
+import { thirdPartyApiEndpoints } from "./thirdPartyApiEndpoints";
 
 const initialState = {
   trips: []
 }
-export const tripsApi = createApi({
-  reducerPath: "trips",
+export const tripagerApi = createApi({
+  reducerPath: "api",
   initialState,
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_TRIPAGER_HOST,
     prepareHeaders: (headers, { getState }) => {
-      const selector = tripsApi.endpoints.getToken.select();
+      const selector = tripagerApi.endpoints.getToken.select();
       const { data: tokenData } = selector(getState());
       if (tokenData && tokenData.access_token) {
         headers.set(
@@ -32,6 +33,7 @@ export const tripsApi = createApi({
     ...eventEndpoints(builder),
     // Accounts
     ...accountsEndpoints(builder),
+    ...thirdPartyApiEndpoints(builder),
   }),
 });
 
@@ -53,4 +55,7 @@ export const {
   useDeleteEventMutation,
   useUpdateEventMutation,
 
-} = tripsApi;
+  useGetThingsToDoQuery,
+  useGetWeatherDataQuery,
+
+} = tripagerApi;
