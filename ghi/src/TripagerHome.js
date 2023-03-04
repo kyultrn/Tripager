@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 
+
 export default function TripagerHome() {
   const navigate = useNavigate();
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
