@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: url(./images/cursor.png), auto;
 }
 
 .App-header {
@@ -13,10 +20,30 @@
   color: white;
 }
 
-.btn:hover {
-  cursor: url(./images/airplane.png), auto;
+* {
+  cursor: none;
 }
 
-.custom-hover:hover {
-  cursor: url(./images/airplane.png), auto;
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+}
+
+.cursor-dot-outline {
+  width: 11px;
+  height: 11px;
+  background-color: grey;
 }

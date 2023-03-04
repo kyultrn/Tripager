@@ -13,7 +13,6 @@ code {
 }
 
 
-
 .fa-trash {
   color: #c50d0d;
 }
@@ -35,11 +34,10 @@ code {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 50px;
   background-color: light #d9a5d9;
-  z-index: 1;
+  z-index: 2;
 }
 
 .my-custom-class {
@@ -50,6 +48,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 80px;
 }
 
 .image-container {

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { AuthProvider, useToken } from "./accounts/Authenticator";
+import { useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/SignupModal.js";
 import Navbar from "./Nav.js";
@@ -11,13 +11,9 @@ import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
-import { setLoginState } from "./store/AccountsSlice";
-import { store } from "./store/store";
-import { useDispatch } from "react-redux";
-import VideoCarousel from "./VideoCarousel";
+import Cursor from "./Cursor";
 
 function GetToken() {
-  // Get token from JWT cookie (if already logged in)
   useToken();
   return null;
 }
@@ -25,8 +21,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <AuthProvider>
-          <GetToken /> */}
+      <Cursor />
         <Navbar />
         <div className="container">
           <Routes>
@@ -41,7 +36,6 @@ function App() {
           </Routes>
         </div>
         <Footer />
-        {/* </AuthProvider> */}
       </BrowserRouter>
     </>
   );
