@@ -27,9 +27,9 @@ we went over what we did the previous week about the modals and how we actually 
 ### Tues, Feb 28 2023
 we had issues again with authentication and had to make a simple change with passing something as an object to start the day I can't even remember right now its just a brain melt. we had to change all our useState to redux we were double dipping. Had a working code but we had to refresh screen for anything to take effect. we tried to fix it and made things worse. we've changed stuff to add our about page and had to add CSS styling to our navbar so our video wouldn't block it.
 ### Weds, Mar 1 2023
-Finally fully implemented redux into authentication front end. we had to make changes to our main page for the navbar and other stylings. we added redux to our sign up form and had to fix some stuff with the way we got the token in the nav.js. we didn't have an s at end for invalidates tag and that's why we stayed logged in until a refresh. 
+Finally fully implemented redux into authentication front end. we had to make changes to our main page for the navbar and other stylings. we added redux to our sign up form and had to fix some stuff with the way we got the token in the nav.js. we didn't have an s at end for invalidates tag and that's why we stayed logged in until a refresh.
 ### Thurs, Mar 2 2023
-
+we went over how everything interacts with each other.
 ### Fri, march 3 2023
 
 ### Mon, Mar 6 2023

@@ -16,7 +16,7 @@ import {
 } from "../store/ApiSlice";
 import Swal from "sweetalert2";
 import { Modal } from "react-bootstrap";
-// import "../CSS/Style.css";
+import "../index.css";
 
 
 
@@ -28,8 +28,8 @@ export default function Trips() {
   const [deleteTrip, { deleteError }] = useDeleteTripMutation();
   const [updateTrip, { updateError }] = useUpdateTripMutation();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  
-  
+
+
   const dispatch = useDispatch();
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal
@@ -124,8 +124,8 @@ export default function Trips() {
                           text: "You won't be able to revert this!",
                           icon: "warning",
                           showCancelButton: true,
-                          confirmButtonColor: "#bb7e74",
-                          cancelButtonColor: "#808080",
+                          confirmButtonColor: "#FF0000",
+                          cancelButtonColor: "#FF0000",
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
