@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { accountsEndpoints } from "./accountsEndpoints";
 import { eventEndpoints } from "./eventEndpoints";
 import { tripEndpoints } from "./tripEndpoints";
-import { thingsToDoEndpoints } from "./thingsToDoEndpoints";
+import { thirdPartyApiEndpoints } from "./thirdPartyApiEndpoints";
 
 const initialState = {
   trips: []
@@ -33,7 +33,7 @@ export const tripagerApi = createApi({
     ...eventEndpoints(builder),
     // Accounts
     ...accountsEndpoints(builder),
-    ...thingsToDoEndpoints(builder)
+    ...thirdPartyApiEndpoints(builder),
   }),
 });
 
@@ -55,6 +55,7 @@ export const {
   useDeleteEventMutation,
   useUpdateEventMutation,
 
-  useGetThingsToDoQuery
+  useGetThingsToDoQuery,
+  useGetWeatherDataQuery,
 
 } = tripagerApi;

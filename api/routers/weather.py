@@ -10,9 +10,8 @@ router = APIRouter()
 
 @router.get("/api/weather")
 def get_weather(
-    location: str,
+    latitude: str,
+    longitude: str,
     repo: WeatherQueries = Depends()
 ):
-    return repo.get_weather(
-        location,
-    )
+    return repo.get_weather(latitude, longitude)

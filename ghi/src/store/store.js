@@ -4,6 +4,7 @@ import { tripagerApi } from "./ApiSlice";
 import { tripFormSliceReducer, tripModalSliceReducer } from "./tripModalSlice";
 import { accountFormSliceReducer, loggedInSliceReducer, signUpModalSliceReducer } from "./AccountsSlice";
 import { eventFormSliceReducer, eventModalSliceReducer } from "./eventModalSlice";
+import { weatherSliceReducer } from "./weatherSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,7 @@ export const store = configureStore({
     signUpModal: signUpModalSliceReducer,
     eventForm: eventFormSliceReducer,
     eventModal: eventModalSliceReducer,
-
+    weatherSlice: weatherSliceReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(tripagerApi.middleware);

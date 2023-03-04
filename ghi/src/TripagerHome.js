@@ -29,12 +29,11 @@ export default function TripagerHome() {
 
   useEffect(() => {
     if (latitude && longitude) {
-      const API_KEY = "63766d9ff60d419993121332230403";
-      const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
-
+      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           setTemperature(data.current.temp_f);
           setIcon(data.current.condition.icon);
         })
