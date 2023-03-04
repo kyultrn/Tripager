@@ -36,7 +36,7 @@ function ThingsToDo() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="term">Term</label>
+        <label htmlFor="term">Parameter</label>
         <input
           onChange={handleInputChange}
           value={formData.term}
@@ -58,7 +58,6 @@ function ThingsToDo() {
           id="location"
           className="form-control"
         />
-        <button type="submit">Submit</button>
       </form>
       <Row className="g-4 justify-content-center">
         {data?.businesses.map((business) => (
