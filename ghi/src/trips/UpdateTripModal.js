@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { closeTripModal, openTripModal } from "../store/tripModalSlice";
 import {
   selectTripFormData,
   updateFormData,
