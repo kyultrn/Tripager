@@ -18,7 +18,6 @@ import {
   useUpdateTripMutation,
 } from "../store/ApiSlice";
 
-
 export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
@@ -30,7 +29,7 @@ export default function Trips() {
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal
   );
-  
+
   const isUpdateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.updateModal
   );

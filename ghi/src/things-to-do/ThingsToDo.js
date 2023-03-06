@@ -62,21 +62,21 @@ function ThingsToDo() {
       <Row className="g-4 justify-content-center">
         {data?.businesses.map((business) => (
           <Col key={business.id}>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={business.image_url} />
-              <Card.Body>
+            <Card style={{ width: "19rem", height: "430px" }}>
+              <Card.Img
+                variant="top"
+                src={business.image_url}
+                style={{ height: "250px", objectFit: "cover" }}
+              />
+              <Card.Body style={{display: "flex", flexDirection: "column",justifyContent: "space-between", }}>
                 <Card.Title>{business.name}</Card.Title>
                 <Card.Text>
                   {business.location.address1},{business.location.address3}{" "}
                   {business.location.city}, {business.location.zip_code},{" "}
                   {business.location.country}, {business.location.state}
                 </Card.Text>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <a
-                    href={business.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                <div style={{ height: "60px" }}>
+                  <a href={business.url} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary">Get details</Button>
                   </a>
                 </div>

@@ -16,8 +16,8 @@ export default function TripagerHome() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("latitude: " + position.coords.latitude);
-        console.log("longitude: " + position.coords.longitude);
+        // console.log("latitude: " + position.coords.latitude);
+        // console.log("longitude: " + position.coords.longitude);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       },
@@ -55,19 +55,6 @@ export default function TripagerHome() {
       <div className="content">
         <h1>Tripager</h1>
         <h2>Plan and manage your next trip here.</h2>
-        {/* {token ? (
-          <div>
-            <button className="btn btn-green" onClick={handleTripsRedirect}>
-
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
-              Get Started
-            </button>
-          </div> */}
-        {/* )} */}
       </div>
       <img className="weatherIcon" src={icon}></img>
       <div className="temperature">{`${temperature}°`}</div>

@@ -13,10 +13,3 @@
   color: white;
 }
 
-.btn:hover {
-  cursor: url(./images/airplane.png), auto;
-}
-
-.custom-hover:hover {
-  cursor: url(./images/airplane.png), auto;
-}

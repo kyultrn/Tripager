@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  selectTripFormData,
-  updateFormData,
-  resetFormData,
-  closeUpdateTripModal,
-  changeToSelectedTripData
-} from "../store/tripModalSlice";
+import { closeUpdateTripModal } from "../store/tripModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useUpdateTripMutation, useGetTripQuery } from "../store/ApiSlice";
 
 export default function UpdateTripModal() {
-  const isUpdateModalOpen = useSelector((state) => state.tripModal.isModalOpen.updateModal);
-  const selectedTripId = useSelector(state => state.tripForm.selectedTripId);
-  const [formData, setFormData] = useState()
-  const { data: trip, isLoading: tripLoading } = useGetTripQuery(selectedTripId)
+  const isUpdateModalOpen = useSelector(
+    (state) => state.tripModal.isModalOpen.updateModal
+  );
+  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
+  const [formData, setFormData] = useState();
+  const { data: trip, isLoading: tripLoading } =
+    useGetTripQuery(selectedTripId);
 
-  console.log('this is the trip data:', trip)
+  console.log("this is the trip data:", trip);
   const dispatch = useDispatch();
   const [updateTrip] = useUpdateTripMutation();
 
@@ -25,47 +22,43 @@ export default function UpdateTripModal() {
     const value = e.target.value;
     const inputName = e.target.name;
     setFormData({
-        ...formData,
-        [inputName]: value
+      ...formData,
+      [inputName]: value,
     });
   };
-
 
   const handleCloseModal = () => {
     dispatch(closeUpdateTripModal());
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateTrip({formData, selectedTripId});
+    updateTrip({ formData, selectedTripId });
     // dispatch(resetFormData())
     dispatch(closeUpdateTripModal());
   };
 
   useEffect(() => {
-    if(!formData && trip){
+    if (!formData && trip) {
       setFormData({
-      "name": trip.name,
-      "city": trip.city,
-      "state": trip.state,
-      "start_date": trip.start_date,
-      "end_date": trip.end_date,
-     })
+        name: trip.name,
+        city: trip.city,
+        state: trip.state,
+        start_date: trip.start_date,
+        end_date: trip.end_date,
+      });
     }
-  }, [trip])
-
-
+  }, [trip]);
 
   if (!formData || tripLoading) {
-      return (
-        <>
-          <progress className="progress is-primary" max="100"></progress>
-        </>
-      );
-    }
+    return (
+      <>
+        <progress className="progress is-primary" max="100"></progress>
+      </>
+    );
+  }
 
- return (
+  return (
     <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
       <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
         <Modal.Header closeButton>
