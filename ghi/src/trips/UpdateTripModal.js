@@ -41,11 +41,11 @@ export default function UpdateTripModal() {
   useEffect(() => {
     if (!formData && trip) {
       setFormData({
-        name: trip.name,
-        city: trip.city,
-        state: trip.state,
-        start_date: trip.start_date,
-        end_date: trip.end_date,
+        "name": trip.name,
+        "city": trip.city,
+        "state": trip.state,
+        "start_date": trip.start_date,
+        "end_date": trip.end_date,
       });
     }
   }, [trip]);

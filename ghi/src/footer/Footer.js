@@ -12,7 +12,7 @@ export default function Footer() {
                 about our project
             </p>
             <Link to="/about-tripager" className="text-white">
-                Learn more &raquo;
+                Learn more
             </Link>
             </div>
             <div className="col-md-4 mb-3">
@@ -21,7 +21,7 @@ export default function Footer() {
                 about our team
             </p>
             <Link to="/about-developers" className="text-white">
-                Meet the team &raquo;
+                Meet the team
             </Link>
             </div>
             <div className="col-md-4 mb-3">
@@ -30,7 +30,7 @@ export default function Footer() {
                 fast-api, redux, etc
             </p>
             <Link to="/technologies" className="text-white">
-                View our tech stack &raquo;
+                View our tech stack
             </Link>
             </div>
         </div>
