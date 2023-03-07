@@ -59,74 +59,76 @@ function ThingsToDo() {
 
   return (
     <>
-      {isCreateModalOpen && <CreateYelpEventModal />}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="term">Activity</label>
-        <input
-          onChange={handleInputChange}
-          value={formData.term}
-          placeholder="Pizza, Rollerblading, Spa, Frozen yogurt"
-          required
-          type="text"
-          name="term"
-          id="term"
-          className="form-control"
-        />
-        <label htmlFor="location">Location</label>
-        <input
-          onChange={handleInputChange}
-          value={formData.location}
-          placeholder="New York, 10011, Mars"
-          required
-          type="text"
-          name="location"
-          id="location"
-          className="form-control"
-        />
-      </form>
+      <div className="ThingsToDoPage">
+        {isCreateModalOpen && <CreateYelpEventModal />}
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="term">Activity</label>
+          <input
+            onChange={handleInputChange}
+            value={formData.term}
+            placeholder="Pizza, Rollerblading, Spa, Frozen yogurt"
+            required
+            type="text"
+            name="term"
+            id="term"
+            className="form-control"
+          />
+          <label htmlFor="location">Location</label>
+          <input
+            onChange={handleInputChange}
+            value={formData.location}
+            placeholder="New York, 10011, Mars"
+            required
+            type="text"
+            name="location"
+            id="location"
+            className="form-control"
+          />
+        </form>
 
-      <div className="searchbar">
-        <Row className="g-4 justify-content-center">
-          {data?.businesses.map((business) => (
-            <Col key={business.id}>
-              <Card style={{ width: "19rem", height: "430px" }}>
-                <Card.Img
-                  variant="top"
-                  src={business.image_url}
-                  style={{ height: "250px", objectFit: "cover" }}
-                />
-                <Card.Body
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Card.Title>{business.name}</Card.Title>
-                  <Card.Text>
-                    {business.location.address1},{business.location.address3}{" "}
-                    {business.location.city}, {business.location.zip_code},{" "}
-                    {business.location.country}, {business.location.state}
-                  </Card.Text>
-                  <div style={{ height: "60px" }}>
-                    <a
-                      href={business.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button variant="primary">Get details</Button>
-                    </a>
-                    <Button onClick={handleCreateOpenModal} variant="primary">
-                      Add to events
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <div className="searchbar">
+          <Row className="g-4 justify-content-center">
+            {data?.businesses.map((business) => (
+              <Col key={business.id}>
+                <Card style={{ width: "19rem", height: "430px" }}>
+                  <Card.Img
+                    variant="top"
+                    src={business.image_url}
+                    style={{ height: "250px", objectFit: "cover" }}
+                  />
+                  <Card.Body
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Card.Title>{business.name}</Card.Title>
+                    <Card.Text>
+                      {business.location.address1},{business.location.address3}{" "}
+                      {business.location.city}, {business.location.zip_code},{" "}
+                      {business.location.country}, {business.location.state}
+                    </Card.Text>
+                    <div style={{ height: "60px" }}>
+                      <a
+                        href={business.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button variant="primary">Get details</Button>
+                      </a>
+                      <Button onClick={handleCreateOpenModal} variant="primary">
+                        Add to events
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </div>
+        <ExcursRoulette />
       </div>
-      <ExcursRoulette />
     </>
   );
 }
