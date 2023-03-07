@@ -855,15 +855,8 @@ html {
   cursor: url(./images/UpdatedCursor.png), auto;
 }
 
-.searchbar {
-  z-index: 2;
-  padding: 0 80 80 80;
-}
-
 .excurs {
   position: relative;
   display: block;
-  width: fit-content;
   margin-top: 30px;
-  padding: 0 0 113.5px;
 }
