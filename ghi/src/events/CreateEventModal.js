@@ -8,8 +8,10 @@ import { useCreateEventMutation } from "../store/ApiSlice";
 
 export default function CreateEventModal() {
     const isCreateModalOpen = useSelector((state) => state.eventModal.isModalOpen.createModal);
+
     const formData = useSelector(selectEventFormData);
     const dispatch = useDispatch();
+
     const [createEvent, result] = useCreateEventMutation();
     const { id: tripId } = useParams()
 
