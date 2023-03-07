@@ -24,3 +24,11 @@
 .navbar-brand {
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
+
+.signUpButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.loginButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}

@@ -111,7 +111,11 @@ export default function Login() {
               className="form-control"
             ></input>
           </div>
-          <a href="#" onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}>
+          <a
+            className="loginButton"
+            href="#"
+            onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}
+          >
             <span></span>
             <span></span>
             <span></span>
