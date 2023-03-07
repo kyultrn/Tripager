@@ -507,3 +507,7 @@ body {
 .container5 {
   width: 100vw !important;
 }
+
+html {
+  cursor: url(./images/planeCursor.png), auto;
+}
