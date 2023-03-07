@@ -48,11 +48,11 @@ Today was another extremely stressful day with authentication -- I thought we wo
 - We went through and learned the process of
 - Did event mutations
 - Add event, delete event, update event
-- Added CSS 
+- Added CSS
 
 
 ### Mon, Mar 6 2023
-
+Today we wrote unit tests
 ### Tues, Mar 7 2023
 
 ### Weds, Mar 8, 2023

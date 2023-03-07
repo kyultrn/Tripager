@@ -36,11 +36,11 @@ function ThingsToDo() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="term">Parameter</label>
+        <label htmlFor="term">Activity</label>
         <input
           onChange={handleInputChange}
           value={formData.term}
-          placeholder="term"
+          placeholder="Pizza, Rollerblading, Spa, Frozen yogurt"
           required
           type="text"
           name="term"
@@ -51,7 +51,7 @@ function ThingsToDo() {
         <input
           onChange={handleInputChange}
           value={formData.location}
-          placeholder="location"
+          placeholder="New York, 10011, Mars"
           required
           type="text"
           name="location"
