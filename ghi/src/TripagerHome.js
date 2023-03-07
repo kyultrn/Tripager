@@ -252,7 +252,6 @@ export default function TripagerHome() {
           </div>
         </div>
       </section>
-      <Footer />
     </React.Fragment>
   );
 }

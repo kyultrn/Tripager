@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+
   return (
     <footer className="tripagerFooter my-custom-class text-white">
       <div className=" py-3">
