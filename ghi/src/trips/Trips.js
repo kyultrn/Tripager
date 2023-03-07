@@ -97,7 +97,7 @@ export default function Trips() {
               <div className="oldTR" key={trip.id}>
                 <span className="oldTD">
                   <span>
-                    <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+                    <Link to={`/trips/${trip.id}/events`} onClick={() => dispatch(setSelectedTripId(trip.id))}>{trip.name}</Link>
                   </span>
 
                   <div className="tripInfo">
