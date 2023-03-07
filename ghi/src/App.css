@@ -12,3 +12,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.btn:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.custom-hover:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.navbar-brand {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.signUpButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.loginButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}

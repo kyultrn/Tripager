@@ -10,6 +10,6 @@ class YelpQueries:
         headers = {
             "Authorization": f"Bearer {YELP_API_KEY}"
         }
-        response = requests.get(f"https://api.yelp.com/v3/businesses/search?location={location}&term={term}&sort_by=best_match&limit=5", headers=headers)
+        response = requests.get(f"https://api.yelp.com/v3/businesses/search?location={location}&term={term}&sort_by=best_match&limit=12", headers=headers)
         response.raise_for_status()
         return response.json()
