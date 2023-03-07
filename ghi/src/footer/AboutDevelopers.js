@@ -10,7 +10,6 @@ export default function AboutDevelopers() {
             alt="developer"
           />
           <p className="name">Zach Dempsey</p>
-          <p className="bio">Command Base</p>
         </div>
         <div>
           <img
