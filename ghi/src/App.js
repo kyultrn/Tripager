@@ -26,7 +26,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="container">
+        <div className="">
           <Routes>
             <Route path="/" element={<TripagerHome />} />
             <Route path="/login" element={<Login />} />
@@ -38,7 +38,6 @@ function App() {
             <Route path="/about-tripager" element={<AboutTripager />} />
           </Routes>
         </div>
-        <Footer />
       </BrowserRouter>
     </>
   );

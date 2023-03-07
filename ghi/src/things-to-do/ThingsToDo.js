@@ -15,7 +15,7 @@ function ThingsToDo() {
   });
 
   const { data, isLoading } = useGetThingsToDoQuery(formData);
-  console.log(data)
+  console.log(data);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -35,7 +35,7 @@ function ThingsToDo() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="thingsToDoForm" onSubmit={handleSubmit}>
         <label htmlFor="term">Parameter</label>
         <input
           onChange={handleInputChange}
@@ -68,7 +68,13 @@ function ThingsToDo() {
                 src={business.image_url}
                 style={{ height: "250px", objectFit: "cover" }}
               />
-              <Card.Body style={{display: "flex", flexDirection: "column",justifyContent: "space-between", }}>
+              <Card.Body
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
                 <Card.Title>{business.name}</Card.Title>
                 <Card.Text>
                   {business.location.address1},{business.location.address3}{" "}
@@ -76,7 +82,11 @@ function ThingsToDo() {
                   {business.location.country}, {business.location.state}
                 </Card.Text>
                 <div style={{ height: "60px" }}>
-                  <a href={business.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={business.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="primary">Get details</Button>
                   </a>
                 </div>
