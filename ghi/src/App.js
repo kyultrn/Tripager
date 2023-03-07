@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import { AuthProvider, useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
@@ -16,12 +16,9 @@ import { store } from "./store/store";
 import { useDispatch } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 
-// function GetToken() {
-//   // Get token from JWT cookie (if already logged in)
-//   useToken();
-//   return null;
-// }
+
 function App() {
+
   return (
     <>
       <BrowserRouter>

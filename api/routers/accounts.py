@@ -80,7 +80,7 @@ async def create_account(
 
 
 @router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
-def get_all(
+def get_accounts(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()

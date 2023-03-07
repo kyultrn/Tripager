@@ -69,8 +69,14 @@ export default function TripagerHome() {
           </div> */}
         {/* )} */}
       </div>
-      <img className="weatherIcon" src={icon}></img>
-      <div className="temperature">{`${temperature}°`}</div>
+      {icon && temperature ? (
+        <div>
+          <img className="weatherIcon" src={icon}></img>
+          <div className="temperature">{`${temperature}°`}</div>
+        </div>
+      ) : (
+        <a>weather is loading</a>
+      )}
       <VideoCarousel />
     </div>
   );

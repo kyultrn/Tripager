@@ -17,17 +17,20 @@
 ### Tues, Feb 21 2023
     Today, we attempted the login form and got it to display but the functionality still doesn't work.
 ### Weds, Feb 22 2023
-    Today, we got worked on the Login and Signup components. After four hours, we managed to grab the token from the front end.
+    Today, we worked on the Login and Signup components. After four hours, we managed to grab the token from the front end.
 ### Thurs, Feb 23 2023
-
+    Today, we used redux and created our paths for the events/trips frontend. We set up our List of User's trips component ot display all trips for the current user. Having trouble trying to display specific event for each trip.
+### Fri, Feb 24 2023
+    Today, we learned how to create and use a form slice. Got stuck trying to update and save updated data. Worked on a modal for sign up instead of a page.
 ### Mon, Feb 27 2023
-
+    Today, we went over what we did the previous week about modals and how we control its state with a slice, pretty cool stuff.
 ### Tues, Feb 28 2023
-
+    Today, we had issues working with our authentication and components. Changed all of our useState to redux so it's consistent.
 ### Weds, Mar 1 2023
-
+    Today, we fully implemented redux into authentication front end. We made changes to our home page for navbar and other styling. Our logout endpoint was missing an s in invalidatesTags which sent us down a rabbit hole trying to figure out why the token still existed after logging out unless we the user refreshes.
 ### Thurs, Mar 2 2023
-
+    Today, we decided to go over what's been going on in the past week and a half and how all our components interact with each other and explaining how redux works. Very important to check up on how everyone is feeling and how comfortable they are with new technologies we've been learning such as Redux, which has quite a learning curve.
+    After reviewing, it seemed like my team had a stronger understanding of how redux works with tripager and redux in general, which makes me happy.
 ### Mon, Mar 6 2023
 
 ### Tues, Mar 7 2023

@@ -30,7 +30,7 @@ export default function Trips() {
   const isCreateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.createModal
   );
-  
+
   const isUpdateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.updateModal
   );
@@ -127,7 +127,7 @@ export default function Trips() {
                             handleDeleteTrip(trip.id);
                             Swal.fire(
                               "Deleted!",
-                              "Your room has been deleted.",
+                              "Your Trip has been deleted.",
                               "success"
                             );
                           }
