@@ -858,6 +858,7 @@ html {
 
 .searchbar {
   z-index: 2;
+  padding: 0 80 80 80;
 }
 
 .excurs {
