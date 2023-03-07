@@ -508,6 +508,20 @@ body {
   width: 100vw !important;
 }
 
+/* Things To Do */
+.searchbar {
+  z-index: 2;
+}
+
+.excurs {
+  position: relative;
+  display: block;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+}
+
 html {
   cursor: url(./images/planeCursor.png), auto;
 }
