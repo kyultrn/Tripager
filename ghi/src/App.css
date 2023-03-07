@@ -14,9 +14,13 @@
 }
 
 .btn:hover {
-  cursor: url(./images/planeCursor.png), auto;
+  cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
 .custom-hover:hover {
-  cursor: url(./images/planeCursor.png), auto;
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.navbar-brand {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
 }
