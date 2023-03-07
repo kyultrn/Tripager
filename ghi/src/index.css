@@ -507,3 +507,17 @@ body {
 .container5 {
   width: 100vw !important;
 }
+
+/* Things To Do */
+.searchbar {
+  z-index: 2;
+}
+
+.excurs {
+  position: relative;
+  display: block;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+}
