@@ -100,9 +100,7 @@ function ThingsToDo() {
           ))}
         </Row>
       </div>
-      {/* <div>
-        <ExcursRoulette /> */}
-      </div>
+        <ExcursRoulette />
     </>
   );
 }
