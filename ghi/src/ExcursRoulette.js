@@ -4,7 +4,7 @@ import excurs_roulette from './videos/excurs_roulette.mp4'
 const ExcursRoulette = () => {
   return (
     <div>
-      <video className="excurs" src={excurs_roulette} autoPlay loop muted />
+      <video className="excurs" src={excurs_roulette} autoPlay loop muted/>
     </div>
   );
 };

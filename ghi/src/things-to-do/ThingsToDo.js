@@ -7,6 +7,13 @@ import { useState, useEffect } from "react";
 import { useGetThingsToDoQuery } from "../store/ApiSlice";
 import ExcursRoulette from "../ExcursRoulette";
 
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { openCreateEventModal } from "../store/eventModalSlice";
+import { useGetEventsQuery } from "../store/ApiSlice";
+import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
+import CreateYelpEventModal from "./CreateYelpEventModal";
+
 export default ThingsToDo;
 
 function ThingsToDo() {
@@ -34,9 +41,25 @@ function ThingsToDo() {
 
   useEffect(() => {}, [formData]);
 
+  ////// MODAL STUFF
+  const dispatch = useDispatch();
+  const { id: tripId } = useParams();
+  const { data: events, error } = useGetEventsQuery(tripId);
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+
+  const { data: trip, isLoading: tripLoading } = useGetTripQuery(tripId);
+
+  const isCreateModalOpen = useSelector(
+    (state) => state.eventModal.isModalOpen.createModal
+  );
+
+  const handleCreateOpenModal = () => {
+    dispatch(openCreateEventModal());
+  };
+
   return (
     <>
-      {/* <ExcursRoulette /> */}
+      {isCreateModalOpen && <CreateYelpEventModal />}
       <form onSubmit={handleSubmit}>
         <label htmlFor="term">Activity</label>
         <input
@@ -93,6 +116,9 @@ function ThingsToDo() {
                     >
                       <Button variant="primary">Get details</Button>
                     </a>
+                    <Button onClick={handleCreateOpenModal} variant="primary">
+                      Add to events
+                    </Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -100,7 +126,7 @@ function ThingsToDo() {
           ))}
         </Row>
       </div>
-        <ExcursRoulette />
+      <ExcursRoulette />
     </>
   );
 }
