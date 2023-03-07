@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  openCreateEventModal,
   closeCreateEventModal,
   selectEventFormData,
   updateFormData,
@@ -12,9 +11,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateEventMutation } from "../store/ApiSlice";
 import { useGetTripsQuery } from "../store/ApiSlice";
+import ThingsToDo from "./ThingsToDo";
 
 export default function CreateYelpEventModal() {
   const { data, isLoading } = useGetTripsQuery();
+  console.log(data)
 
   const isCreateModalOpen = useSelector(
     (state) => state.eventModal.isModalOpen.createModal
@@ -55,6 +56,7 @@ export default function CreateYelpEventModal() {
               type="text"
               name="name"
               value={formData.name}
+              // {business.name}
               onChange={handleInputChange}
             />
             <Form.Label>Description</Form.Label>
@@ -69,6 +71,7 @@ export default function CreateYelpEventModal() {
               type="text"
               name="picture_url"
               value={formData.picture_url}
+              // {business.image_url}
               onChange={handleInputChange}
             />
             <Form.Label>Location</Form.Label>
@@ -76,6 +79,7 @@ export default function CreateYelpEventModal() {
               type="text"
               name="location"
               value={formData.location}
+              // {business.location.address1}
               onChange={handleInputChange}
             />
             <Form.Label>Date</Form.Label>
@@ -99,20 +103,18 @@ export default function CreateYelpEventModal() {
               value={formData.end_time}
               onChange={handleInputChange}
             />
-            <div>
-              <Form.Label>Choose a trip</Form.Label>
-              <Form.Select
-                name="trip"
-                value={formData.tripId}
-                onChange={handleInputChange}
-              >
-                {data.map((trip) => (
+            <Form.Label>Choose a trip</Form.Label>
+            <Form.Select name="trip" onChange={handleInputChange}>
+              {isLoading ? (
+                <option>Loading...</option>
+              ) : (
+                data.map((trip) => (
                   <option key={trip.id} value={trip.id}>
                     {trip.name}
                   </option>
-                ))}
-              </Form.Select>
-            </div>
+                ))
+              )}
+            </Form.Select>
             <Modal.Footer>
               <Button type="submit">Create</Button>
             </Modal.Footer>

@@ -38,6 +38,7 @@ function App() {
             <Route path="/about-tripager" element={<AboutTripager />} />
           </Routes>
         </div>
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );

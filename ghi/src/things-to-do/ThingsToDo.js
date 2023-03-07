@@ -11,12 +11,10 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { openCreateEventModal } from "../store/eventModalSlice";
 import { useGetEventsQuery } from "../store/ApiSlice";
-import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
+import { useGetTripQuery, useGetTripsQuery, useGetTokenQuery } from "../store/ApiSlice";
 import CreateYelpEventModal from "./CreateYelpEventModal";
 
-export default ThingsToDo;
-
-function ThingsToDo() {
+export default function ThingsToDo() {
   const [formData, setFormData] = useState({
     term: "",
     location: "",
@@ -42,11 +40,12 @@ function ThingsToDo() {
   useEffect(() => {}, [formData]);
 
   ////// MODAL STUFF
-  const dispatch = useDispatch();
-  const { id: tripId } = useParams();
-  const { data: events, error } = useGetEventsQuery(tripId);
-  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
 
+  const { id: tripId } = useParams();
+  const dispatch = useDispatch();
+
+
+  const { data: events, error } = useGetEventsQuery(tripId);
   const { data: trip, isLoading: tripLoading } = useGetTripQuery(tripId);
 
   const isCreateModalOpen = useSelector(
@@ -56,6 +55,7 @@ function ThingsToDo() {
   const handleCreateOpenModal = () => {
     dispatch(openCreateEventModal());
   };
+
 
   return (
     <>
@@ -116,9 +116,9 @@ function ThingsToDo() {
                     >
                       <Button variant="primary">Get details</Button>
                     </a>
-                    <Button onClick={handleCreateOpenModal} variant="primary">
-                      Add to events
-                    </Button>
+                  <Button onClick={handleCreateOpenModal} variant="primary">
+                    Add to events
+                  </Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -126,7 +126,7 @@ function ThingsToDo() {
           ))}
         </Row>
       </div>
-      <ExcursRoulette />
+      {/* <ExcursRoulette /> */}
     </>
   );
 }
