@@ -64,19 +64,6 @@ export default function CreateYelpEventModal() {
     dispatch(resetFormData());
   };
 
-  // useEffect(() => {
-  //   if (!formData && selectedBusiness) {
-  //     setFormData({
-  //       name: selectedBusiness.name,
-  //       description: "",
-  //       picture_url: selectedBusiness.image_url,
-  //       location: selectedBusiness.location.address1,
-  //       date: "",
-  //       start_time: "",
-  //       end_time: "",
-  //     });
-  //   }
-  // }, [selectedBusiness]);
 
   if ( isCreateModalOpen && tripsLoading && selectedBusiness) {
     return (
