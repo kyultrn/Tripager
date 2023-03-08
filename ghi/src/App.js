@@ -27,7 +27,6 @@ function App() {
           <Routes>
             <Route path="/" element={<TripagerHome />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
             <Route path="/trips" element={<Trips />} />
             <Route path="/trips/:id/events" element={<Events />} />
             <Route path="/thingstodo" element={<ThingsToDo />} />
