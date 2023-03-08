@@ -13,7 +13,10 @@ export default function CreateEventModal() {
     const dispatch = useDispatch();
 
     const [createEvent, result] = useCreateEventMutation();
-    const { id: tripId } = useParams()
+    // const { id: tripId } = useParams()
+      const selectedTripId = useSelector(
+        (state) => state.tripForm.selectedTripId
+      );
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -27,7 +30,7 @@ export default function CreateEventModal() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(closeCreateEventModal());
-        createEvent({ formData, tripId });
+        createEvent({ formData, selectedTripId });
         dispatch(resetFormData());
     };
 

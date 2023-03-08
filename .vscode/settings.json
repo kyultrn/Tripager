@@ -3,5 +3,13 @@
   "python.formatting.provider": "black",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["Excurs", "formdata", "thingstodo", "Tripager", "Trippin"]
+  "cSpell.words": [
+    "Excurs",
+    "formdata",
+    "getstarted",
+    "scrollto",
+    "thingstodo",
+    "Tripager",
+    "Trippin"
+  ]
 }
