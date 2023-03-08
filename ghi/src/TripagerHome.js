@@ -55,6 +55,8 @@ export default function TripagerHome() {
         ) : (
           <a>weather is loading</a>
         )}
+        <h1 className="text">Tripager</h1>
+        <h2 className="text">Plan and manage your next trip here.</h2>
         <VideoCarousel />
         <div className="container">
           <div className="row">

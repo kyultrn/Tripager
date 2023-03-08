@@ -984,3 +984,8 @@ html {
   left: 100%;
   visibility: visible;
 }
+
+.text {
+  text-align: center;
+  z-index: 1;
+}
