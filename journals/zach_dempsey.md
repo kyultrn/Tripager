@@ -29,13 +29,13 @@ we had issues again with authentication and had to make a simple change with pas
 ### Weds, Mar 1 2023
 Finally fully implemented redux into authentication front end. we had to make changes to our main page for the navbar and other stylings. we added redux to our sign up form and had to fix some stuff with the way we got the token in the nav.js. we didn't have an s at end for invalidates tag and that's why we stayed logged in until a refresh.
 ### Thurs, Mar 2 2023
-we went over how everything interacts with each other.
+we went over how everything interacts with each other. we did the event mutations together and had to errors for returning the body. We added CSS to our main page and others.
 ### Fri, march 3 2023
-
+SCHEDULED DAY OFF!
 ### Mon, Mar 6 2023
-
+Practice test day - Wrote our unit tests and had some troubles hitting the yelp API one. Got the plane icon to work for the cursor.
 ### Tues, Mar 7 2023
-
+We had merge issues with our bootstrap for our main page CSS and our previous styles. continued writing unit tests and worked on our main page CSS. We worked on being able to add an event from the thingstodo page directly into an event. we got it it to create but we still need to add others things hard to concentrate, had a twisted tea. we made changes to add a video to our thingstodo page that will be a random generator for an event.
 ### Weds, Mar 8, 2023
 
 ### Thurs, Mar 9, 2023

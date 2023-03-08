@@ -89,9 +89,9 @@ export default function Events() {
                     {isUpdateModalOpen && <UpdateEventModal />}
                   </td>
                   <td>
-                    <i
+                    <button
                       variant="btn-sm m-1"
-                      className="btn-red btn-sm text-right"
+                      className="btn btn-red btn-sm text-right"
                       onClick={() => {
                         Swal.fire({
                           title: "Are you sure?",
@@ -114,7 +114,7 @@ export default function Events() {
                       }}
                     >
                       Delete
-                    </i>
+                    </button>
                   </td>
                 </tr>
               ))}

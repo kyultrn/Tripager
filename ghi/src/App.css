@@ -45,6 +45,14 @@
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
-.btn-red btn-sm text-right tripDeleteButton {
+.btn-red btn-sm text-right tripDeleteButton:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.btn-red btn-sm text-right {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.fa-solid fa-pen-to-square {
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
