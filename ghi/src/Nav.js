@@ -35,35 +35,82 @@ console.log("location.pathname: ", location.pathname);
   const isLoginOrSignUpPage = ["/login", "/signup", "/trips", `/trips/${selectedTripId}/events`, "/thingstodo"].includes(location.pathname);
 
     return (
-        <nav id="navbar" className="navbar" style={{ backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit", height: "80px" }}>
-          <ul>
-            {token ? (
-              <>
-              <NavLink to="/" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto ">Tripager</a></li>
-              </NavLink>
-              <NavLink to="/trips" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto">Trips</a></li>
-              </NavLink>
-              <NavLink to="/thingstodo" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto" >Things To Do</a></li>
-              </NavLink>
-                <li className="dropdown" ><a className="btn" href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}><span>Account</span> <i className="bi bi-chevron-down"></i></a>
-                  <ul>
-                    <li><a className="btn" href="#" style={{ textDecoration: 'none' }}>My Account</a></li>
-                  </ul>
+      <nav
+        id="navbar"
+        className="navbar"
+        style={{
+          backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit",
+          height: "80px",
+        }}
+      >
+        <ul>
+          {token ? (
+            <>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <li>
+                  <a className="btn nav-link scrollto ">Tripager</a>
                 </li>
-              <li style={{marginLeft: '1250px'}}><a style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogout} >Logout</a></li>
+              </NavLink>
+
+              <NavLink to="/trips" style={{ textDecoration: "none" }}>
+                <li>
+                  <a className="btn nav-link scrollto">Trips</a>
+                </li>
+              </NavLink>
+              <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
+                <li>
+                  <a className="btn nav-link scrollto">Things To Do</a>
+                </li>
+              </NavLink>
+              <li className="dropdown">
+                <a
+                  className="btn"
+                  href="#"
+                  style={{ textDecoration: "none", paddingLeft: "60px" }}
+                >
+                  <span>Account</span> <i className="bi bi-chevron-down"></i>
+                </a>
+                <ul>
+                  <li>
+                    <a
+                      className="btn"
+                      href="#"
+                      style={{ textDecoration: "none" }}
+                    >
+                      My Account
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li style={{ marginLeft: "1250px" }}>
+                <a
+                  style={{ textDecoration: "none" }}
+                  className="btn getstarted scrollto"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </a>
+              </li>
             </>
-        ) : (
-          <>
-            <NavLink to="/" style={{ textDecoration: 'none' }}>
-              <li><a className="btn nav-link scrollto">Tripager</a></li>
-            </NavLink>
-            <li style={{marginLeft: '1650px'}}><a style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogin} >Login</a></li>
-          </>
+          ) : (
+            <>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <li>
+                  <a className="btn nav-link scrollto">Tripager</a>
+                </li>
+              </NavLink>
+              <li style={{ marginLeft: "1650px" }}>
+                <a
+                  style={{ textDecoration: "none" }}
+                  className="btn getstarted scrollto"
+                  onClick={handleLogin}
+                >
+                  Login
+                </a>
+              </li>
+            </>
           )}
-          </ul>
+        </ul>
         <i className="bi bi-list mobile-nav-toggle"></i>
       </nav>
     );

@@ -209,7 +209,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div
               className="col-lg-6 mt-4"
               data-aos="zoom-in"
