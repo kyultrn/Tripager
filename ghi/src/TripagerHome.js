@@ -58,7 +58,7 @@ export default function TripagerHome() {
         <img className="weatherIcon" src={icon}></img>
         <div className="temperature">{`${temperature}°`}</div>
         <VideoCarousel />
-        <div className="container">
+        <div className="container" >
           <div className="row">
             <div
               className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
@@ -98,7 +98,7 @@ export default function TripagerHome() {
       </section>
 
       {/* team section */}
-      <section id="team" className="team section-bg">
+      <section id="team" className="team section-bg" >
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2 className="teamH2">Team</h2>

@@ -2,6 +2,8 @@
   color: #c50d0d;
 }
 
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -519,6 +521,7 @@ body {
 
 #hero .container {
   padding-top: 72px;
+  width: 100%;
 }
 
 #hero h1 {
