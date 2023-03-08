@@ -994,3 +994,13 @@ html {
   left: 100%;
   visibility: visible;
 }
+
+
+/* modal css */
+.modal-body {
+  background-color: rgb(192, 231, 232);
+}
+
+.modal-header {
+  background-color: rgb(138, 143, 143);
+}
