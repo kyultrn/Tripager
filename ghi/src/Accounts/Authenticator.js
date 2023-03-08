@@ -85,7 +85,6 @@ export function useToken() {
   }
 
   async function login(email, password) {
-    console.log(process.env.REACT_APP_TRIPAGER_HOST);
     const url = `${process.env.REACT_APP_TRIPAGER_HOST}/token`;
     const form = new FormData();
     form.append("username", email);

@@ -1,4 +1,4 @@
-function ErrorNotification(props) {
+export default function ErrorNotification(props) {
     if (!props.error) {
         return null;
     }
@@ -9,5 +9,3 @@ function ErrorNotification(props) {
         </div>
     );
 }
-
-export default ErrorNotification;

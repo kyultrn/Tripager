@@ -28,7 +28,6 @@
 //     dispatch(closeSignUpModal())
 //     signup(formData)
 //     navigate('/')
-//     console.log("this is the account data:", formData)
 //   }
 
 //   return (

@@ -1,10 +1,9 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {
   openCreateTripModal,
@@ -46,9 +45,8 @@ export default function Trips() {
   const handleDeleteTrip = async (tripId) => {
     try {
       const response = await deleteTrip(tripId);
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      return("Cannot delete trip")
     }
   };
 
@@ -63,8 +61,6 @@ export default function Trips() {
 
   if (tokenData) {
   }
-  console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
 
   if (tokenLoading && isLoading) {
     return (
@@ -77,10 +73,8 @@ export default function Trips() {
   return (
     <div>
       {isCreateModalOpen && <CreateTripModal />}
-      <div class="container5">
+      <div className="container5">
         <span className="TripManagerText">Trip Manager</span>
-
-        {/* <span className="yourTripsText">Your Trips</span> */}
         <Button
           className="createTripButton"
           variant="outline-dark"

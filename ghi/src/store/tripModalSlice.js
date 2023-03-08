@@ -35,7 +35,6 @@ const tripFormSlice = createSlice({
   },
   reducers: {
     changeToSelectedTripData: (state, action, trip ) => {
-      console.log("this is the trip that is being sent ****", trip)
       state.name= trip.name;
       state.city= trip.city;
       state.state= trip.state;

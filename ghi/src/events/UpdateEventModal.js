@@ -16,7 +16,6 @@ export default function UpdateEventModal() {
 
 
     const [formData, setFormData] = useState()
-    console.log("this is trip id: ***", tripId)
     const dispatch = useDispatch()
     const [updateEvent, result] = useUpdateEventMutation()
 
@@ -36,9 +35,7 @@ export default function UpdateEventModal() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("this is data****", {formData, selectedEventId, tripId})
         updateEvent({formData, selectedEventId, tripId})
-        console.log(result)
         dispatch(closeUpdateEventModal())
     }
 

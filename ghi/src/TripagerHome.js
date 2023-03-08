@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTokenQuery } from "./store/ApiSlice";
-import { useSelector } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import Trips from "./trips/Trips";
@@ -31,11 +30,9 @@ export default function TripagerHome() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setTemperature(data.current.temp_f);
           setIcon(data.current.condition.icon);
         })
-        .catch((error) => console.log(error));
     }
   }, [latitude, longitude]);
 

@@ -56,7 +56,7 @@ export default function ThingsToDo() {
       term: formData.term,
       location: formData.location,
     });
-    console.log(params.toString());
+
     const response = await fetch(
       `http://localhost:8000/api/businesses?${params.toString()}`,
       {
@@ -66,7 +66,7 @@ export default function ThingsToDo() {
     if (response.ok) {
       const data = await response.json();
       setBusiness(data)
-      console.log(data);
+
     }
   };
 
