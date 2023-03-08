@@ -23,7 +23,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="container" >
+        <div className="container" style={{ maxWidth: '100%', padding: '0'}}>
           <Routes>
             <Route path="/" element={<TripagerHome />} />
             <Route path="/login" element={<Login />} />

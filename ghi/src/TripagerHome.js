@@ -71,21 +71,20 @@ export default function TripagerHome() {
     //         </div> */}
     //       {/* )} */}
     //     </div>
-    //     {icon && temperature ? (
-    //       <div>
-    //         <img className="weatherIcon" src={icon}></img>
-    //         <div className="temperature">{`${temperature}°`}</div>
-    //       </div>
-    //     ) : (
-    //       <a>weather is loading</a>
-    //     )}
+
     //     <VideoCarousel />
     //   </div>
     // );
     <React.Fragment>
       <section id="hero" className="d-flex align-items-center">
-        <img className="weatherIcon" src={icon}></img>
-        <div className="temperature">{`${temperature}°`}</div>
+        {icon && temperature ? (
+          <div>
+            <img className="weatherIcon" src={icon}></img>
+            <div className="temperature">{`${temperature}°`}</div>
+          </div>
+        ) : (
+          <a>weather is loading</a>
+        )}
         <VideoCarousel />
         <div className="container">
           <div className="row">
