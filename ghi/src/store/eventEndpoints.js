@@ -1,38 +1,41 @@
 export function eventEndpoints(builder){
 
     return {
-        getEvents: builder.query({
-            query: (trip_id) => `/api/trips/${trip_id}/events`,
-            providesTags: ["EventsList"],
+      getEvents: builder.query({
+        query: (trip_id) => `/api/trips/${trip_id}/events`,
+        providesTags: ["EventsList"],
+      }),
+      getEvent: builder.query({
+        query: (data) => ({
+          url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
         }),
-        getEvent: builder.query({
-            query: (data) => ({
-            url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
-            }),
-            providesTags: ["EventsList"],
+        providesTags: ["EventsList"],
+      }),
+      createEvent: builder.mutation({
+        query: (data) => ({
+          url: `/api/trips/${data.selectedTripId}/events`,
+          body: data.formData,
+          method: "post",
         }),
-        createEvent: builder.mutation({
-                query: (data) => ({
-                    url: `/api/trips/${data.tripId}/events`,
-                    body: data.formData,
-                    method: "post",
-                }),
-                invalidatesTags: ["EventsList"],
-            }),
-        deleteEvent: builder.mutation({
-            query: (data) => ({
-            url: `/api/trips/${data.tripId}/events/${data.eventId}`,
-            method: "delete",
-            }),
-            invalidatesTags: ["EventsList"],
+        invalidatesTags: ["EventsList"],
+        onSuccess: (result, { dispatch, queryFulfilled }) => {
+          console.log(result.data);
+        },
+      }),
+      deleteEvent: builder.mutation({
+        query: (data) => ({
+          url: `/api/trips/${data.tripId}/events/${data.eventId}`,
+          method: "delete",
         }),
-        updateEvent: builder.mutation({
-            query: (data) =>({
-            url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
-            body: data.formData,
-            method: "put",
-            }),
-            invalidatesTags: ["EventsList"],
+        invalidatesTags: ["EventsList"],
+      }),
+      updateEvent: builder.mutation({
+        query: (data) => ({
+          url: `/api/trips/${data.tripId}/events/${data.selectedEventId}`,
+          body: data.formData,
+          method: "put",
         }),
+        invalidatesTags: ["EventsList"],
+      }),
     };
 }

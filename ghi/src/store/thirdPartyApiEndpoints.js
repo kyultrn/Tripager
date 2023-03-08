@@ -1,9 +1,9 @@
 export function thirdPartyApiEndpoints(builder){
     return {
       getThingsToDo: builder.query({
-        query: (data) => ({
+        query: (term, location) => ({
           url: "/api/businesses",
-          params: { term: data.term, location: data.location },
+          params: { term, location },
         }),
         providesTags: ["ThingsToDoList"],
       }),

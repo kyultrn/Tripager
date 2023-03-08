@@ -440,9 +440,7 @@ video {
   z-index: 1000;
 }
 
-.tripDeleteButton:hover {
-  cursor: pointer;
-}
+
 .footer {
   margin: auto;
   width: 100vw;
@@ -839,7 +837,7 @@ video {
 
 html {
   height: 100%;
-  cursor: url(./images/UpdatedCursor.png), auto;
+  /* cursor: url(./images/UpdatedCursor.png), auto; */
 }
 
 .excurs {
