@@ -1004,3 +1004,24 @@ html {
 .modal-header {
   background-color: rgb(138, 143, 143);
 }
+
+
+section#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+h2 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
