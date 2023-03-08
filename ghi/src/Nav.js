@@ -40,27 +40,27 @@ console.log("location.pathname: ", location.pathname);
             {token ? (
               <>
               <NavLink to="/" style={{ textDecoration: 'none' }}>
-                <li><a className="nav-link scrollto ">Tripager</a></li>
+                <li><a className="btn nav-link scrollto ">Tripager</a></li>
               </NavLink>
               <NavLink to="/trips" style={{ textDecoration: 'none' }}>
-                <li><a className="nav-link scrollto">Trips</a></li>
+                <li><a className="btn nav-link scrollto">Trips</a></li>
               </NavLink>
               <NavLink to="/thingstodo" style={{ textDecoration: 'none' }}>
-                <li><a className="nav-link scrollto" >Things To Do</a></li>
+                <li><a className="btn nav-link scrollto" >Things To Do</a></li>
               </NavLink>
-                <li className="dropdown" ><a href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}><span>Account</span> <i className="bi bi-chevron-down"></i></a>
+                <li className="dropdown" ><a className="btn" href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}><span>Account</span> <i className="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li><a href="#" style={{ textDecoration: 'none' }}>My Account</a></li>
+                    <li><a className="btn" href="#" style={{ textDecoration: 'none' }}>My Account</a></li>
                   </ul>
                 </li>
-              <li style={{marginLeft: '1250px'}}><a style={{textDecoration: 'none'}} className="getstarted scrollto" onClick={handleLogout} >Logout</a></li>
+              <li style={{marginLeft: '1250px'}}><a style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogout} >Logout</a></li>
             </>
         ) : (
           <>
             <NavLink to="/" style={{ textDecoration: 'none' }}>
-              <li><a className="nav-link scrollto">Tripager</a></li>
+              <li><a className="btn nav-link scrollto">Tripager</a></li>
             </NavLink>
-            <li style={{marginLeft: '1650px'}}><a style={{textDecoration: 'none'}} className="getstarted scrollto" onClick={handleLogin} >Login</a></li>
+            <li style={{marginLeft: '1650px'}}><a style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogin} >Login</a></li>
           </>
           )}
           </ul>
