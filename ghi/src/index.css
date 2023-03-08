@@ -506,18 +506,21 @@ video {
   width: 100%;
 }
 
-#hero h1 {
+/* Tripager */
+/* #hero h1 {
   margin: 0 0 10px 0;
   font-size: 48px;
+  text-align: right;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
-}
-
-#hero h2 {
+  color: #ffffff;
+} */
+/* Plan and manage your next trip here */
+/* #hero h2 {
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 50px;
   font-size: 24px;
+  float: right;
 }
 
 #hero .btn-get-started {
@@ -585,10 +588,10 @@ video {
 }
 
 @media (max-width: 768px) {
-  #hero h1 {
+  /* #hero h1 {
     font-size: 28px;
     line-height: 36px;
-  }
+  } */
 
   #hero h2 {
     font-size: 18px;
@@ -599,7 +602,7 @@ video {
   #hero .hero-img img {
     width: 70%;
   }
-}
+/* } */
 
 @media (max-width: 575px) {
   #hero .hero-img img {
@@ -630,7 +633,7 @@ video {
   100% {
     transform: translateY(-10px);
   }
-}
+} */
 
 .tripagerFooter {
   /* display: none; */
@@ -983,4 +986,24 @@ html {
   top: 0;
   left: 100%;
   visibility: visible;
+}
+
+
+
+
+section#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+  height: 100vh;
+}
+h1 {
+  z-index: 1;
+  color: white;
+}
+h2 {
+
+  z-index: 1;
+  color: white;
 }

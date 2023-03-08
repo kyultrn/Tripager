@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTokenQuery } from "./store/ApiSlice";
+import { useSelector } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import Trips from "./trips/Trips";
 import Footer from "./footer/Footer";
-
 
 export default function TripagerHome() {
   const navigate = useNavigate();
@@ -55,44 +55,9 @@ export default function TripagerHome() {
         ) : (
           <a>weather is loading</a>
         )}
+        <h1 className="text">Tripager</h1>
+        <h2 className="text-center">Plan and manage your next trip here.</h2>
         <VideoCarousel />
-        <div className="container">
-          <div className="row">
-            <div
-              className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <h1>Better Solutions For Your Business</h1>
-              <h2>
-                We are team of talented designers making websites with Bootstrap
-              </h2>
-              <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" className="btn-get-started scrollto">
-                  Get Started
-                </a>
-                <a
-                  href="https://www.youtube.com/watch?v=jDDaplaOz7Q"
-                  className="glightbox btn-watch-video"
-                >
-                  <i className="bi bi-play-circle"></i>
-                  <span>Watch Video</span>
-                </a>
-              </div>
-            </div>
-            <div
-              className="col-lg-6 order-1 order-lg-2 hero-img"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <img
-                src="assets/img/hero-img.png"
-                className="img-fluid animated"
-                alt=""
-              ></img>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* team section */}
@@ -201,7 +166,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div
               className="col-lg-6 mt-4"
               data-aos="zoom-in"
