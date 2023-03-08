@@ -3,7 +3,7 @@ import { useGetTripQuery, useGetTokenQuery } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useDeleteEventMutation } from "../store/ApiSlice";
-import CreateEventModal from "./CreateEventModal";
+import CreateEventModal from "./CreateEventModal"
 import { useDispatch, useSelector } from "react-redux";
 import { openCreateEventModal, openUpdateEventModal, setSelectedEventId } from "../store/eventModalSlice";
 import UpdateEventModal from "./UpdateEventModal";

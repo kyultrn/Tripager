@@ -1,6 +1,6 @@
-# from api.testclient import TestClient
+# from fastapi import TestClient
 # from main import app
-# from ../queries/accounts import AccountQueries
+# from queries.accounts import AccountQueries
 # client = TestClient(app)
 
 # class FakeAccountQueries:

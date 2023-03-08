@@ -95,7 +95,7 @@ export default function Trips() {
               <div className="oldTR" key={trip.id}>
                 <span className="oldTD">
                   <span>
-                    <Link to={`/trips/${trip.id}/events`}>{trip.name}</Link>
+                    <Link to={`/trips/${trip.id}/events`} onClick={() => dispatch(setSelectedTripId(trip.id))}>{trip.name}</Link>
                   </span>
 
                   <div className="tripInfo">
@@ -125,7 +125,7 @@ export default function Trips() {
                             handleDeleteTrip(trip.id);
                             Swal.fire(
                               "Deleted!",
-                              "Your room has been deleted.",
+                              "Your Trip has been deleted.",
                               "success"
                             );
                           }

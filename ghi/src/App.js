@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import { useToken } from "./accounts/Authenticator";
 import Login from "./accounts/Login";
@@ -16,17 +16,14 @@ import { store } from "./store/store";
 import { useDispatch } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 
-// function GetToken() {
-//   // Get token from JWT cookie (if already logged in)
-//   useToken();
-//   return null;
-// }
+
 function App() {
+
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="container" >
+        <div className="container" style={{ maxWidth: '100%', padding: '0'}}>
           <Routes>
             <Route path="/" element={<TripagerHome />} />
             <Route path="/login" element={<Login />} />
