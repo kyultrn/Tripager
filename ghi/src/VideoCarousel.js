@@ -1,16 +1,14 @@
-import React from 'react'
-import mainhd from './videos/mainhd.mp4'
+import React from "react";
+import mainhd from "./videos/mainhd.mp4";
 
 const VideoCarousel = () => {
   return (
-
-    <div className="main">
-      <div className="overlay"></div>
+    <div className="">
+      <div className=""></div>
       <video src={mainhd} autoPlay loop muted />
-      <div className="content">
-      </div>
+      <div className=""></div>
     </div>
   );
 };
 
-export default VideoCarousel
+export default VideoCarousel;

@@ -3,6 +3,9 @@ import { useGetTokenQuery } from "./store/ApiSlice";
 import { useSelector } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
+import Trips from "./trips/Trips";
+import Footer from "./footer/Footer";
+
 
 export default function TripagerHome() {
   const navigate = useNavigate();
@@ -16,8 +19,8 @@ export default function TripagerHome() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("latitude: " + position.coords.latitude);
-        console.log("longitude: " + position.coords.longitude);
+        // console.log("latitude: " + position.coords.latitude);
+        // console.log("longitude: " + position.coords.longitude);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       },

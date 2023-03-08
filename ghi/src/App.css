@@ -14,9 +14,37 @@
 }
 
 .btn:hover {
-  cursor: url(./images/airplane.png), auto;
+  cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
 .custom-hover:hover {
-  cursor: url(./images/airplane.png), auto;
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.navbar-brand {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.signUpButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.loginButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.createTripButton:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.btn-red btn-sm text-right {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.btn btn-primary {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
+}
+
+.btn-red btn-sm text-right tripDeleteButton {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
 }

@@ -18,7 +18,6 @@ import {
   useUpdateTripMutation,
 } from "../store/ApiSlice";
 
-
 export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
@@ -110,7 +109,7 @@ export default function Trips() {
                       onClick={() => handleUpdateOpenModal(trip.id)}
                       className="fa-solid fa-pen-to-square tripEditButton"
                     />{" "}
-                    <i
+                    <button
                       variant="btn-sm m-1"
                       className="btn-red btn-sm text-right tripDeleteButton"
                       onClick={() => {
@@ -135,7 +134,7 @@ export default function Trips() {
                       }}
                     >
                       Delete
-                    </i>
+                    </button>
                     {isUpdateModalOpen && <UpdateTripModal />}{" "}
                   </div>
                 </span>
