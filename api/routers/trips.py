@@ -34,7 +34,7 @@ def get_all_trips(
     return repo.get_all_trips()
 
 
-@router.get("/api/trips/mytrips", response_model=Union[List[TripOut], Error] )
+@router.get("/api/trips/mytrips", response_model=Union[List[TripOut], Error])
 def get_trips_by_id(
     repo: TripQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
@@ -43,7 +43,6 @@ def get_trips_by_id(
     # print(f"this is account data: {account_data}")
     # print(f"this is account id: {acc_id}")
     return repo.get_trips_by_id(acc_id)
-
 
 
 @router.get("/api/trips/{trip_id}", response_model=Optional[TripOut])
