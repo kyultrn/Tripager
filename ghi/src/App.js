@@ -9,8 +9,6 @@ import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
 import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
-import AboutDevelopers from "./footer/AboutDevelopers";
-import AboutTripager from "./footer/AboutTripager";
 import UpdateAccount from "./accounts/UpdateAccount"
 import { setLoginState } from "./store/AccountsSlice";
 import { store } from "./store/store";
@@ -33,8 +31,6 @@ function App() {
             <Route path="/trips" element={<Trips />} />
             <Route path="/trips/:id/events" element={<Events />} />
             <Route path="/thingstodo" element={<ThingsToDo />} />
-            <Route path="/about-developers" element={<AboutDevelopers />} />
-            <Route path="/about-tripager" element={<AboutTripager />} />
           </Routes>
         </div>
         <Footer />

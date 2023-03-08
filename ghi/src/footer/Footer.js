@@ -20,21 +20,12 @@ export default function Footer() {
         <div className="footer-row row">
           <div className="footer-item col-md-4 mb-3">
             <h5>About Tripager</h5>
-            <Link to="/about-tripager" className="btn text-white">
-              Learn more
-            </Link>
           </div>
           <div className="footer-item col-md-4 mb-3">
             <h5>About Developers</h5>
-            <Link to="/about-developers" className="btn text-white">
-              Meet the team
-            </Link>
           </div>
           <div className="footer-item col-md-4 mb-3">
             <h5>Technologies</h5>
-            <Link to="/technologies" className="btn text-white">
-              View our tech stack
-            </Link>
           </div>
         </div>
       </div>
