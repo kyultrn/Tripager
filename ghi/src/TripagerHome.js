@@ -33,7 +33,7 @@ export default function TripagerHome() {
     if (latitude && longitude) {
       const API_KEY = "63766d9ff60d419993121332230403";
       const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
-
+      
       fetch(url)
         .then((response) => response.json())
         .then((data) => {

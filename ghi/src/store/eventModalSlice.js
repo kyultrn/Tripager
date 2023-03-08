@@ -51,7 +51,7 @@ const eventFormSlice = createSlice ({
         setSelectedEventId: (state, action) => {
             state.selectedEventId = action.payload
         },
-        setSelectedBusinessId: (state, action) => {
+        setSelectedBusiness: (state, action) => {
             state.selectedBusiness = action.payload
         },
     },
@@ -68,7 +68,7 @@ export const {
     updateFormData,
     resetFormData,
     setSelectedEventId,
-    setSelectedBusinessId,
+    setSelectedBusiness,
 } = eventFormSlice.actions
 
 export const selectEventFormData = (state) => state.eventForm

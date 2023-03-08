@@ -461,9 +461,7 @@ body {
   z-index: 1000;
 }
 
-.tripDeleteButton:hover {
-  cursor: pointer;
-}
+
 .footer {
   margin: auto;
   width: 100vw;
