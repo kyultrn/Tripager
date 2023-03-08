@@ -1,11 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import {
-    selectEventFormData,
-    updateFormData,
-    resetFormData,
-    closeUpdateEventModal,
-    changeToSelectedEventData
-} from "../store/eventModalSlice"
+import { closeUpdateEventModal } from "../store/eventModalSlice"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap"
 import { useUpdateEventMutation, useGetEventQuery } from "../store/ApiSlice";
@@ -17,6 +11,10 @@ export default function UpdateEventModal() {
     const selectedEventId = useSelector(state => state.eventForm.selectedEventId)
     const { id: tripId } = useParams();
     const { data: event, isLoading: eventLoading } = useGetEventQuery({selectedEventId, tripId})
+
+    const selectedBusiness = useSelector(state => state.eventForm.selectedBusiness)
+
+
     const [formData, setFormData] = useState()
     console.log("this is trip id: ***", tripId)
     const dispatch = useDispatch()

@@ -9,7 +9,7 @@ import ExcursRoulette from "../ExcursRoulette";
 
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { openCreateEventModal } from "../store/eventModalSlice";
+import { openCreateEventModal, setSelectedBusinessId } from "../store/eventModalSlice";
 import { useGetEventsQuery } from "../store/ApiSlice";
 import { useGetTripQuery, useGetTripsQuery, useGetTokenQuery } from "../store/ApiSlice";
 import CreateYelpEventModal from "./CreateYelpEventModal";
@@ -52,10 +52,11 @@ export default function ThingsToDo() {
     (state) => state.eventModal.isModalOpen.createModal
   );
 
-  const handleCreateOpenModal = () => {
+  const handleCreateOpenModal = (business) => {
+    console.log(business)
+    dispatch(setSelectedBusinessId(business));
     dispatch(openCreateEventModal());
   };
-
 
   return (
     <>
@@ -83,6 +84,7 @@ export default function ThingsToDo() {
           id="location"
           className="form-control"
         />
+        <Button onClick=""></Button>
       </form>
 
       <div className="searchbar">
@@ -116,7 +118,7 @@ export default function ThingsToDo() {
                     >
                       <Button variant="primary">Get details</Button>
                     </a>
-                  <Button onClick={handleCreateOpenModal} variant="primary">
+                  <Button onClick={handleCreateOpenModal(business)} variant="primary">
                     Add to events
                   </Button>
                   </div>

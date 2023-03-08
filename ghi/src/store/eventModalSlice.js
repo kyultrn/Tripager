@@ -32,6 +32,7 @@ const eventFormSlice = createSlice ({
         start_time: "",
         end_time: "",
         selectedEventId: null,
+        selectedBusiness: {},
     },
     reducers: {
         updateFormData: (state, action) => {
@@ -50,6 +51,9 @@ const eventFormSlice = createSlice ({
         setSelectedEventId: (state, action) => {
             state.selectedEventId = action.payload
         },
+        setSelectedBusinessId: (state, action) => {
+            state.selectedBusiness = action.payload
+        },
     },
 })
 
@@ -64,6 +68,7 @@ export const {
     updateFormData,
     resetFormData,
     setSelectedEventId,
+    setSelectedBusinessId,
 } = eventFormSlice.actions
 
 export const selectEventFormData = (state) => state.eventForm

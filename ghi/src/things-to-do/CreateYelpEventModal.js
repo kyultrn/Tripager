@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -12,36 +12,65 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateEventMutation } from "../store/ApiSlice";
 import { useGetTripsQuery } from "../store/ApiSlice";
 import ThingsToDo from "./ThingsToDo";
+import { setSelectedTripId } from "../store/tripModalSlice";
 
 export default function CreateYelpEventModal() {
+  const selectedBusiness = useSelector(
+    (state) => state.eventForm.selectedBusiness
+  );
   const { data, isLoading } = useGetTripsQuery();
-  console.log(data)
+  console.log(data);
+
+  // const [tripId, setTripId] = useState('')
+  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
 
   const isCreateModalOpen = useSelector(
     (state) => state.eventModal.isModalOpen.createModal
   );
 
-  const formData = useSelector(selectEventFormData);
   const dispatch = useDispatch();
 
   const [createEvent, result] = useCreateEventMutation();
-  const { id: tripId } = useParams();
+  const [formData, setFormData] = useState();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    dispatch(updateFormData({ name, value }));
+    const value = e.target.value;
+    const inputName = e.target.name;
+    setFormData({
+      ...formData,
+      [inputName]: value,
+    });
   };
 
   const handleCloseModal = () => {
     dispatch(closeCreateEventModal());
   };
 
+  const handleTripChange = (e) => {
+    dispatch(setSelectedTripId(e.target.value));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(selectedTripId);
     dispatch(closeCreateEventModal());
-    createEvent({ formData, tripId });
+    createEvent({ formData, selectedTripId });
     dispatch(resetFormData());
   };
+
+  useEffect(() => {
+    if (!formData && selectedBusiness) {
+      setFormData({
+        name: selectedBusiness.name,
+        description: "",
+        picture_url: selectedBusiness.image_url,
+        location: selectedBusiness.location.address1,
+        date: "",
+        start_time: "",
+        end_time: "",
+      });
+    }
+  }, [selectedBusiness]);
 
   return (
     <div className={`modal ${isCreateModalOpen ? "is-active" : ""}`}>
@@ -56,7 +85,6 @@ export default function CreateYelpEventModal() {
               type="text"
               name="name"
               value={formData.name}
-              // {business.name}
               onChange={handleInputChange}
             />
             <Form.Label>Description</Form.Label>
@@ -104,7 +132,7 @@ export default function CreateYelpEventModal() {
               onChange={handleInputChange}
             />
             <Form.Label>Choose a trip</Form.Label>
-            <Form.Select name="trip" onChange={handleInputChange}>
+            <Form.Select name="trip" onChange={handleTripChange}>
               {isLoading ? (
                 <option>Loading...</option>
               ) : (
