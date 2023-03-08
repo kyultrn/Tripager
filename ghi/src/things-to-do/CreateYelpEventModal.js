@@ -16,15 +16,12 @@ import { setSelectedTripId } from "../store/tripModalSlice";
 
 export default function CreateYelpEventModal() {
   const { data, isLoading: tripsLoading } = useGetTripsQuery();
-  console.log(data);
-
-  // const [tripId, setTripId] = useState('')
 
   const selectedBusiness = useSelector((state) => state.eventForm.selectedBusiness);
-  console.log(selectedBusiness)
+
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const isCreateModalOpen = useSelector((state) => state.eventModal.isModalOpen.createModal);
-  console.log("isCreateModalOpen:  ", isCreateModalOpen)
+
 
   const dispatch = useDispatch();
 
@@ -58,7 +55,7 @@ export default function CreateYelpEventModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(selectedTripId);
+  
     dispatch(closeCreateEventModal());
     createEvent({ formData, selectedTripId });
     dispatch(resetFormData());

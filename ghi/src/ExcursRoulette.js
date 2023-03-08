@@ -6,7 +6,7 @@ const ExcursRoulette = () => {
     <div>
       <video className="excurs" src={excurs_roulette} autoPlay muted/>
     </div>
-  );
-};
+  )
+}
 
 export default ExcursRoulette;

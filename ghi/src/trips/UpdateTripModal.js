@@ -14,7 +14,6 @@ export default function UpdateTripModal() {
   const { data: trip, isLoading: tripLoading } =
     useGetTripQuery(selectedTripId);
 
-  console.log("this is the trip data:", trip);
   const dispatch = useDispatch();
   const [updateTrip] = useUpdateTripMutation();
 
@@ -34,7 +33,6 @@ export default function UpdateTripModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTrip({ formData, selectedTripId });
-    // dispatch(resetFormData())
     dispatch(closeUpdateTripModal());
   };
 

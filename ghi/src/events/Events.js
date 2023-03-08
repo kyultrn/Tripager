@@ -51,6 +51,9 @@ export default function Events() {
     <div>
       {isCreateModalOpen && <CreateEventModal />}
       <h1>Events for {trip.name}</h1>
+      <button className="btn btn-primary" onClick={handleCreateOpenModal}>
+        Create a Event
+      </button>
       <table className="table is-striped">
         <thead>
           <tr>
@@ -61,9 +64,6 @@ export default function Events() {
             <th>Start Time</th>
             <th>End Time</th>
             <th>Picture</th>
-            <button className="btn btn-primary" onClick={handleCreateOpenModal}>
-              Create a Event
-            </button>
           </tr>
         </thead>
         <tbody>
@@ -78,7 +78,12 @@ export default function Events() {
                   <td>{event.start_time}</td>
                   <td>{event.end_time}</td>
                   <td>
-                    <Image className="event-picture" rounded thumbnail src={event.picture_url} />
+                    <Image
+                      className="event-picture"
+                      rounded
+                      thumbnail
+                      src={event.picture_url}
+                    />
                   </td>
                   <td>
                     <i
