@@ -53,28 +53,6 @@ export default function TripagerHome() {
   };
 
   return (
-    //   <div className="container">
-    //     <div className="content">
-    //       <h1>Tripager</h1>
-    //       <h2>Plan and manage your next trip here.</h2>
-    //       {/* {token ? (
-    //         <div>
-    //           <button className="btn btn-green" onClick={handleTripsRedirect}>
-
-    //           </button>
-    //         </div>
-    //       ) : (
-    //         <div>
-    //           <button className="btn btn-green" onClick={handleNotLoggedRedirect}>
-    //             Get Started
-    //           </button>
-    //         </div> */}
-    //       {/* )} */}
-    //     </div>
-
-    //     <VideoCarousel />
-    //   </div>
-    // );
     <React.Fragment>
       <section id="hero" className="d-flex align-items-center">
         {icon && temperature ? (
@@ -145,14 +123,15 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Zach Dempsey</h4>
                   <span>Developer</span>
-                  <p>
-                    Explicabo voluptatem mollitia et repellat qui dolorum quasi
-                  </p>
+                  <p>This is going to be text that you will see</p>
                   <div className="social">
-                    <a target="_blank" href="">
+                    <a target="_blank" href="https://gitlab.com/ZacharyD">
                       <i className="ri-instagram-fill"></i>
                     </a>
-                    <a target="_blank" href="">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/zdempsey/"
+                    >
                       {" "}
                       <i className="ri-linkedin-box-fill"></i>{" "}
                     </a>
@@ -176,7 +155,7 @@ export default function TripagerHome() {
                 </div>
                 <div className="member-info">
                   <h4>Andrew Fockler</h4>
-                  <span>Noob</span>
+                  <span>Developer</span>
                   <p>
                     Explicabo voluptatem mollitia et repellat qui dolorum quasi
                   </p>
@@ -216,10 +195,13 @@ export default function TripagerHome() {
                     Explicabo voluptatem mollitia et repellat qui dolorum quasi
                   </p>
                   <div className="social">
-                    <a target="_blank" href="">
+                    <a target="_blank" href="https://gitlab.com/mischadani2">
                       <i className="ri-instagram-fill"></i>
                     </a>
-                    <a target="_blank" href="">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/mischadani/"
+                    >
                       {" "}
                       <i className="ri-linkedin-box-fill"></i>{" "}
                     </a>
@@ -248,10 +230,13 @@ export default function TripagerHome() {
                     Explicabo voluptatem mollitia et repellat qui dolorum quasi
                   </p>
                   <div className="social">
-                    <a target="_blank" href="">
+                    <a target="_blank" href="https://gitlab.com/Kyull">
                       <i className="ri-instagram-fill"></i>
                     </a>
-                    <a target="_blank" href="">
+                    <a
+                      target="_blank"
+                      href="https://www.linkedin.com/in/kyle-trann/"
+                    >
                       {" "}
                       <i className="ri-linkedin-box-fill"></i>{" "}
                     </a>
