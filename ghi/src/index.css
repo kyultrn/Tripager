@@ -879,6 +879,9 @@ html {
 .navbar li {
   position: relative;
 }
+.navbar a:focus {
+  outline: none;
+}
 
 .navbar a,
 .navbar a:focus {
@@ -916,7 +919,7 @@ html {
 .navbar .getstarted:focus {
   padding: 8px 20px;
   margin-left: 30px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   color: #fff;
   font-size: 14px;
   /* border: 2px solid #47b2e4; */

@@ -42,6 +42,7 @@ export const {
   useUserLoginMutation,
   useUserLogoutMutation,
   useUserSignupMutation,
+  useUserUpdateMutation,
 
   useGetTripQuery,
   useGetTripsQuery,

@@ -11,6 +11,7 @@ import ThingsToDo from "./things-to-do/ThingsToDo";
 import Footer from "./footer/Footer.js";
 import AboutDevelopers from "./footer/AboutDevelopers";
 import AboutTripager from "./footer/AboutTripager";
+import UpdateAccount from "./accounts/UpdateAccount"
 import { setLoginState } from "./store/AccountsSlice";
 import { store } from "./store/store";
 import { useDispatch } from "react-redux";
@@ -26,6 +27,7 @@ function App() {
         <div className="container" style={{ maxWidth: '100%', padding: '0'}}>
           <Routes>
             <Route path="/" element={<TripagerHome />} />
+            <Route path="/myaccount" element={<UpdateAccount />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/trips" element={<Trips />} />

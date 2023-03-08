@@ -32,7 +32,7 @@ console.log("location.pathname: ", location.pathname);
     navigate("/login");
   };
 
-  const isLoginOrSignUpPage = ["/login", "/signup", "/trips", `/trips/${selectedTripId}/events`, "/thingstodo"].includes(location.pathname);
+  const isLoginOrSignUpPage = ["/login", "/signup", "/trips", `/trips/${selectedTripId}/events`, "/thingstodo", "/myaccount"].includes(location.pathname);
 
     return (
         <nav id="navbar" className="navbar" style={{ backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit", height: "80px" }}>
@@ -40,20 +40,20 @@ console.log("location.pathname: ", location.pathname);
             {token ? (
               <>
               <NavLink to="/" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto ">Tripager</a></li>
+                <li><span className="btn nav-link scrollto ">Tripager</span></li>
               </NavLink>
               <NavLink to="/trips" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto">Trips</a></li>
+                <li><span className="btn nav-link scrollto">Trips</span></li>
               </NavLink>
               <NavLink to="/thingstodo" style={{ textDecoration: 'none' }}>
-                <li><a className="btn nav-link scrollto" >Things To Do</a></li>
+                <li><span className="btn nav-link scrollto" >Things To Do</span></li>
               </NavLink>
-                <li className="dropdown" ><a className="btn" href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}><span>Account</span> <i className="bi bi-chevron-down"></i></a>
+                <li className="dropdown" ><a className="btn" href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}>Account<i className="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li><a className="btn" href="#" style={{ textDecoration: 'none' }}>My Account</a></li>
+                    <li><span className="btn" href="#" style={{ textDecoration: 'none' }}>My Account</span></li>
                   </ul>
                 </li>
-              <li style={{marginLeft: '1250px'}}><a style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogout} >Logout</a></li>
+              <li style={{marginLeft: '1250px'}}><span style={{textDecoration: 'none'}} className="btn getstarted scrollto" onClick={handleLogout} >Logout</span></li>
             </>
         ) : (
           <>

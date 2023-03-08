@@ -50,5 +50,14 @@ export function accountsEndpoints(builder) {
             return (result && ["Token"]) || [];
         },
         }),
+        userUpdate: builder.mutation({
+            query: (info) => ({
+                url: `/api/accounts/${info.accountId}`,
+                method: 'update',
+                body: info.formData,
+                credentials: 'include',
+            }),
+            invalidatesTags: ["Account"],
+        }),
     }
 }
