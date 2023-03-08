@@ -50,7 +50,7 @@ console.log("location.pathname: ", location.pathname);
               </NavLink>
                 <li className="dropdown" ><a href="#" style={{ textDecoration: 'none', paddingLeft: '60px'}}><span>Account</span> <i className="bi bi-chevron-down"></i></a>
                   <ul>
-                    <li><a href="#" style={{ textDecoration: 'none' }}>My Account</a></li>
+                    <li><a href="#" style={{ textDecoration: 'none' }}>Edit Account</a></li>
                   </ul>
                 </li>
               <li style={{marginLeft: '1250px'}}><a style={{textDecoration: 'none'}} className="getstarted scrollto" onClick={handleLogout} >Logout</a></li>

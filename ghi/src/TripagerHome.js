@@ -221,9 +221,9 @@ export default function TripagerHome() {
                   </div>
                   <div className="member-info">
                     <h4>Kyle Tran</h4>
-                    <span>Developer</span>
+                    <span>Full Stack Developer</span>
                     <p>
-                      Explicabo voluptatem mollitia et repellat qui dolorum quasi
+                      The flyest co founder in the industry
                     </p>
                     <div className="social">
                       <a target="_blank" href="">
