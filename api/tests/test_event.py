@@ -7,11 +7,13 @@ import json
 
 client = TestClient(app)
 
-def fake_get_current_account_data():
+
+def fakeData():
     return {
         'id': 1,
         'username': 'fakeuser'
     }
+
 
 class FakeEventQueries:
     def create_trip_event(self, event: EventIn, trip_id: int):
@@ -49,7 +51,8 @@ def test_delete_trip_event():
     res = client.delete('/api/trips/1/events/1')
     data = res.json()
     assert res.status_code == 200
-    assert data == True
+    assert data is True
+
 
 def test_get_all_trip_events():
     app.dependency_overrides[EventQueries] = FakeEventQueries
@@ -57,6 +60,7 @@ def test_get_all_trip_events():
     data = res.json()
     assert data == []
     assert res.status_code == 200
+
 
 def test_get_trip_event():
     app.dependency_overrides[EventQueries] = FakeEventQueries
@@ -66,9 +70,10 @@ def test_get_trip_event():
     assert data['id'] == 2
     assert data['trip_id'] == 1
 
+
 def test_create_trip_event():
     app.dependency_overrides[EventQueries] = FakeEventQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[authenticator.get_current_account_data] = fakeData
     event = {
         "name": "test",
         "description": "test",
@@ -78,7 +83,8 @@ def test_create_trip_event():
         "end_time": "11:11",
         "picture_url": "",
     }
-    res = client.post('api/trips/1/events', json.dumps(event))
+    trip_id = 1
+    res = client.post(f'api/trips/{trip_id}/events', json.dumps(event))
     data = res.json()
     assert res.status_code == 200
     assert data == {
@@ -90,5 +96,5 @@ def test_create_trip_event():
         "end_time": "11:11:00",
         "picture_url": "",
         "id": 1,
-        "trip_id": 1,
+        "trip_id": trip_id,
     }

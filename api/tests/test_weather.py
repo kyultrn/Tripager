@@ -7,6 +7,7 @@ client = TestClient(app)
 
 WEATHER_API_KEY = os.environ["WEATHER_API_KEY"]
 
+
 class FakeWeatherQueries:
     def get_weather(self, latitude, longitude):
         return {}
@@ -14,6 +15,6 @@ class FakeWeatherQueries:
 
 def test_get_weather():
     app.dependency_overrides[WeatherQueries] = FakeWeatherQueries
-    res = client.get('/api/weather', params={"latitude": "23", "longitude": "42"})
-    data = res.json()
+    res = client.get('/api/weather',
+                     params={"latitude": "23", "longitude": "42"})
     assert res.status_code == 200

@@ -2,16 +2,18 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.trips import TripQueries
 from authenticator import authenticator
-from queries.trips import TripOut, TripIn
+from queries.trips import TripOut
 import json
 
 client = TestClient(app)
 
-def fake_get_current_account_data():
+
+def fakeData():
     return {
         'id': 9,
         'username': 'fakeuser'
     }
+
 
 class FakeTripQueries:
     def get_trips_by_id(self, account_id: int):
@@ -23,7 +25,7 @@ class FakeTripQueries:
         return trip_dict
 
     def update_trip(self, trip_id, trip) -> TripOut:
-        trip_dict =  trip.dict()
+        trip_dict = trip.dict()
         return TripOut(id=1, **trip_dict)
 
     def get_trip(self, trip_id: int):
@@ -35,20 +37,23 @@ class FakeTripQueries:
             'start_date': 2023-3-6,
             'end_date': 2023-3-7,
         }
+
     def delete_trip(self, trip_id: int) -> bool:
         return True
 
+
 def test_get_trips():
     app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[authenticator.get_current_account_data] = fakeData
     res = client.get('/api/trips/mytrips')
     data = res.json()
     assert data == []
     assert res.status_code == 200
 
+
 def test_create_trip():
     app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[authenticator.get_current_account_data] = fakeData
     trip = {
         "name": "Miami Trip",
         "city": "Miami",
@@ -67,6 +72,7 @@ def test_create_trip():
         "start_date": "2023-03-06",
         "end_date": "2023-03-23"
     }
+
 
 def test_update_trip():
     app.dependency_overrides[TripQueries] = FakeTripQueries
@@ -89,6 +95,7 @@ def test_update_trip():
         "end_date": "2023-03-23"
     }
 
+
 def test_get_trip():
     app.dependency_overrides[TripQueries] = FakeTripQueries
     res = client.get('api/trips/2')
@@ -96,9 +103,10 @@ def test_get_trip():
     assert res.status_code == 200
     assert data['id'] == 2
 
+
 def test_delete_trip():
     app.dependency_overrides[TripQueries] = FakeTripQueries
     res = client.delete('api/trips/2')
     data = res.json()
     assert res.status_code == 200
-    assert data == True
+    assert data is True
