@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import Trips from "./trips/Trips";
 import Footer from "./footer/Footer";
 
+
 export default function TripagerHome() {
   const navigate = useNavigate();
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
@@ -31,12 +32,11 @@ export default function TripagerHome() {
 
   useEffect(() => {
     if (latitude && longitude) {
-      const API_KEY = "63766d9ff60d419993121332230403";
-      const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${latitude},${longitude}`;
-
+      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           setTemperature(data.current.temp_f);
           setIcon(data.current.condition.icon);
         })
@@ -58,7 +58,7 @@ export default function TripagerHome() {
         <img className="weatherIcon" src={icon}></img>
         <div className="temperature">{`${temperature}°`}</div>
         <VideoCarousel />
-        <div className="container">
+        <div className="container" >
           <div className="row">
             <div
               className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
@@ -98,7 +98,7 @@ export default function TripagerHome() {
       </section>
 
       {/* team section */}
-      <section id="team" className="team section-bg">
+      <section id="team" className="team section-bg" >
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2 className="teamH2">Team</h2>
@@ -252,7 +252,6 @@ export default function TripagerHome() {
           </div>
         </div>
       </section>
-      <Footer />
     </React.Fragment>
   );
 }

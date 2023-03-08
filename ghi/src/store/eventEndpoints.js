@@ -12,13 +12,13 @@ export function eventEndpoints(builder){
             providesTags: ["EventsList"],
         }),
         createEvent: builder.mutation({
-            query: (data) => ({
-            url: `/api/trips/${data.tripId}/events`,
-            body: data.formData,
-            method: "post",
+                query: (data) => ({
+                    url: `/api/trips/${data.tripId}/events`,
+                    body: data.formData,
+                    method: "post",
+                }),
+                invalidatesTags: ["EventsList"],
             }),
-            invalidatesTags: ["EventsList"],
-        }),
         deleteEvent: builder.mutation({
             query: (data) => ({
             url: `/api/trips/${data.tripId}/events/${data.eventId}`,

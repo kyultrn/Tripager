@@ -16,17 +16,17 @@ import { store } from "./store/store";
 import { useDispatch } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 
-function GetToken() {
-  // Get token from JWT cookie (if already logged in)
-  useToken();
-  return null;
-}
+// function GetToken() {
+//   // Get token from JWT cookie (if already logged in)
+//   useToken();
+//   return null;
+// }
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar />
-        <div className="">
+        <div className="container" >
           <Routes>
             <Route path="/" element={<TripagerHome />} />
             <Route path="/login" element={<Login />} />
@@ -38,6 +38,7 @@ function App() {
             <Route path="/about-tripager" element={<AboutTripager />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </>
   );
