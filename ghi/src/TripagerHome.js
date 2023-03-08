@@ -31,7 +31,6 @@ export default function TripagerHome() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setTemperature(data.current.temp_f);
           setIcon(data.current.condition.icon);
         })
