@@ -20,11 +20,3 @@ def get_yelp_recommendations(
     )
 
 
-@router.get("/api/businesses")
-def get_excurs_roulette_recommendation(
-    location: str,
-    repo: YelpQueries = Depends()
-):
-    return repo.get_excurs_roulette_recommendation(
-        location,
-    )

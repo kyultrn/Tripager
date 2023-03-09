@@ -94,6 +94,11 @@ export default function ThingsToDo() {
     }
   };
 
+
+
+
+
+
   return (
     <>
       <div>
@@ -210,7 +215,6 @@ export default function ThingsToDo() {
           </div>
         </div>
       </div>
-      {/* <ExcursRoulette /> */}
 
       <div className="cloudVideo">
         <video

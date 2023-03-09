@@ -21,16 +21,3 @@ class YelpQueries:
 
         return r.json()
 
-    def get_excurs_roulette_recommendation(self, location: str):
-        headers = {
-            "Authorization": f"Bearer {YELP_API_KEY}"
-        }
-        url = "https://api.yelp.com/v3/businesses/search"
-        params = {
-            "location": location,
-            "sort_by": "best_match",
-            "limit": 1
-        }
-        r = requests.get(url, params=params, headers=headers)
-
-        return r.json()

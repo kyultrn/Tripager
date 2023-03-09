@@ -55,7 +55,7 @@ export default function CreateYelpEventModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     dispatch(closeCreateEventModal());
     createEvent({ formData, selectedTripId });
     dispatch(resetFormData());
@@ -143,7 +143,9 @@ export default function CreateYelpEventModal() {
               )}
             </Form.Select>
             <Modal.Footer>
-              <Button type="submit">Create</Button>
+              <Button className="btn btn-secondary" type="submit">
+                Create
+              </Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>

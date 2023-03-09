@@ -18,13 +18,11 @@ export default function Footer() {
       className="tripagerFooter my-custom-class text-white"
       // style={{ position: isTripsPage ? "fixed" : "relative" }}
     >
-      <div className=" py-3">
         <div className="footer-row row">
           <div className="footer-item">
             <h5>Tripager </h5>
-            <h5>All rights reserved. Powered by Hack-Reactor</h5>
+            <h5 className="footer-rights">All rights reserved. Powered by Hack-Reactor</h5>
           </div>
-        </div>
       </div>
     </footer>
   );
