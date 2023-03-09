@@ -389,10 +389,10 @@ video {
 }
 
 .createTripButton {
-  /* margin-right: 8px;
-  margin-bottom: -1%; */
+  width: 20vw;
+  margin-left: 40vw;
+  margin-bottom: 2%;
 }
-
 .TripManagerText {
   padding-top: 3%;
   color: rgb(0, 0, 0);
