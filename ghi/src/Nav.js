@@ -48,74 +48,73 @@ export default function Navbar() {
         <ul>
           {token ? (
             <>
+                <li>
               <NavLink to="/" style={{ textDecoration: "none" }}>
-                <li>
-                  <a className="btn nav-link scrollto ">Tripager</a>
-                </li>
+                  <button className="btn nav-link scrollto ">Tripager</button>
               </NavLink>
-
+                </li>
+                <li>
               <NavLink to="/trips" style={{ textDecoration: "none" }}>
-                <li>
-                  <a className="btn nav-link scrollto">Trips</a>
-                </li>
+                  <button className="btn nav-link scrollto">Trips</button>
               </NavLink>
+                </li>
               <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
                 <li>
-                  <a className="btn nav-link scrollto">Things To Do</a>
+                  <button className="btn nav-link scrollto">Things To Do</button>
                 </li>
               </NavLink>
               <li className="dropdown">
-                <a
+                <button
                   className="btn"
                   href="#"
                   style={{ textDecoration: "none", paddingLeft: "60px" }}
                 >
                   <span>Account</span> <i className="bi bi-chevron-down"></i>
-                </a>
+                </button>
                 <ul>
                   <li>
                     <NavLink to="/myaccount" style={{ textDecoration: "none" }}>
-                      <a
+                      <button
                         className="btn"
                         href="#"
                         style={{ textDecoration: "none" }}
                       >
                         My Account
-                      </a>
+                      </button>
                     </NavLink>
                   </li>
                 </ul>
               </li>
               <li style={{ marginLeft: "1250px" }}>
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogout}
                 >
                   Logout
-                </a>
+                </button>
               </li>
             </>
           ) : (
             <>
-              <NavLink to="/" style={{ textDecoration: "none" }}>
                 <li>
-                  <a className="btn nav-link scrollto">Tripager</a>
-                </li>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                  <button className="btn nav-link scrollto">Tripager</button>
               </NavLink>
+                </li>
               <li style={{ marginLeft: "1650px" }}>
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogin}
                 >
-                  Login
-                </a>
-              </li>
-            </>
-          )}
-        </ul>
-        <i className="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-    );
+                Login
+              </button>
+            </li>
+          </>
+        )}
+      </ul>
+      <i className="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+  );
 }
