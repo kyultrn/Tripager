@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import clouds from "./videos/clouds2.mp4"
 import {
   openCreateTripModal,
   openUpdateTripModal,
@@ -95,7 +96,12 @@ export default function Trips() {
               <div className="oldTR" key={trip.id}>
                 <span className="oldTD">
                   <span>
-                    <Link to={`/trips/${trip.id}/events`} onClick={() => dispatch(setSelectedTripId(trip.id))}>{trip.name}</Link>
+                    <Link
+                      to={`/trips/${trip.id}/events`}
+                      onClick={() => dispatch(setSelectedTripId(trip.id))}
+                    >
+                      {trip.name}
+                    </Link>
                   </span>
 
                   <div className="tripInfo">
@@ -143,6 +149,20 @@ export default function Trips() {
         ) : (
           <div>No trips</div>
         )}
+      </div>
+      <div className="cloudVideo">
+        <video
+          style={{
+            position: "fixed",
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+          src={clouds}
+          autoPlay
+          loop
+          muted
+        />
       </div>
     </div>
   );
