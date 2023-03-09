@@ -20,3 +20,4 @@ class YelpQueries:
         r = requests.get(url, params=params, headers=headers)
 
         return r.json()
+

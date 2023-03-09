@@ -7,7 +7,6 @@ import {
 } from "../store/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setLoginState,
   updateLoginFormData,
   resetLoginFormData,
   openSignUpModal,
@@ -16,6 +15,7 @@ import {
   resetSignUpFormData,
   closeSignUpModal,
 } from "../store/AccountsSlice";
+import mainhd from "./videos/mainhd.mp4";
 
 export default function Login() {
   const { data: token, isLoading } = useGetTokenQuery();
@@ -72,7 +72,7 @@ export default function Login() {
 
   return (
     <React.Fragment>
-      <div className={isSignUpModalOpen ? "signup-box" : "login-box"}>
+      <div className={isSignUpModalOpen ? "login-box" : "login-box"}>
         <h2>{isSignUpModalOpen ? "Sign Up!" : "Login"}</h2>
         <form>
           <div className="user-box">
@@ -137,6 +137,20 @@ export default function Login() {
             {"Sign Up!"}
           </a>
         </form>
+      </div>
+      <div className="cloudVideo">
+        <video
+          style={{
+            position: "fixed",
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+          src={mainhd}
+          autoPlay
+          loop
+          muted
+        />
       </div>
     </React.Fragment>
   );

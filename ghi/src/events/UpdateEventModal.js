@@ -62,82 +62,72 @@ export default function UpdateEventModal() {
     }
 
     return (
-        <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
-            <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Update Event</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Label>
-                            Name
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label htmlFor="exampleFormControlTextarea1">
-                            Description
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="description"
-                            value={formData.description}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label>
-                            Picture Url
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="picture_url"
-                            value={formData.picture_url}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label>
-                            Location
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="location"
-                            value={formData.location}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label>
-                            Date
-                        </Form.Label>
-                        <Form.Control
-                            type="date"
-                            name="date"
-                            value={formData.date}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label>
-                            Start Time
-                        </Form.Label>
-                        <Form.Control
-                            type="time"
-                            name="start_time"
-                            value={formData.start_time}
-                            onChange={handleInputChange}
-                        />
-                        <Form.Label>
-                            End time
-                        </Form.Label>
-                        <Form.Control
-                        type="time"
-                        name="end_time"
-                        value={formData.end_time}
-                        onChange={handleInputChange}
-                        />
-                        <Modal.Footer>
-                            <Button type="submit">Update</Button>
-                        </Modal.Footer>
-                    </Form>
-                </Modal.Body>
-            </Modal>
-        </div>
-    )
+      <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
+        <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Update Event</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={handleSubmit}>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+              <Form.Label htmlFor="exampleFormControlTextarea1">
+                Description
+              </Form.Label>
+              <Form.Control
+                type="text"
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
+              />
+              <Form.Label>Picture Url</Form.Label>
+              <Form.Control
+                type="text"
+                name="picture_url"
+                value={formData.picture_url}
+                onChange={handleInputChange}
+              />
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleInputChange}
+              />
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleInputChange}
+              />
+              <Form.Label>Start Time</Form.Label>
+              <Form.Control
+                type="time"
+                name="start_time"
+                value={formData.start_time}
+                onChange={handleInputChange}
+              />
+              <Form.Label>End time</Form.Label>
+              <Form.Control
+                type="time"
+                name="end_time"
+                value={formData.end_time}
+                onChange={handleInputChange}
+              />
+              <Modal.Footer>
+                <Button className="btn btn-secondary" type="submit">
+                  Update
+                </Button>
+              </Modal.Footer>
+            </Form>
+          </Modal.Body>
+        </Modal>
+      </div>
+    );
 }

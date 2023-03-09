@@ -4,23 +4,16 @@ import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
-import { useGetThingsToDoQuery } from "../store/ApiSlice";
+// import { useGetThingsToDoQuery } from "../store/ApiSlice";
 import ExcursRoulette from "../ExcursRoulette";
-
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openCreateEventModal,
   setSelectedBusiness,
 } from "../store/eventModalSlice";
-import { useGetEventsQuery } from "../store/ApiSlice";
-import {
-  useGetTripQuery,
-  useGetTripsQuery,
-  useGetTokenQuery,
-} from "../store/ApiSlice";
 import CreateYelpEventModal from "./CreateYelpEventModal";
-import styles from "./ThingsToDo.module.css"
+import styles from "./ThingsToDo.module.css";
+import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
 
 export default function ThingsToDo() {
   const [formData, setFormData] = useState({
@@ -28,7 +21,7 @@ export default function ThingsToDo() {
     location: "",
   });
 
-  const [businesses, setBusiness] = useState([])
+  const [businesses, setBusiness] = useState([]);
   const dispatch = useDispatch();
 
   const isCreateModalOpen = useSelector(
@@ -36,7 +29,7 @@ export default function ThingsToDo() {
   );
 
   const handleCreateOpenModal = (business) => () => {
-    if (business && business.name){
+    if (business && business.name) {
       dispatch(setSelectedBusiness(business));
       dispatch(openCreateEventModal());
     }
@@ -66,13 +59,51 @@ export default function ThingsToDo() {
     );
     if (response.ok) {
       const data = await response.json();
-      setBusiness(data)
-
+      setBusiness(data);
     }
   };
 
+  const [rouletteData, setRouletteData] = useState({
+    term: "fun food activity",
+    location: "",
+  });
+
+  const handleRouletteInputChange = (e) => {
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+
+    setRouletteData({ ...rouletteData, [inputName]: inputValue });
+  };
+
+  const handleRouletteSubmit = async (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams({
+      term: rouletteData.term,
+      location: rouletteData.location,
+    });
+
+    const response = await fetch(
+      `http://localhost:8000/api/businesses?${params.toString()}`,
+      {
+        method: "GET",
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      setBusiness(data);
+    }
+  };
+
+
+
+
+
+
   return (
     <>
+      <div>
+        <h1 className={styles.title_ttd}>Things to do</h1>
+      </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -91,18 +122,20 @@ export default function ThingsToDo() {
           <input
             onChange={handleInputChange}
             value={formData.location}
-            placeholder="New York, 10011, Mars"
+            placeholder="City, State, Zipcode"
             required
             type="text"
             name="location"
             id="location"
             className="form-control"
           />
-          <Button type="submit">Submit</Button>
+          <Button className="btn-secondary" type="submit">
+            Submit
+          </Button>
         </form>
       </div>
 
-      <div className="searchbar">
+      <div className={styles.cards}>
         <Row className="g-4 justify-content-center">
           {businesses &&
             businesses.businesses?.map((business) => (
@@ -132,10 +165,13 @@ export default function ThingsToDo() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button variant="primary">Get details</Button>
+                        <Button className="btn btn-secondary" variant="primary">
+                          Get details
+                        </Button>
                       </a>
                       <Button
                         onClick={handleCreateOpenModal(business)}
+                        className="btn btn-secondary"
                         variant="primary"
                       >
                         Add to events
@@ -147,7 +183,53 @@ export default function ThingsToDo() {
             ))}
         </Row>
       </div>
-      <ExcursRoulette />
+
+      <div>
+        <div>
+          <h1 className={styles.excurs_words_container}>
+            Don't know what to do? Play Excursion Roulette!
+          </h1>
+        </div>
+        <div className={styles.form_container}>
+          <div className={styles.form}>
+            <form>
+              <label htmlFor="location">Location</label>
+              <input
+                onChange={handleRouletteInputChange}
+                value={rouletteData.location}
+                placeholder="City, State, Zipcode"
+                required
+                type="text"
+                name="location"
+                id="location"
+                className="form-control"
+              />
+              <Button
+                onClick={handleRouletteSubmit}
+                className="btn btn-secondary"
+                variant="primary"
+              >
+                I'm feeling lucky
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div className="cloudVideo">
+        <video
+          style={{
+            position: "fixed",
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+          src={summer_vacay_2}
+          autoPlay
+          loop
+          muted
+        />
+      </div>
     </>
   );
 }
