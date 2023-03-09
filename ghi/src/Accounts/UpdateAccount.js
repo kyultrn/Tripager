@@ -1,4 +1,4 @@
-import '../UpdateAccountCss.css'
+// import '../UpdateAccountCss.css'
 
 
 export default function UpdateAccount() {

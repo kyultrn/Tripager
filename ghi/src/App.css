@@ -25,7 +25,7 @@
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
-/* .signUpButton {
+.signUpButton {
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
@@ -33,7 +33,7 @@
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
-.createTripButton:hover {
+.createTripButton {
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
@@ -55,4 +55,4 @@
 
 .fa-solid fa-pen-to-square {
   cursor: url(./images/ButtonHoverCursor.png), auto;
-} */
+}

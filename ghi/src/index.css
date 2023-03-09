@@ -1022,3 +1022,7 @@ h2 {
   z-index: 1;
   text-align: center;
 }
+
+.html {
+  cursor: url(./images/UpdatedCursor.png), auto;
+}
