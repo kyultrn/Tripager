@@ -19,7 +19,6 @@ export default function App() {
         <div className="container" style={{ maxWidth: '100%', padding: '0'}}>
           <Routes>
             <Route path="/" element={<TripagerHome />} />
-            <Route path="/myaccount" element={<UpdateAccount />} />
             <Route path="/login" element={<Login />} />
             <Route path="/trips" element={<Trips />} />
             <Route path="/trips/:id/events" element={<Events />} />
