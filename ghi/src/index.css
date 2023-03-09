@@ -1098,8 +1098,7 @@ h2 {
 }
 
 .tripagerFooter {
-  z-index: 9999 !important;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #413E3F !important;
