@@ -988,7 +988,6 @@ html {
   visibility: visible;
 }
 
-<<<<<<< HEAD
 
 
 
@@ -1007,9 +1006,8 @@ h2 {
 
   z-index: 1;
   color: white;
-=======
+}
 .text {
   text-align: center;
   z-index: 1;
->>>>>>> 089af2b38bd736a6f577bbc8961856e42a314c25
 }
