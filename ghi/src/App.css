@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 /* .App-header {
   background-color: #282c34;
@@ -33,7 +33,7 @@
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
-.createTripButton:hover {
+.createTripButton {
   cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 

@@ -73,71 +73,83 @@ export default function Trips() {
   return (
     <div>
       {isCreateModalOpen && <CreateTripModal />}
-      <div className="container5">
-        <span className="TripManagerText">Trip Manager</span>
-        <Button
-          className="createTripButton"
-          variant="outline-dark"
-          size="lg"
-          onClick={handleCreateOpenModal}
-        >
-          Create a Trip
-        </Button>
-        {tokenData ? (
-          <div className="oldTRContainer">
-            {data?.map((trip) => (
-              <div className="oldTR" key={trip.id}>
-                <span className="oldTD">
-                  <span>
-                    <Link to={`/trips/${trip.id}/events`} onClick={() => dispatch(setSelectedTripId(trip.id))}>{trip.name}</Link>
-                  </span>
 
-                  <div className="tripInfo">
-                    <div>{`${trip.city}, ${trip.state}  `} </div>
-                    <span>{`${formatDate(trip.start_date)} - ${formatDate(
-                      trip.end_date
-                    )}`}</span>
-                    <i
-                      type="button"
-                      onClick={() => handleUpdateOpenModal(trip.id)}
-                      className="fa-solid fa-pen-to-square tripEditButton"
-                    />{" "}
-                    <button
-                      variant="btn-sm m-1"
-                      className="btn-red btn-sm text-right tripDeleteButton"
-                      onClick={() => {
-                        Swal.fire({
-                          title: "Are you sure?",
-                          text: "You won't be able to revert this!",
-                          icon: "warning",
-                          showCancelButton: true,
-                          confirmButtonColor: "#bb7e74",
-                          cancelButtonColor: "#808080",
-                          confirmButtonText: "Yes, delete it!",
-                        }).then((result) => {
-                          if (result.isConfirmed) {
-                            handleDeleteTrip(trip.id);
-                            Swal.fire(
-                              "Deleted!",
-                              "Your Trip has been deleted.",
-                              "success"
-                            );
-                          }
-                        });
-                      }}
-                    >
-                      Delete
-                    </button>
-                    {isUpdateModalOpen && <UpdateTripModal />}{" "}
-                  </div>
-                </span>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div>No trips</div>
-        )}
+      <div>
+        <div className="TripManagerText">Trip Manager</div>
+        <div className="col-sm-6 text-right">
+          <Button
+            className="btn createTripButton"
+            variant="outline-dark"
+            size="lg"
+            onClick={handleCreateOpenModal}
+          >
+            Create a Trip
+          </Button>
+        </div>
       </div>
+      {tokenData ? (
+        <div className="oldTRContainer">
+          {data?.map((trip) => (
+            <div className="oldTR" key={trip.id}>
+              <span className="oldTD">
+                <span>
+                  <Link
+                    className="btn"
+                    to={`/trips/${trip.id}/events`}
+                    onClick={() => dispatch(setSelectedTripId(trip.id))}
+                  >
+                    {trip.name}
+                  </Link>
+                </span>
+                <div className="tripInfo">
+                  <div>{`${trip.city}, ${trip.state}  `} </div>
+                  <span>{`${formatDate(trip.start_date)} - ${formatDate(
+                    trip.end_date
+                  )}`}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleUpdateOpenModal(trip.id)}
+                    className="btn btn-red btn-sm text-center"
+                    style={{ marginLeft: "55%" }}
+                  >
+                    Edit
+                  </button>{" "}
+                  <button
+                    variant="btn-sm m-1"
+                    className="btn btn-red btn-sm text-right tripDeleteButton"
+                    onClick={() => {
+                      Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#bb7e74",
+                        cancelButtonColor: "#808080",
+                        confirmButtonText: "Yes, delete it!",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          handleDeleteTrip(trip.id);
+                          Swal.fire(
+                            "Deleted!",
+                            "Your Trip has been deleted.",
+                            "success"
+                          );
+                        }
+                      });
+                    }}
+                  >
+                    Delete
+                  </button>
+                  {isUpdateModalOpen && <UpdateTripModal />}{" "}
+                </div>
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>No trips</div>
+      )}
+      {isCreateModalOpen && <CreateTripModal />}
     </div>
   );
 }

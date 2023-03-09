@@ -100,7 +100,7 @@ export default function UpdateTripModal() {
               onChange={handleInputChange}
             />
             <Modal.Footer>
-              <Button type="submit">Update</Button>
+              <Button className="btn" type="submit">Update</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>

@@ -1,17 +1,17 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Footer() {
-  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
-  const location = useLocation();
+  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId)
+  const location = useLocation()
   const isTripsPage = [
     "/trips",
     "/login",
     "/signup",
     "/myaccount",
     `/trips/${selectedTripId}/events`,
-  ].includes(location.pathname);
+  ].includes(location.pathname)
 
   return (
     <footer
