@@ -369,11 +369,6 @@ video {
   height: 10vh;
 }
 
-.createTripButton {
-  float: right;
-  /* margin-right: 8px;
-  margin-bottom: -1%; */
-}
 
 .yourTripsText {
   color: white;
@@ -382,12 +377,6 @@ video {
   font-weight: 600;
 }
 
-.TripManagerText {
-  padding-top: 3%;
-  color: rgb(0, 0, 0);
-  font-size: 3em;
-  text-align: center;
-}
 
 .oldTD a {
   text-decoration: none !important;
@@ -399,6 +388,20 @@ video {
   transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.createTripButton {
+  width: 20vw;
+  margin-left: 40vw;
+  margin-bottom: 2%;
+}
+.TripManagerText {
+  padding-top: 3%;
+  color: rgb(0, 0, 0);
+  font-size: 3em;
+}
+
+.trip-container {
+  text-align: center;
+}
 
 .tripDeleteButton {
   position: absolute;
@@ -435,18 +438,6 @@ video {
   height: 50vh;
   width: 50vh;
   z-index: 1000;
-}
-
-
-.footer {
-  margin: auto;
-  width: 100vw;
-}
-
-.footer-item {
-  margin-left: 6vw !important;
-  margin-left: 6vw !important;
-  width: 25vw !important;
 }
 
 
@@ -631,15 +622,6 @@ video {
     transform: translateY(-10px);
   }
 } */ */
-
-
-.tripagerFooter {
-  z-index: 9999 !important;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #413E3F !important;
-}
 
 
 /*--------------------------------------------------------------
@@ -897,7 +879,6 @@ video {
   transition: 0.3s;
 }
 
-.navbar a i,
 .navbar a:focus i {
   font-size: 12px;
   line-height: 0;
@@ -1109,7 +1090,24 @@ h2 {
   z-index: 1;
   color: white;
 }
+
+.navbar a i,
 .text {
   text-align: center;
   z-index: 1;
 }
+
+.tripagerFooter {
+  z-index: 9999 !important;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #413E3F !important;
+  text-align: center;
+}
+
+/* .footer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
