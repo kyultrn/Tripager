@@ -73,9 +73,8 @@ export default function Trips() {
 
   return (
     <div>
+      <div>
       {isCreateModalOpen && <CreateTripModal />}
-
-        {/* <span className="yourTripsText">Your Trips</span> */}
         <Button
           className="createTripButton"
           variant="outline-dark"
