@@ -1,10 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useGetTokenQuery } from "./store/ApiSlice";
-import { useSelector } from "react-redux";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
-import Trips from "./trips/Trips";
-import Footer from "./footer/Footer";
 import styles from "./TripagerHome.module.css"
 
 export default function TripagerHome() {
@@ -83,7 +80,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Zach Dempsey</h4>
                   <span>Developer</span>
-                  <p>This is going to be text that you will see</p>
+                  <p>Zach Dempsey is a software engineer based in Dubuque, Iowa. When he is not coding, you can find him at comedy shows and finding the best pizza in town.</p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/ZacharyD">
                       <i className="ri-instagram-fill"></i>
@@ -117,7 +114,7 @@ export default function TripagerHome() {
                   <h4>Andrew Fockler</h4>
                   <span>Developer</span>
                   <p>
-                    Explicabo voluptatem mollitia et repellat qui dolorum quasi
+                    Andrew Fockler is a software engineer based in Jupiter, FL. When Andrew is not coding, you can find him at the gym or making protein shakes.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Afockler4">
@@ -152,7 +149,7 @@ export default function TripagerHome() {
                   <h4>Mischa Goodman</h4>
                   <span>Developer</span>
                   <p>
-                    Explicabo voluptatem mollitia et repellat qui dolorum quasi
+                    Mischa Goodman is a NYC based software engineer. After working as a professional actress and filmmaker for 10 years, Mischa transitioned into software engineering. Mischa is passionate about lifting up female identifying artists in technology and is currently working on a project to amplify those voices in NYC.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/mischadani2">
@@ -186,7 +183,7 @@ export default function TripagerHome() {
                   <h4>Kyle Tran</h4>
                   <span>Developer</span>
                   <p>
-                    Explicabo voluptatem mollitia et repellat qui dolorum quasi
+                    Kyle Tran is a software engineer based in Lowell, MA. Kyle is passionate about helping fellow software engineers and when he isn't working on a project, you can find him consulting on other projects.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Kyull">
