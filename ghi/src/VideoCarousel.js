@@ -1,5 +1,5 @@
 import React from "react";
-import mainhd from "./videos/mainhd.mp4";
+import mainhd from "./videos_2/mainhd.mp4";
 
 const VideoCarousel = () => {
   return (

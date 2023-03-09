@@ -996,11 +996,11 @@ video {
 
 /* modal css */
 .modal-body {
-  background-color: rgb(192, 231, 232);
+  background-color: #47b2e4;
 }
 
 .modal-header {
-  background-color: rgb(138, 143, 143);
+  background-color: rgb(255, 255, 255);
 }
 
 
