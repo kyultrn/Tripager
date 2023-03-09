@@ -11,6 +11,7 @@ body {
   color: #c50d0d;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -370,8 +371,8 @@ video {
 
 .createTripButton {
   float: right;
-  margin-right: 8px;
-  margin-bottom: -1%;
+  /* margin-right: 8px;
+  margin-bottom: -1%; */
 }
 
 .yourTripsText {
@@ -385,6 +386,7 @@ video {
   padding-top: 3%;
   color: rgb(0, 0, 0);
   font-size: 3em;
+  text-align: center;
 }
 
 .oldTD a {
@@ -397,11 +399,6 @@ video {
   transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.tripEditButton {
-  position: absolute;
-  left: 20vw;
-  margin-left: 40%;
-}
 
 .tripDeleteButton {
   position: absolute;
