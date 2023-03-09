@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 export default function Footer() {
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
-  console.log(selectedTripId)
   const location = useLocation()
   const isTripsPage = [
     "/trips",

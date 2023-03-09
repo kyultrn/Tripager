@@ -19,8 +19,6 @@ export default function TripagerHome() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        // console.log("latitude: " + position.coords.latitude);
-        // console.log("longitude: " + position.coords.longitude);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       },
@@ -36,7 +34,6 @@ export default function TripagerHome() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setTemperature(data.current.temp_f);
           setIcon(data.current.condition.icon);
         })
