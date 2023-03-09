@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Footer() {
-  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
+  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId)
   const location = useLocation()
   const isTripsPage = [
     "/trips",
@@ -11,20 +11,17 @@ export default function Footer() {
     "/signup",
     "/myaccount",
     `/trips/${selectedTripId}/events`,
-  ].includes(location.pathname);
+  ].includes(location.pathname)
 
   return (
-    <footer className="tripagerFooter my-custom-class text-white" style={{ position: isTripsPage ? "fixed" : "relative" }}>
+    <footer
+      className="tripagerFooter my-custom-class text-white"
+      style={{ position: isTripsPage ? "fixed" : "relative" }}
+    >
       <div className=" py-3">
         <div className="footer-row row">
           <div className="footer-item col-md-4 mb-3">
-            <h5>About Tripager</h5>
-          </div>
-          <div className="footer-item col-md-4 mb-3">
-            <h5>About Developers</h5>
-          </div>
-          <div className="footer-item col-md-4 mb-3">
-            <h5>Technologies</h5>
+            <h5>Tripager</h5>
           </div>
         </div>
       </div>

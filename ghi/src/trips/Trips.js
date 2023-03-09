@@ -1,11 +1,11 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import clouds from "./videos/clouds2.mp4"
 import {
   openCreateTripModal,
   openUpdateTripModal,
@@ -47,7 +47,7 @@ export default function Trips() {
     try {
       const response = await deleteTrip(tripId);
     } catch (error) {
-      return("Trip unable to be deleted")
+      return("Cannot delete trip")
     }
   };
 
@@ -73,6 +73,7 @@ export default function Trips() {
 
   return (
     <div>
+      <div>
       {isCreateModalOpen && <CreateTripModal />}
       <div>
         <div className="trip-container">

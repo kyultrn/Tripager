@@ -33,7 +33,6 @@ export default function UpdateTripModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTrip({ formData, selectedTripId });
-    // dispatch(resetFormData())
     dispatch(closeUpdateTripModal());
   };
 

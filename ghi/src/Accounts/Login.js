@@ -1,4 +1,3 @@
-import { useToken } from "./Authenticator";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import {
@@ -7,7 +6,6 @@ import {
   useUserSignupMutation,
 } from "../store/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
-import SignUpModal from "./SignupModal";
 import {
   setLoginState,
   updateLoginFormData,

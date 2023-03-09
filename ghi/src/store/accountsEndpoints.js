@@ -2,7 +2,6 @@ export function accountsEndpoints(builder) {
     return {
         userLogin: builder.mutation({
         query: (info) => {
-            console.log(info);
             let formData = null;
             if (info instanceof HTMLElement) {
             formData = new FormData(info);
