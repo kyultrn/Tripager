@@ -11,3 +11,15 @@
     width: 40%;
   }
 }
+
+.title_ttd {
+  color: rgb(70, 70, 70);
+  padding-top: 5px;
+  display: flex;
+}
+
+.excurs_words_container {
+  display: flex;
+  padding-top: 50px;
+  color: rgb(70, 70, 70);
+}

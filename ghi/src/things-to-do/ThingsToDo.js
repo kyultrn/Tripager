@@ -73,6 +73,9 @@ export default function ThingsToDo() {
 
   return (
     <>
+      <div>
+        <h1 className={styles.title_ttd}>Things to do</h1>
+      </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -98,7 +101,9 @@ export default function ThingsToDo() {
             id="location"
             className="form-control"
           />
-          <Button type="submit">Submit</Button>
+          <Button className="btn-secondary" type="submit">
+            Submit
+          </Button>
         </form>
       </div>
 
@@ -132,10 +137,13 @@ export default function ThingsToDo() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button variant="primary">Get details</Button>
+                        <Button className="btn btn-secondary" variant="primary">
+                          Get details
+                        </Button>
                       </a>
                       <Button
                         onClick={handleCreateOpenModal(business)}
+                        className="btn btn-secondary"
                         variant="primary"
                       >
                         Add to events
@@ -146,6 +154,11 @@ export default function ThingsToDo() {
               </Col>
             ))}
         </Row>
+      </div>
+      <div>
+        <h1 className={styles.excurs_words_container}>
+          Don't feel like choosing? Play Excurion Roulette!
+        </h1>
       </div>
       <ExcursRoulette />
     </>
