@@ -15,8 +15,7 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
-
+import clouds from "./videos/summer_vacay_2.mp4";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
@@ -72,6 +71,20 @@ export default function Events() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  const pages = [];
+  let page = [];
+
+  if (events && events.length > 0) {
+    events.forEach((event, index) => {
+      if (index % 3 === 0 && index !== 0) {
+        pages.push(page);
+        page = [];
+      }
+      page.push(event);
+    });
+    pages.push(page);
+  }
+
   return (
     <div className="eventsContainer">
       {isCreateModalOpen && <CreateEventModal />}
@@ -85,63 +98,67 @@ export default function Events() {
       </Button>
       {tokenData && events.length > 0 ? (
         <Carousel interval={null}>
-          {events.map((event) => (
-            <Carousel.Item key={event.id}>
-              <Card className="carouselCard">
-                <Card.Img
-                  className="eventsCardImage"
-                  variant="top"
-                  src={event.picture_url}
-                  alt={event.name}
-                />
-                <Card.Body className="eventsCardBody">
-                  <Card.Title>{`${event.name}`}</Card.Title>
-                  <Card.Text>{`Description: ${event.description}`}</Card.Text>
-                  <Card.Text>{`Location: ${event.location}`}</Card.Text>
-                  <Card.Text>{`Event Date: ${formatDate(
-                    event.date
-                  )}`}</Card.Text>
-                  <Card.Text>{`Start time: ${formatTime(
-                    event.start_time
-                  )}`}</Card.Text>
-                  <Card.Text>{`End time: ${formatTime(
-                    event.end_time
-                  )}`}</Card.Text>
-                  <Button
-                    className="editButtonEvents"
-                    variant="primary"
-                    onClick={() => handleUpdateOpenModal(event.id)}
-                  >
-                    Edit
-                  </Button>{" "}
-                  <Button
-                    className="deleteButtonEvents"
-                    variant="danger"
-                    onClick={() => {
-                      Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#bb7e74",
-                        cancelButtonColor: "#808080",
-                        confirmButtonText: "Yes, delete it!",
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                          handleDeleteEvent(tripId, event.id);
-                          Swal.fire(
-                            "Deleted!",
-                            "Your event has been deleted.",
-                            "success"
-                          );
-                        }
-                      });
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </Card.Body>
-              </Card>
+          {pages.map((page, index) => (
+            <Carousel.Item key={index}>
+              <div className="d-flex justify-content-center">
+                {page.map((event) => (
+                  <Card key={event.id} className="mx-2">
+                    <Card.Img
+                      className="eventsCardImage"
+                      variant="top"
+                      src={event.picture_url}
+                      alt={event.name}
+                    />
+                    <Card.Body className="eventsCardBody">
+                      <Card.Title>{`${event.name}`}</Card.Title>
+                      <Card.Text>{`Description: ${event.description}`}</Card.Text>
+                      <Card.Text>{`Location: ${event.location}`}</Card.Text>
+                      <Card.Text>{`Event Date: ${formatDate(
+                        event.date
+                      )}`}</Card.Text>
+                      <Card.Text>{`Start time: ${formatTime(
+                        event.start_time
+                      )}`}</Card.Text>
+                      <Card.Text>{`Endtime: ${formatTime(
+                        event.end_time
+                      )}`}</Card.Text>
+                      <Button
+                        className="editButtonEvents"
+                        variant="primary"
+                        onClick={() => handleUpdateOpenModal(event.id)}
+                      >
+                        Edit
+                      </Button>{" "}
+                      <Button
+                        className="deleteButtonEvents"
+                        variant="danger"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Are you sure?",
+                            text: "You won't be able to revert this!",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#bb7e74",
+                            cancelButtonColor: "#808080",
+                            confirmButtonText: "Yes, delete it!",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              handleDeleteEvent(tripId, event.id);
+                              Swal.fire(
+                                "Deleted!",
+                                "Your event has been deleted.",
+                                "success"
+                              );
+                            }
+                          });
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                ))}
+              </div>
             </Carousel.Item>
           ))}
         </Carousel>
@@ -149,14 +166,19 @@ export default function Events() {
         <div>No events</div>
       )}
       <div className="cloudVideo">
-                        <video
-                            style={{ position: "fixed", zIndex: -1, width: "100%", height: "100%"}}
-                            src={summer_vacay_2}
-                            autoPlay
-                            loop
-                            muted
-                        />
-                    </div>
+        <video
+          style={{
+            position: "fixed",
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+          src={clouds}
+          autoPlay
+          loop
+          muted
+        />
+      </div>
       {isUpdateModalOpen && <UpdateEventModal />}
     </div>
   );

@@ -17,76 +17,7 @@ code {
     monospace;
 }
 
-/* .navbar {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: light #d9a5d9;
-  background-color: #394966da !important;
-  z-index: 1999;
-} */
 
-/* .my-custom-class {
-  background-color: #413e3f;
-} */
-
-/* footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-} */
-
-/* .image-container {
-  display: flex;
-  justify-content: center;
-}
-
-.image-container img:hover {
-  transform: scale(1.1);
-}
-
-.image-container img {
-  border: 6px solid #65fafa;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.about-container img {
-  border: 6px solid #63eeee;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 50%;
-}
-
-.title {
-  text-align: center;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  color: white;
-}
-
-.image-container div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-}
-
-.image-container .name {
-  font-size: 1.2em;
-  color: white;
-}
-
-.image-container .bio {
-  color: white;
-}
-
-.image-container .bio {
-  font-size: 0.9em;
-} */
 
 video {
   position: fixed;
@@ -97,39 +28,8 @@ video {
   object-fit: cover;
 }
 
-/* .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  color: #fff;
-  text-align: left;
-} */
 
-/* .nav-color {
-  background-color: light #c893c8;
-} */
-
-/* Trips Table Css
-.table {
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-.table-row {
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  border-collapse: collapse;
-}
-
-.table-row:hover {
-  background-color: #d2d3d3;
-} */
-
-
-
-/* Login Box */
+/* ----------------- Login Box ------------------ */
 
 .signUpButton {
   float: right;
@@ -320,8 +220,7 @@ video {
 }
 
 
-
-/* Trips Table  */
+/* ------------------ Trips Table ----------------- */
 .container5 {
   height: 65vh;
   position: absolute;
@@ -369,14 +268,12 @@ video {
   height: 10vh;
 }
 
-
 .yourTripsText {
   color: white;
   margin-bottom: 10%;
   font-size: 2em;
   font-weight: 600;
 }
-
 
 .oldTD a {
   text-decoration: none !important;
@@ -393,6 +290,7 @@ video {
   margin-left: 40vw;
   margin-bottom: 2%;
 }
+
 .TripManagerText {
   padding-top: 3%;
   color: rgb(0, 0, 0);
@@ -441,7 +339,7 @@ video {
 }
 
 
-/* Weather Icon/Temperature */
+/* ---------------- Weather/Temperature Icons ---------------- */
 .weatherIcon {
   position: fixed;
   z-index: 99;
@@ -463,124 +361,7 @@ video {
   color: white;
 }
 
-/* #root {
-  height: 90vh !important;
-  width: 100vw !important;
-  margin: 0;
-  padding: 0;
 
-/* #root {
-  width: 100vw;
-} */
-
-/* .oldTR {
-  margin-right: 0 !important;
-}
-
-.container5 {
-  width: 100vw !important;
-} */
-
-
-/* Video Carousel Formatting TripagerHome */
-/* #hero {
-  width: 100%;
-  height: 100vh;
-  background: white;
-  z-index: 99;
-} */
-
-/* #hero .container {
-  padding-top: 72px;
-  width: 100%;
-} */
-
-/* Tripager */
-/* /* #hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  text-align: right;
-  font-weight: 700;
-  line-height: 56px;
-  color: #ffffff;
-} */ */
-/* Plan and manage your next trip here */
-/* /* #hero h2 {
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 50px;
-  font-size: 24px;
-  float: right;
-}
-
-#hero .btn-get-started {
-  font-family: "Jost", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px 11px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  margin: 10px 0 0 0;
-  color: #fff;
-  background: #47b2e4;
-} */
-
-/* #hero .btn-get-started:hover {
-  background: #209dd8;
-}
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  margin: 10px 0 0 25px;
-  color: #fff;
-  line-height: 1;
-}
-
-#hero .btn-watch-video i {
-  line-height: 0;
-  color: #fff;
-  font-size: 32px;
-  transition: 0.3s;
-  margin-right: 8px;
-} */
-
-/* #hero .btn-watch-video:hover i {
-  color: #47b2e4;
-}
-
-#hero .animated {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
-}
-
-@media (max-width: 991px) {
-  #hero {
-    height: 100vh;
-    text-align: center;
-  }
-
-  #hero .animated {
-    -webkit-animation: none;
-    animation: none;
-  }
-
-  #hero .hero-img {
-    text-align: center;
-  }
-
-  #hero .hero-img img {
-    width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-  /* #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  } */
 
   #hero h2 {
     line-height: 24px;
@@ -624,14 +405,30 @@ video {
 } */ */
 
 
-/*--------------------------------------------------------------
-# Team
---------------------------------------------------------------*/
+/* -------------- Team --------------- */
+
+.ri-linkedin-box-fill {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/145/145807.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 50%;
+}
+
+.ri-instagram-fill {
+  background-image: url("https://seeklogo.com/images/G/gitlab-logo-757620E430-seeklogo.com.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 50%;
+}
+
 #team {
   padding-top: 10vh;
   padding-bottom: 20vh;
   position: relative;
-  background-color: #f3f5fa !important;
+  background-color: #0048ff00 !important;
   z-index: 100;
 }
 
@@ -640,7 +437,7 @@ video {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
   border-radius: 5px;
-  background: #fff;
+  background: #ffffff97;
   transition: 0.5s;
   height: 100%;
 }
@@ -739,10 +536,6 @@ video {
   padding-bottom: 30px;
 }
 
-/* .footer-row {
-  width: 100%;
-} */
-
 .section-title h2 {
   font-size: 32px;
   font-weight: bold;
@@ -781,7 +574,7 @@ video {
   padding-top: 20vh;
   padding-bottom: 20vh;
   position: relative;
-  background-color: rgb(255, 255, 255) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
   z-index: 100;
 }
 
@@ -791,38 +584,17 @@ video {
   padding-top: 20vh;
   padding-bottom: 20vh;
   position: relative;
-  background-color: #f3f5fa !important;
+  background-color: #f3f5fa00 !important;
   z-index: 100;
 }
 
-.ri-linkedin-box-fill {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/145/145807.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 50%;
-  width: 50%;
-}
 
-.ri-instagram-fill {
-  background-image: url("https://seeklogo.com/images/G/gitlab-logo-757620E430-seeklogo.com.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 50%;
-  width: 50%;
-}
 
 
 
 .thingsToDoForm {
   padding-top: 8vh;
 }
-
-
-
-/* html {
-  height: 100%;
-} */
 
 .excurs {
   position: relative;
@@ -885,10 +657,6 @@ video {
   margin-left: 5px;
 }
 
-/* .navbar login-page {
-
-} */
-
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
@@ -901,10 +669,8 @@ video {
 .navbar .getstarted:focus {
   padding: 8px 20px;
   margin-left: 30px;
-  /* border-radius: 50px; */
   color: #fff;
   font-size: 14px;
-  /* border: 2px solid #47b2e4; */
   font-weight: 600;
 }
 
@@ -1099,19 +865,246 @@ h2 {
 
 .tripagerFooter {
   z-index: 9999 !important;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-color: #413E3F !important;
   text-align: center;
 }
 
+
+
+.footer-rights {
+  font-size: 14px;
+}
+
+
+/* .navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: light #d9a5d9;
+  background-color: #394966da !important;
+  z-index: 1999;
+} */
+
+/* .my-custom-class {
+  background-color: #413e3f;
+} */
+
+/* footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} */
+
+/* .image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img:hover {
+  transform: scale(1.1);
+}
+
+.image-container img {
+  border: 6px solid #65fafa;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.about-container img {
+  border: 6px solid #63eeee;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.title {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.image-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.image-container .name {
+  font-size: 1.2em;
+  color: white;
+}
+
+.image-container .bio {
+  color: white;
+}
+
+.image-container .bio {
+  font-size: 0.9em;
+} */
+
+/* .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: #fff;
+  text-align: left;
+} */
+
+/* .nav-color {
+  background-color: light #c893c8;
+} */
+
+/* Trips Table Css
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table-row {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
+
+.table-row:hover {
+  background-color: #d2d3d3;
+} */
+
+/* #root {
+  height: 90vh !important;
+  width: 100vw !important;
+  margin: 0;
+  padding: 0;
+
+/* #root {
+  width: 100vw;
+} */
+
+/* .oldTR {
+  margin-right: 0 !important;
+}
+
+.container5 {
+  width: 100vw !important;
+} */
+
+
+/* Video Carousel Formatting TripagerHome */
+/* #hero {
+  width: 100%;
+  height: 100vh;
+  background: white;
+  z-index: 99;
+} */
+
+/* #hero .container {
+  padding-top: 72px;
+  width: 100%;
+} */
+
+/* Tripager */
+/* /* #hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  text-align: right;
+  font-weight: 700;
+  line-height: 56px;
+  color: #ffffff;
+} */
+/* Plan and manage your next trip here */
+/* /* #hero h2 {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 50px;
+  font-size: 24px;
+  float: right;
+}
+
+#hero .btn-get-started {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #47b2e4;
+} */
+
+/* #hero .btn-get-started:hover {
+  background: #209dd8;
+}
+
+#hero .btn-watch-video {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  margin: 10px 0 0 25px;
+  color: #fff;
+  line-height: 1;
+}
+
+#hero .btn-watch-video i {
+  line-height: 0;
+  color: #fff;
+  font-size: 32px;
+  transition: 0.3s;
+  margin-right: 8px;
+} */
+
+/* #hero .btn-watch-video:hover i {
+  color: #47b2e4;
+}
+
+#hero .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media (max-width: 991px) {
+  #hero {
+    height: 100vh;
+    text-align: center;
+  }
+
+  #hero .animated {
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  #hero .hero-img {
+    text-align: center;
+  }
+
+  #hero .hero-img img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  } */
+  
 /* .footer-item {
   display: flex;
   justify-content: center;
   align-items: center;
 } */
 
-.footer-rights {
-  font-size: 14px;
-}
+/* .footer-row {
+  width: 100%;
+} */
