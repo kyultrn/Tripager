@@ -62,7 +62,7 @@ export default function TripagerHome() {
 
       {/* team section */}
       <section id="team" className="team section-bg">
-        <div className="container" data-aos="fade-up">
+        <div className="container" data-aos="fade-up" >
           <div className="section-title">
             <h2 className="teamH2">Team</h2>
           </div>

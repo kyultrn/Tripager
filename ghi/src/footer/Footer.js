@@ -6,7 +6,6 @@ export default function Footer() {
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId)
   const location = useLocation()
   const isTripsPage = [
-    "/trips",
     "/login",
     "/signup",
     `/trips/${selectedTripId}/events`,
