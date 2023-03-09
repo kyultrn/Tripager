@@ -74,18 +74,19 @@ export default function Trips() {
   return (
     <div>
       {isCreateModalOpen && <CreateTripModal />}
-
       <div>
-        <div className="TripManagerText">Trip Manager</div>
-        <div className="col-sm-6 text-right">
-          <Button
-            className="btn createTripButton"
-            variant="outline-dark"
-            size="lg"
-            onClick={handleCreateOpenModal}
-          >
-            Create a Trip
-          </Button>
+        <div className="trip-container">
+          <div className="TripManagerText">Trip Manager</div>
+          <div className="col-sm-6 text-right">
+            <Button
+              className="btn createTripButton"
+              variant="outline-dark"
+              size="lg"
+              onClick={handleCreateOpenModal}
+            >
+              Create a Trip
+            </Button>
+          </div>
         </div>
       </div>
       {tokenData ? (

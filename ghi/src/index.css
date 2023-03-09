@@ -369,11 +369,6 @@ video {
   height: 10vh;
 }
 
-.createTripButton {
-  float: right;
-  /* margin-right: 8px;
-  margin-bottom: -1%; */
-}
 
 .yourTripsText {
   color: white;
@@ -382,12 +377,6 @@ video {
   font-weight: 600;
 }
 
-.TripManagerText {
-  padding-top: 3%;
-  color: rgb(0, 0, 0);
-  font-size: 3em;
-  text-align: center;
-}
 
 .oldTD a {
   text-decoration: none !important;
@@ -399,6 +388,20 @@ video {
   transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.createTripButton {
+  /* margin-right: 8px;
+  margin-bottom: -1%; */
+}
+
+.TripManagerText {
+  padding-top: 3%;
+  color: rgb(0, 0, 0);
+  font-size: 3em;
+}
+
+.trip-container {
+  text-align: center;
+}
 
 .tripDeleteButton {
   position: absolute;
