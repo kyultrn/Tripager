@@ -39,12 +39,6 @@ export default function Navbar() {
   ].includes(location.pathname);
 
   return (
-    // <nav id="navbar" className="navbar" style={{ backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit", height: "80px" }}>
-    //   <ul>
-    //     {token ? (
-    //       <>
-    //       <NavLink to="/" style={{ textDecoration: 'none' }}>
-    //         <li><span className="btn nav-link scrollto ">Tripager</span></li>
     <nav
       id="navbar"
       className="navbar navbar-expand-lg"
@@ -68,21 +62,22 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mr-auto">
-            <NavLink to="/trips" style={{ textDecoration: "none" }}>
-              <li className="nav-item">
-                <button className="nav-link">Trips</button>
-              </li>
-            </NavLink>
-            <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
-              <li className="nav-item">
-                <button className="nav-link">Things To Do</button>
-              </li>
-            </NavLink>
-          </ul>
-          <ul className="navbar-nav ml-auto d-flex">
-            {token ? (
+
+        {token ? (
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mr-auto">
+              <NavLink to="/trips" style={{ textDecoration: "none" }}>
+                <li className="nav-item">
+                  <a className="nav-link">Trips</a>
+                </li>
+              </NavLink>
+              <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
+                <li className="nav-item">
+                  <a className="nav-link">Things To Do</a>
+                </li>
+              </NavLink>
+            </ul>
+            <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item ml-auto" style={{ marginLeft: "auto" }}>
                 <button
                   style={{ textDecoration: "none" }}
@@ -92,7 +87,20 @@ export default function Navbar() {
                   Logout
                 </button>
               </li>
-            ) : (
+            </ul>
+          </div>
+        ) : (
+          <>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav mr-auto">
+                <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
+                  <li className="nav-item">
+                    <a className="nav-link">Things To Do</a>
+                  </li>
+                </NavLink>
+              </ul>
+            </div>
+            <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item">
                 <button
                   style={{ textDecoration: "none" }}
@@ -102,9 +110,9 @@ export default function Navbar() {
                   Login
                 </button>
               </li>
-            )}
-          </ul>
-        </div>
+            </ul>
+          </>
+        )}
       </div>
     </nav>
   );
