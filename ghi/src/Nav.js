@@ -13,8 +13,6 @@ export default function Navbar() {
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 
-  console.log("location.pathname: ", location.pathname);
-
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
@@ -57,7 +55,7 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         <NavLink to="/" style={{ textDecoration: "none" }}>
-          <a className="navbar-brand">Tripager</a>
+          <button className="navbar-brand">Tripager</button>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -74,35 +72,35 @@ export default function Navbar() {
           <ul className="navbar-nav mr-auto">
             <NavLink to="/trips" style={{ textDecoration: "none" }}>
               <li className="nav-item">
-                <a className="nav-link">Trips</a>
+                <button className="nav-link">Trips</button>
               </li>
             </NavLink>
             <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
               <li className="nav-item">
-                <a className="nav-link">Things To Do</a>
+                <button className="nav-link">Things To Do</button>
               </li>
             </NavLink>
           </ul>
           <ul className="navbar-nav ml-auto d-flex">
             {token ? (
               <li className="nav-item ml-auto" style={{ marginLeft: "auto" }}>
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogout}
                 >
                   Logout
-                </a>
+                </button>
               </li>
             ) : (
               <li className="nav-item">
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogin}
                 >
                   Login
-                </a>
+                </button>
               </li>
             )}
           </ul>
