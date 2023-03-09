@@ -21,7 +21,7 @@ export default function Footer() {
       <div className=" py-3">
         <div className="footer-row row">
           <div className="footer-item col-md-4 mb-3">
-            <h5>Tripager</h5>
+            <h5>FOOTER </h5>
           </div>
         </div>
       </div>

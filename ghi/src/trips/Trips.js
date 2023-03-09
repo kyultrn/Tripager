@@ -154,5 +154,20 @@ export default function Trips() {
       )}
       {isCreateModalOpen && <CreateTripModal />}
     </div>
+    <div className="cloudVideo">
+        <video
+          style={{
+            position: "fixed",
+            zIndex: -1,
+            width: "100%",
+            height: "100%",
+          }}
+          src={clouds}
+          autoPlay
+          loop
+          muted
+        />
+      </div>
+    </div>
   );
 }
