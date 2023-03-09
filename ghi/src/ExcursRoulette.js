@@ -1,5 +1,5 @@
 import React from 'react'
-import excurs_roulette from './videos/excurs_roulette.mp4'
+import excurs_roulette from './videos_2/excurs_roulette.mp4'
 
 const ExcursRoulette = () => {
   return (
