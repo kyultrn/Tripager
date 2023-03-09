@@ -14,6 +14,10 @@ import {
 import CreateYelpEventModal from "./CreateYelpEventModal";
 import styles from "./ThingsToDo.module.css";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
+import {
+  useGetThingsToDoQuery,
+  useGetTokenQuery,
+} from "../store/ApiSlice";
 
 export default function ThingsToDo() {
   const [formData, setFormData] = useState({
@@ -94,8 +98,18 @@ export default function ThingsToDo() {
     }
   };
 
+  const { data, isLoading } = useGetThingsToDoQuery();
+  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  if (tokenData) {
+  }
 
-
+  if (tokenLoading && isLoading) {
+    return (
+      <>
+        <progress className="progress is-primary" max="100"></progress>
+      </>
+    );
+  }
 
 
 
@@ -169,13 +183,17 @@ export default function ThingsToDo() {
                           Get details
                         </Button>
                       </a>
-                      <Button
-                        onClick={handleCreateOpenModal(business)}
-                        className="btn btn-secondary"
-                        variant="primary"
-                      >
-                        Add to events
-                      </Button>
+                      {tokenData ? (
+                        <Button
+                          onClick={handleCreateOpenModal(business)}
+                          className="btn btn-secondary"
+                          variant="primary"
+                        >
+                          Add to events
+                        </Button>
+                      ) : (
+                        <div></div>
+                      )}
                     </div>
                   </Card.Body>
                 </Card>
