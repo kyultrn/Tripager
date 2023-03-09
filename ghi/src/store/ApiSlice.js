@@ -39,6 +39,7 @@ export const tripagerApi = createApi({
 
 export const {
   useGetTokenQuery,
+  useGetMyAccountQuery,
   useUserLoginMutation,
   useUserLogoutMutation,
   useUserSignupMutation,

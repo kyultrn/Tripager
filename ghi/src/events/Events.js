@@ -107,7 +107,7 @@ export default function Events() {
                             Swal.fire(
                               "Deleted!",
                               "Your event has been deleted.",
-                              "success"
+                              "success",
                             );
                           }
                         });

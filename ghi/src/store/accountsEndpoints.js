@@ -59,5 +59,11 @@ export function accountsEndpoints(builder) {
             }),
             invalidatesTags: ["Account"],
         }),
+        getMyAccount: builder.query({
+            query: (info) => ({
+                url: '/api/myaccount',
+                providesTags: ["Account"],
+            })
+        }),
     }
 }
