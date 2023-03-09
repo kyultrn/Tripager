@@ -32,6 +32,7 @@ class AccountAuthenticator(Authenticator):
         # You must return TWO values from this method.
         return account.email, AccountOut(**account.dict())
 
+
 six_hours = timedelta(hours=6)
 
 authenticator = AccountAuthenticator(os.environ["SIGNING_KEY"], exp=six_hours)
