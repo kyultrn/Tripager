@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useGetTokenQuery, useUserLogoutMutation } from "./store/ApiSlice";
 import { useDispatch } from "react-redux";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
 
 export default function Navbar() {
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
@@ -19,6 +22,8 @@ export default function Navbar() {
   };
   useEffect(() => {
     if (data) {
+      console.log(data);
+      // navigate('/login');
     }
   }, [data, navigate]);
 
