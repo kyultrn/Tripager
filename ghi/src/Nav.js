@@ -61,24 +61,6 @@ export default function Navbar() {
                 <button className="btn nav-link scrollto">Things To Do</button>
               </NavLink>
             </li>
-            <li className="dropdown">
-              <button
-                className="btn"
-                style={{
-                  textDecoration: "none",
-                  paddingLeft: "60px",
-                }}
-              >
-                <span>Account</span> <i className="bi bi-chevron-down"></i>
-              </button>
-              <ul>
-                <li>
-                  <button className="btn" style={{ textDecoration: "none" }}>
-                    My Account
-                  </button>
-                </li>
-              </ul>
-            </li>
             <li style={{ marginLeft: "auto" }}>
               <button
                 style={{ textDecoration: "none" }}
