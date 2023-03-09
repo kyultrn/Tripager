@@ -441,7 +441,7 @@ video {
 .footer {
   margin: auto;
   width: 100vw;
-} */
+}
 
 .footer-item {
   margin-left: 6vw !important;
@@ -1009,6 +1009,8 @@ section#hero {
   height: 100vh;
 }
 
+
+/* ---------------MainPage Text---------------- */
 h1 {
   position: relative;
   z-index: 1;
@@ -1019,6 +1021,68 @@ h2 {
   position: relative;
   z-index: 1;
   text-align: center;
+}
+
+
+/* ----------------Card Carousel---------------- */
+.carousel-control-next,
+.carousel-control-prev {
+  color: black !important;
+}
+
+
+.createEventButton {
+  width: 20vw;
+  margin-left: 40vw;
+  margin-bottom: 2%;
+}
+
+.carouselCard {
+  width: 20vw;
+  margin-left: 40vw;
+  height: 60vh !important;
+}
+
+
+.card-text {
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-indicators {
+  position: absolute !important;
+  bottom: -5vh !important;
+  z-index: 9999;
+}
+
+.deleteButtonEvents {
+  position: absolute;
+  width: 100px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.editButtonEvents {
+  position: absolute;
+  width: 100px;
+  right: 125px;
+  bottom: 10px;
+}
+
+.eventsH1 {
+  margin-top: 2vh;
+  color: rgb(0, 0, 0);
+  margin-bottom: 2vh;
+}
+
+.eventsCardBody {
+  background-color: rgb(236, 236, 236);
+}
+
+.eventsCardImage {
+  height: 35vh;
+  background-position: center center;
+  background-size: contain;
 }
 
 .html {
