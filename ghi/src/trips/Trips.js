@@ -46,9 +46,8 @@ export default function Trips() {
   const handleDeleteTrip = async (tripId) => {
     try {
       const response = await deleteTrip(tripId);
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      return("Trip unable to be deleted")
     }
   };
 
@@ -63,8 +62,6 @@ export default function Trips() {
 
   if (tokenData) {
   }
-  console.log("this is tripsData: ****" + JSON.stringify(data));
-  console.log(`this is tokenData: **** ${tokenData}`);
 
   if (tokenLoading && isLoading) {
     return (
@@ -77,7 +74,7 @@ export default function Trips() {
   return (
     <div>
       {isCreateModalOpen && <CreateTripModal />}
-      <div class="container5">
+      <div className="container5">
         <span className="TripManagerText">Trip Manager</span>
 
         {/* <span className="yourTripsText">Your Trips</span> */}
