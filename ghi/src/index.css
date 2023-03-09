@@ -594,7 +594,6 @@ video {
   } */
 
   #hero h2 {
-    font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
   }
@@ -988,7 +987,6 @@ html {
   visibility: visible;
 }
 
-<<<<<<< HEAD
 
 
 
@@ -996,20 +994,20 @@ section#hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: right;
+  align-items: center;
   height: 100vh;
 }
 h1 {
   z-index: 1;
   color: white;
 }
+
 h2 {
 
   z-index: 1;
   color: white;
-=======
+}
 .text {
   text-align: center;
   z-index: 1;
->>>>>>> 089af2b38bd736a6f577bbc8961856e42a314c25
 }

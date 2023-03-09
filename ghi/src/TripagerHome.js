@@ -5,6 +5,7 @@ import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import Trips from "./trips/Trips";
 import Footer from "./footer/Footer";
+import styles from "./TripagerHome.module.css"
 
 export default function TripagerHome() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ export default function TripagerHome() {
 
   return (
     <React.Fragment>
-      <section id="hero" className="d-flex align-items-center">
+      <section id="hero">
         {icon && temperature ? (
           <div>
             <img className="weatherIcon" src={icon}></img>
@@ -55,8 +56,10 @@ export default function TripagerHome() {
         ) : (
           <a>weather is loading</a>
         )}
-        <h1 className="text">Tripager</h1>
-        <h2 className="text-center">Plan and manage your next trip here.</h2>
+        <div className={styles.hero_homepage_text}>
+          <h1 className={`${styles.h1_homepage_text} text`}>Tripager</h1>
+          <h2 className={`${styles.h2_homepage_text} text-center`}>Plan and manage your next trip here.</h2>
+        </div>
         <VideoCarousel />
       </section>
 
