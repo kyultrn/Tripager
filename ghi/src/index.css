@@ -441,18 +441,6 @@ video {
 }
 
 
-.footer {
-  margin: auto;
-  width: 100vw;
-}
-
-.footer-item {
-  margin-left: 6vw !important;
-  margin-left: 6vw !important;
-  width: 25vw !important;
-}
-
-
 /* Weather Icon/Temperature */
 .weatherIcon {
   position: fixed;
@@ -634,15 +622,6 @@ video {
     transform: translateY(-10px);
   }
 } */ */
-
-
-.tripagerFooter {
-  z-index: 9999 !important;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #413E3F !important;
-}
 
 
 /*--------------------------------------------------------------
@@ -900,7 +879,6 @@ video {
   transition: 0.3s;
 }
 
-.navbar a i,
 .navbar a:focus i {
   font-size: 12px;
   line-height: 0;
@@ -1112,7 +1090,24 @@ h2 {
   z-index: 1;
   color: white;
 }
+
+.navbar a i,
 .text {
   text-align: center;
   z-index: 1;
 }
+
+.tripagerFooter {
+  z-index: 9999 !important;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #413E3F !important;
+  text-align: center;
+}
+
+/* .footer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
