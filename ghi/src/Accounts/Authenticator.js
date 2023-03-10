@@ -103,7 +103,6 @@ export function useToken() {
     return handleErrorMessage(error);
   }
 
-  //possible first name, last name instead of name parms
   async function signup(name, email, password) {
     const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/accounts`;
     const response = await fetch(url, {

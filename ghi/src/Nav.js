@@ -20,7 +20,6 @@ export default function Navbar() {
   };
   useEffect(() => {
     if (data) {
-      // navigate('/login');
     }
   }, [data, navigate]);
 

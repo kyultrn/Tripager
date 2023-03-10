@@ -3,7 +3,6 @@ import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
-import { Link } from "react-router-dom";
 
 export default function TripagerHome() {
   const navigate = useNavigate();

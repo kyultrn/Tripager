@@ -36,5 +36,4 @@ export function tripEndpoints(builder) {
         invalidatesTags: ["TripsList"],
       }),
     };
-
 }

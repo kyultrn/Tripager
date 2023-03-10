@@ -27,11 +27,8 @@ export const tripagerApi = createApi({
   tagTypes: ["TripsList", "Token", "EventsList", "Account"],
 
   endpoints: (builder) => ({
-    // Trips
     ...tripEndpoints(builder),
-    // Events
     ...eventEndpoints(builder),
-    // Accounts
     ...accountsEndpoints(builder),
     ...thirdPartyApiEndpoints(builder),
   }),

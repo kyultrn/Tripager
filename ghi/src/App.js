@@ -25,7 +25,7 @@ export default function App() {
             <Route path="/thingstodo" element={<ThingsToDo />} />
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   )
