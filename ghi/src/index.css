@@ -1148,38 +1148,49 @@ h2 {
 .team .members {
   position: relative;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 0px;
   border-radius: 5px;
   background: #ffffff97;
   height: 100%;
 }
-
-.team .member .pic {
-  overflow: hidden;
-  width: 180px;
-  border-radius: 50%;
+.tech-padding{
+  padding: 10px;
 }
 
-.team .member .pic img {
-  transition: ease-in-out 0.3s;
+.team .members .tech-link {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  margin: 0;
 }
 
-.team .member:hover {
-  transform: translateY(-10px);
+.team .members .pic {
+  text-align: left;
+  height: 110px;
+  width: 100px; /* adjusted from 200px */
+  border-radius: 30%; /* adjusted from 200px */
+  overflow: hidden; /* added to ensure image is circular */
 }
 
-.team .member .member-info {
-  padding-left: 30px;
+.team .members .img-fluid {
+  height: 100%;
+  width: 100%;
+  object-fit:fill /* added to ensure image fits inside the circular container */
 }
 
-.team .member h4 {
+
+.team .members .member-info {
+
+}
+
+.team .members h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
   color: #373737;
 }
 
-.team .member span {
+.team .members span {
   display: block;
   font-size: 15px;
   padding-bottom: 10px;
@@ -1187,7 +1198,7 @@ h2 {
   font-weight: 500;
 }
 
-.team .member span::after {
+.team .members span::after {
   content: "";
   position: absolute;
   display: block;
@@ -1198,43 +1209,44 @@ h2 {
   left: 0;
 }
 
-.team .member p {
+.team .members p {
   margin: 10px 0 0 0;
   font-size: 14px;
 }
 
-.team .member .social {
+.team .members .social {
   margin-top: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.team .member .social a {
+.team .members .social a {
   transition: ease-in-out 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
-  width: 32px;
-  height: 32px;
-  background: #ffffff;
+  /* border-radius: 50px; */
+  /* width: 32px;
+  height: 32px; /* uncommented height and background
+  background: #ffffff;  */
 }
 
-.team .member .social a i {
+
+/* .team .members .social a i {
   color: #37517e;
   font-size: 16px;
   margin: 0 2px;
-}
+} */
 
-.team .member .social a:hover {
+/* .team .members .social a:hover {
   background: #47b2e4;
 }
 
-.team .member .social a:hover i {
+.team .members .social a:hover i {
   color: #ffffff;
 }
 
-.team .member .social a + a {
+.team .members .social a + a {
   margin-left: 8px;
-}
+} */

@@ -8,6 +8,7 @@ export default function Footer() {
   const isTripsPage = [
     "/login",
     "/signup",
+    "/thingstodo",
     `/trips/${selectedTripId}/events`,
   ].includes(location.pathname)
 

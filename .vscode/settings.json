@@ -4,17 +4,21 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.words": [
+    "Canva",
     "Excalidraw",
     "Excurs",
     "fakeuser",
+    "Flaticon",
     "formdata",
     "getstarted",
     "mainhd",
+    "noreferrer",
     "scrollto",
     "sweetalert",
     "thingstodo",
     "Tripager",
     "Trippin",
-    "wireframe"
+    "wireframe",
+    "Yelpfusion"
   ]
 }

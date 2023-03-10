@@ -86,7 +86,7 @@ export default function Events() {
   }
 
   return (
-    <div className="eventsContainer">
+    <div className="eventsContainer" style={{ marginBottom: "60px" }}>
       {isCreateModalOpen && <CreateEventModal />}
       <h1 className="eventsH1">Events for {trip.name}</h1>
       <Button
