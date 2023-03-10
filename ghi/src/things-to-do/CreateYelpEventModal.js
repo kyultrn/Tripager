@@ -12,16 +12,12 @@ import { setSelectedTripId } from "../store/tripModalSlice";
 
 export default function CreateYelpEventModal() {
   const { data, isLoading: tripsLoading } = useGetTripsQuery();
-
   const selectedBusiness = useSelector((state) => state.eventForm.selectedBusiness);
-
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const isCreateModalOpen = useSelector((state) => state.eventModal.isModalOpen.createModal);
-
-
   const dispatch = useDispatch();
-
   const [createEvent, result] = useCreateEventMutation();
+  
   const [formData, setFormData] = useState({
     name: selectedBusiness.name,
     description: "",
@@ -58,7 +54,6 @@ export default function CreateYelpEventModal() {
 
   };
 
-
   if ( isCreateModalOpen && tripsLoading && selectedBusiness) {
     return (
       <>
@@ -66,7 +61,6 @@ export default function CreateYelpEventModal() {
       </>
     );
   }
-
 
   return (
     <div className={`modal ${isCreateModalOpen ? "is-active" : ""}`}>

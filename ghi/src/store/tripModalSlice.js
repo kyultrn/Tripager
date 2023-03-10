@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
 const tripModalSlice = createSlice({
   name: "tripModal",
   initialState:{
@@ -21,7 +20,6 @@ const tripModalSlice = createSlice({
     },
   },
 })
-
 
 const tripFormSlice = createSlice({
   name: "tripForm",
@@ -63,6 +61,4 @@ export const { updateFormData, resetFormData, setSelectedTripId, changeToSelecte
 export const selectTripFormData = (state) => state.tripForm;
 export const tripFormSliceReducer = tripFormSlice.reducer;
 export const tripModalSliceReducer = tripModalSlice.reducer;
-
-
 export default { tripFormSliceReducer, tripModalSliceReducer };

@@ -97,7 +97,6 @@ export default function ThingsToDo() {
     }
   };
 
-  // const { data, isLoading } = useGetThingsToDoQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
   if (tokenData) {
   }
@@ -109,8 +108,6 @@ export default function ThingsToDo() {
       </>
     );
   }
-
-
 
   return (
     <>
@@ -179,8 +176,6 @@ export default function ThingsToDo() {
           </div>
         </div>
       </div>
-
-
       <div className={styles.cards}>
         <Row className="g-4 justify-content-center">
           {businesses &&
@@ -233,8 +228,6 @@ export default function ThingsToDo() {
             ))}
         </Row>
       </div>
-
-
       <div className="cloudVideo">
         <video
           style={{
