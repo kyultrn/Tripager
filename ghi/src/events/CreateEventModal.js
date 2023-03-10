@@ -45,7 +45,7 @@ export default function CreateEventModal() {
                 value={formData.name}
                 onChange={handleInputChange}
               />
-              <Form.Label>Description</Form.Label>
+              <Form.Label >Description</Form.Label>
               <Form.Control
                 type="text"
                 name="description"
