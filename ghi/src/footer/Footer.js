@@ -14,7 +14,6 @@ export default function Footer() {
   const isBusinessDataFetched = useSelector(
     (state) => state.eventForm.businessDataFetched
   );
-  console.log(isBusinessDataFetched)
 
   return (
     <footer
