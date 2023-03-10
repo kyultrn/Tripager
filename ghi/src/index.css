@@ -29,8 +29,8 @@ video {
   object-fit: cover;
 }
 
-/* ----------------- Login Box ------------------ */
 
+/* ----------------- Login Box ------------------ */
 .signUpButton {
   float: right;
 }
@@ -219,6 +219,7 @@ video {
   }
 }
 
+
 /* ------------------ Trips Table ----------------- */
 .container5 {
   height: 65vh;
@@ -337,6 +338,7 @@ video {
   z-index: 1000;
 }
 
+
 /* ---------------- Weather/Temperature Icons ---------------- */
 .weatherIcon {
   position: fixed;
@@ -402,7 +404,6 @@ video {
 
 
 /* -------------- Team --------------- */
-
 .ri-linkedin-box-fill {
   background-image: url("https://cdn-icons-png.flaticon.com/512/145/145807.png");
   background-repeat: no-repeat;
@@ -606,10 +607,6 @@ video {
   z-index: 100;
 }
 
-
-
-
-
 .thingsToDoForm {
   padding-top: 8vh;
 }
@@ -622,10 +619,7 @@ video {
 }
 
 
-
-
 /* ========== navbar ============ */
-
 .navbar {
     position: fixed;
     top: 0;
@@ -642,11 +636,6 @@ video {
   .nav-link {
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.4);
   }
-
-/* .navbar-collapse {
-  background-color: white;
-  border-radius: 0 0 10px 10px;
-} */
 
 .navbar-nav.dropdown-menu {
   text-align: left;
@@ -674,6 +663,7 @@ video {
 .navbar li {
   position: relative;
 }
+
 .navbar a:focus {
   outline: none;
 }
@@ -697,14 +687,12 @@ video {
   margin-left: 5px;
 }
 
-
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
   color: #47b2e4;
 }
-
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
@@ -778,7 +766,6 @@ video {
   visibility: visible;
 }
 
-/* ============================== */
 
 /* modal css */
 .modal-body {
@@ -788,9 +775,6 @@ video {
 .modal-header {
   background-color: rgba(244, 244, 244, 0.725);
 }
-
-
-
 
 section#hero {
   display: flex;
@@ -821,24 +805,16 @@ h2 {
   color: black !important;
 }
 
-
 .createEventButton {
   width: 20vw;
   margin-left: 40vw;
   margin-bottom: 2%;
 }
 
-/* .carouselCard {
-  width: 20vw;
-  margin-left: 40vw;
-  height: 100vh !important;
-} */
-
 .card {
   height: 55vh !important;
   width: 40vh !important;
 }
-
 
 .card-text {
   margin: 0;
@@ -850,7 +826,6 @@ h2 {
   bottom: -5vh !important;
   z-index: 9999;
 }
-
 
 .deleteButtonEvents {
   position: absolute;
@@ -883,9 +858,6 @@ h2 {
 .eventsCardImage {
   height: 30vh;
 }
-
-
-
 
 section#hero {
   display: flex;
@@ -920,251 +892,9 @@ h2 {
   text-align: center;
 }
 
-
-
 .footer-rights {
   font-size: 14px;
 }
-
-
-/* .navbar {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: light #d9a5d9;
-  background-color: #394966da !important;
-  z-index: 1999;
-} */
-
-/* .my-custom-class {
-  background-color: #413e3f;
-} */
-
-/* footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-} */
-
-/* .image-container {
-  display: flex;
-  justify-content: center;
-}
-
-.image-container img:hover {
-  transform: scale(1.1);
-}
-
-.image-container img {
-  border: 6px solid #65fafa;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.about-container img {
-  border: 6px solid #63eeee;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 50%;
-}
-
-.title {
-  text-align: center;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  color: white;
-}
-
-.image-container div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-}
-
-.image-container .name {
-  font-size: 1.2em;
-  color: white;
-}
-
-.image-container .bio {
-  color: white;
-}
-
-.image-container .bio {
-  font-size: 0.9em;
-} */
-
-/* .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  color: #fff;
-  text-align: left;
-} */
-
-/* .nav-color {
-  background-color: light #c893c8;
-} */
-
-/* Trips Table Css
-.table {
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-.table-row {
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  border-collapse: collapse;
-}
-
-.table-row:hover {
-  background-color: #d2d3d3;
-} */
-
-/* #root {
-  height: 90vh !important;
-  width: 100vw !important;
-  margin: 0;
-  padding: 0;
-
-/* #root {
-  width: 100vw;
-} */
-
-/* .oldTR {
-  margin-right: 0 !important;
-}
-
-.container5 {
-  width: 100vw !important;
-} */
-
-
-/* Video Carousel Formatting TripagerHome */
-/* #hero {
-  width: 100%;
-  height: 100vh;
-  background: white;
-  z-index: 99;
-} */
-
-/* #hero .container {
-  padding-top: 72px;
-  width: 100%;
-} */
-
-/* Tripager */
-/* /* #hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  text-align: right;
-  font-weight: 700;
-  line-height: 56px;
-  color: #ffffff;
-} */
-/* Plan and manage your next trip here */
-/* /* #hero h2 {
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 50px;
-  font-size: 24px;
-  float: right;
-}
-
-#hero .btn-get-started {
-  font-family: "Jost", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px 11px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  margin: 10px 0 0 0;
-  color: #fff;
-  background: #47b2e4;
-} */
-
-/* #hero .btn-get-started:hover {
-  background: #209dd8;
-}
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  margin: 10px 0 0 25px;
-  color: #fff;
-  line-height: 1;
-}
-
-#hero .btn-watch-video i {
-  line-height: 0;
-  color: #fff;
-  font-size: 32px;
-  transition: 0.3s;
-  margin-right: 8px;
-} */
-
-/* #hero .btn-watch-video:hover i {
-  color: #47b2e4;
-}
-
-#hero .animated {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
-}
-
-@media (max-width: 991px) {
-  #hero {
-    height: 100vh;
-    text-align: center;
-  }
-
-  #hero .animated {
-    -webkit-animation: none;
-    animation: none;
-  }
-
-  #hero .hero-img {
-    text-align: center;
-  }
-
-  #hero .hero-img img {
-    width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-  /* #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  } */
-
-/* .footer-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .footer-row {
-  width: 100%;
-} */
-
-
-/* #team {
-  padding-top: 10vh;
-  padding-bottom: 20vh;
-  position: relative;
-  background-color: #0048ff00 !important;
-  z-index: 100;
-} */
 
 .team .members {
   position: relative;
