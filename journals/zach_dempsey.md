@@ -37,9 +37,9 @@ Practice test day - Wrote our unit tests and had some troubles hitting the yelp 
 ### Tues, Mar 7 2023
 We had merge issues with our bootstrap for our main page CSS and our previous styles. continued writing unit tests and worked on our main page CSS. We worked on being able to add an event from the thingstodo page directly into an event. we got it it to create but we still need to add others things hard to concentrate, had a twisted tea. we made changes to add a video to our thingstodo page that will be a random generator for an event. learned how to just add a btn tag in front of whatever was already made for a className to just add a general style already defined in that .btn class in CSS, thanks to Tyler the CSS god!
 ### Weds, Mar 8, 2023
-
+We wanted to implement our stretch goals of being able to add an event through our things to do page where it would auto populate the business's information you clicked on and then you could finish filling out an event on. we tried to use redux, but ended up using useState. We clashed on styling and trying to figure out where we wanted to go. talked about the random event generator.
 ### Thurs, Mar 9, 2023
-
+tidied up flake8 and error codes. we added technologies section, carousel, updated video playing in backgrounds, basically done with project just trying to iron out some navbar and footer issues and add final stylings. 
 ### Fri, Mar 10, 2023
 Final Day of project week!
 ### Mon, Mar 13 2023
