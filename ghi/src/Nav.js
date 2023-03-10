@@ -49,10 +49,10 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         <NavLink to="/" style={{ textDecoration: "none" }}>
-          <a className="navbar-brand">Tripager</a>
+          <button className="btn getstarted scrollto">Tripager</button>
         </NavLink>
         <button
-          className="navbar-toggler"
+          className="btn navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -68,24 +68,26 @@ export default function Navbar() {
             <ul className="navbar-nav mr-auto">
               <NavLink to="/trips" style={{ textDecoration: "none" }}>
                 <li className="nav-item">
-                  <a className="nav-link">Trips</a>
+                  <button className="btn getstarted scrollto">Trips</button>
                 </li>
               </NavLink>
               <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
                 <li className="nav-item">
-                  <a className="nav-link">Things To Do</a>
+                  <button className="btn getstarted scrollto">
+                    Things To Do
+                  </button>
                 </li>
               </NavLink>
             </ul>
             <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item ml-auto" style={{ marginLeft: "auto" }}>
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogout}
                 >
                   Logout
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -95,20 +97,20 @@ export default function Navbar() {
               <ul className="navbar-nav mr-auto">
                 <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
                   <li className="nav-item">
-                    <a className="nav-link">Things To Do</a>
+                    <button className="nav-link">Things To Do</button>
                   </li>
                 </NavLink>
               </ul>
             </div>
             <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item">
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogin}
                 >
                   Login
-                </a>
+                </button>
               </li>
             </ul>
           </>
