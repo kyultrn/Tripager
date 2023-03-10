@@ -58,7 +58,6 @@ export const {
   useUpdateEventMutation,
 
   useGetThingsToDoQuery,
-  useGetExcursRouletteQuery,
   useGetWeatherDataQuery,
 
 } = tripagerApi;

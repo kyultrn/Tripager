@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   closeCreateEventModal,
-  selectEventFormData,
-  updateFormData,
   resetFormData,
 } from "../store/eventModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateEventMutation } from "../store/ApiSlice";
 import { useGetTripsQuery } from "../store/ApiSlice";
-import ThingsToDo from "./ThingsToDo";
 import { setSelectedTripId } from "../store/tripModalSlice";
 
 export default function CreateYelpEventModal() {
@@ -59,6 +55,7 @@ export default function CreateYelpEventModal() {
     dispatch(closeCreateEventModal());
     createEvent({ formData, selectedTripId });
     dispatch(resetFormData());
+
   };
 
 
@@ -98,7 +95,6 @@ export default function CreateYelpEventModal() {
               type="text"
               name="picture_url"
               value={formData.picture_url}
-              // {business.image_url}
               onChange={handleInputChange}
             />
             <Form.Label>Location</Form.Label>
@@ -106,7 +102,6 @@ export default function CreateYelpEventModal() {
               type="text"
               name="location"
               value={formData.location}
-              // {business.location.address1}
               onChange={handleInputChange}
             />
             <Form.Label>Date</Form.Label>

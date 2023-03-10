@@ -28,7 +28,6 @@ export default function CreateEventModal() {
         e.preventDefault();
         dispatch(closeCreateEventModal());
         createEvent({ formData, selectedTripId });
-        createEvent({ formData, selectedTripId });
         dispatch(resetFormData());
     };
 

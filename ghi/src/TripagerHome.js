@@ -35,14 +35,6 @@ export default function TripagerHome() {
     }
   }, [latitude, longitude]);
 
-  const handleNotLoggedRedirect = () => {
-    navigate("/signup");
-  };
-
-  const handleTripsRedirect = () => {
-    navigate("/trips");
-  };
-
   return (
     <React.Fragment>
       <section id="hero">
@@ -56,14 +48,16 @@ export default function TripagerHome() {
         )}
         <div className={styles.hero_homepage_text}>
           <h1 className={`${styles.h1_homepage_text} text`}>Tripager</h1>
-          <h2 className={`${styles.h2_homepage_text} text-center`}>Plan and manage your next trip here.</h2>
+          <h2 className={`${styles.h2_homepage_text} text-center`}>
+            Plan and manage your next trip here.
+          </h2>
         </div>
         <VideoCarousel />
       </section>
 
       {/* team section */}
       <section id="team" className="team section-bg">
-        <div className="container" data-aos="fade-up" >
+        <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2 className="teamH2">Team</h2>
           </div>
@@ -81,7 +75,11 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Zach Dempsey</h4>
                   <span>Developer</span>
-                  <p>Zach Dempsey is a software engineer based in Dubuque, Iowa. When he is not coding, you can find him at comedy shows and finding the best pizza in town.</p>
+                  <p>
+                    Zach Dempsey is a software engineer based in Dubuque, Iowa.
+                    When he is not coding, you can find him at comedy shows and
+                    finding the best pizza in town.
+                  </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/ZacharyD">
                       <i className="ri-instagram-fill"></i>
@@ -115,7 +113,9 @@ export default function TripagerHome() {
                   <h4>Andrew Fockler</h4>
                   <span>Developer</span>
                   <p>
-                    Andrew Fockler is a software engineer based in Jupiter, FL. When Andrew is not coding, you can find him at the gym or making protein shakes.
+                    Andrew Fockler is a software engineer based in Jupiter, FL.
+                    When Andrew is not coding, you can find him at the gym or
+                    making protein shakes.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Afockler4">
@@ -150,7 +150,12 @@ export default function TripagerHome() {
                   <h4>Mischa Goodman</h4>
                   <span>Developer</span>
                   <p>
-                    Mischa Goodman is a NYC based software engineer. After working as a professional actress and filmmaker for 10 years, Mischa transitioned into software engineering. Mischa is passionate about lifting up female identifying artists in technology and is currently working on a project to amplify those voices in NYC.
+                    Mischa Goodman is a NYC based software engineer. After
+                    working as a professional actress and filmmaker for 10
+                    years, Mischa transitioned into tech. Mischa is passionate
+                    about lifting up female identifying artists in technology
+                    and is currently working on a project to amplify those
+                    voices in NYC.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/mischadani2">
@@ -184,7 +189,10 @@ export default function TripagerHome() {
                   <h4>Kyle Tran</h4>
                   <span>Developer</span>
                   <p>
-                    Kyle Tran is a software engineer based in Lowell, MA. Kyle is passionate about helping fellow software engineers and when he isn't working on a project, you can find him consulting on other projects.
+                    Kyle Tran is a software engineer based in Lowell, MA. Kyle
+                    is passionate about helping fellow software engineers and
+                    when he isn't working on a project, you can find him
+                    consulting on other projects.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Kyull">
@@ -210,6 +218,25 @@ export default function TripagerHome() {
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2 className="teamH2">About Tripager</h2>
+            <div className="row">
+              <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                <div className="member d-flex align-items-start">
+                  Tripager is an application for planning and managing trips.
+                  When users are logged in, they have access to all of the
+                  trip-planning functionality that Tripager has to offer: Trip
+                  Manager, Event Manager, the ability to add new events from Yelp to
+                  their events, and more. When managing trips and events, users have
+                  the opportunity to create, update and delete. Users are able to
+                  search for activities, restaurants, businesses, and more on the
+                  "Things to do" page. With just a search term and a location, users
+                  are able to see 12 of Yelp's top hits for their intended search.
+                  If users don't feel like choosing an activity, they can input a
+                  location and play "Excursion Roulette." Tripager will choose the
+                  top businesses and display some brilliant and fun ideas for users
+                  and their trip-mates.
+                </ div>
+              </ div>
+            </ div>
           </div>
         </div>
       </section>
