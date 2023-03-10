@@ -77,9 +77,7 @@ class AccountQueries:
                         ],
                     )
                     id = result.fetchone()[0]
-                    print("******", id)
                     old_data = account.dict()
-                    print(old_data)
                     return AccountOutWithPassword(
                         id=id,
                         hashed_password=hashed_password,
@@ -110,19 +108,14 @@ class AccountQueries:
                             account_id
                         ]
                     )
-                    # old_data = account.dict()
                     return self.account_in_to_out(account_id, account)
         except Exception as e:
-            print(e)
             return {"message": "Could not update account"}
 
     def get_all(self) -> Union[Error, List[AccountOut]]:
         try:
-            # Connect to the database
             with pool.connection() as conn:
-                # Get a cursor [something to run SQL with]
                 with conn.cursor() as db:
-                    # Run our SELECT statement
                     result = db.execute(
                         """
                         SELECT id, name, email, hashed_password
@@ -141,7 +134,6 @@ class AccountQueries:
                         result.append(account)
                     return result
         except Exception as e:
-            print(e)
             return {"message": "Could not receive all accounts"}
 
     def delete(self, account_id: int) -> bool:
@@ -157,7 +149,6 @@ class AccountQueries:
                     )
                     return True
         except Exception as e:
-            print(e)
             return False
 
     def account_in_to_out(self, id: int, account: AccountIn):

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate, Link, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useGetTokenQuery, useUserLogoutMutation } from "./store/ApiSlice";
 import { useDispatch } from "react-redux";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -20,7 +20,6 @@ export default function Navbar() {
   };
   useEffect(() => {
     if (data) {
-      // navigate('/login');
     }
   }, [data, navigate]);
 

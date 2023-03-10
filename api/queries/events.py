@@ -56,7 +56,6 @@ class EventQueries:
                     old_data = event.dict()
                     return EventOut(id=id, trip_id=trip_id, **old_data)
         except Exception as e:
-            print(e)
             return {"message": "Couldn't create trip event."}
 
     def get_all_trip_events(self,
@@ -99,7 +98,6 @@ class EventQueries:
                     return result
 
         except Exception as e:
-            print(e)
             return ({"message": "Could not retrieve all trip's events."})
 
     def get_trip_event(self,
@@ -130,7 +128,6 @@ class EventQueries:
                         return None
                     return self.record_to_event_out(record)
         except Exception as e:
-            print(e)
             return {"message": "Could not retrieve that trip's event."}
 
     def update_trip_event(self,
@@ -167,7 +164,6 @@ class EventQueries:
                     )
                     return self.event_in_to_out(event_id, trip_id, event)
         except Exception as e:
-            print(e)
             return {"message": "Could not update that trip's event."}
 
     def delete_trip_event(self, id: int, trip_id: int):
@@ -183,7 +179,6 @@ class EventQueries:
                     )
                     return True
         except Exception as e:
-            print(e)
             return False
 
     def event_in_to_out(self, id: int, trip_id: int, event: EventIn):

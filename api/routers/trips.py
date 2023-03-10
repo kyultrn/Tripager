@@ -23,7 +23,6 @@ def create_trip(
     repo: TripQueries = Depends(),
 ):
     acc_id = account_data["id"]
-    print(f"this is account id: {acc_id}")
     return repo.create(trip, acc_id)
 
 
@@ -40,8 +39,6 @@ def get_trips_by_id(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     acc_id = account_data["id"]
-    # print(f"this is account data: {account_data}")
-    # print(f"this is account id: {acc_id}")
     return repo.get_trips_by_id(acc_id)
 
 
