@@ -5,6 +5,7 @@ import { Button, Modal, Form } from "react-bootstrap"
 import { useUpdateEventMutation, useGetEventQuery } from "../store/ApiSlice";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
 
 export default function UpdateEventModal() {
     const isUpdateModalOpen = useSelector(state => state.eventModal.isModalOpen.updateModal)

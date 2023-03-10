@@ -14,7 +14,7 @@ import UpdateEventModal from "./UpdateEventModal";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import clouds from "./videos/summer_vacay_2.mp4";
+import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
 
 export default function Events() {
   const [deleteEvent, { deleteError }] = useDeleteEventMutation();
@@ -174,7 +174,7 @@ export default function Events() {
             width: "100%",
             height: "100%",
           }}
-          src={clouds}
+          src={summer_vacay_2}
           autoPlay
           loop
           muted
