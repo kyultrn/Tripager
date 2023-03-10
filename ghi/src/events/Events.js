@@ -124,7 +124,7 @@ export default function Events() {
                       )}`}</Card.Text>
                       <Button
                         className="editButtonEvents"
-                        variant="primary"
+                        variant="secondary"
                         onClick={() => handleUpdateOpenModal(event.id)}
                       >
                         Edit
