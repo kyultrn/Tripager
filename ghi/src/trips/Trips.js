@@ -5,7 +5,6 @@ import CreateTripModal from "./CreateTripModal";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import Button from "react-bootstrap/Button";
-import clouds from "./videos/clouds2.mp4"
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4"
 
 import {

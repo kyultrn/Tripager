@@ -440,6 +440,18 @@ video {
   background: #ffffff97;
   transition: 0.5s;
   height: 100%;
+  text-align: justify;
+}
+
+.aboutTrip {
+  position: relative;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 5px;
+  background: #ffffff97;
+  transition: 0.5s;
+  height: 100%;
+  text-align: justify;
 }
 
 .team .member .pic {
@@ -812,7 +824,7 @@ h2 {
 }
 
 /* .carouselCard {
-  width: 20vw; 
+  width: 20vw;
   margin-left: 40vw;
   height: 100vh !important;
 } */
