@@ -13,8 +13,6 @@ export default function Navbar() {
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 
-  console.log("location.pathname: ", location.pathname);
-
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
@@ -41,12 +39,6 @@ export default function Navbar() {
   ].includes(location.pathname);
 
   return (
-    // <nav id="navbar" className="navbar" style={{ backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit", height: "80px" }}>
-    //   <ul>
-    //     {token ? (
-    //       <>
-    //       <NavLink to="/" style={{ textDecoration: 'none' }}>
-    //         <li><span className="btn nav-link scrollto ">Tripager</span></li>
     <nav
       id="navbar"
       className="navbar navbar-expand-lg"
@@ -57,10 +49,10 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         <NavLink to="/" style={{ textDecoration: "none" }}>
-          <a className="navbar-brand">Tripager</a>
+          <button className="btn getstarted scrollto">Tripager</button>
         </NavLink>
         <button
-          className="navbar-toggler"
+          className="btn navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -70,43 +62,59 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mr-auto">
-            <NavLink to="/trips" style={{ textDecoration: "none" }}>
-              <li className="nav-item">
-                <a className="nav-link">Trips</a>
-              </li>
-            </NavLink>
-            <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
-              <li className="nav-item">
-                <a className="nav-link">Things To Do</a>
-              </li>
-            </NavLink>
-          </ul>
-          <ul className="navbar-nav ml-auto d-flex">
-            {token ? (
+
+        {token ? (
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mr-auto">
+              <NavLink to="/trips" style={{ textDecoration: "none" }}>
+                <li className="nav-item">
+                  <button className="btn getstarted scrollto">Trips</button>
+                </li>
+              </NavLink>
+              <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
+                <li className="nav-item">
+                  <button className="btn getstarted scrollto">
+                    Things To Do
+                  </button>
+                </li>
+              </NavLink>
+            </ul>
+            <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item ml-auto" style={{ marginLeft: "auto" }}>
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogout}
                 >
                   Logout
-                </a>
+                </button>
               </li>
-            ) : (
+            </ul>
+          </div>
+        ) : (
+          <>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav mr-auto">
+                <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
+                  <li className="nav-item">
+                    <button className="nav-link">Things To Do</button>
+                  </li>
+                </NavLink>
+              </ul>
+            </div>
+            <ul className="navbar-nav ml-auto d-flex">
               <li className="nav-item">
-                <a
+                <button
                   style={{ textDecoration: "none" }}
                   className="btn getstarted scrollto"
                   onClick={handleLogin}
                 >
                   Login
-                </a>
+                </button>
               </li>
-            )}
-          </ul>
-        </div>
+            </ul>
+          </>
+        )}
       </div>
     </nav>
   );
