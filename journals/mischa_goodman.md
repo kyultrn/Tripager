@@ -54,10 +54,13 @@ Today was another extremely stressful day with authentication -- I thought we wo
 ### Mon, Mar 6 2023
 Today we wrote unit tests
 ### Tues, Mar 7 2023
+Today 
 
 ### Weds, Mar 8, 2023
 
+
 ### Thurs, Mar 9, 2023
+Today we did a lot of CSS work. I also was able to fix the "Things to do" page. You are able to now use the things to do page if you are logged in or out. If you are not logged in, you will not see the "add to events" button which allows you to add the event to your trip events. We added a few videos to the background of our pages and worked on the footer.
 
 ### Mon, Mar 13 2023
 
