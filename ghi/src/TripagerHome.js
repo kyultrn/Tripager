@@ -463,7 +463,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>CSS</h4>
                   <p>
-                   From the minor details to the big stuff, CSS styled Tripager from top to bottom; using CSS allowed us to ensure that all elements on the DOM looked cohesive and clean.
+                  From the minor details to the big stuff, CSS styled Tripager from top to bottom; using CSS allowed us to ensure that all elements on the DOM looked cohesive and clean.
                   </p>
                   <div className="social">
                     <a

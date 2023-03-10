@@ -18,5 +18,3 @@ def get_yelp_recommendations(
         term,
         location,
     )
-
-

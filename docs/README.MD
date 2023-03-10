@@ -93,8 +93,8 @@ Things To Do:
 To fully enjoy this Tripager on your local machine, please make sure to follow these steps:
 1. Clone the repository down to your local machine
 2. CD into the new project directory
-3. Run docker volume create tripager-data
-4. Run docker compose build
+3. Run `docker volume create tripager-data`
+4. Run `docker compose build`
 5. Run docker compose up
 6. Run docker exec -it tripager-api-1 bash
 7. Exit the container's CLI, and enjoy Tripager to its fullest!
