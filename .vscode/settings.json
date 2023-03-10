@@ -4,16 +4,17 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.words": [
+    "Excalidraw",
     "Excurs",
-    "formdata",
-    "getstarted",
-    "scrollto",
     "fakeuser",
     "formdata",
+    "getstarted",
     "mainhd",
+    "scrollto",
     "sweetalert",
     "thingstodo",
     "Tripager",
-    "Trippin"
+    "Trippin",
+    "wireframe"
   ]
 }
