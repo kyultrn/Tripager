@@ -150,12 +150,10 @@ export default function TripagerHome() {
                   <h4>Mischa Goodman</h4>
                   <span>Developer</span>
                   <p>
-                    Mischa Goodman is a NYC based software engineer. After
-                    working as a professional actress and filmmaker for 10
-                    years, Mischa transitioned into tech. Mischa is passionate
-                    about lifting up female identifying artists in technology
-                    and is currently working on a project to amplify those
-                    voices in NYC.
+                    Mischa Goodman is a software engineer based in NYC. Mischa
+                    is passionate about lifting up female identifying artists in
+                    technology and is currently working on a project to amplify
+                    those voices in NYC.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/mischadani2">
@@ -218,23 +216,21 @@ export default function TripagerHome() {
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2 className="teamH2">About Tripager</h2>
-            <div className="row">
-              <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-                <div className="member d-flex align-items-start">
+            <div className="">
+              <div className="" data-aos="zoom-in" data-aos-delay="100">
+                <div className="aboutTrip">
                   Tripager is an application for planning and managing trips.
-                  When users are logged in, they have access to all of the
-                  trip-planning functionality that Tripager has to offer: Trip
-                  Manager, Event Manager, the ability to add new events from
-                  Yelp to their events, and more. When managing trips and
-                  events, users have the opportunity to create, update and
-                  delete. Users are able to search for activities, restaurants,
-                  businesses, and more on the "Things to do" page. With just a
-                  search term and a location, users are able to see 12 of Yelp's
-                  top hits for their intended search. If users don't feel like
-                  choosing an activity, they can input a location and play
-                  "Excursion Roulette." Tripager will choose the top businesses
-                  and display some brilliant and fun ideas for users and their
-                  trip-mates.
+                  When users are logged in, they have access to trip-planning
+                  functionalities: Trip Manager, Event Manager and have the
+                  ability to add new events from Yelp to their scheduled events.
+                  Users have the ability to create, update and delete both trips
+                  and events. Users are able to search for activities,
+                  restaurants, businesses, and more with Tripager's "Things to
+                  do" feature. With just a search term and location, users are
+                  able to see 12 of Yelp's top business hits for their intended
+                  search. If users don't feel like choosing an activity, they
+                  can input a location and play "Excursion Roulette". Tripager
+                  will provide new and exciting choices for you!
                 </div>
               </div>
             </div>
@@ -257,8 +253,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Excalidraw</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                    We collaborated extensively during the development of Tripager. Excalidraw was instrumental when wire-framing, and kept the team on track when implementing design.
                   </p>
                   <div className="social">
                     <a
@@ -312,7 +307,7 @@ export default function TripagerHome() {
                   <h4>Bootstrap</h4>
                   <p>
                     We implemented Bootstrap for it's powerful and flexible
-                    framework capabilities
+                    framework capabilities. We used native Bootstrap templates as a jumping off point for many elements and were grateful to have access to the library.
                   </p>
                   <div className="social">
                     <a
@@ -338,8 +333,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>React</h4>
                   <p>
-                    We opted for PostgreSQL to develop our database due to its
-                    exceptional scalability and reliability.
+                    Known for its simplicity, flexibility, reuseability and performance, React's library did not dissapoint us. We used React almost everywhere to build the seamless user experience.
                   </p>
                   <div className="social">
                     <a
@@ -363,8 +357,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>FastAPI</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                    We used FastAPI to help us build our application quickly and efficiently.
                   </p>
                   <div className="social">
                     <a
@@ -391,8 +384,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Yelp fusion</h4>
                   <p>
-                    We opted for PostgreSQL to develop our database due to its
-                    exceptional scalability and reliability.
+                    Using Yelp Fusion's API, Tripager users are able to search for fun activities, create them as events and add them to their trips.
                   </p>
                   <div className="social">
                     <a
@@ -420,8 +412,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Flat-Icon</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                    We used Flat-Icon to spruce up our users interactive experience when they delete and update events and trips.
                   </p>
                   <div className="social">
                     <a
@@ -446,10 +437,9 @@ export default function TripagerHome() {
                   <img className="img-fluid" alt="" src="sweetalert.png"></img>
                 </div>
                 <div className="member-info">
-                  <h4>Sweet Alert</h4>
+                  <h4>Sweet Alert2</h4>
                   <p>
-                    We opted for PostgreSQL to develop our database due to its
-                    exceptional scalability and reliability.
+                    We were very excited to use fellow Hack Reactor alumni's application to add flavor to our warning messages.
                   </p>
                   <div className="social">
                     <a
@@ -473,8 +463,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>CSS</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                   From the minor details to the big stuff, CSS styled Tripager from top to bottom; using CSS allowed us to ensure that all elements on the DOM looked cohesive and clean.
                   </p>
                   <div className="social">
                     <a
@@ -501,8 +490,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Redux </h4>
                   <p>
-                    We opted for PostgreSQL to develop our database due to its
-                    exceptional scalability and reliability.
+                    Redux was an essential technology in this application. Being able to manage a global state was a game changer.
                   </p>
                   <div className="social">
                     <a
@@ -526,8 +514,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Font Awesome</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                    Like it says in the title, we found some fonts, and they were in fact, awesome.
                   </p>
                   <div className="social">
                     <a
@@ -579,8 +566,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Canva</h4>
                   <p>
-                    We used Excalidraw in order to collaboratively design our
-                    wireframe.
+                    Canva was a helpful tool in brainstorming and re-sizing images.
                   </p>
                   <div className="social">
                     <a

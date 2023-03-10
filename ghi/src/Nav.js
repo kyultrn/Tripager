@@ -96,7 +96,9 @@ export default function Navbar() {
               <ul className="navbar-nav mr-auto">
                 <NavLink to="/thingstodo" style={{ textDecoration: "none" }}>
                   <li className="nav-item">
-                    <button className="nav-link">Things To Do</button>
+                    <button className="btn getstarted scrollto">
+                      Things To Do
+                    </button>
                   </li>
                 </NavLink>
               </ul>

@@ -3,7 +3,7 @@
 Today, our group completed our wireframe, tables and API endpoints. We verified all of our Gitlabs were working. We created working branches for each person -- mischaworking, etc. so that each person can feel comfortable committing their work consistently without fear of messing up the main branch. We did some research on the Yelp API and what the data was going to look like coming back as JSON. We created our journals, keys.py and are looking forward to starting to work on the back end together.
 
 ### Fri, Feb 12 2023
-We spent a good amount of time wondering whether or not we should go with Postgres or with MongoDB. We are going to do more research over the weekend and then when we get back Monday discuss it further. At this point, Riley thought we could do okay using either data base. 
+We spent a good amount of time wondering whether or not we should go with Postgres or with MongoDB. We are going to do more research over the weekend and then when we get back Monday discuss it further. At this point, Riley thought we could do okay using either data base.
 
 ### Mon, Feb 13 2023
 
@@ -49,11 +49,3 @@ On Wednesday, March 8 we worked really hard on creating events on our things to 
 
 ### Thurs, Mar 9, 2023
 Today we did a lot of CSS work. I also was able to fix the "Things to do" page. You are able to now use the things to do page if you are logged in or out. If you are not logged in, you will not see the "add to events" button which allows you to add the event to your trip events. We added a few videos to the background of our pages and Zach, Kyle and Andrew worked on the footer. I learned how to create CSS modules, which I wish I had learned about sooner becuase our index.css page is an absolute disaster.  I spent a long time de-bugging the create yelp events thing --- it seemed to be working at the end of the night, but then when I logged off Zoom I was unable to add events that were suggested from Yelp... I ended up figuring it out. I console-logged a bunch of things and eventually the issue was resolved.
-
-### Mon, Mar 13 2023
-
-### Tues, Mar 14 2023
-
-### Weds, Mar 15, 2023
-
-### Thurs, Mar 16, 2023

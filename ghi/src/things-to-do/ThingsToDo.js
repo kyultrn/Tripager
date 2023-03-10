@@ -13,7 +13,6 @@ import CreateYelpEventModal from "./CreateYelpEventModal";
 import styles from "./ThingsToDo.module.css";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
 import {
-  useGetThingsToDoQuery,
   useGetTokenQuery,
 } from "../store/ApiSlice";
 
@@ -120,6 +119,7 @@ export default function ThingsToDo() {
       </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
+        
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="term">Activity</label>
           <input
@@ -148,6 +148,38 @@ export default function ThingsToDo() {
           </Button>
         </form>
       </div>
+            <div>
+        <div>
+          <h1 className={styles.excurs_words_container}>
+            Don't know what to do? Play Excursion Roulette!
+          </h1>
+        </div>
+        <div className={styles.form_container}>
+          <div className={styles.form}>
+            <form>
+              <label htmlFor="location">Location</label>
+              <input
+                onChange={handleRouletteInputChange}
+                value={rouletteData.location}
+                placeholder="City, State, Zipcode"
+                required
+                type="text"
+                name="location"
+                id="location"
+                className="form-control"
+              />
+              <Button
+                onClick={handleRouletteSubmit}
+                className="btn btn-secondary"
+                variant="primary"
+              >
+                I'm Feeling lucky
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+
 
       <div className={styles.cards}>
         <Row className="g-4 justify-content-center">
@@ -202,37 +234,6 @@ export default function ThingsToDo() {
         </Row>
       </div>
 
-      <div>
-        <div>
-          <h1 className={styles.excurs_words_container}>
-            Don't know what to do? Play Excursion Roulette!
-          </h1>
-        </div>
-        <div className={styles.form_container}>
-          <div className={styles.form}>
-            <form>
-              <label htmlFor="location">Location</label>
-              <input
-                onChange={handleRouletteInputChange}
-                value={rouletteData.location}
-                placeholder="City, State, Zipcode"
-                required
-                type="text"
-                name="location"
-                id="location"
-                className="form-control"
-              />
-              <Button
-                onClick={handleRouletteSubmit}
-                className="btn btn-secondary"
-                variant="primary"
-              >
-                I'm Feeling lucky
-              </Button>
-            </form>
-          </div>
-        </div>
-      </div>
 
       <div className="cloudVideo">
         <video

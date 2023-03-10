@@ -11,7 +11,6 @@ import {
   setSelectedEventId,
 } from "../store/eventModalSlice";
 import UpdateEventModal from "./UpdateEventModal";
-import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
@@ -90,8 +89,9 @@ export default function Events() {
       {isCreateModalOpen && <CreateEventModal />}
       <h1 className="eventsH1">Events for {trip.name}</h1>
       <Button
-        className="createEventButton"
-        variant="light"
+        className="btn createTripButton"
+        variant="outline-dark"
+        size="lg"
         onClick={handleCreateOpenModal}
       >
         Create Event
@@ -131,6 +131,7 @@ export default function Events() {
                       </Button>{" "}
                       <Button
                         className="deleteButtonEvents"
+                        style={{ zIndex: 100 }}
                         variant="danger"
                         onClick={() => {
                           Swal.fire({
