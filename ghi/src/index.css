@@ -411,6 +411,15 @@ video {
   width: 50%;
 }
 
+.ri-linkedin-box-fill {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 50%;
+}
+
 .ri-instagram-fill {
   background-image: url("https://seeklogo.com/images/G/gitlab-logo-757620E430-seeklogo.com.png");
   background-position: center;
