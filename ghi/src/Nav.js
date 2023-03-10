@@ -13,8 +13,6 @@ export default function Navbar() {
   const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 
-  console.log("location.pathname: ", location.pathname);
-
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
