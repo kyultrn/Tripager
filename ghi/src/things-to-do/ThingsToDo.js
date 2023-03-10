@@ -116,6 +116,7 @@ export default function ThingsToDo() {
       </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
+        
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="term">Activity</label>
           <input

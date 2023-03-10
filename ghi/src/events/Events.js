@@ -131,6 +131,7 @@ export default function Events() {
                       </Button>{" "}
                       <Button
                         className="deleteButtonEvents"
+                        style={{ zIndex: 100 }}
                         variant="danger"
                         onClick={() => {
                           Swal.fire({
