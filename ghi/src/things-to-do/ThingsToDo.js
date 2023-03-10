@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   openCreateEventModal,
   setSelectedBusiness,
+  setBusinessDataFetched,
 } from "../store/eventModalSlice";
 import CreateYelpEventModal from "./CreateYelpEventModal";
 import styles from "./ThingsToDo.module.css";
@@ -59,6 +60,7 @@ export default function ThingsToDo() {
     );
     if (response.ok) {
       const data = await response.json();
+      dispatch(setBusinessDataFetched(true));
       setBusiness(data);
     }
   };
@@ -90,6 +92,7 @@ export default function ThingsToDo() {
     );
     if (response.ok) {
       const data = await response.json();
+      dispatch(setBusinessDataFetched(true));
       setBusiness(data);
     }
   };
