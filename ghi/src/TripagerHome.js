@@ -76,9 +76,10 @@ export default function TripagerHome() {
                   <span>Developer</span>
                   <p>
                     Zach Dempsey is a software engineer based in Dubuque, Iowa.
-                    Zach is passionate about helping others and furthering his education.
-                    When Zach isn't home working on a project,
-                    you can find him doing maintenance for an Area Residential Care apartment.
+                    Zach is passionate about helping others and furthering his
+                    education. When Zach isn't home working on a project, you
+                    can find him doing maintenance for an Area Residential Care
+                    apartment.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/ZacharyD">
@@ -244,8 +245,32 @@ export default function TripagerHome() {
           <div className="section-title">
             <h2 className="teamH2">Technologies</h2>
           </div>
+          <div className="" data-aos="zoom-in" data-aos-delay="100">
+            <div className="members d-flex align-items-start">
+              <div className="pic">
+                <img src="galv.png" className="img-fluid" alt=""></img>
+              </div>
+              <div className="member-info">
+                <h4>Hack Reactor</h4>
+                <p>
+                  We chose the best boot camp on the market for a reason. Take a
+                  look at what we've created and you'll understand why!
+                </p>
+                <div className="social">
+                  <a
+                    className="tech-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.hackreactor.com/"
+                  >
+                    Excalidraw.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="excalidraw.png" className="img-fluid" alt=""></img>
@@ -253,7 +278,9 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Excalidraw</h4>
                   <p>
-                    We collaborated extensively during the development of Tripager. Excalidraw was instrumental when wire-framing, and kept the team on track when implementing design.
+                    We collaborated extensively during the development of
+                    Tripager. Excalidraw was instrumental when wire-framing, and
+                    kept the team on track when implementing design.
                   </p>
                   <div className="social">
                     <a
@@ -269,11 +296,7 @@ export default function TripagerHome() {
               </div>
             </div>
 
-            <div
-              className="col-lg-6 mt-4 mt-lg-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="postgre.png" className="img-fluid" alt=""></img>
@@ -298,7 +321,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="bootstrap.png" className="img-fluid" alt=""></img>
@@ -307,7 +330,9 @@ export default function TripagerHome() {
                   <h4>Bootstrap</h4>
                   <p>
                     We implemented Bootstrap for it's powerful and flexible
-                    framework capabilities. We used native Bootstrap templates as a jumping off point for many elements and were grateful to have access to the library.
+                    framework capabilities. We used native Bootstrap templates
+                    as a jumping off point for many elements and were grateful
+                    to have access to the library.
                   </p>
                   <div className="social">
                     <a
@@ -321,11 +346,7 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-6 mt-4 mt-lg-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="react.png" className="img-fluid" alt=""></img>
@@ -333,7 +354,10 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>React</h4>
                   <p>
-                    Known for its simplicity, flexibility, reuseability and performance, React's library did not dissapoint us. We used React almost everywhere to build the seamless user experience.
+                    Known for its simplicity, flexibility, reuseability and
+                    performance, React's library did not dissapoint us. We used
+                    React almost everywhere to build the seamless user
+                    experience.
                   </p>
                   <div className="social">
                     <a
@@ -349,7 +373,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="Fastapi.png" className="img-fluid" alt=""></img>
@@ -357,7 +381,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>FastAPI</h4>
                   <p>
-                    We used FastAPI to help us build our application quickly and efficiently.
+                    We used FastAPI to help us build our application quickly and
+                    efficiently.
                   </p>
                   <div className="social">
                     <a
@@ -372,7 +397,7 @@ export default function TripagerHome() {
               </div>
             </div>
 
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img
@@ -384,7 +409,9 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Yelp fusion</h4>
                   <p>
-                    Using Yelp Fusion's API, Tripager users are able to search for fun activities, create them as events and add them to their trips.
+                    Using Yelp Fusion's API, Tripager users are able to search
+                    for fun activities, create them as events and add them to
+                    their trips.
                   </p>
                   <div className="social">
                     <a
@@ -400,7 +427,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img
@@ -412,7 +439,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Flat-Icon</h4>
                   <p>
-                    We used Flat-Icon to spruce up our users interactive experience when they delete and update events and trips.
+                    We used Flat-Icon to spruce up our users interactive
+                    experience when they delete and update events and trips.
                   </p>
                   <div className="social">
                     <a
@@ -427,11 +455,7 @@ export default function TripagerHome() {
               </div>
             </div>
 
-            <div
-              className="col-lg-6 mt-4 mt-lg-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img className="img-fluid" alt="" src="sweetalert.png"></img>
@@ -439,7 +463,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Sweet Alert2</h4>
                   <p>
-                    We were very excited to use fellow Hack Reactor alumni's application to add flavor to our warning messages.
+                    We were very excited to use fellow Hack Reactor alumni's
+                    application to add flavor to our warning messages.
                   </p>
                   <div className="social">
                     <a
@@ -455,7 +480,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="css.png" className="img-fluid" alt=""></img>
@@ -463,7 +488,9 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>CSS</h4>
                   <p>
-                  From the minor details to the big stuff, CSS styled Tripager from top to bottom; using CSS allowed us to ensure that all elements on the DOM looked cohesive and clean.
+                    From the minor details to the big stuff, CSS styled Tripager
+                    from top to bottom; using CSS allowed us to ensure that all
+                    elements on the DOM looked cohesive and clean.
                   </p>
                   <div className="social">
                     <a
@@ -478,11 +505,7 @@ export default function TripagerHome() {
               </div>
             </div>
 
-            <div
-              className="col-lg-6 mt-4 mt-lg-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="redux.png" className="img-fluid" alt=""></img>
@@ -490,7 +513,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Redux </h4>
                   <p>
-                    Redux was an essential technology in this application. Being able to manage a global state was a game changer.
+                    Redux was an essential technology in this application. Being
+                    able to manage a global state was a game changer.
                   </p>
                   <div className="social">
                     <a
@@ -506,7 +530,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="font.png" className="img-fluid" alt=""></img>
@@ -514,7 +538,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Font Awesome</h4>
                   <p>
-                    Like it says in the title, we found some fonts, and they were in fact, awesome.
+                    Like it says in the title, we found some fonts, and they
+                    were in fact, awesome.
                   </p>
                   <div className="social">
                     <a
@@ -529,11 +554,7 @@ export default function TripagerHome() {
               </div>
             </div>
 
-            <div
-              className="col-lg-6 mt-4 mt-lg-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
+            <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="docker.png" className="img-fluid" alt=""></img>
@@ -558,7 +579,7 @@ export default function TripagerHome() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
                   <img src="canva.png" className="img-fluid" alt=""></img>
@@ -566,7 +587,8 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <h4>Canva</h4>
                   <p>
-                    Canva was a helpful tool in brainstorming and re-sizing images.
+                    Canva was a helpful tool in brainstorming and re-sizing
+                    images.
                   </p>
                   <div className="social">
                     <a
@@ -580,25 +602,28 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-              <div className="members tech-padding d-flex align-items-start">
+            <div className="" data-aos="zoom-in" data-aos-delay="100">
+              <div className="members d-flex align-items-start">
                 <div className="pic">
-                  <img src="galv.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="data:image/png;base64,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"
+                    className="img-fluid"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  <h4>Hack Reactor</h4>
+                  <h4>Swagger UI</h4>
                   <p>
-                    We chose the best boot camp on the market for a reason. Take
-                    a look at what we've created and you'll understand why!
+                    Swagger UI was crucial in testing and debuggingg our API
+                    endpoints.
                   </p>
                   <div className="social">
                     <a
                       target="_blank"
                       rel="noreferrer"
-                      href="https://www.hackreactor.com/"
+                      href="https://swagger.io/tools/swagger-ui/"
                     >
-                      HackReactor.com
+                      Swagger.io
                     </a>
                   </div>
                 </div>
