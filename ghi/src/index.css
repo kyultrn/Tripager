@@ -440,7 +440,7 @@ video {
 .team .member {
   position: relative;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 40px;
   border-radius: 5px;
   background: #ffffff97;
   transition: 0.5s;
@@ -459,9 +459,9 @@ video {
   text-align: justify;
 }
 
-.team .member .pic {
+.team .member .img-fluids {
   overflow: hidden;
-  width: 180px;
+  max-width: 200px;
   border-radius: 50%;
 }
 
@@ -589,7 +589,6 @@ video {
 
 /* ========== about tripager ============ */
 #aboutTripager {
-  padding-top: 20vh;
   padding-bottom: 20vh;
   position: relative;
   background-color: rgba(255, 255, 255, 0) !important;
@@ -599,7 +598,7 @@ video {
 
 /* ========== technologies ============ */
 #technologies {
-  padding-top: 20vh;
+  /* padding-top: 20vh; */
   padding-bottom: 20vh;
   position: relative;
   background-color: #f3f5fa00 !important;

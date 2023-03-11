@@ -64,10 +64,10 @@ export default function TripagerHome() {
           <div className="row">
             <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
               <div className="member d-flex align-items-start">
-                <div className="pic">
+                <div className="">
                   <img
                     src="https://ca.slack-edge.com/T040E31DKM2-U0454C7BHFU-99c4dd22836e-512"
-                    className="img-fluid"
+                    className="img-fluids"
                     alt=""
                   ></img>
                 </div>
@@ -76,8 +76,9 @@ export default function TripagerHome() {
                   <span>Developer</span>
                   <p>
                     Zach Dempsey is a software engineer based in Dubuque, Iowa.
-                    When he is not coding, you can find him at comedy shows and
-                    finding the best pizza in town.
+                    Zach is passionate about helping others and furthering his education.
+                    When Zach isn't home working on a project,
+                    you can find him doing maintenance for an Area Residential Care apartment.
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/ZacharyD">
@@ -101,10 +102,10 @@ export default function TripagerHome() {
               data-aos-delay="200"
             >
               <div className="member d-flex align-items-start">
-                <div className="pic">
+                <div className="">
                   <img
                     src="https://ca.slack-edge.com/T040E31DKM2-U0451DEU5NZ-c262217f78ab-512"
-                    className="img-fluid"
+                    className="img-fluids"
                     alt=""
                   ></img>
                 </div>
@@ -138,10 +139,10 @@ export default function TripagerHome() {
               data-aos-delay="300"
             >
               <div className="member d-flex align-items-start">
-                <div className="pic">
+                <div className="">
                   <img
                     src="https://ca.slack-edge.com/T040E31DKM2-U045YF9PLEL-1b6e4bb2be44-512"
-                    className="img-fluid"
+                    className="img-fluids"
                     alt=""
                   ></img>
                 </div>
@@ -175,10 +176,10 @@ export default function TripagerHome() {
               data-aos-delay="400"
             >
               <div className="member d-flex align-items-start">
-                <div className="pic">
+                <div className="">
                   <img
                     src="https://ca.slack-edge.com/T040E31DKM2-U04549KTVNX-f6da417b708b-512"
-                    className="img-fluid"
+                    className="img-fluids"
                     alt=""
                   ></img>
                 </div>
