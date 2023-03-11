@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useUpdateTripMutation, useGetTripQuery } from "../store/ApiSlice";
 
-export default function UpdateTripModal() {
+export default function UpdateTripModal({open, handleClose}) {
   const isUpdateModalOpen = useSelector(
     (state) => state.tripModal.isModalOpen.updateModal
   );
@@ -33,7 +33,7 @@ export default function UpdateTripModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateTrip({ formData, selectedTripId });
-    dispatch(closeUpdateTripModal());
+    handleClose();
   };
 
   useEffect(() => {
@@ -48,6 +48,8 @@ export default function UpdateTripModal() {
     }
   }, [trip]);
 
+
+
   if (!formData || tripLoading) {
     return (
       <>
@@ -57,8 +59,8 @@ export default function UpdateTripModal() {
   }
 
   return (
-    <div className={`modal ${isUpdateModalOpen ? "is-active" : ""}`}>
-      <Modal show={isUpdateModalOpen} onHide={handleCloseModal}>
+    <div className={`modal ${open ? "is-active" : ""}`}>
+      <Modal show={open} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Update Trip</Modal.Title>
         </Modal.Header>

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import Button from "react-bootstrap/Button";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4"
+import { useState } from "react";
 
 import {
   openCreateTripModal,
@@ -15,16 +16,12 @@ import {
   useGetTripsQuery,
   useGetTokenQuery,
   useDeleteTripMutation,
-  // useUpdateTripMutation,
 } from "../store/ApiSlice";
 
 export default function Trips() {
   const { data, isLoading } = useGetTripsQuery();
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
   const [deleteTrip] = useDeleteTripMutation();
-  // , { deleteError }
-  // const [updateTrip, { updateError }] = useUpdateTripMutation();
-  // const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const dispatch = useDispatch();
   const isCreateModalOpen = useSelector(
@@ -59,6 +56,16 @@ export default function Trips() {
       year: "numeric",
       timeZone: "UTC",
     });
+  };
+
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = (tripId) => {
+    setOpen(true);
+    dispatch(setSelectedTripId(tripId));
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
 
   if (tokenData) {
@@ -112,7 +119,7 @@ export default function Trips() {
                     )}`}</span>
                     <button
                       type="button"
-                      onClick={() => handleUpdateOpenModal(trip.id)}
+                      onClick={() => handleOpen(trip.id)}
                       className="btn btn-red btn-sm text-center"
                       style={{ marginLeft: "55%" }}
                     >
@@ -144,11 +151,11 @@ export default function Trips() {
                     >
                       Delete
                     </button>
-                    {isUpdateModalOpen && <UpdateTripModal />}{" "}
                   </div>
                 </span>
               </div>
             ))}
+            {open && <UpdateTripModal open={open} handleClose={handleClose}/>}{" "}
           </div>
         ) : (
           <div>No trips</div>
