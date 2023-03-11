@@ -60,7 +60,6 @@ export default function TripagerHome() {
           <div className="section-title">
             <h2 className="teamH2">Team</h2>
           </div>
-
           <div className="row">
             <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
               <div className="member d-flex align-items-start">
@@ -133,7 +132,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div
               className="col-lg-6 mt-4"
               data-aos="zoom-in"
@@ -211,7 +209,6 @@ export default function TripagerHome() {
           </div>
         </div>
       </section>
-
       {/* //About tripager */}
       <section id="aboutTripager" className="team section-bg">
         <div className="container" data-aos="fade-up">
@@ -238,7 +235,6 @@ export default function TripagerHome() {
           </div>
         </div>
       </section>
-
       {/* //Technologies */}
       <section id="technologies" className="team section-bg">
         <div className="container" data-aos="fade-up">
@@ -269,7 +265,6 @@ export default function TripagerHome() {
               </div>
             </div>
           </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -295,7 +290,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -319,8 +313,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -345,7 +337,6 @@ export default function TripagerHome() {
                   </div>
                 </div>
               </div>
-            </div>
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -371,8 +362,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -396,7 +385,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -425,8 +413,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -454,7 +440,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -478,8 +463,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -504,7 +487,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -528,8 +510,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -553,7 +533,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members d-flex align-items-start">
                 <div className="pic">
@@ -577,8 +556,6 @@ export default function TripagerHome() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members d-flex align-items-start">
                 <div className="pic">
