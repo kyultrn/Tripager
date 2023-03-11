@@ -919,7 +919,7 @@ h2 {
   text-align: left;
   height: 110px;
   width: 100px; /* adjusted from 200px */
-  border-radius: 30%; /* adjusted from 200px */
+  border-radius: 50%; /* adjusted from 200px */
   overflow: hidden; /* added to ensure image is circular */
 }
 
@@ -927,11 +927,6 @@ h2 {
   height: 100%;
   width: 100%;
   object-fit:fill /* added to ensure image fits inside the circular container */
-}
-
-
-.team .members .member-info {
-
 }
 
 .team .members h4 {
