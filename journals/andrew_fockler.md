@@ -5,7 +5,7 @@
 ### Fri, Feb 10 2023
 
 ### Mon, Feb 13 2023
-
+Today we presented our project and got some feedback to help with our idea. We made some modifications to our wireframe and spent a some time brainstorming other ideas.
 ### Tues, Feb 14 2023
 
 ### Weds, Feb 15 2023
@@ -31,13 +31,15 @@ Another long day but we are still moving along. Kyle never fails to let down the
 ### Thurs, Mar 2 2023
 
 ### Mon, Mar 6 2023
-
+Today we all wrote some unit tests. We made a unit test for almost every route and then ended up finding out that we only needed 4 but better to check them all anyways!
 ### Tues, Mar 7 2023
-
+We continued working on more bugs and small css problems. Pretty much been working on a lot of css throughout this week. Realizing how much of a pain css can be as there are so many things you can do with styling.
 ### Weds, Mar 8, 2023
 
 ### Thurs, Mar 9, 2023
-
+We created a carousel for our events and spent a lot of time on css. We have realized how much extra css we had that we didn't really need and it was causing conflicting errors. 
+### Fri, March 10, 2023
+Today we finished cleaning up the app and made some slight css changes. We did a small presentation for Jimmy to show our apps functionality. We submitted our final project and look forward to studying for the exam over the weekend.
 ### Mon, Mar 13 2023
 
 ### Tues, Mar 14 2023

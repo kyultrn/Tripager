@@ -95,6 +95,6 @@ To fully enjoy this Tripager on your local machine, please make sure to follow t
 2. CD into the new project directory
 3. Run `docker volume create tripager-data`
 4. Run `docker compose build`
-5. Run docker compose up
-6. Run docker exec -it tripager-api-1 bash
+5. Run `docker compose up`
+6. Run `docker exec -it tripager-api-1 bash`
 7. Exit the container's CLI, and enjoy Tripager to its fullest!
