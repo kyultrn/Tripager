@@ -109,7 +109,7 @@ class AccountQueries:
                         ]
                     )
                     return self.account_in_to_out(account_id, account)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not update account"}
 
     def get_all(self) -> Union[Error, List[AccountOut]]:
@@ -133,7 +133,7 @@ class AccountQueries:
                         )
                         result.append(account)
                     return result
-        except Exception as e:
+        except Exception:
             return {"message": "Could not receive all accounts"}
 
     def delete(self, account_id: int) -> bool:
@@ -148,7 +148,7 @@ class AccountQueries:
                         [account_id]
                     )
                     return True
-        except Exception as e:
+        except Exception:
             return False
 
     def account_in_to_out(self, id: int, account: AccountIn):

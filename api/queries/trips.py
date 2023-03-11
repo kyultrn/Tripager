@@ -53,7 +53,7 @@ class TripQueries:
                     id = result.fetchone()[0]
                     old_data = trip.dict()
                     return TripOut(id=id, **old_data)
-        except Exception as e:
+        except Exception:
             return {"message": "Couldn't create trip!"}
 
     def get_all_trips(self) -> Union[Error, List[TripOut]]:
@@ -85,7 +85,7 @@ class TripQueries:
                         )
                         result.append(trip)
                     return result
-        except Exception as e:
+        except Exception:
             return({"message": "Could not get trip data!"})
 
     def get_trips_by_id(self, account_id: int):
@@ -120,7 +120,7 @@ class TripQueries:
                         )
                         result.append(trip)
                     return result
-        except Exception as e:
+        except Exception:
             return({"message": "Could not get trip data!"})
 
     def get_trip(self, trip_id: int) -> Optional[TripOut]:
@@ -139,7 +139,7 @@ class TripQueries:
                     if record is None:
                         return None
                     return self.record_to_trip_out(record)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not get that trip"}
 
     def update_trip(self, trip_id: int, trip: TripIn) -> Union[TripOut, Error]:
@@ -166,7 +166,7 @@ class TripQueries:
                         ]
                     )
                     return self.trip_in_to_out(trip_id, trip)
-        except Exception as e:
+        except Exception:
             return {"message": "Could not update that trip."}
 
     def delete_trip(self, trip_id: int) -> bool:
@@ -181,7 +181,7 @@ class TripQueries:
                         [trip_id]
                     )
                     return True
-        except Exception as e:
+        except Exception:
             return False
 
     def trip_in_to_out(self, id: int, trip: TripIn):
