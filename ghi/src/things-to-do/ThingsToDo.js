@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -165,13 +164,13 @@ export default function ThingsToDo() {
                 id="location"
                 className="form-control"
               />
-              <Button
+              <button
                 onClick={handleRouletteSubmit}
                 className="btn btn-secondary"
                 variant="primary"
               >
                 I'm Feeling lucky
-              </Button>
+              </button>
             </form>
           </div>
         </div>
@@ -206,18 +205,18 @@ export default function ThingsToDo() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button className="btn btn-secondary" variant="primary">
+                        <button className="btn btn-secondary" variant="primary">
                           Get details
-                        </Button>
+                        </button>
                       </a>
                       {tokenData ? (
-                        <Button
+                        <button
                           onClick={handleCreateOpenModal(business)}
                           className="btn btn-secondary"
                           variant="primary"
                         >
                           Add to events
-                        </Button>
+                        </button>
                       ) : (
                         <div></div>
                       )}

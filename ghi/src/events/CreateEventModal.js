@@ -88,9 +88,9 @@ export default function CreateEventModal() {
                 onChange={handleInputChange}
               />
               <Modal.Footer>
-                <Button className="btn btn-secondary" type="submit">
+                <button className="btn btn-secondary" type="submit">
                   Create
-                </Button>
+                </button>
               </Modal.Footer>
             </Form>
           </Modal.Body>

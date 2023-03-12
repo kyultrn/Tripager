@@ -132,7 +132,7 @@ body {
 }
 
 .btn {
-  cursor: pointer;
+  cursor: url(./images/ButtonHoverCursor.png), auto;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 0.65rem;
@@ -144,6 +144,7 @@ body {
   border: none;
 }
 .btn:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
   background-color: #0d0d0d;
 }
 .btn:focus {
