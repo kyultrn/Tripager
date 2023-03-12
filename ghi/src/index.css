@@ -1,5 +1,9 @@
-.html {
-  cursor: url(./images/UpdatedCursor.png), auto;
+html {
+  cursor: url(./images/planeCursor.png), auto;
+}
+
+.btn:hover {
+  cursor: url(./images/ButtonHoverCursor.png), auto;
 }
 
 body {
@@ -312,10 +316,6 @@ video {
 
 .fadeIn {
   animation: fadeIn forwards 1s !important;
-}
-
-.tripDeleteButton:hover {
-  color: rgba(255, 117, 117, 0.726);
 }
 
 .oldTD a:hover {

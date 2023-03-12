@@ -116,7 +116,7 @@ export default function ThingsToDo() {
       </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
-        
+
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="term">Activity</label>
           <input
@@ -140,9 +140,9 @@ export default function ThingsToDo() {
             id="location"
             className="form-control"
           />
-          <Button className="btn-secondary" type="submit">
+          <button className="btn btn-secondary" type="submit">
             Submit
-          </Button>
+          </button>
         </form>
       </div>
             <div>

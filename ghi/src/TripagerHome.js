@@ -82,14 +82,14 @@ export default function TripagerHome() {
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/ZacharyD">
-                      <i className="ri-instagram-fill"></i>
+                      <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/in/zdempsey/"
                     >
                       {" "}
-                      <i className="ri-linkedin-box-fill"></i>{" "}
+                      <i className="btn ri-linkedin-box-fill"></i>{" "}
                     </a>
                   </div>
                 </div>
@@ -119,14 +119,14 @@ export default function TripagerHome() {
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Afockler4">
-                      <i className="ri-instagram-fill"></i>
+                      <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/in/andrew-fockler/"
                     >
                       {" "}
-                      <i className="ri-linkedin-box-fill"></i>{" "}
+                      <i className="btn ri-linkedin-box-fill"></i>{" "}
                     </a>
                   </div>
                 </div>
@@ -156,14 +156,14 @@ export default function TripagerHome() {
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/mischadani2">
-                      <i className="ri-instagram-fill"></i>
+                      <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/in/mischadani/"
                     >
                       {" "}
-                      <i className="ri-linkedin-box-fill"></i>{" "}
+                      <i className="btn ri-linkedin-box-fill"></i>{" "}
                     </a>
                   </div>
                 </div>
@@ -193,14 +193,14 @@ export default function TripagerHome() {
                   </p>
                   <div className="social">
                     <a target="_blank" href="https://gitlab.com/Kyull">
-                      <i className="ri-instagram-fill"></i>
+                      <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
                       href="https://www.linkedin.com/in/kyle-trann/"
                     >
                       {" "}
-                      <i className="ri-linkedin-box-fill"></i>{" "}
+                      <i className="btn ri-linkedin-box-fill"></i>{" "}
                     </a>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ export default function TripagerHome() {
                     rel="noreferrer"
                     href="https://www.hackreactor.com/"
                   >
-                    Excalidraw.com
+                    Hackreactor.com
                   </a>
                 </div>
               </div>

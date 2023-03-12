@@ -88,7 +88,7 @@ export default function Trips() {
             <div className="TripManagerText">Trip Manager</div>
             <div className="col-sm-6 text-right">
               <Button
-                className="btn createTripButton"
+                className="createTripButton"
                 variant="outline-dark"
                 size="lg"
                 onClick={handleCreateOpenModal}
@@ -118,7 +118,6 @@ export default function Trips() {
                       trip.end_date
                     )}`}</span>
                     <button
-                      type="button"
                       onClick={() => handleOpen(trip.id)}
                       className="btn btn-red btn-sm text-center"
                       style={{ marginLeft: "55%" }}
