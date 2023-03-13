@@ -88,14 +88,14 @@ export default function Events() {
     <div className="eventsContainer" style={{ marginBottom: "60px" }}>
       {isCreateModalOpen && <CreateEventModal />}
       <h1 className="eventsH1">Events for {trip.name}</h1>
-      <Button
+      <button
         className="btn createTripButton"
         variant="outline-dark"
         size="lg"
         onClick={handleCreateOpenModal}
       >
         Create Event
-      </Button>
+      </button>
       {tokenData && events.length > 0 ? (
         <Carousel interval={null}>
           {pages.map((page, index) => (
@@ -122,15 +122,15 @@ export default function Events() {
                       <Card.Text>{`Endtime: ${formatTime(
                         event.end_time
                       )}`}</Card.Text>
-                      <Button
-                        className="editButtonEvents"
+                      <button
+                        className="btn editButtonEvents"
                         variant="secondary"
                         onClick={() => handleUpdateOpenModal(event.id)}
                       >
                         Edit
-                      </Button>{" "}
-                      <Button
-                        className="deleteButtonEvents"
+                      </button>{" "}
+                      <button
+                        className="btn deleteButtonEvents"
                         style={{ zIndex: 100 }}
                         variant="danger"
                         onClick={() => {
@@ -155,7 +155,7 @@ export default function Events() {
                         }}
                       >
                         Delete
-                      </Button>
+                      </button>
                     </Card.Body>
                   </Card>
                 ))}

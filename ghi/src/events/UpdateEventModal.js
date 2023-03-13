@@ -122,9 +122,9 @@ export default function UpdateEventModal() {
                 onChange={handleInputChange}
               />
               <Modal.Footer>
-                <Button className="btn btn-secondary" type="submit">
+                <button className="btn btn-secondary" type="submit">
                   Update
-                </Button>
+                </button>
               </Modal.Footer>
             </Form>
           </Modal.Body>
