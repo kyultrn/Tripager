@@ -34,9 +34,12 @@ class EventQueries:
                         INSERT INTO events
                                 (name,
                                 description,
-                                location, date,
-                                start_time, end_time,
-                                picture_url, trip_id)
+                                location, 
+                                date,
+                                start_time, 
+                                end_time,
+                                picture_url, 
+                                trip_id)
                         VALUES
                                 (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
