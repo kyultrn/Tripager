@@ -925,6 +925,7 @@ h2 {
   width: 100px; /* adjusted from 200px */
   border-radius: 50%; /* adjusted from 200px */
   overflow: hidden; /* added to ensure image is circular */
+
 }
 
 .team .members .img-fluid {
@@ -933,10 +934,11 @@ h2 {
   object-fit:fill /* added to ensure image fits inside the circular container */
 }
 
+.bolded { font-weight: bold; }
 
 .team .members .img-fluid2 {
   height: 100%;
-  width: 100%;
+  max-width: 50%;
   object-fit:fill /* added to ensure image fits inside the circular container */
 }
 .team .members h4 {
