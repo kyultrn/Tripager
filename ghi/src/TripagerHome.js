@@ -3,7 +3,7 @@ import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
-import paper_airplane from "./paper_airplane.png"
+// import paper_airplane from "./paper_airplane.png"
 import plane from "./plane.png"
 
 export default function TripagerHome() {

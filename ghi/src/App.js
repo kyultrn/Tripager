@@ -11,10 +11,14 @@ import Footer from "./footer/Footer.js";
 
 
 export default function App() {
+  const domain = /https:\/\/[^/]+/;
+
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
+
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Navbar />
         <div className="container" style={{ maxWidth: '100%', padding: '0'}}>
           <Routes>
