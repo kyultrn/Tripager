@@ -3,6 +3,8 @@ import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
+import paper_airplane from "./paper_airplane.png"
+import plane from "./plane.png"
 
 export default function TripagerHome() {
   const navigate = useNavigate();
@@ -46,11 +48,13 @@ export default function TripagerHome() {
           <a>weather is loading</a>
         )}
         <div className={styles.hero_homepage_text}>
+          <img className="plane-image" src={plane} alt="Plane Image"></img>
           <h1 className={`${styles.h1_homepage_text} text`}>Tripager</h1>
           <h2 className={`${styles.h2_homepage_text} text-center`}>
             Plan and manage your next trip here.
           </h2>
         </div>
+        <div></div>
         <VideoCarousel />
       </section>
 
@@ -613,9 +617,9 @@ export default function TripagerHome() {
                 <div className="member-info">
                   {/* <h4>Hack Reactor</h4> */}
                   <p>
-                    <span class="bolded">Hack Reactor</span> is the best
-                    boot camp on the market for a reason. Take a look at what
-                    we've created and you'll understand why!
+                    <span class="bolded">Hack Reactor</span> is the best boot
+                    camp on the market for a reason. Take a look at what we've
+                    created and you'll understand why!
                   </p>
                   <div className="social">
                     {/* <a

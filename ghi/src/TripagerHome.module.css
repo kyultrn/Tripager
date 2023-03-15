@@ -8,14 +8,25 @@ display: flex;
 }
 
 .h1_homepage_text {
-    font-size: 60px;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    font-family: 'Satisfy', cursive;
 }
 
 .h2_homepage_text {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 
-.trip_video_container {
-    
+.paper_airplane {
+    size: 40px;
+    padding-left: 225px;
+}
+
+
+.plane-image {
+  position: absolute;
+  left: 50px; /* adjust this value to move the image horizontally */
+  top: 100px; /* adjust this value to move the image vertically */
 }
