@@ -6,7 +6,7 @@ import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
 import ThingsToDo from "./things-to-do/ThingsToDo";
-import Footer from "./footer/Footer.js";
+// import Footer from "./footer/Footer.js";
 
 
 

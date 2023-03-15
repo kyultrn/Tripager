@@ -1,32 +1,18 @@
 .hero_homepage_text {
 display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     transform: translateY(-52%);
     z-index: 100;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .h1_homepage_text {
-    font-size: 80px;
-    display: flex;
-    align-items: center;
+    font-size: 90px;
     font-family: 'Satisfy', cursive;
 }
 
 .h2_homepage_text {
-    font-size: 40px;
-}
+    font-size: 30px;
 
-
-.paper_airplane {
-    size: 40px;
-    padding-left: 225px;
-}
-
-
-.plane-image {
-  position: absolute;
-  left: 50px; /* adjust this value to move the image horizontally */
-  top: 100px; /* adjust this value to move the image vertically */
 }

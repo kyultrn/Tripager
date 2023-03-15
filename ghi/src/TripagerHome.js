@@ -3,7 +3,6 @@ import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
-// import paper_airplane from "./paper_airplane.png"
 import plane from "./plane.png"
 
 export default function TripagerHome() {
@@ -48,11 +47,11 @@ export default function TripagerHome() {
           <a>weather is loading</a>
         )}
         <div className={styles.hero_homepage_text}>
-          <img className="plane-image" src={plane} alt="Plane Image"></img>
           <h1 className={`${styles.h1_homepage_text} text`}>Tripager</h1>
           <h2 className={`${styles.h2_homepage_text} text-center`}>
             Plan and manage your next trip here.
           </h2>
+          <img src={plane}></img>
         </div>
         <div></div>
         <VideoCarousel />
@@ -274,141 +273,91 @@ export default function TripagerHome() {
           <div className="" data-aos="zoom-in" data-aos-delay="100">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="6_Fastapi.png" className="img-fluid" alt=""></img>
+                <img src="6_Fastapi.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
                 {/* <h4>FastAPI</h4> */}
                 <p>
-                  <span class="bolded">FastAPI</span> was used to build the back
-                  end of our application quickly and efficiently.
+                  <span className="bolded">FastAPI</span> was used to build the
+                  back end of our application quickly and efficiently.
                 </p>
-                <div className="social">
-                  {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://fastapi.tiangolo.com/"
-                    >
-                      FastAPI.tiangolo.com
-                    </a> */}
-                </div>
+
+                <div className="social"></div>
               </div>
             </div>
           </div>
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="7_postgres.png" className="img-fluid2" alt=""></img>
+                <img src="7_postgres.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
-                {/* <h4>PostgreSQL</h4> */}
                 <p>
-                  <span class="bolded">PostgreSQL</span> was our database sysyem
-                  of choice due to ts exceptional scalability and reliability.
+                  <span className="bolded">PostgreSQL</span> was our database
+                  sysyem of choice due to ts exceptional scalability and
+                  reliability.
                 </p>
-                <div className="social">
-                  {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://www.postgresql.org/"
-                    >
-                      PostgreSQL.org
-                    </a> */}
-                </div>
+                <div className="social"></div>
               </div>
             </div>
           </div>
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="12_react.png" className="img-fluid" alt=""></img>
+                <img src="12_react.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
-                {/* <h4>React</h4> */}
-                <p>
-                  <span class="bolded">React</span>, known for simplicity,
-                  flexibility and performance, didn't dissapoint. It is used on
-                  almost every page to create a seamless user experience.
-                </p>
-                <div className="social">
-                  {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://reactjs.org/"
-                    >
-                      React.org
-                    </a> */}
-                </div>
+                <span className="bolded">React</span>, known for simplicity,
+                flexibility and performance, didn't dissapoint. It is used on
+                almost every page to create a seamless user experience.
+                <div className="social"></div>
               </div>
             </div>
           </div>
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="2_redux.png" className="img-fluid" alt=""></img>
+                <img src="2_Redux.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
-                {/* <h4>Redux </h4> */}
                 <p>
-                  <span class="bolded">Redux</span> was an essential technology
-                  used in this app; managing global state was a game changer.
+                  <span className="bolded">Redux</span> was an essential
+                  technology used in this app; managing global state was a game
+                  changer.
                 </p>
-                <div className="social">
-                  {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://redux.js.org/"
-                    >
-                      Redux.js.org
-                    </a> */}
-                </div>
+                <div className="social"></div>
               </div>
             </div>
           </div>
           <div className="" data-aos="zoom-in" data-aos-delay="100">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="8_bootstrap.png" className="img-fluid" alt=""></img>
+                <img
+                  src="8_Bootstrap.png"
+                  className="img-fluid-new"
+                  alt=""
+                ></img>
               </div>
               <div className="member-info">
-                {/* <h4>Bootstrap</h4> */}
                 <p>
-                  <span class="bolded">Bootstrap</span> was implemented for it's
-                  powerful framework capabilities. We used native templates as
-                  jumping off points for many elements.
+                  <span className="bolded">Bootstrap</span> was implemented for
+                  it's powerful framework capabilities. We used native templates
+                  as jumping off points for many elements.
                 </p>
-                <div className="social">
-                  {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://getbootstrap.com/"
-                    >
-                      Bootstrap.com
-                    </a> */}
-                </div>
               </div>
             </div>
 
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="3_yelp.png" className="img-fluid" alt=""></img>
+                  <img src="3_yelp.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Yelp Fusion</h4> */}
                   <p>
-                    <span class="bolded">Yelp Fusion API</span> was an
+                    <span className="bolded">Yelp Fusion API</span> was an
                     outstanding API. Tripager users are able to search for fun
                     activities and create events using Yelp Fusion data.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://docs.developer.yelp.com/"
-                    >
-                      Yelpfusion.com
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
@@ -416,24 +365,14 @@ export default function TripagerHome() {
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="13_css.png" className="img-fluid" alt=""></img>
+                  <img src="13_css.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>CSS</h4> */}
                   <p>
-                    <span class="bolded">CSS</span> allowed us to ensure that
-                    all elements on the DOM looked cohesive and clean. We used
-                    CSS to style Tripager from top to bottom!
+                    <span className="bolded">CSS</span> allowed us to ensure
+                    that all elements on the DOM looked cohesive and clean. We
+                    used CSS to style Tripager from top to bottom!
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://www.w3schools.com/css/"
-                    >
-                      W3schools.com
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
@@ -441,46 +380,35 @@ export default function TripagerHome() {
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="10_docker.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="10_docker.png"
+                    className="img-fluid-new"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Docker</h4> */}
                   <p>
-                    <span class="bolded">Docker</span> ensured the application
-                    development environment was standardized for each engineer.
+                    <span className="bolded">Docker</span> ensured the
+                    application development environment was standardized for
+                    each engineer.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://www.adobe.com/products/premiere.html"
-                    >
-                      Adobe.com
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="15_swagger.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="15_swagger.png"
+                    className="img-fluid-new"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Swagger UI</h4> */}
                   <p>
-                    <span class="bolded">Swagger UI</span> was crucial in
+                    <span className="bolded">Swagger UI</span> was crucial in
                     testing and debuggingg our API endpoints.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://swagger.io/tools/swagger-ui/"
-                    >
-                      Swagger.io
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
@@ -488,49 +416,34 @@ export default function TripagerHome() {
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
                   <img
-                    className="img-fluid"
+                    className="img-fluid-new"
                     alt=""
                     src="14_sweetalert.png"
                   ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Sweet Alert2</h4> */}
                   <p>
-                    <span class="bolded">SweetAlert2</span>, fellow Hack Reactor
-                    alumni's application, adds flavor to our warning messages.
+                    <span className="bolded">SweetAlert2</span>, fellow Hack
+                    Reactor alumni's application, adds flavor to our warning
+                    messages.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://sweetalert2.github.io/"
-                    >
-                      SweetAlert2.github
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="5_flaticon.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="5_flaticon.png"
+                    className="img-fluid-new"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Flat-Icon</h4> */}
                   <p>
-                    <span class="bolded">Flat-Icon</span> was used to spruce up
-                    the interactive user experience.
+                    <span className="bolded">Flat-Icon</span> was used to spruce
+                    up the interactive user experience.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://www.flaticon.com/"
-                    >
-                      Flaticon.com
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
@@ -539,39 +452,28 @@ export default function TripagerHome() {
                 <div className="pic">
                   <img
                     src="9_Excalidraw.png"
-                    className="img-fluid"
+                    className="img-fluid-new"
                     alt=""
                   ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Excalidraw</h4> */}
                   <p>
-                    <span class="bolded">Excalidraw</span>
-                    was instrumental when creating the wire-frame for Tripager.
+                    We collaborated extensively during the development of
+                    Tripager. Excalidraw was instrumental when creating the
+                    wire-frame.
                   </p>
-                  <div className="social">
-                    {/* <a
-                      className="tech-link"
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://excalidraw.com/"
-                    >
-                      Excalidraw.com
-                    </a> */}
-                  </div>
                 </div>
               </div>
             </div>
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="4_font.png" className="img-fluid" alt=""></img>
+                  <img src="4_font.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Font Awesome</h4> */}
                   <p>
-                    <span class="bolded">Font Awesome</span>'s fonts were just
-                    like the name implies, they were in fact, awesome.
+                    <span className="bolded">Font Awesome</span>'s fonts were
+                    just like the name implies, they were in fact, awesome.
                   </p>
                   <div className="social">
                     {/* <a
@@ -589,13 +491,16 @@ export default function TripagerHome() {
             <div className="" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="11_canva.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="11_canva.png"
+                    className="img-fluid-new"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Canva</h4> */}
                   <p>
-                    <span class="bolded">Canva</span> was a helpful tool in
-                    brainstorming ideas, collaging and re-sizing images.
+                    <span className="bolded">Canva</span> was a helpful
+                    tool in brainstorming ideas, collaging and re-sizing images.
                   </p>
                   <div className="social">
                     {/* <a
@@ -612,14 +517,17 @@ export default function TripagerHome() {
             <div className="" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="1_HR.png" className="img-fluid" alt=""></img>
+                  <img
+                    src="1_1_1_HR.png"
+                    className="img-fluid-new"
+                    alt=""
+                  ></img>
                 </div>
                 <div className="member-info">
-                  {/* <h4>Hack Reactor</h4> */}
                   <p>
-                    <span class="bolded">Hack Reactor</span> is the best boot
-                    camp on the market for a reason. Take a look at what we've
-                    created and you'll understand why!
+                    <span className="bolded">Hack Reactor</span> is the best
+                    boot camp on the market for a reason. Take a look at what
+                    we've created and you'll understand why!
                   </p>
                   <div className="social">
                     {/* <a
