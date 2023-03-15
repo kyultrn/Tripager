@@ -18,8 +18,6 @@ export function eventEndpoints(builder){
           method: "post",
         }),
         invalidatesTags: ["EventsList"],
-        onSuccess: (result, { dispatch, queryFulfilled }) => {
-        },
       }),
       deleteEvent: builder.mutation({
         query: (data) => ({

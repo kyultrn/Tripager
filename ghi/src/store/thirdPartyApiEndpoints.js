@@ -1,4 +1,5 @@
 export function thirdPartyApiEndpoints(builder){
+  
     return {
       getThingsToDo: builder.query({
         query: (term, location) => ({

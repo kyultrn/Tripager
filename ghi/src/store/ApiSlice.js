@@ -7,6 +7,7 @@ import { thirdPartyApiEndpoints } from "./thirdPartyApiEndpoints";
 const initialState = {
   trips: []
 }
+
 export const tripagerApi = createApi({
   reducerPath: "api",
   initialState,
@@ -41,20 +42,16 @@ export const {
   useUserLogoutMutation,
   useUserSignupMutation,
   useUserUpdateMutation,
-
   useGetTripQuery,
   useGetTripsQuery,
   useCreateTripMutation,
   useDeleteTripMutation,
   useUpdateTripMutation,
-
   useGetEventsQuery,
   useGetEventQuery,
   useCreateEventMutation,
   useDeleteEventMutation,
   useUpdateEventMutation,
-
   useGetThingsToDoQuery,
   useGetWeatherDataQuery,
-
 } = tripagerApi;
