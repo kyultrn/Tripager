@@ -18,7 +18,7 @@ tripager-unit-test-job:
   needs:
     - lint-test-job
   script:
-    - cd tripager
+    - cd api
     - pip install -r requirements.txt
     - python -m pytest
 
