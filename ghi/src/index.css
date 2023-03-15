@@ -355,8 +355,8 @@ video {
 }
 
   #hero h2 {
-    line-height: 24px;
-    margin-bottom: 30px;
+    line-height: 40px;
+    margin-bottom: -134px;
   }
 
   #hero .hero-img img {
@@ -927,10 +927,10 @@ h2 {
   overflow: hidden; /* added to ensure image is circular */
 }
 
-.team .members .img-fluid {
-  height: 100%;
-  width: 100%;
-  object-fit:fill /* added to ensure image fits inside the circular container */
+.team .members .img-fluid .new {
+    max-width: 30px;
+    height: 30px;
+/* added to ensure image fits inside the circular container */
 }
 
 
