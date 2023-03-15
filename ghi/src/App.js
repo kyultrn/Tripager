@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Login from "./accounts/Login";
+import Login from "./accounts/Login.js";
 import Navbar from "./Nav.js";
 import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
