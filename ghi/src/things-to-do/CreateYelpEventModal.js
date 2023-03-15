@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  closeCreateEventModal,
-  resetFormData,
-} from "../store/eventModalSlice";
+import {closeCreateEventModal, resetFormData } from "../store/eventModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useCreateEventMutation } from "../store/ApiSlice";

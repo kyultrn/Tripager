@@ -115,7 +115,6 @@ export default function ThingsToDo() {
       </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
-
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="term">Activity</label>
           <input
@@ -139,16 +138,35 @@ export default function ThingsToDo() {
             id="location"
             className="form-control"
           />
-          <button className="btn btn-secondary" type="submit">
-            Submit
-          </button>
+          <div className="submit-button-container">
+            <button className="btn btn-secondary submit-button" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
-            <div>
-        <div>
-          <h1 className={styles.excurs_words_container}>
-            Don't know what to do? Play Excursion Roulette!
-          </h1>
+      <div>
+        <div className="roulette-container roulette-box">
+          <div className="blinking-text">
+            <span>E</span>
+            <span>X</span>
+            <span>C</span>
+            <span>U</span>
+            <span>R</span>
+            <span>S</span>
+            <span>I</span>
+            <span>O</span>
+            <span>N</span>
+            <span> </span>
+            <span>R</span>
+            <span>O</span>
+            <span>U</span>
+            <span>L</span>
+            <span>E</span>
+            <span>T</span>
+            <span>T</span>
+            <span>E</span>
+          </div>
         </div>
         <div className={styles.form_container}>
           <div className={styles.form}>
@@ -164,13 +182,15 @@ export default function ThingsToDo() {
                 id="location"
                 className="form-control"
               />
-              <button
-                onClick={handleRouletteSubmit}
-                className="btn btn-secondary"
-                variant="primary"
-              >
-                I'm Feeling lucky
-              </button>
+              <div className="submit-button-container">
+                <button
+                  onClick={handleRouletteSubmit}
+                  className="btn btn-secondary submit-button"
+                  variant="primary"
+                >
+                  I'm Feeling Lucky!
+                </button>
+              </div>
             </form>
           </div>
         </div>

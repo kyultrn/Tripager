@@ -925,6 +925,7 @@ h2 {
   width: 100px; /* adjusted from 200px */
   border-radius: 50%; /* adjusted from 200px */
   overflow: hidden; /* added to ensure image is circular */
+
 }
 
 .team .members .img-fluid {
@@ -933,10 +934,11 @@ h2 {
   object-fit:fill /* added to ensure image fits inside the circular container */
 }
 
+.bolded { font-weight: bold; }
 
 .team .members .img-fluid2 {
   height: 100%;
-  width: 100%;
+  max-width: 50%;
   object-fit:fill /* added to ensure image fits inside the circular container */
 }
 .team .members h4 {
@@ -1099,3 +1101,118 @@ h2 {
 .button-38:focus-visible {
   box-shadow: none;
 }
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.submit-button {
+  margin-top: 20px;
+  background-color: rgba(137, 137, 137, 0) !important;
+  color: black !important;
+  transition: 0.3s;
+  /* Add a box-shadow for the glow effect */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+.submit-button:hover {
+  /* Change the box-shadow on hover to create the glow effect */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.roulette-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blinking-text {
+  display: inline-block;
+  font-size: 48px;
+}
+
+.blinking-text span {
+  opacity: 1;
+  animation: blink 6s linear infinite;
+}
+
+.blinking-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.blinking-text span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.blinking-text span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.blinking-text span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.blinking-text span:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.blinking-text span:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+.blinking-text span:nth-child(8) {
+  animation-delay: 1.4s;
+}
+
+.blinking-text span:nth-child(9) {
+  animation-delay: 1.6s;
+}
+
+.blinking-text span:nth-child(10) {
+  animation-delay: 1.8s;
+}
+
+.blinking-text span:nth-child(11) {
+  animation-delay: 2.0s;
+}
+
+.blinking-text span:nth-child(12) {
+  animation-delay: 2.2s;
+}
+
+.blinking-text span:nth-child(13) {
+  animation-delay: 2.4s;
+}
+
+.blinking-text span:nth-child(14) {
+  animation-delay: 2.6s;
+}
+
+.blinking-text span:nth-child(15) {
+  animation-delay: 2.8s;
+}
+
+.blinking-text span:nth-child(16) {
+  animation-delay: 3.0s;
+}
+
+.blinking-text span:nth-child(17) {
+  animation-delay: 3.2s;
+}
+
+.blinking-text span:nth-child(18) {
+  animation-delay: 3.4s;
+}
+
+@keyframes blink {
+  0%, 37.5%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
