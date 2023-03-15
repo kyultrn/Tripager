@@ -34,11 +34,11 @@ class EventQueries:
                         INSERT INTO events
                                 (name,
                                 description,
-                                location, 
+                                location,
                                 date,
-                                start_time, 
+                                start_time,
                                 end_time,
-                                picture_url, 
+                                picture_url,
                                 trip_id)
                         VALUES
                                 (%s, %s, %s, %s, %s, %s, %s, %s)

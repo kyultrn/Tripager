@@ -86,7 +86,7 @@ class TripQueries:
                         result.append(trip)
                     return result
         except Exception:
-            return({"message": "Could not get trip data!"})
+            return ({"message": "Could not get trip data!"})
 
     def get_trips_by_id(self, account_id: int):
         try:
@@ -121,7 +121,7 @@ class TripQueries:
                         result.append(trip)
                     return result
         except Exception:
-            return({"message": "Could not get trip data!"})
+            return ({"message": "Could not get trip data!"})
 
     def get_trip(self, trip_id: int) -> Optional[TripOut]:
         try:
