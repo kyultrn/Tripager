@@ -18,13 +18,12 @@ import {
 import mainhd from "./videos/mainhd.mp4";
 
 export default function Login() {
-  // const { data: token, isLoading } = useGetTokenQuery();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const formData = useSelector(selectSignUpFormData);
   const [login, { data }] = useUserLoginMutation();
   const [signup] = useUserSignupMutation();
-  // const [fadeIn, setFadeIn] = useState("");
+  const [setFadeIn] = useState("");
   const email = useSelector((state) => state.accountForm.loginForm.email);
   const password = useSelector((state) => state.accountForm.loginForm.password);
   const isSignUpModalOpen = useSelector(
