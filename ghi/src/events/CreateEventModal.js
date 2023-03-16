@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { closeCreateEventModal, selectEventFormData, updateFormData, resetFormData } from "../store/eventModalSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { useCreateEventMutation } from "../store/ApiSlice";
 
 export default function CreateEventModal() {
@@ -11,7 +11,7 @@ export default function CreateEventModal() {
     const formData = useSelector(selectEventFormData);
     const dispatch = useDispatch();
 
-    const [createEvent, result] = useCreateEventMutation();
+    const [createEvent] = useCreateEventMutation();
     const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
 
     const handleInputChange = (e) => {

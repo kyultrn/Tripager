@@ -13,8 +13,8 @@ export default function CreateYelpEventModal() {
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const isCreateModalOpen = useSelector((state) => state.eventModal.isModalOpen.createModal);
   const dispatch = useDispatch();
-  const [createEvent, result] = useCreateEventMutation();
-  
+  const [createEvent] = useCreateEventMutation();
+
   const [formData, setFormData] = useState({
     name: selectedBusiness.name,
     description: "",
