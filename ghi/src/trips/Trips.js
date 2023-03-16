@@ -31,10 +31,6 @@ export default function Trips() {
     dispatch(openCreateTripModal());
   };
 
-  const handleUpdateOpenModal = (tripId) => {
-    dispatch(openUpdateTripModal());
-    dispatch(setSelectedTripId(tripId));
-  };
 
   const handleDeleteTrip = async (tripId) => {
     try {

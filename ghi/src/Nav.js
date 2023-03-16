@@ -8,7 +8,7 @@ export default function Navbar() {
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const navigate = useNavigate();
   const location = useLocation();
-  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
+  const { data: token } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 
   const handleLogout = (e) => {
