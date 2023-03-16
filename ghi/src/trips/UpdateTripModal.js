@@ -6,9 +6,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useUpdateTripMutation, useGetTripQuery } from "../store/ApiSlice";
 
 export default function UpdateTripModal({open, handleClose}) {
-  const isUpdateModalOpen = useSelector(
-    (state) => state.tripModal.isModalOpen.updateModal
-  );
+
   const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const [formData, setFormData] = useState();
   const { data: trip, isLoading: tripLoading } =
@@ -26,9 +24,7 @@ export default function UpdateTripModal({open, handleClose}) {
     });
   };
 
-  const handleCloseModal = () => {
-    dispatch(closeUpdateTripModal());
-  };
+  dispatch(closeUpdateTripModal());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +42,7 @@ export default function UpdateTripModal({open, handleClose}) {
         "end_date": trip.end_date,
       });
     }
-  }, [trip]);
+  }, [trip, formData]);
 
 
 

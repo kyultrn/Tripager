@@ -1,13 +1,9 @@
-// import { useNavigate } from "react-router-dom";
-// import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
 import plane from "./plane.png"
 
 export default function TripagerHome() {
-  // const navigate = useNavigate();
-  // const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);

@@ -23,7 +23,7 @@ export default function Events() {
   const dispatch = useDispatch();
 
   const { data: events, isLoading } = useGetEventsQuery(tripId);
-  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  const { data: tokenData } = useGetTokenQuery();
 
   const { data: trip, isLoading: tripLoading } = useGetTripQuery(tripId);
 
