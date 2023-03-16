@@ -52,7 +52,7 @@ export default function UpdateEventModal() {
                 "end_time": event.end_time,
         })
         }
-    }, [event])
+    }, [event, formData])
 
     if (!formData || eventLoading ) {
         return (

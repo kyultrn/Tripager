@@ -6,8 +6,7 @@ import {
   resetFormData,
   closeCreateTripModal,
 } from "../store/tripModalSlice";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { useCreateTripMutation } from "../store/ApiSlice";
 
 export default function CreateTripModal() {
@@ -16,7 +15,7 @@ export default function CreateTripModal() {
   );
   const formData = useSelector(selectTripFormData);
   const dispatch = useDispatch();
-  const [createTrip, result] = useCreateTripMutation();
+  const [createTrip] = useCreateTripMutation();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

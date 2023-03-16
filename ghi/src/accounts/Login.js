@@ -18,7 +18,7 @@ import {
 import mainhd from "./videos/mainhd.mp4";
 
 export default function Login() {
-  const { data: token, isLoading } = useGetTokenQuery();
+  // const { data: token, isLoading } = useGetTokenQuery();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const formData = useSelector(selectSignUpFormData);

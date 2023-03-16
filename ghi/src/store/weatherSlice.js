@@ -22,4 +22,4 @@ const weatherSlice = createSlice({
 
 export const { setCoordinatesData, setTempIconData } = weatherSlice.actions;
 export const weatherSliceReducer = weatherSlice.reducer;
-export default { weatherSliceReducer };
+export default weatherSliceReducer;
