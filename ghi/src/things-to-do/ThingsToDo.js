@@ -11,9 +11,7 @@ import {
 import CreateYelpEventModal from "./CreateYelpEventModal";
 import styles from "./ThingsToDo.module.css";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
-import {
-  useGetTokenQuery,
-} from "../store/ApiSlice";
+import { useGetTokenQuery } from "../store/ApiSlice";
 
 export default function ThingsToDo() {
   const [formData, setFormData] = useState({
@@ -21,7 +19,8 @@ export default function ThingsToDo() {
     location: "",
   });
 
-  const [businesses, setBusiness] = useState([]);
+  const [businesses, setBusinesses] = useState([]);
+  const [business, setBusiness] = useState([]);
   const dispatch = useDispatch();
 
   const isCreateModalOpen = useSelector(
@@ -60,7 +59,8 @@ export default function ThingsToDo() {
     if (response.ok) {
       const data = await response.json();
       dispatch(setBusinessDataFetched(true));
-      setBusiness(data);
+      setBusinesses(data);
+      setBusiness(false);
     }
   };
 
@@ -84,7 +84,7 @@ export default function ThingsToDo() {
     });
 
     const response = await fetch(
-      `http://localhost:8000/api/businesses?${params.toString()}`,
+      `http://localhost:8000/api/business?${params.toString()}`,
       {
         method: "GET",
       }
@@ -93,6 +93,7 @@ export default function ThingsToDo() {
       const data = await response.json();
       dispatch(setBusinessDataFetched(true));
       setBusiness(data);
+      setBusinesses(false);
     }
   };
 
@@ -111,7 +112,22 @@ export default function ThingsToDo() {
   return (
     <>
       <div>
-        <h1 className={styles.title_ttd}>Things to do</h1>
+        <div className="roulette-container roulette-box">
+          <div className="blinking-text">
+            <span>T</span>
+            <span>h</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+            <span>s</span>
+            <span> </span>
+            <span>t</span>
+            <span>o</span>
+            <span> </span>
+            <span>d</span>
+            <span>o</span>
+          </div>
+        </div>
       </div>
       {isCreateModalOpen && <CreateYelpEventModal />}
       <div className={styles.form_container}>
@@ -146,26 +162,34 @@ export default function ThingsToDo() {
         </form>
       </div>
       <div>
-        <div className="roulette-container roulette-box">
-          <div className="blinking-text">
-            <span>E</span>
-            <span>X</span>
-            <span>C</span>
-            <span>U</span>
-            <span>R</span>
-            <span>S</span>
-            <span>I</span>
-            <span>O</span>
-            <span>N</span>
-            <span> </span>
-            <span>R</span>
-            <span>O</span>
-            <span>U</span>
-            <span>L</span>
-            <span>E</span>
-            <span>T</span>
-            <span>T</span>
-            <span>E</span>
+        <div>
+          <div className="roulette-container roulette-box">
+            <div className="blinking-text">
+              <span>P</span>
+              <span>l</span>
+              <span>a</span>
+              <span>y</span>
+              <span> </span>
+              <span>E</span>
+              <span>x</span>
+              <span>c</span>
+              <span>u</span>
+              <span>r</span>
+              <span>s</span>
+              <span>i</span>
+              <span>o</span>
+              <span>n</span>
+              <span> </span>
+              <span>R</span>
+              <span>o</span>
+              <span>u</span>
+              <span>l</span>
+              <span>e</span>
+              <span>t</span>
+              <span>t</span>
+              <span>e</span>
+              <span>!</span>
+            </div>
           </div>
         </div>
         <div className={styles.form_container}>
@@ -201,6 +225,64 @@ export default function ThingsToDo() {
             businesses.businesses?.map((business) => (
               <Col key={business.id}>
                 <Card style={{ width: "19rem", height: "430px" }}>
+                  <Card.Img
+                    variant="top"
+                    src={business.image_url}
+                    style={{ height: "250px", objectFit: "cover" }}
+                  />
+                  <Card.Body
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Card.Title>{business.name}</Card.Title>
+                    <Card.Text>
+                      {business.location.address1},{business.location.address3}{" "}
+                      {business.location.city}, {business.location.zip_code},{" "}
+                      {business.location.country}, {business.location.state}
+                    </Card.Text>
+                    <div style={{ height: "60px" }}>
+                      <a
+                        href={business.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button className="btn btn-secondary" variant="primary">
+                          Get details
+                        </button>
+                      </a>
+                      {tokenData ? (
+                        <button
+                          onClick={handleCreateOpenModal(business)}
+                          className="btn btn-secondary"
+                          variant="primary"
+                        >
+                          Add to events
+                        </button>
+                      ) : (
+                        <div></div>
+                      )}
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+        </Row>
+      </div>
+      <div className={styles.cards}>
+        <Row className="g-4 justify-content-center">
+          {business &&
+            business.businesses?.map((business) => (
+              <Col key={business.id}>
+                <Card
+                  style={{
+                    width: "19rem",
+                    height: "430px",
+                    marginLeft: "35px",
+                  }}
+                >
                   <Card.Img
                     variant="top"
                     src={business.image_url}

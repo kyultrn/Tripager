@@ -5,8 +5,9 @@ import Navbar from "./Nav.js";
 import TripagerHome from "./TripagerHome.js";
 import Trips from "./trips/Trips.js";
 import Events from "./events/Events.js";
-import ThingsToDo from "./things-to-do/ThingsToDo";
+import ThingsToDo from "./things-to-do/ThingsToDo.js";
 // import Footer from "./footer/Footer.js";
+import SignUp from "./accounts/Signup.js";
 
 
 
@@ -27,6 +28,8 @@ export default function App() {
             <Route path="/trips" element={<Trips />} />
             <Route path="/trips/:id/events" element={<Events />} />
             <Route path="/thingstodo" element={<ThingsToDo />} />
+            <Route path="/signup" element={<SignUp />} />
+
           </Routes>
         </div>
         {/* <Footer /> */}

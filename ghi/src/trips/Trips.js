@@ -88,7 +88,7 @@ export default function Trips() {
             <div className="TripManagerText">Trip Manager</div>
             <div className="col-sm-6 text-right">
               <button
-                className="btn createTripButton"
+                className="btn createTripButton trips-button1"
                 variant="outline-dark"
                 size="lg"
                 onClick={handleCreateOpenModal}

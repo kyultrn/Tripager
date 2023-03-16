@@ -212,7 +212,6 @@ export default function TripagerHome() {
           </div>
         </div>
       </section>
-      {/* //About tripager */}
       <section id="aboutTripager" className="team section-bg">
         <div className="container" data-aos="fade-up">
           <div className="section-title">
@@ -232,13 +231,31 @@ export default function TripagerHome() {
                   search. If users don't feel like choosing an activity, they
                   can input a location and play "Excursion Roulette". Tripager
                   will provide new and exciting choices for you!
+                  <div>
+                    <span className="bolded">
+                      Check out our latest commercial below!
+                    </span>
+                  </div>
+                  <div className="embed-responsive embed-responsive-16by9">
+                    <iframe
+                      title="My Video"
+                      className="embed-responsive-item"
+                      src="https://www.youtube.com/embed/WlZYluFrsVs"
+                      allowFullScreen
+                      style={{
+                        width: "1233px",
+                        height: "650px",
+                        marginTop: "50px",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* //About tripager */}
+      {/* //About tripager
       <section id="aboutTripager" className="team section-bg">
         <div className="container" data-aos="fade-up">
           <div className="section-title">
@@ -262,8 +279,8 @@ export default function TripagerHome() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div> */}
+      {/* </section> */}
       {/* //Technologies */}
       <section id="technologies" className="team section-bg">
         <div className="container" data-aos="fade-up">
@@ -289,7 +306,11 @@ export default function TripagerHome() {
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="7_postgres.png" className="img-fluid-new" alt=""></img>
+                <img
+                  src="7_postgres.png"
+                  className="img-fluid-new"
+                  alt=""
+                ></img>
               </div>
               <div className="member-info">
                 <p>
@@ -458,9 +479,7 @@ export default function TripagerHome() {
                 </div>
                 <div className="member-info">
                   <p>
-                    We collaborated extensively during the development of
-                    Tripager. Excalidraw was instrumental when creating the
-                    wire-frame.
+                    <span className="bolded">Excalidraw</span> was instrumental when creating the wire-frame for Tripager.
                   </p>
                 </div>
               </div>
@@ -499,8 +518,8 @@ export default function TripagerHome() {
                 </div>
                 <div className="member-info">
                   <p>
-                    <span className="bolded">Canva</span> was a helpful
-                    tool in brainstorming ideas, collaging and re-sizing images.
+                    <span className="bolded">Canva</span> was a helpful tool in
+                    brainstorming ideas, collaging and re-sizing images.
                   </p>
                   <div className="social">
                     {/* <a

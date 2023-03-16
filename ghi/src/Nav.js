@@ -27,22 +27,24 @@ export default function Navbar() {
     navigate("/login");
   };
 
-  const isLoginOrSignUpPage = [
-    "/login",
-    "/signup",
-    "/trips",
-    `/trips/${selectedTripId}/events`,
-    "/thingstodo",
-    "/myaccount",
-  ].includes(location.pathname);
+  // const isLoginOrSignUpPage = [
+  //   "/login",
+  //   "/signup",
+  //   "/trips",
+  //   `/trips/${selectedTripId}/events`,
+  //   "/thingstodo",
+  //   "/myaccount",
+  // ].includes(location.pathname);
 
   return (
     <nav
       id="navbar"
       className="navbar navbar-expand-lg"
       style={{
-        backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit",
+        // backgroundColor: isLoginOrSignUpPage ? "#413E3F" : "inherit",
+        backgroundColor: "inherit",
         height: "80px",
+        position: "fixed",
       }}
     >
       <div className="container-fluid">

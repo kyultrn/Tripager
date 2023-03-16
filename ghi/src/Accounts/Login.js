@@ -1,67 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import {
-  useUserLoginMutation,
-  useGetTokenQuery,
-  useUserSignupMutation,
-} from "../store/ApiSlice";
+import React, { useEffect } from "react";
+import { useUserLoginMutation, useGetTokenQuery } from "../store/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import {
   updateLoginFormData,
   resetLoginFormData,
-  openSignUpModal,
-  selectSignUpFormData,
-  updateSignUpFormData,
-  resetSignUpFormData,
-  closeSignUpModal,
 } from "../store/AccountsSlice";
 import mainhd from "./videos/mainhd.mp4";
 
 export default function Login() {
-  const { data: token, isLoading } = useGetTokenQuery();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const formData = useSelector(selectSignUpFormData);
-  const [login, { data }] = useUserLoginMutation();
-  const [signup] = useUserSignupMutation();
-  const [fadeIn, setFadeIn] = useState("");
   const email = useSelector((state) => state.accountForm.loginForm.email);
   const password = useSelector((state) => state.accountForm.loginForm.password);
-  const isSignUpModalOpen = useSelector(
-    (state) => state.signUpModal.isSignUpModalOpen
-  );
+  const [login, { data, error: loginError }] = useUserLoginMutation();
 
-  const handleInputChange = (e, isSignUpForm, isEmail = false) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
-    dispatch(updateSignUpFormData({ name, value }));
     dispatch(updateLoginFormData({ name, value }));
   };
 
-  const handleSubmit = (e, isSignUpForm, clickedLogin = false) => {
-    if (clickedLogin && isSignUpForm) {
-      window.location.reload();
-    }
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (isSignUpForm) {
-      if (formData.name && formData.password && formData.email) {
-        dispatch(resetSignUpFormData());
-        dispatch(closeSignUpModal());
-        signup(formData);
-        navigate("/");
-      }
-    } else {
-      login({ email, password });
-      dispatch(resetLoginFormData());
-    }
+    login({ email, password });
+    dispatch(resetLoginFormData());
   };
 
-  const handleSignUpOpenModal = () => {
-    if (isSignUpModalOpen) {
-      handleSubmit(null, true);
-    } else {
-      setFadeIn("fadeIn");
-      dispatch(openSignUpModal());
-    }
+  const handleSignUpButton = (e) => {
+    e.preventDefault();
+    navigate("/signup");
   };
 
   useEffect(() => {
@@ -70,26 +38,34 @@ export default function Login() {
     }
   }, [data, navigate]);
 
+  useEffect(() => {
+    if (loginError && loginError.status == 422) {
+      Swal.fire({
+        icon: "error",
+        title: "There's an empty field my friend",
+        text: "Please enter both a password and an email",
+      }).then(() => {
+        window.location.reload();
+      });
+    } else if (loginError) {
+      Swal.fire({
+        icon: "error",
+        title: "Welp that's unfortunate",
+        text: "Incorrect password or email, or Account does not exist",
+      }).then(() => {
+        window.location.reload();
+      });
+    }
+  }, [loginError]);
+
   return (
     <React.Fragment>
-      <div className={isSignUpModalOpen ? "login-box" : "login-box"}>
-        <h2>{isSignUpModalOpen ? "Sign Up!" : "Login"}</h2>
+      <div className="login-box">
+        <h2>Login</h2>
         <form>
           <div className="user-box">
-            {isSignUpModalOpen && (
-              <input
-                onChange={(e) => handleInputChange(e, isSignUpModalOpen)}
-                value={formData.name}
-                placeholder={"Enter your name"}
-                required
-                type={"text"}
-                name={"name"}
-                className="form-control"
-              ></input>
-            )}
-
             <input
-              onChange={(e) => handleInputChange(e, isSignUpModalOpen)}
+              onChange={handleInputChange}
               value={email}
               placeholder={"Enter your email"}
               required
@@ -97,9 +73,8 @@ export default function Login() {
               name={"email"}
               className="form-control"
             ></input>
-
             <input
-              onChange={(e) => handleInputChange(e)}
+              onChange={handleInputChange}
               value={password}
               placeholder="Enter your password"
               required
@@ -109,33 +84,31 @@ export default function Login() {
               className="form-control"
             ></input>
           </div>
-          <a
-            className="loginButton"
-            href="#"
-            onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}
-          >
+          <a className="loginButton" href="#" onClick={handleSubmit}>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             {"Log in"}
           </a>
-
           <a
-            className="signUpButton"
-            href="#"
-            onClick={
-              !isSignUpModalOpen
-                ? handleSignUpOpenModal
-                : (e) => handleSubmit(e, isSignUpModalOpen)
-            }
+            className="loginButton"
+            onClick={handleSignUpButton}
+            style={{ marginLeft: "70px" }}
           >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            {"Sign Up!"}
+            {"Sign Up"}
           </a>
+          {loginError && (
+            <div className="error-message">
+              {loginError.status == 401
+                ? "Invalid email or password"
+                : "Something went wrong. Please try again later."}
+            </div>
+          )}
         </form>
       </div>
       <div className="cloudVideo">
