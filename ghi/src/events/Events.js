@@ -178,7 +178,7 @@ export default function Events() {
           ))}
         </Carousel>
       ) : (
-        <div>No event</div>
+        <div>No events</div>
       )}
       <div className="cloudVideo">
         <video
