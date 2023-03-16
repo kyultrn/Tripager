@@ -121,7 +121,11 @@ export default function TripagerHome() {
                     making protein shakes.
                   </p>
                   <div className="social">
-                    <a target="_blank" href="https://gitlab.com/Afockler4">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://gitlab.com/Afockler4"
+                    >
                       <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
@@ -289,7 +293,11 @@ export default function TripagerHome() {
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="7_postgres.png" className="img-fluid-new" alt=""></img>
+                <img
+                  src="7_postgres.png"
+                  className="img-fluid-new"
+                  alt=""
+                ></img>
               </div>
               <div className="member-info">
                 <p>
@@ -499,8 +507,8 @@ export default function TripagerHome() {
                 </div>
                 <div className="member-info">
                   <p>
-                    <span className="bolded">Canva</span> was a helpful
-                    tool in brainstorming ideas, collaging and re-sizing images.
+                    <span className="bolded">Canva</span> was a helpful tool in
+                    brainstorming ideas, collaging and re-sizing images.
                   </p>
                   <div className="social">
                     {/* <a
