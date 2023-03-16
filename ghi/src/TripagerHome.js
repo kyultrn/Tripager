@@ -5,10 +5,10 @@ import plane from "./plane.png"
 
 export default function TripagerHome() {
 
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-  const [temperature, setTemperature] = useState(null);
-  const [icon, setIcon] = useState("");
+  // const [latitude, setLatitude] = useState(null);
+  // const [longitude, setLongitude] = useState(null);
+  // const [temperature, setTemperature] = useState(null);
+  // const [icon, setIcon] = useState("");
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
