@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Events.module.css";
 import clouds from "./videos/summer_vacay_2.mp4";
-import Image from "react-bootstrap/Image";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
@@ -23,10 +22,10 @@ export default function Events() {
   const { id: tripId } = useParams();
   const dispatch = useDispatch();
 
-  const { data: events, error, isLoading } = useGetEventsQuery(tripId);
-  const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
+  const { data: events, isLoading } = useGetEventsQuery(tripId);
+  const { data: tokenData } = useGetTokenQuery();
   const { data: trip, isLoading: tripLoading } = useGetTripQuery(tripId);
-  const [deleteEvent, { deleteError }] = useDeleteEventMutation();
+  const [deleteEvent] = useDeleteEventMutation();
 
   const handleDeleteEvent = (tripId, eventId) => {
     deleteEvent({ tripId, eventId });
