@@ -42,7 +42,7 @@ const SignUp = () => {
         navigate("/");
       });
     }
-  }, [signUpSuccess]);
+  }, [signUpSuccess, dispatch, navigate]);
 
   useEffect(() => {
     if (signUpError) {
@@ -89,8 +89,8 @@ const SignUp = () => {
               name="password"
             />
           </div>
-          <a
-            className="loginButton"
+          <button
+            className="btn loginButton"
             onClick={handleSubmit}
             style={{ marginLeft: "90px" }}
           >
@@ -99,7 +99,7 @@ const SignUp = () => {
             <span></span>
             <span></span>
             {"Sign Up"}
-          </a>
+          </button>
         </form>
       </div>
       <div className="cloudVideo">

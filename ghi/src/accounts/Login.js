@@ -22,7 +22,7 @@ export default function Login() {
   const formData = useSelector(selectSignUpFormData);
   const [login, { data }] = useUserLoginMutation();
   const [signup] = useUserSignupMutation();
-  const [setFadeIn] = useState("");
+  // const [setFadeIn] = useState("");
   const email = useSelector((state) => state.accountForm.loginForm.email);
   const password = useSelector((state) => state.accountForm.loginForm.password);
   const isSignUpModalOpen = useSelector(
@@ -107,7 +107,7 @@ export default function Login() {
               className="form-control"
             ></input>
           </div>
-          <a
+          <button
             className="loginButton"
             href="#"
             onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}
@@ -117,9 +117,9 @@ export default function Login() {
             <span></span>
             <span></span>
             {"Log in"}
-          </a>
+          </button>
 
-          <a
+          <button
             className="signUpButton"
             href="#"
             onClick={
@@ -133,7 +133,7 @@ export default function Login() {
             <span></span>
             <span></span>
             {"Sign Up!"}
-          </a>
+          </button>
         </form>
       </div>
       <div className="cloudVideo">
