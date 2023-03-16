@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useGetTokenQuery, useUserLogoutMutation } from "./store/ApiSlice";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 export default function Navbar() {
-  // const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const navigate = useNavigate();
-  // const location = useLocation();
   const { data: token } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 

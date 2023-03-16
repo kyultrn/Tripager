@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import {
   useUserLoginMutation,
-  useGetTokenQuery,
   useUserSignupMutation,
 } from "../store/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,7 +57,7 @@ export default function Login() {
     if (isSignUpModalOpen) {
       handleSubmit(null, true);
     } else {
-      setFadeIn("fadeIn");
+      // setFadeIn("fadeIn");
       dispatch(openSignUpModal());
     }
   };
