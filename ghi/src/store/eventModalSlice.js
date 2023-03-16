@@ -79,4 +79,9 @@ export const {
 export const selectEventFormData = (state) => state.eventForm
 export const eventFormSliceReducer = eventFormSlice.reducer
 export const eventModalSliceReducer = eventModalSlice.reducer
-export default {eventFormSliceReducer, eventModalSliceReducer}
+
+const eventReducers = {
+    eventFormSliceReducer,
+    eventModalSliceReducer,
+};
+export default eventReducers;

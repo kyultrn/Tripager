@@ -61,4 +61,5 @@ export const { updateFormData, resetFormData, setSelectedTripId, changeToSelecte
 export const selectTripFormData = (state) => state.tripForm;
 export const tripFormSliceReducer = tripFormSlice.reducer;
 export const tripModalSliceReducer = tripModalSlice.reducer;
-export default { tripFormSliceReducer, tripModalSliceReducer };
+const tripReducers = { tripFormSliceReducer, tripModalSliceReducer };
+export default tripReducers
