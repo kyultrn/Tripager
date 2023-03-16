@@ -10,14 +10,14 @@ export default function TripagerHome() {
   // const [temperature, setTemperature] = useState(null);
   // const [icon, setIcon] = useState("");
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      },
-    );
-  }, []);
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       setLatitude(position.coords.latitude);
+  //       setLongitude(position.coords.longitude);
+  //     },
+  //   );
+  // }, []);
 
   // useEffect(() => {
   //   if (latitude && longitude) {
@@ -306,7 +306,7 @@ export default function TripagerHome() {
           <div className="" data-aos="zoom-in" data-aos-delay="100">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="6_Fastapi.png" className="img-fluid-new" alt=""></img>
+                <img src="6_FastAPI.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
                 {/* <h4>FastAPI</h4> */}
@@ -331,7 +331,7 @@ export default function TripagerHome() {
               <div className="member-info">
                 <p>
                   <span className="bolded">PostgreSQL</span> was our database
-                  sysyem of choice due to ts exceptional scalability and
+                  system of choice due to ts exceptional scalability and
                   reliability.
                 </p>
                 <div className="social"></div>
@@ -341,7 +341,7 @@ export default function TripagerHome() {
           <div className="" data-aos="zoom-in" data-aos-delay="200">
             <div className="members2 d-flex align-items-start">
               <div className="pic">
-                <img src="12_react.png" className="img-fluid-new" alt=""></img>
+                <img src="12_React.png" className="img-fluid-new" alt=""></img>
               </div>
               <div className="member-info">
                 <span className="bolded">React</span>, known for simplicity,
@@ -387,7 +387,7 @@ export default function TripagerHome() {
             <div className="" data-aos="zoom-in" data-aos-delay="200">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="3_yelp.png" className="img-fluid-new" alt=""></img>
+                  <img src="3_Yelp.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
                   <p>
@@ -402,7 +402,7 @@ export default function TripagerHome() {
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="13_css.png" className="img-fluid-new" alt=""></img>
+                  <img src="13_CSS.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
                   <p>
@@ -418,7 +418,7 @@ export default function TripagerHome() {
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
                   <img
-                    src="10_docker.png"
+                    src="10_Docker.png"
                     className="img-fluid-new"
                     alt=""
                   ></img>
@@ -436,7 +436,7 @@ export default function TripagerHome() {
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
                   <img
-                    src="15_swagger.png"
+                    src="15_Swagger.png"
                     className="img-fluid-new"
                     alt=""
                   ></img>
@@ -444,7 +444,7 @@ export default function TripagerHome() {
                 <div className="member-info">
                   <p>
                     <span className="bolded">Swagger UI</span> was crucial in
-                    testing and debuggingg our API endpoints.
+                    testing and debugging our API endpoints.
                   </p>
                 </div>
               </div>
@@ -455,7 +455,7 @@ export default function TripagerHome() {
                   <img
                     className="img-fluid-new"
                     alt=""
-                    src="14_sweetalert.png"
+                    src="14_SweetAlert.png"
                   ></img>
                 </div>
                 <div className="member-info">
@@ -471,7 +471,7 @@ export default function TripagerHome() {
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
                   <img
-                    src="5_flaticon.png"
+                    src="5_Flaticon.png"
                     className="img-fluid-new"
                     alt=""
                   ></img>
@@ -503,7 +503,7 @@ export default function TripagerHome() {
             <div className="" data-aos="zoom-in" data-aos-delay="100">
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
-                  <img src="4_font.png" className="img-fluid-new" alt=""></img>
+                  <img src="4_Font.png" className="img-fluid-new" alt=""></img>
                 </div>
                 <div className="member-info">
                   <p>
@@ -527,7 +527,7 @@ export default function TripagerHome() {
               <div className="members2 d-flex align-items-start">
                 <div className="pic">
                   <img
-                    src="11_canva.png"
+                    src="11_Canva.png"
                     className="img-fluid-new"
                     alt=""
                   ></img>
