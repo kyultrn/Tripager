@@ -13,16 +13,16 @@ import {
 import UpdateEventModal from "./UpdateEventModal";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4";
 
 export default function Events() {
-  const [deleteEvent, { deleteError }] = useDeleteEventMutation();
+  const [deleteEvent] = useDeleteEventMutation();
   const { id: tripId } = useParams();
 
   const dispatch = useDispatch();
 
-  const { data: events, error, isLoading } = useGetEventsQuery(tripId);
+  const { data: events, isLoading } = useGetEventsQuery(tripId);
   const { data: tokenData, isLoading: tokenLoading } = useGetTokenQuery();
 
   const { data: trip, isLoading: tripLoading } = useGetTripQuery(tripId);
