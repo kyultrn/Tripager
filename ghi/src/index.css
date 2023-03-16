@@ -1197,6 +1197,7 @@ h2 {
   animation-delay: 2.4s;
 }
 
+
 .blinking-text span:nth-child(14) {
   animation-delay: 2.6s;
 }
@@ -1262,7 +1263,7 @@ h2 {
   background-color: rgba(137, 137, 137, 0) !important;
   color: black !important;
   transition: 0.3s;
-  /* Add a box-shadow for the glow effect */
+  /* Add a box-shadow for the glow effect * test /
   box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
 
