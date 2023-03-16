@@ -8,7 +8,6 @@ import { useState } from "react";
 
 import {
   openCreateTripModal,
-  openUpdateTripModal,
   setSelectedTripId,
 } from "../store/tripModalSlice";
 import {
