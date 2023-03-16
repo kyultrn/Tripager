@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   useUserLoginMutation,
-  useGetTokenQuery,
+  // useGetTokenQuery,
   useUserSignupMutation,
 } from "../store/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +24,7 @@ export default function Login() {
   const formData = useSelector(selectSignUpFormData);
   const [login, { data }] = useUserLoginMutation();
   const [signup] = useUserSignupMutation();
-  const [fadeIn, setFadeIn] = useState("");
+  // const [fadeIn, setFadeIn] = useState("");
   const email = useSelector((state) => state.accountForm.loginForm.email);
   const password = useSelector((state) => state.accountForm.loginForm.password);
   const isSignUpModalOpen = useSelector(
@@ -59,7 +59,7 @@ export default function Login() {
     if (isSignUpModalOpen) {
       handleSubmit(null, true);
     } else {
-      setFadeIn("fadeIn");
+      // setFadeIn("fadeIn");
       dispatch(openSignUpModal());
     }
   };
@@ -109,9 +109,9 @@ export default function Login() {
               className="form-control"
             ></input>
           </div>
-          <a
+          <button
             className="btn loginButton"
-            href="/"
+            href="#"
             onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}
           >
             <span></span>
@@ -119,11 +119,11 @@ export default function Login() {
             <span></span>
             <span></span>
             {"Log in"}
-          </a>
+          </button>
 
-          <a
+          <button
             className="btn signUpButton"
-            href="/"
+            href="#"
             onClick={
               !isSignUpModalOpen
                 ? handleSignUpOpenModal
@@ -135,7 +135,7 @@ export default function Login() {
             <span></span>
             <span></span>
             {"Sign Up!"}
-          </a>
+          </button>
         </form>
       </div>
       <div className="cloudVideo">
