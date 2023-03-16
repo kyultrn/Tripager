@@ -19,17 +19,17 @@ export default function TripagerHome() {
     );
   }, []);
 
-  useEffect(() => {
-    if (latitude && longitude) {
-      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          setTemperature(data.current.temp_f);
-          setIcon(data.current.condition.icon);
-        })
-    }
-  }, [latitude, longitude]);
+  // useEffect(() => {
+  //   if (latitude && longitude) {
+  //     const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
+  //     fetch(url)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setTemperature(data.current.temp_f);
+  //         setIcon(data.current.condition.icon);
+  //       })
+  //   }
+  // }, [latitude, longitude]);
 
   return (
     <React.Fragment>
