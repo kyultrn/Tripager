@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Login from "./accounts/Login.js";
-import Navbar from "./Nav.js";
-import TripagerHome from "./TripagerHome.js";
-import Trips from "./trips/Trips.js";
-import Events from "./events/Events.js";
-import ThingsToDo from "./things-to-do/ThingsToDo.js";
+import Login from "./accounts/Login";
+import Navbar from "./Nav";
+import TripagerHome from "./TripagerHome";
+import Trips from "./trips/Trips";
+import Events from "./events/Events";
+import ThingsToDo from "./things-to-do/ThingsToDo";
 // import Footer from "./footer/Footer.js";
 import SignUp from "./accounts/Signup.js";
 

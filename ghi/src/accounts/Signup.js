@@ -50,8 +50,8 @@ const SignUp = () => {
         icon: "error",
         title: "Welp that's unfortunate",
         text:
-          "An error occurred while creating your account. Either that email is already associated with an account " +
-          "or you did not enter both an email and a password.",
+          "An error occurred while creating your account. An account possibly exists " +
+          "with that email already or you did not enter both a password and an email.",
       }).then(() => {
         window.location.reload();
       });

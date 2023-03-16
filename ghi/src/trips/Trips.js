@@ -3,13 +3,11 @@ import UpdateTripModal from "./UpdateTripModal";
 import CreateTripModal from "./CreateTripModal";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import Button from "react-bootstrap/Button";
 import summer_vacay_2 from "./videos/summer_vacay_2.mp4"
 import { useState } from "react";
 
 import {
   openCreateTripModal,
-  openUpdateTripModal,
   setSelectedTripId,
 } from "../store/tripModalSlice";
 import {
@@ -28,22 +26,14 @@ export default function Trips() {
     (state) => state.tripModal.isModalOpen.createModal
   );
 
-  const isUpdateModalOpen = useSelector(
-    (state) => state.tripModal.isModalOpen.updateModal
-  );
-
   const handleCreateOpenModal = () => {
     dispatch(openCreateTripModal());
   };
 
-  const handleUpdateOpenModal = (tripId) => {
-    dispatch(openUpdateTripModal());
-    dispatch(setSelectedTripId(tripId));
-  };
 
   const handleDeleteTrip = async (tripId) => {
     try {
-      const response = await deleteTrip(tripId);
+      await deleteTrip(tripId);
     } catch (error) {
       return("Cannot delete trip")
     }

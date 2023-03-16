@@ -1,13 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { useGetTokenQuery } from "./store/ApiSlice";
 import VideoCarousel from "./VideoCarousel";
 import React, { useEffect, useState } from "react";
 import styles from "./TripagerHome.module.css"
 import plane from "./plane.png"
 
 export default function TripagerHome() {
-  const navigate = useNavigate();
-  const { data: token, isLoading: tokenLoading } = useGetTokenQuery();
 
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
@@ -40,18 +36,18 @@ export default function TripagerHome() {
       <section id="hero">
         {icon && temperature ? (
           <div>
-            <img className="weatherIcon" src={icon}></img>
+            <img className="weatherIcon" src={icon} alt=""></img>
             <div className="temperature">{`${temperature}°`}</div>
           </div>
         ) : (
-          <a>weather is loading</a>
+          <button>Weather is loading</button>
         )}
         <div className={styles.hero_homepage_text}>
           <h1 className={`${styles.h1_homepage_text} text`}>Tripager</h1>
           <h2 className={`${styles.h2_homepage_text} text-center`}>
             Plan and manage your next trip here.
           </h2>
-          <img src={plane}></img>
+          <img src={plane} alt=""></img>
         </div>
         <div></div>
         <VideoCarousel />
@@ -84,11 +80,16 @@ export default function TripagerHome() {
                     apartment.
                   </p>
                   <div className="social">
-                    <a target="_blank" href="https://gitlab.com/ZacharyD">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://gitlab.com/ZacharyD"
+                    >
                       <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href="https://www.linkedin.com/in/zdempsey/"
                     >
                       {" "}
@@ -121,11 +122,16 @@ export default function TripagerHome() {
                     making protein shakes.
                   </p>
                   <div className="social">
-                    <a target="_blank" href="https://gitlab.com/Afockler4">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://gitlab.com/Afockler4"
+                    >
                       <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href="https://www.linkedin.com/in/andrew-fockler/"
                     >
                       {" "}
@@ -158,11 +164,16 @@ export default function TripagerHome() {
                     those voices in NYC.
                   </p>
                   <div className="social">
-                    <a target="_blank" href="https://gitlab.com/mischadani2">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://gitlab.com/mischadani2"
+                    >
                       <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href="https://www.linkedin.com/in/mischadani/"
                     >
                       {" "}
@@ -195,11 +206,16 @@ export default function TripagerHome() {
                     consulting on other projects.
                   </p>
                   <div className="social">
-                    <a target="_blank" href="https://gitlab.com/Kyull">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://gitlab.com/Kyull"
+                    >
                       <i className="btn ri-instagram-fill"></i>
                     </a>
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href="https://www.linkedin.com/in/kyle-trann/"
                     >
                       {" "}
