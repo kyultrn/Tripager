@@ -5,9 +5,9 @@ import { useGetTokenQuery, useUserLogoutMutation } from "./store/ApiSlice";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 export default function Navbar() {
-  const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
+  // const selectedTripId = useSelector((state) => state.tripForm.selectedTripId);
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const { data: token } = useGetTokenQuery();
   const [logout, { data }] = useUserLogoutMutation();
 
