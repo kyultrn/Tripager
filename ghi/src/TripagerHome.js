@@ -5,31 +5,31 @@ import plane from "./plane.png"
 
 export default function TripagerHome() {
 
-  // const [latitude, setLatitude] = useState(null);
-  // const [longitude, setLongitude] = useState(null);
-  // const [temperature, setTemperature] = useState(null);
-  // const [icon, setIcon] = useState("");
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [temperature, setTemperature] = useState(null);
+  const [icon, setIcon] = useState("");
 
-  // useEffect(() => {
-  //   navigator.geolocation.getCurrentPosition(
-  //     (position) => {
-  //       setLatitude(position.coords.latitude);
-  //       setLongitude(position.coords.longitude);
-  //     },
-  //   );
-  // }, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+    );
+  }, []);
 
-  // useEffect(() => {
-  //   if (latitude && longitude) {
-  //     const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
-  //     fetch(url)
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setTemperature(data.current.temp_f);
-  //         setIcon(data.current.condition.icon);
-  //       })
-  //   }
-  // }, [latitude, longitude]);
+  useEffect(() => {
+    if (latitude && longitude) {
+      const url = `${process.env.REACT_APP_TRIPAGER_HOST}/api/weather?latitude=${latitude}&longitude=${longitude}`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          setTemperature(data.current.temp_f);
+          setIcon(data.current.condition.icon);
+        })
+    }
+  }, [latitude, longitude]);
 
   return (
     <React.Fragment>
