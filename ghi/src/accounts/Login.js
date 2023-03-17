@@ -108,7 +108,7 @@ export default function Login() {
             ></input>
           </div>
           <button
-            className="loginButton"
+            className="btn loginButton"
             href="#"
             onClick={(e) => handleSubmit(e, isSignUpModalOpen, true)}
           >
@@ -120,7 +120,7 @@ export default function Login() {
           </button>
 
           <button
-            className="signUpButton"
+            className="btn signUpButton"
             href="#"
             onClick={
               !isSignUpModalOpen
