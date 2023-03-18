@@ -79,9 +79,9 @@ export default function Trips() {
             <div className="col-sm-6t">
               </div>
               <button
-                className="btn createTripButton trips-button1"
-                variant="outline-dark"
-                size="lg"
+                className="btn btn-secondary trips-button1"
+                // variant="outline-dark"
+                // size="lg"
                 onClick={handleCreateOpenModal}
               >
                 Create a Trip
