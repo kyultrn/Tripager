@@ -118,7 +118,6 @@ export default function Login() {
             <span></span>
             {"Log in"}
           </button>
-
           <button
             className="btn signUpButton"
             href="#"

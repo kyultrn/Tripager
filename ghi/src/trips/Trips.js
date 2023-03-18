@@ -76,7 +76,8 @@ export default function Trips() {
         <div>
           <div className="trip-container">
             <div className="TripManagerText">Trip Manager</div>
-            <div className="col-sm-6 text-right">
+            <div className="col-sm-6t">
+              </div>
               <button
                 className="btn createTripButton trips-button1"
                 variant="outline-dark"
@@ -85,7 +86,6 @@ export default function Trips() {
               >
                 Create a Trip
               </button>
-            </div>
           </div>
         </div>
         {tokenData ? (
