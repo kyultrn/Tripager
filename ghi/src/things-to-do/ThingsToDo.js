@@ -50,12 +50,12 @@ export default function ThingsToDo() {
       location: formData.location,
     });
 
-    const response = await fetch(
-      `http://localhost:8000/api/businesses?${params.toString()}`,
-      {
-        method: "GET",
-      }
-    );
+  const response = await fetch(
+    `http://localhost:8000/api/businesses?${params.toString()}`,
+    {
+      method: "GET",
+    }
+  );
     if (response.ok) {
       const data = await response.json();
       dispatch(setBusinessDataFetched(true));
@@ -83,12 +83,12 @@ export default function ThingsToDo() {
       location: rouletteData.location,
     });
 
-    const response = await fetch(
-      `http://localhost:8000/api/business?${params.toString()}`,
-      {
-        method: "GET",
-      }
-    );
+  const response = await fetch(
+    `http://localhost:8000/api/business?${params.toString()}`,
+    {
+      method: "GET",
+    }
+  );
     if (response.ok) {
       const data = await response.json();
       dispatch(setBusinessDataFetched(true));
