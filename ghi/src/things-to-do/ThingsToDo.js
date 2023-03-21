@@ -18,7 +18,7 @@ export default function ThingsToDo() {
     term: "",
     location: "",
   });
-
+  const REACT_APP_TRIPAGER_HOST = process.env.REACT_APP_TRIPAGER_HOST;
   const [businesses, setBusinesses] = useState([]);
   const [business, setBusiness] = useState([]);
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ export default function ThingsToDo() {
     });
 
   const response = await fetch(
-    `http://localhost:8000/api/businesses?${params.toString()}`,
+    `${REACT_APP_TRIPAGER_HOST}/api/businesses?${params.toString()}`,
     {
       method: "GET",
     }
@@ -84,7 +84,7 @@ export default function ThingsToDo() {
     });
 
   const response = await fetch(
-    `http://localhost:8000/api/business?${params.toString()}`,
+    `${REACT_APP_TRIPAGER_HOST}/api/business?${params.toString()}`,
     {
       method: "GET",
     }
